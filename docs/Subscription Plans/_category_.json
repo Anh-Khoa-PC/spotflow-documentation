@@ -1,0 +1,8 @@
+{
+    "label": "Subscription Plans",
+    "position": 2,
+    "link": {
+        "type": "generated-index",
+        "description": "How to use the Subscription Plans APIs"
+    }
+}
