@@ -7,6 +7,13 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+const h1style = {
+  fontSize: "50px",
+  textAlign: "centre",
+  justifyContent: "centre",
+  marginTop: "50px"
+}
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -34,10 +41,11 @@ export default function Home() {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
+      {/* <HomepageHeader />
       <main>
         <HomepageFeatures />
-      </main>
+      </main> */}
+      <h1 style={h1style}>Spotflow Documentation</h1>
     </Layout>
   );
 }

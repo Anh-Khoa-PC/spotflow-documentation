@@ -8,9 +8,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Spotflow Documentation',
+  tagline: 'The official Spotflow Documentation',
+  favicon: 'img/favicon-16x16.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
