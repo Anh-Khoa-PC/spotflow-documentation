@@ -44,14 +44,17 @@
   width: 1000px;
   border-radius: 7px;
   height: 40px;
-  margin-right: 450px;
+  /* margin-right: 450px; */
+  margin-left: auto;
+  margin-right: auto;
+  display: block
 }
 .lightToggleIcon_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
   display: none
 }
 
 .searchClearButton_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module {
-  margin-right: 450px;
+  /* margin-right: 450px; */
 }
 
 /* .input_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module{
@@ -59,9 +62,9 @@
 } */
 
 .toggleButton_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module{
-  display: none;
+  /* display: none; */
 }
 
 .searchHint_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module {
-  display: none;
+  /* display: none; */
 }
