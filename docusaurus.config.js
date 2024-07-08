@@ -64,7 +64,7 @@ const config = {
       require.resolve("@easyops-cn/docusaurus-search-local"),
       ({
         hashed: true,
-        searchBarPosition: "auto",
+        searchBarPosition: "left",
         searchBarShortcut: false,
         indexDocs: true,
         indexPages: true,
