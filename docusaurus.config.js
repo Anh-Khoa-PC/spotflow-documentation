@@ -20,8 +20,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'joachimmmm', // Usually your GitHub org/user name.
+  projectName: 'spotflow-documentation', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -66,6 +66,15 @@ const config = {
         hashed: true,
       }),
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api',
+        path: 'api',
+        routeBasePath: 'api',
+        sidebarPath: './sidebars.js'
+      }
+    ]
   ],
 
   themeConfig:
@@ -86,13 +95,16 @@ const config = {
             position: 'left',
             label: 'Docs'
           },
-          // {to: '/blog', label: 'API', position: 'left'},
+          {to: '/api/intro', label: 'API', position: 'left'},
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
           //   position: 'right',
           // },
         ],
+      },
+      colorMode: {
+        disableSwitch: true
       },
       // footer: {
       //   style: 'dark',
