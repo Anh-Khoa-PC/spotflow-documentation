@@ -65,7 +65,7 @@ const config = {
       ({
         hashed: true,
         searchBarPosition: "auto",
-        searchBarShortcut: true,
+        searchBarShortcut: false,
         indexDocs: true,
         indexPages: true,
         docsRouteBasePath: ['/', 'api'],
