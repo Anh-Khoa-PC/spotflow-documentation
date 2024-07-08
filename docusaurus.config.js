@@ -66,7 +66,10 @@ const config = {
         hashed: true,
         searchBarPosition: "auto",
         searchBarShortcut: true,
-        // indexDocs: true
+        indexDocs: true,
+        indexPages: true,
+        docsRouteBasePath: ['/', 'api'],
+        language: ['en']
       }),
     ],
     [
