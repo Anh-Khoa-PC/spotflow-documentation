@@ -1,13 +1,16 @@
 ---
 title: Authentication
+hide_title: true
 sidebar_position: 2
 ---
 
-# Authentication
+## Authentication
 
-Secure authentication is crucial for protecting your account and ensuring authorized access. Authenticate your API calls by including your secret key in the Authorization header of every request you make.
+Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key. <span style={{backgroundColor: "yellow", borderRadius: "5px"}}>Include it in the "Authorization" header for secure access.</span>
 
-## API Key Management
+<br></br>
+
+### API Key Management
 
 Spotflow provides two key types for API access: public keys and secret keys. You can manage these keys from your Spotflow dashboard.
 
@@ -23,11 +26,23 @@ If you suspect a compromise or wish to reset your secret keys, you can do so fro
 For advanced users, Spotflow offers restricted API keys that allow for granular permission control.
 :::
 <br></br>
-## Authentication Process
+### Authentication Process
 
 All API requests to Spotflow must be authenticated using your secret key. Here's how to achieve this:
-- Include your secret key in the Authorization header of every request. The specific format for including the key will be detailed in the individual API endpoint documentation.
+- **Include your secret key** in the Authorization header of every request. The specific format for including the key will be detailed in the individual API endpoint documentation.
 - **HTTPS is mandatory**: All API requests must be made over HTTPS for secure communication. Requests made over plain HTTP will fail.
 - **Authentication Failure**: Calls made without proper authentication will result in a 401 Unauthorized status code response from the API.
 
-By following these guidelines, you can ensure secure and authorized access to Spotflow's APIs.
+<br></br>
+Secure your API requests by including an Authorization header in the following format:
+<p style={{color: 'red'}}>`Authorization: Bearer SECRET_KEY`</p>
+
+```json
+{
+    "Authorization": "Bearer sk_test_9b4208cb7d4d4747bf6f5c4ac1f978af"
+}
+```
+<br></br>
+We've provided a sample API key so you can test with no delay. To test functionalities specific to your account, you'll need to replace this sample key with your own. Do not submit personally identifiable information in requests made with this sample API key. This key is for testing purposes only and may not have the necessary security restrictions for handling sensitive data.
+
+By following these guidelines, you can ensure secure and authorized access while integrating with Spotflow's APIs.

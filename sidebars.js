@@ -26,17 +26,17 @@ const sidebars = {
   // ]
 
   // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-   */
+//   newtutorialSidebar: [
+//     // 'intro',
+//     // 'hello',
+//     {
+//       type: 'category',
+//       label: 'Collections',
+//       items: ['API Endpoints/Collections/Create-collections'],
+//     },
+//   ],
 };
+
+
 
 export default sidebars;

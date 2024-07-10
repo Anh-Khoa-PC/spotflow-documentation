@@ -45,6 +45,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          routeBasePath: '',
         },
         blog: {
           showReadingTime: false,
@@ -94,6 +95,7 @@ const config = {
           alt: 'sf-logo',
           src: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1719325096/new%20assets/gb0ghehgthoijo2zv4xk.png',
         },
+        hideOnScroll:true,
         items: [
           {
             type: 'docSidebar',

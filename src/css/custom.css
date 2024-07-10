@@ -42,7 +42,7 @@
 }
 
 .navbar__search-input{
-  width: 1000px;
+  width: 560px;
   border-radius: 7px;
   height: 40px;
   /* margin-right: 450px; */
@@ -68,4 +68,12 @@
 
 .searchHint_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module {
   /* display: none; */
+}
+
+.menu__list-item-collapsible:only-child{
+  /* margin-top: 100px */
+}
+
+a.menu__link.menu__link--sublist.menu__link--sublist-caret {
+  /* margin-top: 100px; */
 }
