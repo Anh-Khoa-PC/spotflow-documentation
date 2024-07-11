@@ -70,10 +70,25 @@
   /* display: none; */
 }
 
-.menu__list-item-collapsible:only-child{
+.menu__list-item-collapsible{
   /* margin-top: 100px */
+  background-color: white !important;
 }
 
 a.menu__link.menu__link--sublist.menu__link--sublist-caret {
-  /* margin-top: 100px; */
+  margin-top: 100px;
+  /* background-color: white !important; */
+  /* pointer-events: none !important; */
+}
+
+/* a.menu__link.menu__link--sublist.menu__link--sublist-caret:not(.active):hover {
+  background-color: white !important;
+} */
+
+.navbar__logo{
+  pointer-events: none;
+}
+
+.navbar__brand{
+  pointer-events: none;
 }

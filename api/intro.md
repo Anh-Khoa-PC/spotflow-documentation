@@ -7,9 +7,9 @@ hide_title: true
 
 ## API Reference
 
-Spotflow's APIs provide seamless payment aggregation solutions for your application. Learn how to easily integrate our APIs to streamline your in-app payments.
+Spotflow API helps merchant collect payments in local currency. Learn how to easily integrate our APIs to streamline your in-app payments.
 
-Spotflow's API is designed to be `RESTful`, utilizing familiar resource structures for most interactions. However, there might be a few exceptions from the strict REST principles for specific functionalities. These exceptions will be clearly documented within the API reference. This means you can expect:
+Spotflow API is designed to be `RESTful`, utilizing familiar resource structures for most interactions. However, there might be a few exceptions from the strict REST principles for specific functionalities. These exceptions will be clearly documented within the API reference. This means you can expect:
 
 
 - **Predictable Resource-Oriented URLs**: URLs are designed to be clear and intuitive, reflecting the resources you're interacting with (e.g /collections, /users).
@@ -24,4 +24,4 @@ Spotflow's API is designed to be `RESTful`, utilizing familiar resource structur
 
 ### API Keys and Authentication:
 
-To ensure secure communication with Spotflow's API, you'll need to authenticate your requests using an API key. All endpoints require authentication with your API Keys. Your API key acts as a unique identifier for your application and allows us to differentiate between test and live mode usage. Specific instructions for including your API key within your requests will be provided in the documentation for each API endpoint.
+To ensure secure communication with Spotflow APIs, you'll need to authenticate your requests using an API key. All endpoints access requires authentication with your API Keys. Your API key acts as a unique identifier for your application and allows us to differentiate between test and live mode usage. Specific instructions for including your API key within your requests will be provided in the documentation for each API endpoint.

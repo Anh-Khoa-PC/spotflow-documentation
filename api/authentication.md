@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Authentication
 
-Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key. <span style={{backgroundColor: "yellow", borderRadius: "5px"}}>Include it in the "Authorization" header for secure access.</span>
+Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key, kindly include it in the "Authorization" header for secure access.
 
 <br></br>
 
@@ -22,9 +22,9 @@ Spotflow provides two key types for API access: public keys and secret keys. You
 If you suspect a compromise or wish to reset your secret keys, you can do so from your Spotflow dashboard.
 :::
 <br></br>
-:::important[Restricted API Keys]
+<!-- :::important[Restricted API Keys]
 For advanced users, Spotflow offers restricted API keys that allow for granular permission control.
-:::
+::: -->
 <br></br>
 ### Authentication Process
 

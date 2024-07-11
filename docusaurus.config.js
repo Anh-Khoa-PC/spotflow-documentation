@@ -79,7 +79,7 @@ const config = {
         id: 'api',
         path: 'api',
         routeBasePath: 'api',
-        sidebarPath: './sidebars.js'
+        sidebarPath: './sidebars.js',
       }
     ]
   ],
@@ -95,7 +95,7 @@ const config = {
           alt: 'sf-logo',
           src: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1719325096/new%20assets/gb0ghehgthoijo2zv4xk.png',
         },
-        hideOnScroll:true,
+        // hideOnScroll:true,
         items: [
           {
             type: 'docSidebar',
