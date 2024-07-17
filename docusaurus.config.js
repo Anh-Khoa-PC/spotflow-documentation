@@ -40,7 +40,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: require.resolve('./docsidebar.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -79,7 +79,7 @@ const config = {
         id: 'api',
         path: 'api',
         routeBasePath: 'api',
-        sidebarPath: './sidebars.js',
+        sidebarPath: './apisidebar.js',
       }
     ]
   ],
