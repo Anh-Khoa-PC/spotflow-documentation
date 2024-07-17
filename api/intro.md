@@ -9,7 +9,7 @@ hide_title: true
 
 Spotflow API helps merchant collect payments in local currency. Learn how to easily integrate our APIs to streamline your in-app payments.
 
-Spotflow API is designed to be `RESTful`, utilizing familiar resource structures for most interactions. However, there might be a few exceptions from the strict REST principles for specific functionalities. These exceptions will be clearly documented within the API reference. This means you can expect:
+Spotflow API is designed to be <span style={{color: "red"}}>`RESTful`</span>, utilizing familiar resource structures for most interactions. However, there might be a few exceptions from the strict REST principles for specific functionalities. These exceptions will be clearly documented within the API reference. This means you can expect:
 
 
 - **Predictable Resource-Oriented URLs**: URLs are designed to be clear and intuitive, reflecting the resources you're interacting with (e.g /collections, /users).
