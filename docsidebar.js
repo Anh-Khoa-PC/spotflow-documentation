@@ -5,7 +5,8 @@ const sidebars = {
   [
     {
       type: 'doc',
-      id: 'home'
+      id: 'home',
+      className: 'home'
     },
   ]
 }
