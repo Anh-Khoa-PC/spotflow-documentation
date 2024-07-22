@@ -71,6 +71,7 @@ const sidebars = {
             type: 'category',
             label: 'Settlement',
             className: 'settlement',
+            collapsed: false,
             items: [
               "API Endpoints/Settlements/list-settlements",
               "API Endpoints/Settlements/list-settlements-transaction",

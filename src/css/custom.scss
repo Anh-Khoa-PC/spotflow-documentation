@@ -1,11 +1,12 @@
-@import url('./sidebar.css');
-@import url('./pagination.css');
-@import url('./markdown.css');
-@import url('./doc-item.css');
-@import url('./doc-root.css');
-@import url('./navbar_sidebar.css');
+@import url('./sidebar.scss');
+@import url('./pagination.scss');
+@import url('./markdown.scss');
+@import url('./doc-item.scss');
+@import url('./doc-root.scss');
+@import url('./navbar_sidebar.scss');
+@import url('./theme_toggle.scss');
 /* @import url('./navbar.css'); */
-@import url('./theme_toggle.css');
+/* @import url('./main.css'); */
 /* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template

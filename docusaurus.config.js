@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+const path = require('path')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -33,7 +34,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  
   presets: [
     [
       'classic',
@@ -55,12 +56,34 @@ const config = {
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: './src/css/custom.scss',
         },
       }),
     ],
   ],
   plugins: [
+    function myPlugin(context, options) {
+      return {
+        name: 'docusaurus-plugin-sass',
+        configureWebpack(config, isServer, utils) {
+          return {
+            module: {
+              rules: [
+                {
+                  test: /\.(scss|sass)$/,
+                  use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                  ],
+                  include: path.resolve(__dirname, 'src'),
+                },
+              ],
+            },
+          };
+        },
+      };
+    },
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       ({
