@@ -5,8 +5,8 @@ hide_title: true
 pagination_next: null
 ---
 
+<div className="errorBody">
 ## Errors
-
 
 ### Spotflow API Response Codes
 
@@ -73,3 +73,4 @@ Here's a breakdown of common Spotflow API error types and recommended solutions:
 |Rate Limit Errors `(Spotflow::RateLimitError)`|These errors occur when your application makes excessive API calls withtin a short period|<ul><li>**Retry the API call** after a reasonable delay if a single request triggers this error.</li><li>**Contact Spotflow support in advance** if you anticipate a significant increase in API traffic and require a higher rate limit.</li></ul>
 <br></br>
 By understanding these error types and implementing the recommended solutions, you can build more resilient and informative integrations with Spotflow API. 
+</div>

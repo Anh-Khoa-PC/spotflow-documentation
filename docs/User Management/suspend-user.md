@@ -1,0 +1,3 @@
+---
+title: Suspend User
+---

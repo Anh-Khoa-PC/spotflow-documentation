@@ -1,0 +1,38 @@
+/* //overrides */
+#__docusaurus .pagination-nav__link {
+    border: none;
+    transition: color 0.2s ease-out;
+  }
+  
+  /* //Previous item */
+  #__docusaurus .pagination-nav__link--prev {
+    padding-inline-start: 0;
+  }
+  
+  #__docusaurus .pagination-nav__link--prev .pagination-nav__label::before {
+    padding-inline-end: var(--icon-padding);
+    background-color: var(--ifm-background-color);
+    transform: translateX(calc(var(--icon-padding) * -1));
+    content: '←';
+  }
+  
+  /* //Next item */
+  #__docusaurus .pagination-nav__link--next {
+    padding-inline-end: 0;
+  }
+  
+  #__docusaurus .pagination-nav__link--next .pagination-nav__label::after {
+    padding-inline-start: var(--icon-padding);
+    background-color: var(--ifm-background-color);
+    transform: translateX(calc(-100% + var(--icon-padding)));
+    content: '→';
+  }
+  
+  #__docusaurus .pagination-nav__label {
+    --icon-padding: 0.25rem;
+  }
+  
+  #__docusaurus .pagination-nav__sublabel {
+    margin-block-end: 1rem;
+  }
+  

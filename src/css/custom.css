@@ -1,3 +1,12 @@
+@import url('./sidebar.css');
+@import url('./pagination.css');
+@import url('./markdown.css');
+@import url('./doc-item.css');
+@import url('./doc-root.css');
+@import url('./navbar_sidebar.css');
+/* @import url('./navbar.css'); */
+@import url('./theme_toggle.css');
+/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -5,127 +14,234 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/* // @use './components/admonition';
+// @use './components/back-to-top-button';
+// @use './components/code';
+// @use './components/doc-item';
+// @use './components/doc-root';
+// @use './components/doc-sidebar';
+// @use './components/edit-this-page';
+// @use './components/markdown';
+// @use './components/navbar';
+// @use './components/navbar-sidebar';
+// @use './components/pagination';
+// @use './components/search';
+// @use './components/table';
+// @use './components/tabs';
+// @use './components/theme-toggle';
+@use './toc'; */
+
 :root {
-  --ifm-color-primary: #01008E;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --search-local-modal-width: 560px;
-  --search-local-highlight-color: #01008E
-  /* --search-local-modal-background: var(--ifm-color-primary) */
-  /* width: var(--search-local-modal-width); */
+  --ifm-background-color: var(--token-primary-bg-c);
+
+  --ifm-navbar-link-hover-color: initial;
+  --ifm-navbar-padding-vertical: 0;
+  --ifm-navbar-item-padding-vertical: 0;
+
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI emoji';
+  --ifm-font-family-monospace: 'SFMono-Regular', 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  --ifm-menu-link-sublist-icon: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik04Ljk5OTg4IDVMNC45OTk4OCAxTDAuOTk5ODc4IDUiIHN0cm9rZT0iIzAzMDYwQiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+
+  /* //#region ----------- Z Indices ------------ */
+  --z-sidebar: 2000;
+  --z-backdrop: 1100;
+  /* //#endregion */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+html[data-theme='light'] {
+  --token-primary-bg-c: #fff;
+  --token-secondary-bg-c: #fff;
+
+  --ifm-link-color: var(--c-blue-90);
+  /* //rgb value is c-blue-90 */
+  --ifm-link-hover-color: rgba(27, 109, 255, 0.8);
+
+  --ifm-background-surface-color: var(--token-primary-bg-c);
+
+  --ifm-navbar-background-color: var(--token-primary-bg-c);
+  --ifm-navbar-shadow: 0 1px 0 0 var(--c-gray-0);
+
+  --ifm-heading-color: var(--c-carbon-100);
+  --ifm-secondary-heading-color: var(--c-carbon-300);
+
+  --ifm-code-background: var(--c-indigo-10);
+  --ifm-font-color-base: var(--c-carbon-90);
 }
 
-.menu__link:hover {
-  color: #01008E
+html[data-theme='dark'] {
+  --token-primary-bg-c: #03060b;
+  --token-secondary-bg-c: #13171c;
+
+  --ifm-link-color: var(--c-blue-70);
+  /* //rgb value is c-blue-70 */
+  --ifm-link-hover-color: rgba(77, 141, 255, 0.8);
+
+  --ifm-background-surface-color: var(--token-primary-bg-c);
+
+  --ifm-navbar-background-color: var(--token-primary-bg-c);
+  --ifm-navbar-shadow: 0 1px 0 0 var(--c-gray-90);
+
+  --ifm-heading-color: #fff;
+  --ifm-secondary-heading-color: #f6f6f6;
+
+  --ifm-font-color-base: #fff;
+  --ifm-background-color: var(--token-primary-bg-c);
+  --ifm-dropdown-background-color: var(--token-secondary-bg-c);
+
+  --ifm-menu-link-sublist-icon-filter: invert(100%);
 }
 
-.navbar__search-input{
-  width: 560px;
-  border-radius: 7px;
-  height: 40px;
-  /* margin-right: 450px; */
-  /* margin-left: auto;
-  margin-right: auto;
-  display: block */
-}
-.lightToggleIcon_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
-  display: none
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+
+  scroll-padding-top: calc(var(--ifm-navbar-height) + 16px);
 }
 
-.searchClearButton_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module {
-  /* margin-right: 450px; */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* .input_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module{
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+}
+
+.theme-doc-version-banner {
   display: none;
-} */
-
-.toggleButton_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module{
-  /* display: none; */
 }
 
-.searchHint_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module {
-  /* display: none; */
+.theme-doc-version-badge {
+  display: none;
 }
 
-.navbar__logo{
-  pointer-events: none;
+ion-grid {
+  margin: 1em 0;
 }
 
-.navbar__brand{
-  pointer-events: none;
+figure {
+  margin: 0;
+}
+
+figure > * {
+  display: block;
+  margin: 0 auto;
+}
+
+figure.device {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+figcaption {
+  text-align: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+iframe {
+  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.git-link::before {
+  content: '';
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  /* mask-image: url(../../static/icons/code-branch.svg); */
+  vertical-align: -0.1em;
+  margin-inline-end: 5px;
+}
+
+.cordova-ee-card {
+  max-width: 100%;
+}
+
+.cordova-ee-img {
+  width: 50px;
+  float: left;
+  margin-right: 20px;
+}
+
+.native-ee-detail {
+  float: right;
+  cursor: pointer;
+}
+
+.cordova-ee-card p {
+  margin: 1rem 0 0;
+}
+
+/* // OS Announcement Bar */
+[class*='announcementBar_'] {
+  --docusaurus-announcement-bar-height: 3.5rem;
+
+  background: linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14);
+}
+
+[class*='announcementBar_']:hover,
+[class*='announcementBar_']:focus,
+[class*='announcementBar_']:active {
+  strong {
+    color: var(--c-red-50);
+  }
+}
+
+[class*='announcementBarContent_'] {
+  padding: 0;
+}
+
+[class*='announcementBarContent_'] > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--docusaurus-announcement-bar-height);
+
+  letter-spacing: 0.01em !important;
+  text-decoration: none !important;
+
+  color: #fff !important;
+
+  font-size: 1.04rem;
+  font-weight: 500;
+}
+
+[class*='announcementBarContent_'] > a strong {
+  font-weight: 500;
+  color: var(--c-red-70);
+  transition: color 0.2s ease-out;
 }
 
 .intro{
-  padding-top: 30px;
-  margin-left: 20px;
-  font-size: 16px;
+  margin-left: 10px
 }
 
 .authentication{
-  margin-left: 20px;
-  font-size: 16px;
+  margin-left: 10px
 }
 
-.errors {
-  margin-left: 20px;
-  font-size: 16px;
-}
-
-.api-endpoints-class {
-  padding-top: 30px;
-  font-size: 16px;
-}
-
-.collections{
-  font-size: 15px;
-  margin-left: 20px;
-}
-
-.subscription-plans{
-  font-size: 15px;
-  margin-left: 20px;
-}
-
-.subscriptions{
-  font-size: 15px;
-  margin-left: 20px;
-}
-
-.settlement {
-  font-size: 15px;
-  margin-left: 20px;
-}
-
-.disputes {
-  font-size: 15px;
-  margin-left: 20px;
-}
-
-.refund{
-  font-size: 15px;
-  margin-left: 20px;
-}
-
-.home{
-  margin-left: 20px;
-  padding-top: 20px;
+.errors{
+  margin-left: 10px;
+  margin-bottom: 20px;
 }

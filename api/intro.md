@@ -4,7 +4,7 @@ title: Introduction
 sidebar_position: 1
 hide_title: true
 ---
-
+<div className='introBody'>
 ## API Reference
 
 Spotflow API helps merchant collect payments in local currency. Learn how to easily integrate our APIs to streamline your in-app payments.
@@ -25,3 +25,4 @@ Spotflow API is designed to be <span style={{color: "red"}}>`RESTful`</span>, ut
 ### API Keys and Authentication:
 
 To ensure secure communication with Spotflow APIs, you'll need to authenticate your requests using an API key. All endpoints access requires authentication with your API Keys. Your API key acts as a unique identifier for your application and allows us to differentiate between test and live mode usage. Specific instructions for including your API key within your requests will be provided in the documentation for each API endpoint.
+</div>

@@ -18,15 +18,16 @@ const sidebars = {
         id: 'errors',
         className: 'errors'
       },
-      {
-        type: 'category',
-        label: 'API Endpoints',
-        className: 'api-endpoints-class',
-        items:[
+      // {
+      //   type: 'category',
+      //   label: 'API Endpoints',
+      //   className: 'api-endpoints-class',
+      //   items:[
           {
             type: 'category',
             label: 'Collections',
             className: 'collections',
+            collapsed: false,
             items: [
               "API Endpoints/Collections/Create-Collection",
               "API Endpoints/Collections/verify-collection",
@@ -41,6 +42,7 @@ const sidebars = {
             type: 'category',
             label: 'Subscription Plans',
             className: 'subscription-plans',
+            collapsed: false,
             items: [
               'API Endpoints/Subscription Plans/create-single-plan',
               'API Endpoints/Subscription Plans/create-bulk-plans',
@@ -56,6 +58,7 @@ const sidebars = {
             type: 'category',
             label: 'Subscriptions',
             className: 'subscriptions',
+            collapsed: false,
             items: [
               'API Endpoints/Subscriptions/create-subscription',
               'API Endpoints/Subscriptions/list-subscription',
@@ -78,6 +81,7 @@ const sidebars = {
             type: 'category',
             label: 'Disputes',
             className: 'disputes',
+            collapsed: false,
             items: [
               "API Endpoints/Disputes/list-disputes",
               "API Endpoints/Disputes/fetch-dispute",
@@ -91,6 +95,7 @@ const sidebars = {
             type: 'category',
             label: 'Refund',
             className: 'refund',
+            collapsed: false,
             items: [
               'API Endpoints/Refunds/create-refund',
               'API Endpoints/Refunds/list-refunds',
@@ -99,7 +104,7 @@ const sidebars = {
           },
         ] 
       }
-    ]
-}
+    // ]
+// }
 
 export default sidebars;
