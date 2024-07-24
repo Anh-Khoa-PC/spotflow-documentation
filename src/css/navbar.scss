@@ -218,11 +218,14 @@ html[data-theme='light'] {
   }
   
   #__docusaurus .navbar__brand {
-    display: none;
+    display: flex;
   }
   
   #__docusaurus .navbar__logo {
-    display: none;
+    display: block;
+    width: 94px;
+    height: 24px;
+    cursor: auto;
   }
   
   #__docusaurus .navbar .separator {

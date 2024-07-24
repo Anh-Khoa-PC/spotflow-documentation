@@ -5,7 +5,8 @@
 @import url('./doc-root.scss');
 @import url('./navbar_sidebar.scss');
 @import url('./theme_toggle.scss');
-/* @import url('./navbar.css'); */
+@import url('./navbar.scss');
+@import url('./search.scss');
 /* @import url('./main.css'); */
 /* stylelint-disable docusaurus/copyright-header */
 /**
@@ -39,6 +40,7 @@
   --ifm-navbar-link-hover-color: initial;
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-item-padding-vertical: 0;
+  // --search-local-modal-width: 200px;
 
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI emoji';
   --ifm-font-family-monospace: 'SFMono-Regular', 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
@@ -245,4 +247,9 @@ iframe {
 .errors{
   margin-left: 10px;
   margin-bottom: 20px;
+}
+
+.searchBar_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module.searchBarLeft_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module .dropdownMenu_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module{
+  left: auto !important;
+  right: 0 !important;
 }
