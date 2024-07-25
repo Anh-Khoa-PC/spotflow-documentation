@@ -57,7 +57,7 @@ html[data-theme='light'] {
   --token-primary-bg-c: #fff;
   --token-secondary-bg-c: #fff;
 
-  --ifm-link-color: var(--c-blue-90);
+  --ifm-link-color: #01008E;
   /* //rgb value is c-blue-90 */
   --ifm-link-hover-color: rgba(27, 109, 255, 0.8);
 
@@ -77,7 +77,7 @@ html[data-theme='dark'] {
   --token-primary-bg-c: #03060b;
   --token-secondary-bg-c: #13171c;
 
-  --ifm-link-color: var(--c-blue-70);
+  --ifm-link-color: #01008E;
   /* //rgb value is c-blue-70 */
   --ifm-link-hover-color: rgba(77, 141, 255, 0.8);
 
@@ -94,6 +94,8 @@ html[data-theme='dark'] {
   --ifm-dropdown-background-color: var(--token-secondary-bg-c);
 
   --ifm-menu-link-sublist-icon-filter: invert(100%);
+  --search-local-modal-background: darkblue;
+  --search-local-hit-background:	darkblue;
 }
 
 html {
