@@ -128,6 +128,21 @@ const config = {
             label: 'Docs'
           },
           {to: '/api/intro', label: 'API', position: 'left'},
+          {
+            type: 'dropdown',
+            label: 'Community',
+            position: 'right',
+            items:[
+              {
+                label: 'Facebook',
+                href: 'https://facebook.com',
+              },
+              {
+                label: "Twitter",
+                href: 'https://twitter.com'
+              }
+            ]
+          }
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
