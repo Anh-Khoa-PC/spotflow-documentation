@@ -3,7 +3,7 @@
   }
   
   /* //overrides */
-  #__docusaurus {
+  #__docusaurus:not(.docs-doc-id-home) {
     /* //#region ------------ DocItem ------------- */
     [class*='docItemCol_'] {
       max-width: initial;

@@ -1,6 +1,23 @@
 .ImageLinkContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    row-gap: 100px;
+    gap: 20px;
+    row-gap: 20px;
+}
+
+.title {
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.36px;
+    color: #0D0716;
+}
+
+.description {
+    /* margin-top: 11px; */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.49px;
+    width: 346px;
+    height: 57px;
 }

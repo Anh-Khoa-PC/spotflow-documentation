@@ -41,7 +41,6 @@ Merchants are responsible for reconciling their Spotflow settlements with their 
 ## Additional Considerations
 
 - **Currency Exchange**: If you operate in multiple currencies, Spotflow will handle currency conversion during the settlement process based on prevailing exchange rates.
-- **Chargebacks**: In case of chargebacks, Spotflow will reverse the corresponding settlement amount from your account.
 - **Dispute Resolution**: Spotflow provides mechanisms for handling disputes related to settlements.
 
 By understanding the settlement process and utilizing the Spotflow settlement API, merchants can efficiently manage their funds and optimize their cash flow.
