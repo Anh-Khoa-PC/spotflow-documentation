@@ -30,10 +30,26 @@ const sidebars = {
       collapsed: false,
       items: [
         "Developer Tools/overview",
-        "Developer Tools/ios-sdk",
-        "Developer Tools/android-sdk",
-        "Developer Tools/flutter-sdk",
-        "Developer Tools/inline-js"
+        {
+          type: "link",
+          label: 'iOS SDK',
+          href: 'https://google.com'
+        },
+        {
+          type: "link",
+          label: 'Android SDK',
+          href: 'https://google.com'
+        },
+        {
+          type: "link",
+          label: 'Flutter SDK',
+          href: 'https://google.com'
+        },
+        {
+          type: "link",
+          label: 'InlineJs',
+          href: 'https://www.npmjs.com/package/@spot-flow/checkout-inline-js'
+        }
       ]
     },
     {
@@ -42,9 +58,21 @@ const sidebars = {
       collapsed: false,
       items: [
         "Libraries/overview",
-        "Libraries/react-library",
-        "Libraries/angular-library",
-        "Libraries/vue-library"
+        {
+          type: 'link',
+          label: 'React Library',
+          href: 'https://www.npmjs.com/package/@spot-flow/react-spotflow-checkout'
+        },
+        {
+          type: 'link',
+          label: 'Angular Library',
+          href: 'https://www.npmjs.com/package/@spot-flow/ng-spotflow-checkout'
+        },
+        {
+          type: 'link',
+          label: 'Vue Library',
+          href: 'https://www.npmjs.com/package/@spot-flow/vue-spotflow-checkout'
+        }
       ]
     }
   ]

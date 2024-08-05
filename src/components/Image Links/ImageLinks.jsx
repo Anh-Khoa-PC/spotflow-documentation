@@ -10,7 +10,7 @@ const ImageLinks = () => {
   return (
     <Link to='/accepting-payment'>
     <div style={divStyle}>
-        <motion.img whileHover={{scale: 1.1}} src='https://res.cloudinary.com/dbrh0uxwx/image/upload/v1719229467/samples/dessert-on-a-plate.jpg'/>
+        <motion.img whileHover={{scale: 1.1}} src='./../../../accepting-payment.svg'/>
         <p>Accepting Payments</p>
     </div>
     </Link>
