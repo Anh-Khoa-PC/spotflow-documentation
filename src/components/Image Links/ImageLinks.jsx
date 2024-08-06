@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
 import { motion } from 'framer-motion'
-import './imagelink.css'
+import './imagelink.scss'
 
 const ImageLinks = ({src, title, description}) => {
     const divStyle = {
