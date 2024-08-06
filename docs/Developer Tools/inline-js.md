@@ -10,9 +10,9 @@ import Admonitions from "../../src/components/Admonition/Admonitions"
 InlineJS is Spotflow's JavaScript library designed to simplify the integration of payment functionalities into your web applications. By embedding InlineJS into your checkout page, you can create a seamless payment experience without the need for redirects. It integrates smoothly into your application, providing a streamlined checkout experience.
 
 <Admonitions icon={"💡"} style={{backgroundColor: "purple"}}>
-For React components and usage, [link]("https://github.com/Spotflow-One/react-spotflow-checkout")
-For Vue.js components and usage, [link]("https://github.com/Spotflow-One/vue-spotflow-checkout")
-For Angular components and usage, [link]("https://github.com/Spotflow-One/angular-spotflow-checkout")
+<!-- For React components and usage, [link]("https://github.com/Spotflow-One/react-spotflow-checkout") -->
+<!-- For Vue.js components and usage, [link]("https://github.com/Spotflow-One/vue-spotflow-checkout") -->
+<!-- For Angular components and usage, [link]("https://github.com/Spotflow-One/angular-spotflow-checkout") -->
 </Admonitions>
 
 ## Browser Support

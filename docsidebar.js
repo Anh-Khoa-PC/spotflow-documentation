@@ -31,11 +31,7 @@ const sidebars = {
       items: [
         "Developer Tools/overview",
         "Developer Tools/ios-sdk",
-        {
-          type: "link",
-          label: 'Android SDK',
-          href: 'https://google.com'
-        },
+        "Developer Tools/android-sdk",
         "Developer Tools/flutter-sdk",
         "Developer Tools/inline-js"
       ]
