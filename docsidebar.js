@@ -30,26 +30,14 @@ const sidebars = {
       collapsed: false,
       items: [
         "Developer Tools/overview",
-        {
-          type: "link",
-          label: 'iOS SDK',
-          href: 'https://google.com'
-        },
+        "Developer Tools/ios-sdk",
         {
           type: "link",
           label: 'Android SDK',
           href: 'https://google.com'
         },
-        {
-          type: "link",
-          label: 'Flutter SDK',
-          href: 'https://google.com'
-        },
-        {
-          type: "link",
-          label: 'InlineJs',
-          href: 'https://www.npmjs.com/package/@spot-flow/checkout-inline-js'
-        }
+        "Developer Tools/flutter-sdk",
+        "Developer Tools/inline-js"
       ]
     },
     {

@@ -2,7 +2,7 @@
 title: Accepting Payment
 id: accepting-payment
 ---
-
+<div class="accepting-payment">
 :::note[To summarize]
 *Payments are processed by creating a transaction using either our API, JavaScript libraries, Inline JS, or SDKs.*
 :::
@@ -28,3 +28,4 @@ With Spotflow, you can choose the payment solution that best aligns with your bu
 :::note[Note]
 **For maximum security and to prevent unauthorized access, always keep your Spotflow secret key strictly confined to your server environment**. Exposing it on the client-side creates a significant security risk. To ensure the integrity of your application and protect sensitive data, all interactions with the Spotflow API must be initiated and managed exclusively from your server while your frontend gets the response from your server.
 :::
+</div>

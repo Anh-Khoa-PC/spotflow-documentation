@@ -3,10 +3,10 @@ title: Authentication
 hide_title: true
 sidebar_position: 2
 ---
-<div className='authBody'>
-<span className='authHead'>
+<!-- <div className='authBody'> -->
+<!-- <span className='authHead'> -->
 ## Authentication
-</span>
+<!-- </span> -->
 
 Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key, kindly include it in the "Authorization" header for secure access.
 
@@ -48,4 +48,4 @@ Secure your API requests by including an Authorization header in the following f
 We've provided a sample API key so you can test with no delay. To test functionalities specific to your account, you'll need to replace this sample key with your own. Do not submit personally identifiable information in requests made with this sample API key. This key is for testing purposes only and may not have the necessary security restrictions for handling sensitive data.
 
 By following these guidelines, you can ensure secure and authorized access while integrating with Spotflow's APIs.
-</div>
+<!-- </div> -->

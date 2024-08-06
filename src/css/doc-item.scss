@@ -17,7 +17,8 @@
     }
   
     [class*='docItemContainer_'] {
-      max-width: var(--doc-item-container-width);
+      padding-left: 2rem;
+      padding-right: 2rem;
       flex-grow: 1;
       min-width: 0;
     }
@@ -36,7 +37,7 @@
       position: sticky;
       top: calc(var(--ifm-navbar-height));
       padding-block-end: 32px;
-      margin-block-start: 5rem;
+      margin-block-start: 1rem;
       overflow-y: auto;
       max-height: calc(100vh - var(--ifm-navbar-height));
     }

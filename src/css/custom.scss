@@ -7,6 +7,7 @@
 @import url('./theme_toggle.scss');
 @import url('./navbar.scss');
 @import url('./search.scss');
+@import url(./toc.scss);
 /* @import url('./main.css'); */
 /* stylelint-disable docusaurus/copyright-header */
 /**
@@ -59,7 +60,7 @@ html[data-theme='light'] {
 
   --ifm-link-color: #01008E;
   /* //rgb value is c-blue-90 */
-  --ifm-link-hover-color: rgba(27, 109, 255, 0.8);
+  --ifm-link-hover-color: #01008E;
 
   --ifm-background-surface-color: var(--token-primary-bg-c);
 
@@ -79,7 +80,7 @@ html[data-theme='dark'] {
 
   --ifm-link-color: #01008E;
   /* //rgb value is c-blue-70 */
-  --ifm-link-hover-color: rgba(77, 141, 255, 0.8);
+  --ifm-link-hover-color: #01008E;
 
   --ifm-background-surface-color: var(--token-primary-bg-c);
 
@@ -238,18 +239,18 @@ iframe {
   transition: color 0.2s ease-out;
 }
 
-.intro{
-  margin-left: 10px
-}
+// .intro{
+//   margin-left: 10px
+// }
 
-.authentication{
-  margin-left: 10px
-}
+// .authentication{
+//   margin-left: 10px
+// }
 
-.errors{
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
+// .errors{
+//   margin-left: 10px;
+//   margin-bottom: 20px;
+// }
 
 .searchBar_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module.searchBarLeft_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module .dropdownMenu_node_modules-\@easyops-cn-docusaurus-search-local-dist-client-client-theme-SearchBar-SearchBar-module{
   left: auto !important;
@@ -260,3 +261,20 @@ iframe {
   right: 0 !important;
 }
 
+.accepting-payment{
+  padding-right: 300px
+}
+
+.breadcrumbs {
+  display: none;
+}
+
+.doclogo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// .sidebarTopEnd__3Mf{
+//   padding-top: 1000px;
+// }
