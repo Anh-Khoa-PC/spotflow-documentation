@@ -1,5 +1,5 @@
 import React from 'react'
-import './imagelink.scss'
+import './imagelink.css'
 
 const ImageLinkContainer = ({children}) => {
   return (

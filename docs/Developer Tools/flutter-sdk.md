@@ -70,5 +70,4 @@ Use test cards provided by your payment provider to test your implementation.
 
 ## Running the Example Project
 
-<!-- An example project has been provided on our [Github repository]("https://github.com/Spotflow-One/spotflow_flutter") -->
-. Clone the repository and navigate to the example folder. Open it with a supported IDE or run <span style={{color: "red"}}>`flutter run`</span> from the terminal in that folder.
+An example project has been provided on our <a href="https://github.com/Spotflow-One/spotflow_flutter" style={{textDecoration: "underline"}}>Github Repository</a>. Clone the repository and navigate to the example folder. Open it with a supported IDE or run <span style={{color: "red"}}>`flutter run`</span> from the terminal in that folder.
