@@ -1,10 +1,10 @@
 import React from 'react'
 
-const LibraryLogo = () => {
+const LibraryLogo = ({src, title, width, height}) => {
   return (
-    <div>
-        <img style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} src='https://res.cloudinary.com/dbrh0uxwx/image/upload/v1722959988/hsy5kmtmjo3li2ap5zmy.png'/>
-        <p style={{textAlign: 'center'}}>React JS</p>
+    <div style={{marginTop: "50px"}}>
+        <img style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} width={width} height={height} src={src}/>
+        <p style={{textAlign: 'center', fontSize: "24px", fontWeight: "600", marginTop: "10px"}}>{title}</p>
     </div>
   )
 }
