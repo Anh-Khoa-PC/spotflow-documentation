@@ -1,0 +1,9 @@
+.librarylogotitle{
+    color:black
+}
+
+html[data-theme='dark']{
+    .librarylogotitle{
+        color: white;
+    }
+}

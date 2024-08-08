@@ -5,9 +5,9 @@ import {Props} from '@theme/DocRoot/Layout/Main'
 
 export default function MainWrapper(props) {
   return (
-    <>
-      {/* <Navbar/> */}
+    <div>
+      <Navbar/>
       <Main {...props} />
-    </>
+    </div>
   );
 }

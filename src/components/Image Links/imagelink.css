@@ -8,7 +8,7 @@
 .title {
     margin-top: 24px;
     font-weight: 600;
-    color: #0D0716;
+    color: #0D0716 !important;
 }
 
 .description {
@@ -23,10 +23,14 @@
 
 .title{
     line-height: 35px !important;
-    color: black !important;
+    color: black;
     font-size: 25px !important;
+    color: #0D0716 !important;
 }
 
-.description:hover{
-    color: #01008E !important;
+
+html[data-theme='dark']{
+    .title{
+        color: white !important;
+    }
 }
