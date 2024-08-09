@@ -51,7 +51,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
 }
 ```
 
-## Sample Response
+## Sample Response 
 
 <span style={{color: "green"}}>`200 OK`</span>
 

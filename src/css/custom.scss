@@ -18,22 +18,6 @@
 
 /* You can override the default Infima variables here. */
 
-/* // @use './components/admonition';
-// @use './components/back-to-top-button';
-// @use './components/code';
-// @use './components/doc-item';
-// @use './components/doc-root';
-// @use './components/doc-sidebar';
-// @use './components/edit-this-page';
-// @use './components/markdown';
-// @use './components/navbar';
-// @use './components/navbar-sidebar';
-// @use './components/pagination';
-// @use './components/search';
-// @use './components/table';
-// @use './components/tabs';
-// @use './components/theme-toggle';
-@use './toc'; */
 
 :root {
   --ifm-background-color: var(--token-primary-bg-c);
@@ -41,7 +25,6 @@
   --ifm-navbar-link-hover-color: initial;
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-item-padding-vertical: 0;
-  // --search-local-modal-width: 200px;
 
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI emoji';
   --ifm-font-family-monospace: 'SFMono-Regular', 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
