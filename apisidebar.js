@@ -25,7 +25,7 @@ const sidebars = {
       //   items:[
           {
             type: 'category',
-            label: 'Collections',
+            label: 'Payments',
             className: 'collections',
             collapsed: false,
             items: [
@@ -47,7 +47,7 @@ const sidebars = {
               'API Endpoints/Subscription Plans/create-single-plan',
               'API Endpoints/Subscription Plans/create-bulk-plans',
               'API Endpoints/Subscription Plans/list-single-plans',
-              'API Endpoints/Subscription Plans/list-all-plans',
+              // 'API Endpoints/Subscription Plans/list-all-plans',
               'API Endpoints/Subscription Plans/fetch-plan',
               'API Endpoints/Subscription Plans/update-plan',
               'API Endpoints/Subscription Plans/cancel-plan',
@@ -60,49 +60,49 @@ const sidebars = {
             className: 'subscriptions',
             collapsed: false,
             items: [
-              'API Endpoints/Subscriptions/create-subscription',
+              // 'API Endpoints/Subscriptions/create-subscription',
               'API Endpoints/Subscriptions/list-subscription',
-              'API Endpoints/Subscriptions/fetch-subscription',
-              'API Endpoints/Subscriptions/activate-subscription',
+              // 'API Endpoints/Subscriptions/fetch-subscription',
+              // 'API Endpoints/Subscriptions/activate-subscription',
               'API Endpoints/Subscriptions/cancel-subscription',
             ]
           },
-          {
-            type: 'category',
-            label: 'Settlement',
-            className: 'settlement',
-            collapsed: false,
-            items: [
-              "API Endpoints/Settlements/list-settlements",
-              "API Endpoints/Settlements/list-settlements-transaction",
-              "API Endpoints/Settlements/get-settlement"
-            ]
-          },
-          {
-            type: 'category',
-            label: 'Disputes',
-            className: 'disputes',
-            collapsed: false,
-            items: [
-              "API Endpoints/Disputes/list-disputes",
-              "API Endpoints/Disputes/fetch-dispute",
-              "API Endpoints/Disputes/get-collection-disputes",
-              "API Endpoints/Disputes/update-dispute",
-              "API Endpoints/Disputes/add-dispute-proof",
-              "API Endpoints/Disputes/resolve-dispute"
-            ]
-          },
-          {
-            type: 'category',
-            label: 'Refund',
-            className: 'refund',
-            collapsed: false,
-            items: [
-              'API Endpoints/Refunds/create-refund',
-              'API Endpoints/Refunds/list-refunds',
-              'API Endpoints/Refunds/fetch-refunds',
-            ]
-          },
+          // {
+          //   type: 'category',
+          //   label: 'Settlement',
+          //   className: 'settlement',
+          //   collapsed: false,
+          //   items: [
+          //     "API Endpoints/Settlements/list-settlements",
+          //     // "API Endpoints/Settlements/list-settlements-transaction",
+          //     "API Endpoints/Settlements/get-settlement"
+          //   ]
+          // },
+          // {
+          //   type: 'category',
+          //   label: 'Disputes',
+          //   className: 'disputes',
+          //   collapsed: false,
+          //   items: [
+          //     "API Endpoints/Disputes/list-disputes",
+          //     "API Endpoints/Disputes/fetch-dispute",
+          //     "API Endpoints/Disputes/get-collection-disputes",
+          //     "API Endpoints/Disputes/update-dispute",
+          //     "API Endpoints/Disputes/add-dispute-proof",
+          //     "API Endpoints/Disputes/resolve-dispute"
+          //   ]
+          // },
+          // {
+          //   type: 'category',
+          //   label: 'Refund',
+          //   className: 'refund',
+          //   collapsed: false,
+          //   items: [
+          //     'API Endpoints/Refunds/create-refund',
+          //     'API Endpoints/Refunds/list-refunds',
+          //     'API Endpoints/Refunds/fetch-refunds',
+          //   ]
+          // },
         ] 
       }
     // ]

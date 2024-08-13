@@ -1,3 +1,3 @@
 ---
-title: Create Bulk Collections
+title: Create Bulk Payments
 ---

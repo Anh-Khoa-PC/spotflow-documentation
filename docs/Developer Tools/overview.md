@@ -4,6 +4,8 @@ pagination_prev: null
 ---
 import Admonitions from "../../src/components/Admonition/Admonitions"
 import Link from '@docusaurus/Link'
+import DevTools from "../../src/components/DevTools/DevTools"
+import DevToolsContainer from "../../src/components/DevTools/DevToolsContainer"
 
 
 # Developer Tools
@@ -15,37 +17,27 @@ Our developer tools provide the essential building blocks to seamlessly integrat
 ## Quick Start
 
 Get started with our developer tools and build your payment integration efficiently.
-
+<DevToolsContainer>
 <Link to='/Developer Tools/ios-sdk'>
-<Admonitions icon={"📱"} type={"warning"} title={"iOS SDK"}>
-{"A set of components developed for seamless payment flows for iOS users"}
-</Admonitions>
+<DevTools title={"iOS SDK"} description={"A set of components developed for seamless payment flows for IOS users"}>
+</DevTools>
 </Link>
-
-<br></br>
 
 <Link to='/Developer Tools/android-sdk'>
-<Admonitions icon={"📱"} type={"warning"} title={"Android SDK"}>
-{"A set of pre-built components for accepting payments in your Android app"}
-</Admonitions>
+<DevTools title={"Android SDK"} description={"A set of pre built components for accepting payment in your Android app"}>
+</DevTools>
 </Link>
-
-<br></br>
 
 <Link to='/Developer Tools/flutter-sdk'>
-<Admonitions icon={"📱"} type={"warning"} title={"Flutter SDK"}>
-{"A set of components built to accelerate your flutter app development for smooth in-app payments"}
-</Admonitions>
+<DevTools title={"Flutter SDK"} description={"A set of components built to accelerate your flutter app development for smooth in app payment"}>
+</DevTools>
 </Link>
-
-<br></br>
 
 <Link to='/Developer Tools/inline-js'>
-<Admonitions icon={"💻"} type={"warning"} title={"InlineJS"}>
-{"A set of methods built to integrate payments directly into your web application"}
-</Admonitions>
+<DevTools title={"InlineJS"} description={"A set of methods built to integrate payments directly into your web application"}>
+</DevTools>
 </Link>
-
+</DevToolsContainer>
 We’ve also put together some of  our resources to help with your Spotflow integration.
 
 - **OpenAPI Spec:** Spotflow-One/openapi
