@@ -4,6 +4,9 @@ html[data-theme='light'] {
 }
 
 html[data-theme='dark'] {
+  .table-of-contents__link--active{
+    color: #61618f;
+  }
   --toc-separator-c: var(--c-carbon-90);
   --ifm-toc-link-color: var(--c-carbon-0);
 }

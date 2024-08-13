@@ -6,6 +6,7 @@ html[data-theme='light'] {
 }
 
 html[data-theme='dark'] {
+  --ifm-menu-color-active: #61618f;
   --sidebar-category-c: var(--c-gray-0);
   --sidebar-border-c: var(--c-gray-90);
   --ifm-menu-color: var(--c-gray-20);

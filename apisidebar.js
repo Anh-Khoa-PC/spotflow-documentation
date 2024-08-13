@@ -33,7 +33,7 @@ const sidebars = {
               "API Endpoints/Collections/verify-collection",
               "API Endpoints/Collections/authorize-collections",
               "API Endpoints/Collections/validate-collections",
-              "API Endpoints/Collections/create-bulk-collections",
+              // "API Endpoints/Collections/create-bulk-collections",
               "API Endpoints/Collections/list-collections",
               "API Endpoints/Collections/fetch-collections",
             ]

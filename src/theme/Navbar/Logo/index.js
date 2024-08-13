@@ -7,7 +7,6 @@ export default function NavbarLogo() {
     //   imageClassName="navbar__logo"
     //   titleClassName="navbar__title text--truncate"
     // />
-    <>
-    </>
+    <></>
   );
 }
