@@ -34,3 +34,9 @@ html[data-theme='dark']{
         color: white !important;
     }
 }
+
+@media(max-width: 600px){
+    .ImageLinkContainer{
+        display: block;
+    }
+}

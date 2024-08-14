@@ -262,3 +262,8 @@ iframe {
 //   padding-top: 1000px;
 // }
 
+@media (max-width: 996px) {
+  #__docusaurus .navbar__items--right [class*='toggle_']{
+    display: none;
+  }
+}

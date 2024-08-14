@@ -6,7 +6,7 @@ title: Cancel Plan
 
 Cancel a specific existing subscription plan.
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/plans/:plan-id/cancel
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans/:plan-id/cancel
 
 ## Headers
 

@@ -6,7 +6,7 @@ title: Create Bulk Plans
 
 Create bulk subscription plans with Spotflow
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/plans/bulk
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans/bulk
 
 ## Headers
 

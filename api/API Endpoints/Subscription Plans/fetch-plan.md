@@ -6,7 +6,7 @@ title: Fetch Plan
 
 Reactivate a previously canceled single subscription plan.
 
-<span style={{color: "green"}}>`GET`</span>  http://dev-api.spotflow.one/api/v1/plans/:plan-id
+<span style={{color: "green"}}>`GET`</span>  https://dev-api.spotflow.one/api/v1/plans/:plan-id
 
 ## Headers
 

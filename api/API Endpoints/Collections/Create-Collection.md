@@ -14,7 +14,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 ## Card
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/payments
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
 ### Headers
 
@@ -90,7 +90,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 Collect payments from bank accounts using Spotflow
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/payments
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
 ### Headers
 
@@ -159,7 +159,7 @@ Collect payments from bank accounts using Spotflow
 
 Set up recurring payments for a subscription plan using Spotflow
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/payments
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
 ### Headers
 

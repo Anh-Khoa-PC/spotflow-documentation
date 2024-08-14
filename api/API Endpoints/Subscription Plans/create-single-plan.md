@@ -11,7 +11,7 @@ Our Plans API allows you to create and manage flexible subscription plans to sui
 
 Create a subscription plan with Spotflow.
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/plans
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans
 
 
 ## Headers

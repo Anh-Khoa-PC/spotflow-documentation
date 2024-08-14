@@ -6,7 +6,7 @@ title: Authorize Payments
 
 This authorizes a payment by pre-approving the transaction before final validation.
 
-<span style={{color: "orange"}}>`POST`</span> http://dev-api.spotflow.one/api/v1/payments/authorize
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments/authorize
 
 ## Headers
 

@@ -33,3 +33,9 @@ html[data-theme='dark']{
         color: white !important;
     }
 }
+
+@media(max-width: 600px){
+    .DevToolsContainer{
+        display: block;
+    }
+}

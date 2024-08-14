@@ -5,7 +5,7 @@ pagination_next: null
 
 # Fetch Payment
 
-<span style={{color: "green"}}>`GET`</span> http://dev-api.spotflow.one/api/v1/payments/:payment-id
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/payments/:payment-id
 
 ## Headers
 
