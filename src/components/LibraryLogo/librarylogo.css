@@ -2,8 +2,6 @@
     color:black
 }
 
-html[data-theme='dark']{
-    .librarylogotitle{
-        color: white;
-    }
+html[data-theme='dark'] .librarylogotitle {
+    color: white;
 }

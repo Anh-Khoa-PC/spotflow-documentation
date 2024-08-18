@@ -27,10 +27,8 @@
 }
 
 
-html[data-theme='dark']{
-    .title{
-        color: white !important;
-    }
+html[data-theme='dark'] .title {
+    color: white !important;
 }
 
 @media(max-width: 600px){
