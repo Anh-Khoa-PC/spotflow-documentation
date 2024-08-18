@@ -12,20 +12,17 @@
 }
 
 .description {
-    /* margin-top: 11px; */
     font-weight: 400;
     font-size: 14.5px !important;
     line-height: 19.49px !important;
     width: 346px;
-    /* height: 57px; */
     color: #6D6A73 !important;
 }
 
 .title{
     line-height: 35px !important;
-    color: black;
     font-size: 25px !important;
-    color: #0D0716 !important;
+    color: #0D0716;
 }
 
 

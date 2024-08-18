@@ -11,7 +11,7 @@ id: accepting-payment
 
 At Spotflow, we understand that every business is unique, which is why we offer a diverse range of payment solutions to cater to the specific needs of your business.
 
-## For seamless in-app or website checkout:
+**For seamless in-app or website checkout**:
 
 - **Spotflow Embed**: Our client-side integration provides a smooth and intuitive checkout experience for your customers. By embedding our JavaScript library directly into your checkout page, you can create a smooth payment flow without redirecting users away from your site. We handle the entire payment process, from initiating the transaction to delivering payment confirmation.
 
