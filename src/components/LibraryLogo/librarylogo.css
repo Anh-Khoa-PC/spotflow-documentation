@@ -3,5 +3,5 @@
 }
 
 html[data-theme='dark'] .librarylogotitle {
-    color: white;
+    color: white !important;
 }
