@@ -36,7 +36,9 @@
     [class^='navbarSearchContainer_'] {
       flex-grow: 1;
       max-width: 14rem;
+      justify-self: flex-start;
     }
+
   
     @media (max-width: 996px) {
       [class^='navbarSearchContainer_'] {
