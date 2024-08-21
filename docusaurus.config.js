@@ -130,7 +130,7 @@ const config = {
             position: 'left',
             label: 'Docs'
           },
-          {to: '/api/intro', label: 'APIs', position: 'left'},
+          {to: '/api/intro', label: 'API', position: 'left'},
           {
             type: 'dropdown',
             label: 'Community',
