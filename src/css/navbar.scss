@@ -16,16 +16,42 @@ html[data-theme='light'] {
   }
   
   /* //overrides */
+  #__docusaurus .navbar{
+    padding: 10px 20px;
+    min-height: 80px;
+  }
   #__docusaurus .navbar__inner {
     width: initial;
     flex-grow: 1;
     flex-wrap: nowrap;
   }
   
-  #__docusaurus .navbar__items {
-    min-width: auto;
+  #__docusaurus .navbar__items:not(.navbar__items--right) {
+    max-width: 195px;
+    height: 100%;
+    border-radius: 8px;
+    background: #F4F4F6;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 .3rem;
+    @media (max-width: 996px) {
+      max-width: none;
+      background: none;
+    }
   }
-  
+
+    #__docusaurus .navbar__items:not(.navbar__items--right) .navbar__link {
+    flex-basis: 49%;
+    height: 80%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    align-self: center !important;
+    color: #6D6A73;
+    transition: all 0.2s ease-out;
+  }
+
   #__docusaurus .navbar__items:not(.navbar__items--right) .navbar__link {
     @media (max-width: 996px) {
       display: none;
@@ -50,10 +76,13 @@ html[data-theme='light'] {
     bottom: 0;
     background: rgba(0, 0, 0, 0);
     transition: background-color 0.2s ease-out;
+    display: none;
   }
   
   #__docusaurus .navbar__items:not(.navbar__items--right):not(.cta) .navbar__link--active {
-    color: var(--ifm-link-color);
+    color: #FFFFFF;
+    background: #01008E;
+
   }
   
   #__docusaurus .navbar__items:not(.navbar__items--right):not(.cta) .navbar__link--active::after {
@@ -104,6 +133,7 @@ html[data-theme='light'] {
   
   #__docusaurus .navbar__items--right {
     flex: 1;
+    column-gap: 12px;
   }
   
   #__docusaurus .navbar__items--right .icon-link,
@@ -163,6 +193,37 @@ html[data-theme='light'] {
   
   #__docusaurus .navbar__items--right div:nth-last-of-type(1) {
     order: -1;
+    margin-left: auto;
+    margin-right: auto;
+    flex: .4;
+  }
+
+  #__docusaurus .navbar__items--right div:nth-last-of-type(1) .navbar__search span,
+  #__docusaurus .navbar__items--right div:nth-last-of-type(1) .navbar__search span .navbar__search-input{
+    width: 100%;
+  }
+  
+  #__docusaurus .navbar__items--right div:nth-last-of-type(1) .navbar__search span .navbar__search-input{
+    background: #F7F8FB;
+    outline: none;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+  }
+
+  #__docusaurus .navbar__items--right div:nth-last-of-type(1) .navbar__search span .navbar__search-input svg{
+    display: none;
+  }
+  #__docusaurus .navbar__items--right div:nth-last-of-type(1) .navbar__search span .navbar__search-input::placeholder{
+    color: #86838A;
+    font-weight: 400;
+  }
+
+  #__docusaurus .navbar__items--right .icon-link-twitter {
+    order: 5;
+  }
+  
+  #__docusaurus .navbar__items--right .icon-link-discord {
+    order: 6;
   }
   
   
