@@ -103,7 +103,7 @@ html[data-theme='light'] {
   }
   
   #__docusaurus .navbar__items--right {
-    flex-grow: 1;
+    flex: 1;
   }
   
   #__docusaurus .navbar__items--right .icon-link,
@@ -162,20 +162,9 @@ html[data-theme='light'] {
   }
   
   #__docusaurus .navbar__items--right div:nth-last-of-type(1) {
-    order: 4;
+    order: -1;
   }
   
-  #__docusaurus .navbar__items--right .icon-link-twitter {
-    order: 5;
-  }
-  
-  #__docusaurus .navbar__items--right .icon-link-discord {
-    order: 6;
-  }
-  
-  #__docusaurus .navbar__items--right .icon-link-github {
-    order: 7;
-  }
   
   #__docusaurus .navbar__item {
     transition: opacity 0.2s ease-out;

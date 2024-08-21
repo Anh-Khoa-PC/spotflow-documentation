@@ -35,10 +35,11 @@ ${JSON.stringify(item, null, 2)}`,
     </>
   );
 }
-function NavbarContentLayout({left, right}) {
+function NavbarContentLayout({left, middle, right}) {
   return (
     <div className="navbar__inner">
       <div className="navbar__items">{left}</div>
+      <div className='navbar__items--mid'>{middle}</div>
       <div className="navbar__items navbar__items--right">{right}</div>
     </div>
   );
@@ -54,8 +55,17 @@ export default function NavbarContent() {
         // TODO stop hardcoding items?
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
-          <NavbarLogo />
+          {/* <NavbarLogo /> */}
           <NavbarItems items={leftItems} />
+        </>
+      }
+      middle={
+        <>
+          {!searchBarItem && (
+            <NavbarSearch>
+              <SearchBar/>
+            </NavbarSearch>
+          )}
         </>
       }
       right={
@@ -64,11 +74,6 @@ export default function NavbarContent() {
         <>
           <NavbarItems items={rightItems} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
-          {!searchBarItem && (
-            <NavbarSearch>
-              <SearchBar />
-            </NavbarSearch>
-          )}
         </>
       }
     />
