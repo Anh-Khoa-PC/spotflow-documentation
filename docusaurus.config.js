@@ -58,7 +58,7 @@ const config = {
         theme: {
           customCss: [
             require.resolve('./src/css/custom.scss'),
-            require.resolve('./node_modules/modern-normalize/modern-normalize.css')
+            // require.resolve('./node_modules/modern-normalize/modern-normalize.css')
           ],
         },
       }),
