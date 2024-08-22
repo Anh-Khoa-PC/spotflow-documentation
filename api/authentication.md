@@ -39,7 +39,7 @@ Secure your API requests by including an Authorization header in the following f
 
 ```json
 {
-    "Authorization": "Bearer sk_test_9b4208cb7d4d4747bf6f5c4ac1f978af"
+    "Authorization": "Bearer sk_test_6988f8d1539a48ab945764ec361fa3eb"
 }
 ```
 
