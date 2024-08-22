@@ -7,7 +7,7 @@ hide_title: true
 <!-- <div className='introBody'> -->
 ## API Reference
 
-Spotflow API helps merchant collect payments in local currency. Learn how to easily integrate our APIs to streamline your in-app payments.
+Spotflow API helps global merchant collect payments in local currency. Learn how to easily integrate our APIs to streamline your in-app payments.
 
 Spotflow API is designed to be <span style={{color: "red"}}>`RESTful`</span>, utilizing familiar resource structures for most interactions. However, there might be a few exceptions from the strict REST principles for specific functionalities. These exceptions will be clearly documented within the API reference. This means you can expect:
 
