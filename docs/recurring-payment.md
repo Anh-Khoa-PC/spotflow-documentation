@@ -14,7 +14,7 @@ Spotflow offers robust recurring payment capabilities to streamline your subscri
 1. **Automated Payment Plans**: Set up a billing cycle and amount, and let Spotflow handle the rest. We'll automatically charge your customers on the specified dates.
 2. **Manual Card Charging**: For complete control, manage your subscriptions and charge customer cards directly using the card token. This option requires you to handle the payment process independently.
 
-<Admonitions type={"warning"}>
+<Admonitions type={"warning"} icon={"💳"}>
 **Limited to card payments**: Subsequent payments can be processed more quickly by storing a customer's card authorization after their initial successful card transaction. Please note that recurring payments are only supported on payment methods that can be tokenized. Hence, this is currently limited to card payments.
 </Admonitions>
 
@@ -36,7 +36,7 @@ To set up a recurring billing plan, you'll need to provide the following informa
 - **Currency**: Select the currency for the charges. This has to be specified always as you can choose for it to either be in USD or in the local currency of your region.
 - **Region ID**:  Specify the region ID for the payment. This is important as we are aware some merchants have different prices for a specific product across different regions. To see our available regions, kindly go to our <span style={{color: "red"}}>`Fetch Region List`</span> endpoint to know your region ID.
 
-Once you've defined these parameters, use Spotflow <span style={{color: "red"}}>`Create Payment Plan`</span> endpoint to establish the recurring billing structure. Here's a sample of what the request body and response looks like: 
+Once you've defined these parameters, use Spotflow <a target="_blank" href={"../api/API Endpoints/Subscription Plans/create-single-plan"} style={{textDecoration: "underline"}}>Create Plan</a> endpoint to establish the recurring billing structure. Here's a sample of what the request body and response looks like: 
 
 <span style={{color: "red"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans
 
@@ -207,7 +207,7 @@ To ensure secure handling of customer card information, Spotflow utilizes card t
 Key benefits of card tokenization:
 - **Enhanced security**: Protects sensitive card information from breaches.
 - **Simplified payment processing**: Streamline recurring payments with tokenized cards.
-- **PCI compliance**: Helps meet PCI DSS compliance requirements.
+- **PCI compliance**: Helps meet PCI-DSS compliance requirements.
 
 :::warning[Note]
 Card tokenization is a prerequisite for recurring payments.

@@ -51,16 +51,16 @@ With Spotflow, you can choose the payment solution that best aligns with your bu
 - **Default Disabled:** By default, merchant configuration is not enabled on new accounts.
 - **Enablement Request:** To accept card payments successfully, contact our support team at [support@spotflow.one](mailto:support@spotflow.one) and request merchant configuration activation for your account.
 
-**3. PCI DSS Compliance**
+**3. PCI-DSS Compliance**
 
-- **Certification Requirement:** To process card payments through our Payment APIs, you must be PCI DSS (Payment Card Industry Data Security Standard) certified.
-- **Level Requirement:** Spotflow may require a specific PCI DSS compliance level (e.g., Level 1). Please consult with Spotflow support at [support@spotflow.one](mailto:support@spotflow.one) for more details.
+- **Certification Requirement:** To process card payments through our Payment APIs, you must be PCI-DSS (Payment Card Industry Data Security Standard) certified.
+- **Level Requirement:** Spotflow may require a specific PCI-DSS compliance level (e.g., Level 1). Please consult with Spotflow support at [support@spotflow.one](mailto:support@spotflow.one) for more details.
 
-## PCI DSS: Protecting Your Customers
+## PCI-DSS: Protecting Your Customers
 
-The Payment Card Industry Data Security Standard (PCI DSS) is a comprehensive set of security requirements designed to safeguard cardholder data. By adhering to PCI DSS, any business/organization can significantly reduce the risk of data breaches and fraud. This standard applies to any entity that handles cardholder information, making it essential for maintaining customer trust.
+The Payment Card Industry Data Security Standard (PCI-DSS) is a comprehensive set of security requirements designed to safeguard cardholder data. By adhering to PCI-DSS, any business/organization can significantly reduce the risk of data breaches and fraud. This standard applies to any entity that handles cardholder information, making it essential for maintaining customer trust.
 
-To learn more about PCI DSS compliance, visit the PCI Security Standards Council <a target="_blank" href={"https://www.pcisecuritystandards.org/"}>official website</a>.
+To learn more about PCI-DSS compliance, visit the PCI Security Standards Council <a target="_blank" href={"https://www.pcisecuritystandards.org/"}>official website</a>.
 
 ## Accepting Card Payments with Spotflow Classic
 
