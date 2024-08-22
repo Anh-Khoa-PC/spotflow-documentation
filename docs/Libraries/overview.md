@@ -25,8 +25,6 @@ These libraries are designed for frontend integration.
 </Link>
 </ImageLinkContainer>
 
-
-Info bar:
 <Admonitions type={"warning"} icon={"💡"} title={"Need Help?"}>
 If you encounter any issues using these libraries, you should contact our support team at **support@spotflow.one** or open an issue on our repository for our developers to attend to it.
 </Admonitions>
