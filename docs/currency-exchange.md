@@ -57,6 +57,6 @@ It is important to note that exchange rates fluctuate constantly. The rate you r
 
 ### Additional Considerations:
 - **Decimal Precision**:  Ensure that the amount parameter is sent with the correct decimal precision based on the target currency's subunits (e.g., two decimal places for USD).
-- **Error Handling**: Refer to the Spotflow API error documentation for potential issues and appropriate handling mechanisms.
+- **Error Handling**: Refer to the Spotflow API <a target="_blank" href={"../api/errors"} style={{textDecoration: "underline"}}>error documentation</a> for potential issues and appropriate handling mechanisms.
 
 By providing these features and following these guidelines, Spotflow empowers you to effectively implement currency exchange within your application using the Spotflow API.
