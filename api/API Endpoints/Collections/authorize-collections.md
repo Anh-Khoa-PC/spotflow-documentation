@@ -4,7 +4,7 @@ title: Authorize Payments
 
 # Authorize Payment
 
-This authorizes a payment by pre-approving the transaction before final validation.
+This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out our <a target="_blank" href={"../../../docs/accepting-payment"} style={{textDecoration: "underline"}}>documentation</a>. 
 
 <span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments/authorize
 
