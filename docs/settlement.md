@@ -25,14 +25,14 @@ Spotflow offers flexible settlement schedules to accommodate different business 
 
 Spotflow charges settlement fees for processing fund transfers. The exact fee structure depends on factors such as the settlement amount, currency, and payment method. Detailed information about settlement fees can be found by contacting the Spotflow support team at **support@spotflow.one**.
 
-## Settlement API
+<!-- ## Settlement API
 
 To initiate and manage settlements programmatically, Spotflow provides a dedicated settlement API. This API allows merchants to:
 - Initiate settlement requests
 - Check the status of settlement requests
 - Retrieve settlement history
 
-The specific endpoints and parameters for the settlement API is documented in detail in the <span style={{color: "purple"}}>*API Reference*</span> section.
+The specific endpoints and parameters for the settlement API is documented in detail in the <span style={{color: "purple"}}>*API Reference*</span> section. -->
 
 ## Settlement Reconciliation
 
