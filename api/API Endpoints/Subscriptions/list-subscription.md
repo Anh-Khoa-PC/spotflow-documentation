@@ -69,4 +69,4 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the plan you want
 
 ## Error Handling
 
-If an error occurs, the API will return an appropriate HTTP status code and error message in the response body.
+If an error occurs, the API will return an appropriate HTTP status code and error message in the response body. Check out our <a target="_blank" href={"../../errors"} style={{textDecoration: "underline"}}>error documentation</a> for more details. 
