@@ -29,7 +29,7 @@ At Spotflow, we understand that every business is unique, which is why we offer 
 
 
 <Admonitions type={"warning"} icon={"👌"}>
-    When a payment is successful, Spotflow notifies you by sending a "charge.success" webhook event to the designated webhook URL you provide. Learn more about using <a style={{textDecoration: "underline"}} target="_blank" href={"https://hookdeck.com/webhooks/guides/what-are-webhooks-how-they-work"}>webhooks</a>
+    When a payment is successful, Spotflow notifies you by sending a "payment_successful" webhook event to the designated webhook URL you provide. Learn more about using <a style={{textDecoration: "underline"}} target="_blank" href={"https://hookdeck.com/webhooks/guides/what-are-webhooks-how-they-work"}>webhooks</a>
 </Admonitions>
 
 
@@ -159,7 +159,7 @@ public class EncryptionUtils {
 }
 ```
 
-Furthermore, Once the payment data has been encrypted, use it within the POST request to our create payment endpoint API (https://dev-api.spotflow.one/api/v1/payments)
+Furthermore, Once the payment data has been encrypted, use it within the POST request to our <a target="_blank" href={"../api/API Endpoints/Collections/Create-Collection" style={{textDeocration: "underline"}}}>Create payment endpoint API</a>
 
 **Sample Request Body**
 
@@ -457,6 +457,10 @@ Upon receiving a response indicating the need for AVS verification, you need to 
 ```
 
 If the status of the transaction at this point is either <span style={{color: "red"}}>`success`</span> or <span style={{color: "red"}}>`failed`</span>, <a target="_blank" href={"../api/API Endpoints/Collections/verify-collection"}>Verify the Payment</a> to confirm the final status of the transaction but if the transaction status is  <span style={{color: "red"}}>`pending`</span>, this means an extra authorization step is required and the authorization mode returned in the data object should be used to determine the next authorization type required for the card payment.
+
+## Making a Card Payment that Requires Phone Enrollment (Verve Cards)
+
+After making the request to create a <span style={{color: "red"}}>`card payment`</span> and then authorizing the payment, if the payment status is <span style={{color: "red"}}>`pending validation`</span> and the authorization mode is <span style={{color: "red"}}>`ENROLL`</span>, this means the customer's card is not yet enrolled for online payments. Card enrollment is necessary to proceed with the transaction.
 
 **Sample Request:**
 
