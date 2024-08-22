@@ -35,8 +35,6 @@ Spotflow leverages standardized HTTP response codes to consistently communicate 
 
 - **404 Not Found**: The requested resource does not exist on the Spotflow platform. This might occur if you're trying to access a user ID that doesn't exist or referencing an incorrect endpoint URL.
 
-- **409 Conflict**: The request conflicts with another ongoing request, potentially due to using the same idempotency key. Idempotency keys help prevent accidental duplicate actions. If you receive this error, it's recommended to retry the request with a new idempotency key.
-
 - **429 Too Many Requests**: The API received an excessive number of requests from your application in a short period. This might indicate an issue with your integration logic or excessive retries. We recommend implementing exponential backoff for your requests to avoid overwhelming the API and encountering this error.
 
 <br></br>
