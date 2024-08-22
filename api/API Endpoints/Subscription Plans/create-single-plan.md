@@ -1,11 +1,8 @@
 ---
 title: Create Single Plan
 pagination_prev: null
+hide_title: true
 ---
-
-# Plans
-
-Our Plans API allows you to create and manage flexible subscription plans to suit your customers needs.
 
 ## Create Single Plan
 
@@ -22,11 +19,6 @@ Create a subscription plan with Spotflow.
 |:----------|:-----------|
 | content-type <br></br> <span style={{color: "red"}}>`string`</span> | <span style={{color: "red"}}>`application/json`</span> |
 
-## Path Parameters
-
-**plan-id** <span style={{color: "red"}}>`int32`</span>
-
-This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription plan you want to update.
 
 ## Body Parameters
 

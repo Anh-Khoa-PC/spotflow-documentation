@@ -1,11 +1,8 @@
 ---
 title: List Subscriptions
 pagination_prev: null
+hide_title: true
 ---
-
-# Subscriptions
-
-The Subscriptions API allows you to manage recurring payments effortlessly. You can create and oversee subscription plans with ease. This section discusses all API endpoints that are critical for managing user subscriptions. With these APIs, You can query your existing subscriptions, as well as activate or deactivate a user's subscription.
 
 ## List Subscriptions
 

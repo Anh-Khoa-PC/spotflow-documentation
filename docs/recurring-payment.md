@@ -38,39 +38,87 @@ To set up a recurring billing plan, you'll need to provide the following informa
 
 Once you've defined these parameters, use Spotflow <span style={{color: "red"}}>`Create Payment Plan`</span> endpoint to establish the recurring billing structure. Here's a sample of what the request body and response looks like: 
 
-<span style={{color: "red"}}>`POST/api/v1/plans`</span>
+<span style={{color: "red"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans
 
 <br></br>
-<br></br>
 **Request Body**:
+
 ```json
 {
-    "title": "Audiomack",
-    "frequency": "DAILY", // Can be daily, weekly, monthly, yearly
-    "internalReference": "test",
-    "amount": 10,
-    "currency": "NGN",
-    "regionId": "1"
+  "title": "Navigately Mini",
+  "frequency": "DAILY", // Can be daily, weekly, monthly, yearly
+  "internalReference": "ref-8080",
+  "amount": 10,
+  "currency": "NGN",
+  "regionId": "1"
 }
 ```
 
 **Response**:
 ```json
-{
-    "id": "plan_id",
-    "title": "Audiomack",
-    "frequency": "DAILY",
-    "internalReference": "test",
-    "amount": 10,
-    "currency": "USD",
-    "status": "active",
-    "createdAt": "2024-07-23T12:17:44.508587Z"
+ {
+  "id": "plan_id",
+  "title": "Navigately Mini",
+  "frequency": "DAILY",
+  "internalReference": "ref-8080",
+  "amount": 10,
+  "currency": "USD",
+  "status": "active",
+  "createdAt": "2024-07-23T12:17:44.508587Z"
  }
 ```
 
 ## Adding a Customer to a Subscription
 
-To enroll a customer in a subscription, simply reference the plan ID when initiating their first charge. This streamlined process applies to all payment methods supported by Spotflow, including <span style={{color: "red"}}>`Inline`</span>, <span style={{color: "red"}}>`Classic`</span>, and <span style={{color: "red"}}>`Direct Card Charge`</span>.
+To enroll a customer in a subscription, simply reference the plan ID when initiating their first charge. This streamlined process applies to all payment methods supported by Spotflow, including <span style={{color: "red"}}>`Embed`</span> and <span style={{color: "red"}}>`Classic`</span>. Here’s a sample request and a sample response below:
+
+**Sample Request:**
+
+```json
+{
+  "reference": "ref-{{$randomUUID}}",
+  "planId": "5212007d-569f-4be5-a674-18ba21efb95f",
+  "amount": 5000,
+  "currency": "NGN",
+  "customer": {
+    "email": "customer@email.com"
+  },
+  "channel": "card",
+  "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaoVv16hM+ZblErO19A+xxxxxxxxxxxxx"
+}
+```
+
+**Sample Response:**
+```json
+{
+  "id": "8f05807e-c52c-424b-80d2-88b990e856a7",
+  "reference": "ref-42d46f33-c262-4130-a67d-6c325c436db2",
+  "spotflowReference": "SPF-KPY-5d5ca308955d421a8d6fb3c541b98fd8",
+  "amount": 5000,
+  "currency": "NGN",
+  "channel": "card",
+  "status": "successful",
+  "customer": {
+    "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+    "email": "customer@email.com"
+  },
+  "provider": "korapay",
+  "providerMessage": "Card charged successfully",
+  "rate": {
+    "from": "NGN",
+    "to": "NGN",
+    "rate": 1
+  },
+  "serviceProvider": {
+    "id": 3,
+    "name": "korapay"
+  },
+  "region": {
+    "id": 1,
+    "name": "Nigeria"
+  }
+}
+```
 <Admonitions type={'warning'} icon={'📌'} title={'Important'}>
 Ensure consistency in currency selection by using the same currency for both the payment plan and the initial charge.
 </Admonitions>
@@ -115,26 +163,21 @@ Here are some webhook payloads examples:
 
 **Successful Charge**:
 ```json
-{
-  "event": "charge.success",
+`{
+  "event": "payment_successful",
   "data": {
     "id": "ch_1234567890123456",
     "amount": 10000,
     "currency": "NGN",
     "customer_id": "cus_1234567890123456",
     "created_at": "2023-11-22T12:34:56Z",
-    "authorization_code": "AUTH_1234567890123456",
-    "payment_method": "card",
-    "status": "success",
-    "metadata": {
-      "order_id": "order_12345"
-    }
-  },
-  "livemode": false
-}
+    "channel": "card",
+    "status": "success"
+  }
+}`
 ```
 <br></br>
-<Admonitions type={"note"} icon={"💻"} title={'Webhooks'}>
+<Admonitions type={"warning"} icon={"💻"} title={'Webhooks'}>
 Spotflow provides webhooks to notify you of payment events (e.g., successful charge, failed charge, subscription canceled).
 </Admonitions>
 
@@ -166,7 +209,7 @@ Key benefits of card tokenization:
 - **Simplified payment processing**: Streamline recurring payments with tokenized cards.
 - **PCI compliance**: Helps meet PCI DSS compliance requirements.
 
-:::warning
+:::warning[Note]
 Card tokenization is a prerequisite for recurring payments.
 
 Also, You should never save a customer's card details; the details are represented by a *token*, which is what you save.
