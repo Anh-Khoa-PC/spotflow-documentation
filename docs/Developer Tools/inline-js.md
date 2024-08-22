@@ -91,7 +91,7 @@ For enhanced security, avoid exposing your secret key on your application. API r
 ## InlineJS Object
 
 The InlineJS library provides a global <span >`Spotflow`</span> object with the following methods:
-- merchantKey: Initializes the InlineJS library with your merchant secret key.
+- **merchantKey**: Initializes the InlineJS library with your merchant secret key.
 - **openCheckout()**: Opens the checkout modal with specified options.
 - **closeCheckout():** Closes the checkout modal.
 - **on(event, callback)**: Subscribes to InlineJS events i.e onclick.
