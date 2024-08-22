@@ -15,7 +15,7 @@ Confirm the status of a payment
 
 ## Query Parameters
 
-**plan-id** <span style={{color: "red"}}>`int32`</span>
+**merchant-id** <span style={{color: "red"}}>`int32`</span>
 
 This is the unique <span style={{color: "red"}}>`ID`</span> of the merchant you want to verify.
 
@@ -28,26 +28,35 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
 <br></br>
+
 ```json
 {
-    "id": "1371fadb-e54f-4e44-b20c-1bc69467d091",
-    "reference": "ref-5d812671-e09a-4408-be1b-6d6c5276045a",
-    "spotflowReference": "SPF-a238ecca87ff4ccf84e39b7711d40438",
-    "amount": 500.00,
-    "currency": "USD",
-    "channel": "bank_transfer",
+    "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
+    "reference": "ref-2a0b9ee8-b48d-4849-8a09-e50827fd0bed",
+    "spotflowReference": "SPF-FLW-5b006ceeb0a54bb1acbd1c7da87784f0",
+    "amount": 5000.00,
+    "currency": "NGN",
+    "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "80cc4f8b-f2bf-4b6e-891f-382935c180a3",
-        "email": "Roberto_Walter@yahoo.com"
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "email": "customer@email.com"
     },
-    "provider": "korapay",
-    "providerMessage": "Payment on Spotflow",
+    "provider": "flutterwave",
+    "providerMessage": "successful",
     "rate": {
-        "from": "USD",
+        "from": "NGN",
         "to": "NGN",
-        "rate": 174.1693201427236
+        "rate": 1
     },
-    "createdAt": "2024-07-03T13:39:29Z"
+    "serviceProvider": {
+        "id": 1,
+        "name": "flutterwave"
+    },
+    "region": {
+        "id": 1,
+        "name": "Nigeria"
+    },
+    "createdAt": "2024-08-20T11:49:41Z"
 }
 ```
