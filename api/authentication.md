@@ -8,14 +8,14 @@ sidebar_position: 2
 ## Authentication
 <!-- </span> -->
 
-Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key, kindly include it in the "Authorization" header for secure access.
+Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key, kindly include it in the <span style={{color: "red"}}>`Authorization`</span> header for secure access.
 
 
 ### API Key Management
 
 Spotflow provides two key types for API access: public keys and secret keys. You can manage these keys from your Spotflow dashboard.
 
-- **Public Keys**: Primarily used for frontend integrations with Spotflow Inline and Mobile SDKs. These keys are designed to initiate collections for your account but cannot modify other account details.
+- **Public Keys**: Primarily used for frontend integrations with Spotflow Inline and Mobile SDKs. These keys are designed to initiate payment collections for your account but cannot modify other account details.
 
 - **Secret Keys (sk_test_ for test mode, sk_live_ for live mode)**: These keys grant extensive privileges and must be kept confidential, ***Never share your secret keys in public locations like code repositories (GitHub), client-side code, or other unsecured environments.***
 <br></br>
