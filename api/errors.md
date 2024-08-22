@@ -19,7 +19,7 @@ Spotflow leverages standardized HTTP response codes to consistently communicate 
 
 - **200 OK**: The request was processed successfully. **Don't assume everything went as planned!** Always examine the response data object to determine the specific outcome (e.g., successful or failed charge). Even a 200 response might indicate an error within the data object.
 
-- **201 Created**: A new resource was created successfully through your request. This typically occurs when creating new entities like users or collections within your Spotflow account.
+- **201 Created**: A new resource was created successfully through your request. This typically occurs when creating new entities like users or payment collections within your Spotflow account.
 
 <br></br>
 <br></br>
