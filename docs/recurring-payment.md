@@ -144,16 +144,16 @@ Please note that specifying a payment plan when processing a card payment automa
 
 After the initial successful payment, Spotflow will charge the card subsequently based on the frequency set for the payment plan.
 
-## Canceling and activating
+## Canceling and Activating
 
 There are two ways to cancel your subscription:
 
-1. You can cancel an individual customer's subscription from the Plans page on the dashboard or through the <span style={{color: "red"}}>`Cancel Subscription Endpoint`</span>.
-2. Canceling an entire payment plan will cancel all associated subscriptions, which can also be done via the Plans page on your dashboard or through the <span style={{color: "red"}}>`Cancel Plan Endpoint`</span>.
+1. You can cancel an individual customer's subscription from the Plans page on the dashboard or through the <a target="_blank" href={"../api/API Endpoints/Subscriptions/cancel-subscription"} style={{textDecoration: "underline"}}>Cancel Subscription Endpoint</a>.
+2. Canceling an entire payment plan will cancel all associated subscriptions, which can also be done via the Plans page on your dashboard or through the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/cancel-plan"} style={{textDecoration: "underline"}}>Cancel Plan Endpoint</a>.
 
 Canceling a subscription will trigger a webhook event.
 
-Canceled subscriptions and plans can be activated later, via the <span style={{color: "red"}}>`Activate Subscription`</span> and <span style={{color: "red"}}>`Update Plan`</span> endpoints respectively.
+Canceled subscriptions and plans can be activated later, via the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/activate-plan"} style={{textDecoration: "underline"}}>Activate Subscription Plan</a> and <a target="_blank" href={"../api/API Endpoints/Subscription Plans/update-plan"} style={{textDecoration: "underline"}}>Update Plan</a> endpoints respectively.
 
 ## Webhooks
 
