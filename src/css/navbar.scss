@@ -27,6 +27,7 @@ html[data-theme='dark'] {
   width: initial;
   flex-grow: 1;
   flex-wrap: nowrap;
+  align-items: center;
 }
 
 #__docusaurus .navbar__items--mid {
@@ -42,8 +43,17 @@ html[data-theme='dark'] {
   justify-content: space-between;
   padding: 0 .3rem;
   @media (max-width: 996px) {
-    max-width: none;
-    background: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    flex: none;
+  }
+}
+
+#__docusaurus .navbar__items:not(.navbar__items--right) {
+  .navbar__toggle{
+    margin-right: 0;
   }
 }
 
@@ -195,6 +205,12 @@ html[data-theme='dark'] {
 
 #__docusaurus .navbar__items--right div:nth-last-of-type(1) {
   order: -1;
+}
+
+#__docusaurus .navbar__items--right {
+  @media (max-width: 997px) {
+    display: none;
+  }
 }
 
 
