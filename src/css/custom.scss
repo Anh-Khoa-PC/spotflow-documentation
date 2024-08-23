@@ -87,7 +87,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-smoothing: antialiased;
+  // font-smoothing: antialiased;
 
   scroll-padding-top: calc(var(--ifm-navbar-height) + 16px);
 }
@@ -270,6 +270,6 @@ iframe {
   }
 }
 
-.col--3{
-  display: none !important;
-}
+// .col--3{
+//   display: none !important;
+// }
