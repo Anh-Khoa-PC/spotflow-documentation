@@ -9,7 +9,6 @@
       max-width: initial;
       min-width: 0;
     }
-  
     @media (min-width: 997px) {
       [class*='docItemCol_'] {
         max-width: initial !important;
@@ -54,6 +53,11 @@
   
     @media (max-width: 1364px) {
       [class*='docMainContainer_'] > .container > .row > .col.col--4 {
+        display: none;
+      }
+    }
+    @media (max-width: 996px) {
+      [class*='docMainContainer_'] > .container > .row > .col.col--3 {
         display: none;
       }
     }

@@ -87,7 +87,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-smoothing: antialiased;
+  // font-smoothing: antialiased;
 
   scroll-padding-top: calc(var(--ifm-navbar-height) + 16px);
 }
@@ -226,6 +226,7 @@ iframe {
   right: auto !important;
 }
 .searchBar_RVTs.searchBarLeft_MXDe .dropdownMenu_qbY6{
+  width: 100%;
   left: 0 !important;
   right: auto !important;
 }
@@ -268,8 +269,4 @@ iframe {
   @media (max-width: 480px) {
     width: 100%;
   }
-}
-
-.col--3{
-  display: none !important;
 }
