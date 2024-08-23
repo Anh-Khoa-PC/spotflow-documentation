@@ -265,4 +265,11 @@ iframe {
   width: 335px;
   border-radius: 8px;
   height: 56px;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.col--3{
+  display: none !important;
 }

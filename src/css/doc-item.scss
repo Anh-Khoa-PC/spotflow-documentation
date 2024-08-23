@@ -21,6 +21,10 @@
       padding-right: 2rem;
       flex-grow: 1;
       min-width: 0;
+      @media (max-width: 400px) {
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
     }
   
     [class*='docMainContainer_'] .doc-demo-wrapper {
