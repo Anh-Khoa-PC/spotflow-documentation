@@ -19,22 +19,22 @@ Our developer tools provide the essential building blocks to seamlessly integrat
 Get started with our developer tools and build your payment integration efficiently.
 <DevToolsContainer>
 <Link to='/Developer Tools/ios-sdk'>
-<DevTools title={"iOS SDK"} description={"A set of components developed for seamless payment flows for IOS users"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724254575/nrpmxzotoedwxcqonxui.png"}>
+<DevTools title={"iOS SDK"} description={"A set of components developed for seamless payment flows for IOS users"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724758749/x0uwouwsxlo9plihd8fw.svg"}>
 </DevTools>
 </Link>
 
 <Link to='/Developer Tools/android-sdk'>
-<DevTools title={"Android SDK"} description={"A set of pre built components for accepting payment in your Android app"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724254573/lzsct11idc7yh9b07atm.png"}>
+<DevTools title={"Android SDK"} description={"A set of pre built components for accepting payment in your Android app"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724758749/xwsmik35dbju15btmkns.svg"}>
 </DevTools>
 </Link>
 
 <Link to='/Developer Tools/flutter-sdk'>
-<DevTools title={"Flutter SDK"} description={"A set of components built to accelerate your flutter app development for smooth in app payment"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724254573/qj4vp8yg9hh4bwmqqy6g.png"}>
+<DevTools title={"Flutter SDK"} description={"A set of components built to accelerate your flutter app development for smooth in app payment"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724758749/iw1vnf4fwg1sk0uqhzop.svg"}>
 </DevTools>
 </Link>
 
 <Link to='/Developer Tools/inline-js'>
-<DevTools title={"InlineJS"} description={"A set of methods built to integrate payments directly into your web application"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724254573/aabivi7gp1vs0qdjxqvu.png"}>
+<DevTools title={"InlineJS"} description={"A set of methods built to integrate payments directly into your web application"} src={"https://res.cloudinary.com/dbrh0uxwx/image/upload/v1724758749/nzwve6c0nrdgr7ewf4zt.svg"}>
 </DevTools>
 </Link>
 </DevToolsContainer>
