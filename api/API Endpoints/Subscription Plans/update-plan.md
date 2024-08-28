@@ -14,9 +14,9 @@ Update the details of an existing subscription plan
 
 
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
-| content-type <br></br> <span style={{color: "red"}}>`string`</span> | <span style={{color: "red"}}>`application/json`</span>
+| content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span>
 
 ## Path Parameters
 
@@ -34,7 +34,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
 
 ## Sample Request Body
 
-```json
+```yaml
 {
     "title": "Navigately Mini" //formerly Audioly
 }
@@ -47,7 +47,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "3cbab046-f06a-4815-941d-d8cc7be43d59",
     "title": "Navigately Mini",

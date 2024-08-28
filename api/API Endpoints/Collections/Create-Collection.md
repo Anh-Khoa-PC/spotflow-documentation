@@ -12,9 +12,9 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 **Headers**
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
-| content-type <br></br> <span style={{color: "red"}}>`string`</span> | <span style={{color: "red"}}>`application/json`</span> |
+| content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span> |
 
 **Body Parameters for Card Payments**
 
@@ -28,7 +28,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 **Sample Request Body for Card Payments**
 
-```json
+```yaml
 {
     "reference": "ref-{{$randomUUID}}",
     "amount": 5000,
@@ -48,7 +48,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "01dc7242-9357-44ea-9095-d8e91621f448",
     "reference": "ref-af1b272c-e16d-4d7b-aac3-98721ee81b1e",
@@ -87,7 +87,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 ### Sample Request Body for Bank Transfer Payments
 
-```json
+```yaml
 {
     "reference": "ref-{{$randomUUID}}",
     "amount":10,
@@ -106,7 +106,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "0e914ea4-067b-41cc-a3b6-0e0b401483bf", //payment id
     "reference": "ref-53b4a49b-6fe5-4f13-8368-90798732cc31",
@@ -138,7 +138,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 <br></br>
 <br></br>
 
-```json
+```yaml
 [
     {
         "code": "044",
@@ -223,9 +223,9 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 
 **Headers**
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
-| content-type <br></br> <span style={{color: "red"}}>`string`</span> | <span style={{color: "red"}}>`application/json`</span> |
+| content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span> |
 
 ### Body Parameters for Recurring Payments via Card
 
@@ -240,7 +240,7 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 
 ### Sample Request Body
 
-```json
+```yaml
 {
     "reference": "ref-{{$randomUUID}}",
     "planId": "5212007d-569f-4be5-a674-18ba21efb95f",
@@ -260,7 +260,7 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
 
-```json
+```yaml
 {
     "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
     "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",

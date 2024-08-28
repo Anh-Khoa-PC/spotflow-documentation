@@ -68,7 +68,7 @@ To learn more about PCI-DSS compliance, visit the PCI Security Standards Council
 
 <span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
-```json
+```yaml
 {
     "reference": "ref-{{$randomUUID}}",
     "amount": 20,
@@ -165,7 +165,7 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
 
 **Sample Request Body**
 
-```json
+```yaml
 {
     "reference": "ref-{{$randomUUID}}",
     "amount": 20,
@@ -184,7 +184,7 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
     "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
@@ -227,7 +227,7 @@ Following the initial response, get the required card PIN and make a request to 
 
 **Sample Request Body**
 
-```json
+```yaml
 {
     "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
     "authorization": {
@@ -244,7 +244,7 @@ Upon successful payment authorization, the transaction's initial status can be <
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
     "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
@@ -283,7 +283,7 @@ What you need to do next is get the OTP sent to the customer’s phone/email and
 
 **Sample Request Body**
 
-```json
+```yaml
 {
     "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
     "authorization": {
@@ -298,7 +298,7 @@ What you need to do next is get the OTP sent to the customer’s phone/email and
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
     "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
@@ -338,7 +338,7 @@ Based on the initial request made to authorize the card, it automatically detect
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "6945c177-6558-4a56-8257-7e880903dbc6",
     "reference": "ref-11f6941a-5db9-4c44-ab83-1d5eab966ce8",
@@ -375,7 +375,7 @@ To complete the authorization process, it is crucial to redirect your customer t
 
 For cards requiring Address Verification System (AVS) checks, the system automatically detects this requirement upon initiating the payment. A subsequent response will indicate the need for AVS authorization with <span style={{color: "red"}}>`pending`</span> status and authentication mode as <span style={{color: "red"}}>`avs`</span> like the sample response below:
 
-```json
+```yaml
 {
     "id": "fb720170-0659-4c18-a6ea-0a141a498e69",
     "reference": "ref-7b968e38-eecc-4558-9d62-c50ffb7187c6",
@@ -406,7 +406,7 @@ For cards requiring Address Verification System (AVS) checks, the system automat
 ```
 Upon receiving a response indicating the need for AVS verification, you need to gather the customer's address details and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a> with a sample request as shown below:
 
-```json
+```yaml
 {
     "reference": "ref-c2040ff9-9332-4417-b64e-14daf3ec8061",
     "authorization": {
@@ -427,7 +427,7 @@ Upon receiving a response indicating the need for AVS verification, you need to 
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "fb720170-0659-4c18-a6ea-0a141a498e69",
     "reference": "ref-7b968e38-eecc-4558-9d62-c50ffb7187c6",
@@ -463,7 +463,7 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
 
 **Sample Request:**
 
-```json
+```yaml
 {
   "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
   "authorization": {
@@ -475,7 +475,7 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
 
 **Sample Response:**
 
-```json
+```yaml
 {
     "id": "cad7247a-d37d-4120-b1f3-bd2d8bc15a9a",
     "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
@@ -508,7 +508,7 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
 
 Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enroll'`</span> verification is required, collect the customer's phone number registered with the bank account and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a> with a sample request as shown below:
 
-```json
+```yaml
 {
     "reference": "ref-91e20470-cf74-451f-8d52-d9168ad1aa55",
     "authorization": {
@@ -519,7 +519,7 @@ Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enr
 
 **Sample Response:**
 
-```json
+```yaml
 {
     "id": "cad7247a-d37d-4120-b1f3-bd2d8bc15a9a",
     "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
@@ -577,7 +577,7 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
     "reference": "ref-2a0b9ee8-b48d-4849-8a09-e50827fd0bed",
@@ -611,7 +611,7 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 
 **Sample Request Body for Bank Transfer Payments**
 
-```json
+```yaml
 {
     "reference": "ref-{{$randomUUID}}",
     "amount":10,
@@ -630,7 +630,7 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "d5eab137-38df-4b23-bc8b-2b8f4839b6fa", //payment id
     "reference": "ref-300caf7a-3f09-4f88-add3-bb7fb82ccf61",

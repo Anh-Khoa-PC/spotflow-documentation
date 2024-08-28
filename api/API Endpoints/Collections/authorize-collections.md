@@ -10,9 +10,9 @@ This authorizes a payment by pre-approving the transaction before final validati
 
 ## Headers
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
-| content-type <br></br> <span style={{color: "red"}}>`string`</span> | <span style={{color: "red"}}>`application/json`</span> |
+| content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span> |
 
 ## Body Parameters
 
@@ -22,7 +22,7 @@ This authorizes a payment by pre-approving the transaction before final validati
 
 ## Sample Request Body
 
-```json
+```yaml
 {
     "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
     "authorization": {
@@ -38,7 +38,7 @@ This authorizes a payment by pre-approving the transaction before final validati
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
     "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
@@ -69,7 +69,7 @@ Following the step gotten after the initial authorization response, you’ve to 
 
 **Sample Request Body**
 
-```json
+```yaml
 {
     "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
     "authorization": {
@@ -83,7 +83,7 @@ Following the step gotten after the initial authorization response, you’ve to 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
 
-```json
+```yaml
 {
     "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
     "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",

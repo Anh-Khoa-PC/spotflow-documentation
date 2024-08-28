@@ -11,7 +11,7 @@ Cancel a specific existing subscription payment
 
 ## Headers
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
 
 ## Path Parameters
@@ -26,7 +26,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the plan you want
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "722d7b6c-1fb6-4b01-bfd5-26bcd571ccb4",
     "customerId": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",

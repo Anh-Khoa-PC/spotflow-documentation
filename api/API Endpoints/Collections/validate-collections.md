@@ -10,9 +10,9 @@ This validates the payment by verifying payment details and ensuring sufficient 
 
 ## Headers
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
-| content-type <br></br> <span style={{color: "red"}}>`string`</span> | <span style={{color: "red"}}>`application/json`</span> |
+| content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span> |
 
 ## Body Parameters
 
@@ -22,7 +22,7 @@ This validates the payment by verifying payment details and ensuring sufficient 
 
 ## Sample Request Body
 
-```json
+```yaml
 {
     "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
     "authorization": {
@@ -37,7 +37,7 @@ This validates the payment by verifying payment details and ensuring sufficient 
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "id": "97297586-9ebd-4bc4-a36b-c1046229115e",
     "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",

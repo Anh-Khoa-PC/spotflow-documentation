@@ -43,7 +43,7 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
 <br></br>
 **Request Body**:
 
-```json
+```yaml
 {
   "title": "Navigately Mini",
   "frequency": "DAILY", // Can be daily, weekly, monthly, yearly
@@ -55,7 +55,7 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
 ```
 
 **Response**:
-```json
+```yaml
  {
   "id": "plan_id",
   "title": "Navigately Mini",
@@ -74,7 +74,7 @@ To enroll a customer in a subscription, simply reference the plan ID when initia
 
 **Sample Request:**
 
-```json
+```yaml
 {
   "reference": "ref-{{$randomUUID}}",
   "planId": "5212007d-569f-4be5-a674-18ba21efb95f",
@@ -90,7 +90,7 @@ To enroll a customer in a subscription, simply reference the plan ID when initia
 ```
 
 **Sample Response:**
-```json
+```yaml
 {
   "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
   "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
@@ -169,7 +169,7 @@ Every time you attempt to charge a customer's card, an event will be sent to a s
 Here are some webhook payloads examples:
 
 **Successful Charge**:
-```json
+```yaml
 `{
   "event": "payment_successful",
   "data": {
@@ -189,7 +189,7 @@ Spotflow provides webhooks to notify you of payment events (e.g., successful cha
 
 **Canceled Subscription**:
 
-```json
+```yaml
 {
   "event": "subscription.canceled",
   "data": {

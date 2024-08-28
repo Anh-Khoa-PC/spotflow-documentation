@@ -27,7 +27,7 @@ To perform a currency conversion, you'll use the following endpoint:
 
 A successful exchange request will return a JSON object with the following structure:
 
-```json
+```yaml
 {
     "converted_amount": 123.45, // The converted amount
 
@@ -41,7 +41,7 @@ A successful exchange request will return a JSON object with the following struc
 
 **Example Request**
 
-```json
+```yaml
  {
     "amount": 10000,
 

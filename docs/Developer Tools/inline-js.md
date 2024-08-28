@@ -121,7 +121,7 @@ Spotflow.openCheckout({
 
 **Request Body:**
 
-```json
+```yaml
 {
     "amount": 1000,
     "currency": "NGN",
@@ -131,7 +131,7 @@ Spotflow.openCheckout({
 ```
 
 **Response:**
-```json
+```yaml
 {
     "status": "success" | "failed",
     "data": {

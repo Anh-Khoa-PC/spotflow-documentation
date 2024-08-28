@@ -10,7 +10,7 @@ Create bulk subscription plans with Spotflow
 
 ## Headers
 
-| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`string`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
+| <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
 
 ## Body Parameters
@@ -23,7 +23,7 @@ Add a form-data with a key of “file” in the request body. In the value tab, 
 <br></br>
 <br></br>
 
-```json
+```yaml
 {
     "status": "success",
     "failedRequests": []

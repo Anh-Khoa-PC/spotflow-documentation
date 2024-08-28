@@ -37,7 +37,7 @@ All API requests to Spotflow must be authenticated using your secret key. Here's
 Secure your API requests by including an Authorization header in the following format:
 <p style={{color: 'red'}}>`Authorization: Bearer SECRET_KEY`</p>
 
-```json
+```yaml
 {
     "Authorization": "Bearer sk_test_6988f8d1539a48ab945764ec361fa3eb"
 }
