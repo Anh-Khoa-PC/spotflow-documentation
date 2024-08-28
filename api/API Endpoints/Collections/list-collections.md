@@ -1,5 +1,5 @@
 ---
-title: List Payment
+title: List Payments
 ---
 
 # List Payments
@@ -18,6 +18,12 @@ This retrieves and lists all payment collections available for a specific mercha
 | <p style={{fontWeight: '400'}}>perPage <br></br> <span style={{color: "red"}}>`Integer`</span></p> | <p style={{fontWeight: '400'}}>**Indicate the number of records per page**. If unspecified, a default of 10 records will be returned.</p> |
 |:----------|:-----------|
 | page <br></br> <span style={{color: "red"}}>`Integer`</span> | **Indicate the specific page to retrieve**. If not provided, the first page will be returned by default. |
+| status <br></br> <span style={{color: "red"}}>`String`</span> | **This can either be** <span style={{color: "red"}}>`successful`</span>, <span style={{color: "red"}}>`pending`</span> or <span style={{color: "red"}}>`failed`</span>. |
+| channel <br></br> <span style={{color: "red"}}>`String`</span> | **This can either be** <span style={{color: "red"}}>`card`</span>, <span style={{color: "red"}}>`bank`</span>, <span style={{color: "red"}}>`transfer`</span> or <span style={{color: "red"}}>`USSD`</span> for local currency payments. |
+| provider <br></br> <span style={{color: "red"}}>`String`</span> | **These are available payment providers** on Spotflow such as Flutterwave, Korapay etc. |
+| from <br></br> <span style={{color: "red"}}>`String`</span> | **This is the date of the payment** you want to fetch in this format; <span style={{color: "red"}}>`2024-08-20`</span>. |
+| to <br></br> <span style={{color: "red"}}>`String`</span> | **This is the end of the date of the payment** you want to fetch in this format; <span style={{color: "red"}}>`2024-08-27`</span>. |
+
 
 ## Sample Response
 
@@ -29,154 +35,219 @@ This retrieves and lists all payment collections available for a specific mercha
 {
     "content": [
         {
-            "id": "0c44319c-4727-4437-bd37-132f54eebe6c",
-            "reference": "SPF-LYEC0L2O-2E149AD9-7B49-4363-9686-91833B15F2D9",
-            "spotflowReference": "SPF-FLUTTERWAVE-6f62eb26dc4e462d8ba70ba0acc577c8-ba24fe75-39ce-4cde-997d-ea3a64b33a02",
-            "amount": 14.99,
-            "currency": "USD",
-            "channel": "bank_transfer",
-            "status": "successful",
-            "customer": {
-                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-                "email": "customer@email.com"
-            },
-            "provider": "flutterwave",
-            "providerMessage": "success",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 107.7428709698959
-            },
-            "createdAt": "2024-07-09T11:32:36Z"
-        },
-        {
-            "id": "12871b4c-5708-4cdd-8fb0-a86e4f8cd48c",
-            "reference": "SPF-LY78146X-494164E5-D259-40F6-947F-D226BF751970",
-            "spotflowReference": "SPF-da08008c1f3f4861b8a48936196817d8",
-            "amount": 14.99,
-            "currency": "USD",
+            "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
+            "reference": "ref-2a0b9ee8-b48d-4849-8a09-e50827fd0bed",
+            "spotflowReference": "SPF-FLW-5b006ceeb0a54bb1acbd1c7da87784f0",
+            "amount": 5000.00,
+            "currency": "NGN",
             "channel": "card",
             "status": "successful",
             "customer": {
                 "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
                 "email": "customer@email.com"
             },
-            "provider": "flutterwave",
             "providerMessage": "successful",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 132.3244393277609
-            },
-            "createdAt": "2024-07-04T12:08:21Z"
-        },
-        {
-            "id": "236a5f75-5862-4374-b2c0-7580f99884eb",
-            "reference": "SPF-LYEC07C2-F46035BA-4CB3-4D88-AE01-2E8D14F591A2",
-            "spotflowReference": "SPF-FLUTTERWAVE-cc1f20ef9eaa4d6c9fdc8038fbeec130-ba24fe75-39ce-4cde-997d-ea3a64b33a02",
-            "amount": 14.99,
-            "currency": "USD",
-            "channel": "bank_transfer",
-            "status": "successful",
-            "customer": {
-                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-                "email": "customer@email.com"
-            },
+            "rate": 1,
             "provider": "flutterwave",
-            "providerMessage": "success",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 123.92055801581718
-            },
-            "createdAt": "2024-07-09T11:32:18Z"
+            "region": "Nigeria",
+            "createdAt": "2024-08-20T11:49:41Z"
         },
         {
-            "id": "6ce25b6c-6eee-4f4f-9c64-900d3501b832",
-            "reference": "SPF-LY77V2CX-188E4179-81C4-4A21-A583-D3C4B0387732",
-            "spotflowReference": "SPF-f8bc3f96fdc546c79fa885d1d57724c1",
-            "amount": 14.99,
-            "currency": "USD",
-            "channel": "card",
-            "status": "initiated",
-            "customer": {
-                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-                "email": "customer@email.com"
-            },
-            "provider": "flutterwave",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 138.48545676289962
-            },
-            "createdAt": "2024-07-04T12:06:01Z"
-        },
-        {
-            "id": "a2fa9231-c584-49b7-b033-095c362037c1",
-            "reference": "SPF-LY784CLH-D3A981F0-9ADE-4D4E-B49A-7545989E72DB",
-            "spotflowReference": "SPF-1616d4ec98a941dc98ed724363ec2c81",
-            "amount": 14.99,
-            "currency": "USD",
-            "channel": "bank_transfer",
-            "status": "successful",
-            "customer": {
-                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-                "email": "customer@email.com"
-            },
-            "provider": "flutterwave",
-            "providerMessage": "success",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 128.52063951793096
-            },
-            "createdAt": "2024-07-04T12:09:10Z"
-        },
-        {
-            "id": "bdaaee73-d72f-420a-8f4d-4e490b071e72",
-            "reference": "SPF-LYEBYDE0-D5422917-790E-4B40-845C-89FB6D15D991",
-            "spotflowReference": "SPF-FLUTTERWAVE-d648d3ba2c25407d834529f632bea40f-ba24fe75-39ce-4cde-997d-ea3a64b33a02",
-            "amount": 14.99,
-            "currency": "USD",
+            "id": "173073e5-2508-4086-8cbc-057be4d7f0bc",
+            "reference": "SPF|SUBS|fbbb578a25bf40959121151404458913",
+            "spotflowReference": "SPF-FLW-5be6a46d29e5417f94bc9e6732a67b34",
+            "amount": 5000.00,
+            "currency": "NGN",
             "channel": "card",
             "status": "successful",
             "customer": {
                 "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
                 "email": "customer@email.com"
             },
+            "providerMessage": "Approved",
+            "rate": 1,
             "provider": "flutterwave",
+            "region": "Nigeria",
+            "createdAt": "2024-08-27T14:00:04Z"
+        },
+        {
+            "id": "30e95cdd-7ac4-45f1-8b3b-f9040934cf33",
+            "reference": "SPF|SUBS|23e8e55fa85d4dc388b36e7d2746bdf3",
+            "spotflowReference": "SPF-FLW-9e19a042141a4b49b34853bc4c51f2b2",
+            "amount": 60.00,
+            "currency": "USD",
+            "localAmount": 92813.40,
+            "localCurrency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
+            "providerMessage": "Approved",
+            "rate": 1546.89,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "createdAt": "2024-08-27T14:00:24Z"
+        },
+        {
+            "id": "55d15d17-d681-4456-931d-6f8f2d4288ec",
+            "reference": "SPF|SUBS|e3c2ff54c5fc42d7ad1efab3a71afc3d",
+            "spotflowReference": "SPF-FLW-525146100c3949f08c3a3b057c750a3d",
+            "amount": 5000.00,
+            "currency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
+            "providerMessage": "Approved",
+            "rate": 1,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "createdAt": "2024-08-27T14:00:28Z"
+        },
+        {
+            "id": "590ca8b6-18dc-4bfc-8b28-940c69fc9937",
+            "reference": "ref-2a6fa25d-aac3-48f3-994a-8605d7a69ad6",
+            "spotflowReference": "SPF-FLW-c4d287bca17b4dbba268cb8c70af2a8c",
+            "amount": 5000.00,
+            "currency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
+            "providerMessage": "Approved. Successful",
+            "rate": 1,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "card": {
+                "type": "Visa",
+                "firstSix": "418742",
+                "lastFour": "4246"
+            },
+            "createdAt": "2024-08-26T12:14:18Z"
+        },
+        {
+            "id": "5a9108bf-07f8-4b59-9f73-ece8ef3ecabd",
+            "reference": "SPF|SUBS|98eb769329954beba5ac2655d6f4fd0b",
+            "spotflowReference": "SPF-FLW-d6d219fc1f1046d1b658295dcf97af6a",
+            "amount": 60.00,
+            "currency": "USD",
+            "localAmount": 92813.40,
+            "localCurrency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
+            "providerMessage": "Approved",
+            "rate": 1546.89,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "createdAt": "2024-08-27T14:00:18Z"
+        },
+        {
+            "id": "61d8099e-2104-4e36-8a32-f635d77c19e8",
+            "reference": "SPF-M0AWG4I5-858B-A67C-735-1E3B",
+            "spotflowReference": "SPF-FLW-b0ea6a195eb943cdba426d08acbe1bd1",
+            "amount": 60.00,
+            "currency": "USD",
+            "localAmount": 93009.00,
+            "localCurrency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
+            "providerMessage": "Approved. Successful",
+            "rate": 1550.15,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "card": {
+                "type": "Visa",
+                "firstSix": "418742",
+                "lastFour": "4246"
+            },
+            "createdAt": "2024-08-26T11:13:00Z"
+        },
+        {
+            "id": "63fdc226-87ec-49e8-b966-de3eab5c56a8",
+            "reference": "SPF-M0AWSM5F-344D-5B31-ACA-0F45",
+            "spotflowReference": "SPF-FLW-33645f1ad1af4b48a4be87d17ce3485f",
+            "amount": 60.00,
+            "currency": "USD",
+            "localAmount": 92994.60,
+            "localCurrency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
+            "providerMessage": "Approved. Successful",
+            "rate": 1549.91,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "card": {
+                "type": "Visa",
+                "firstSix": "455605",
+                "lastFour": "2643"
+            },
+            "createdAt": "2024-08-26T11:22:41Z"
+        },
+        {
+            "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
+            "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+            "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
+            "amount": 5000.00,
+            "currency": "NGN",
+            "channel": "card",
+            "status": "successful",
+            "customer": {
+                "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+                "email": "customer@email.com"
+            },
             "providerMessage": "successful",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 133.09509342343202
+            "rate": 1,
+            "provider": "flutterwave",
+            "region": "Nigeria",
+            "card": {
+                "type": "Mastercard",
+                "firstSix": "553188",
+                "lastFour": "2950"
             },
-            "createdAt": "2024-07-09T11:30:58Z"
+            "createdAt": "2024-08-27T12:43:59Z"
         },
         {
-            "id": "e64ba833-ba53-4cda-9b9d-a3bc3c6600c1",
-            "reference": "SPF-LY780VGA-036C64C0-C5DF-4F1E-B028-DE90E5442295",
-            "spotflowReference": "SPF-0a0a991fe749401ca1a3c1e3e0e4f07c",
-            "amount": 14.99,
+            "id": "71cbb692-f113-46da-a5b2-bd88109cd32a",
+            "reference": "SPF|SUBS|ec0e71543fbc4d68b7ad31a70e8ed576",
+            "spotflowReference": "SPF-FLW-669e827801264a89a43ce366411383a8",
+            "amount": 60.00,
             "currency": "USD",
+            "localAmount": 92813.40,
+            "localCurrency": "NGN",
             "channel": "card",
-            "status": "initiated",
+            "status": "successful",
             "customer": {
                 "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
                 "email": "customer@email.com"
             },
+            "providerMessage": "Approved",
+            "rate": 1546.89,
             "provider": "flutterwave",
-            "rate": {
-                "from": "USD",
-                "to": "NGN",
-                "rate": 157.09356615346204
-            },
-            "createdAt": "2024-07-04T12:06:28Z"
+            "region": "Nigeria",
+            "createdAt": "2024-08-27T14:00:19Z"
         }
     ],
     "pageNumber": 0,
     "pageSize": 10,
-    "totalElements": 7,
-    "totalPages": 1
+    "totalElements": 31,
+    "totalPages": 4
 }
 ```

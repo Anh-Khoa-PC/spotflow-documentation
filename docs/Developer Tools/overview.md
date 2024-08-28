@@ -38,9 +38,6 @@ Get started with our developer tools and build your payment integration efficien
 </DevTools>
 </Link>
 </DevToolsContainer>
-We’ve also put together some of  our resources to help with your Spotflow integration.
 
-- **OpenAPI Spec:** Spotflow-One/openapi
-- **Postman Collection:** Spotflow-One/developers
 
 By leveraging our developer tools, you can accelerate your integration process, enhance the user experience, and optimize your payment operations.

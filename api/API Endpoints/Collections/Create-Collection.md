@@ -24,21 +24,22 @@ Our API helps you collect payments using different payment methods. Payment meth
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the charges. Can either be in USD or in the local currency of your collection region.|
 | customer email <br></br> <span style={{color: "red"}}>`String`</span> | The customer’s email address |
 | channel <br></br> <span style={{color: "red"}}>`String`</span> | The channel is Card |
-| encryptedCard <br></br> <span style={{color: "red"}}>`String`</span> | This contains the encrypted card data (token) and encryption key information. This is based on the AES-256-GCM encryption algorithm. |
+| encryptedCard <br></br> <span style={{color: "red"}}>`String`</span> | This contains the encrypted card data (token) and encryption key information gotten from your dashboard. This is based on the AES-256-GCM encryption algorithm. |
 
 **Sample Request Body for Card Payments**
 
 ```json
 {
     "reference": "ref-{{$randomUUID}}",
-    "amount": 20,
-    "currency": "USD",
+    "amount": 5000,
+    "currency": "NGN",
     "customer": {
         "email": "customer@email.com"
     },
     "channel": "card",
-     "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaouxxxxxxxxxxxxx"
+    "encryptedCard": "eudUxR9JoEw6hRmjOU9yO6PYDAOxW2CuoqRHq98eaDyyjX/ek9V6izh5dSHJ+z04K6UHswIjRvRhUvpH/ZXKsVdE/ZUT4zJ6DTWEUT+p4Dy6ZrnCMhGoFmCghkST2awAWz+ULC7fDg=="
 }
+
 ```
 
 **Sample Response for Card Payments** 
@@ -49,26 +50,27 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 ```json
 {
-    "id": "97297586-9ebd-4bc4-a36b-c1046229115e", //payment-id
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
-    "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
-    "amount": 20,
-    "currency": "USD",
+    "id": "01dc7242-9357-44ea-9095-d8e91621f448",
+    "reference": "ref-af1b272c-e16d-4d7b-aac3-98721ee81b1e",
+    "spotflowReference": "SPF-FLW-8fb38e8fa22b4ab290e337b2afc835f5",
+    "amount": 5000.00,
+    "currency": "NGN",
     "channel": "card",
-    "status": "pending_authorization",
+    "status": "pending",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
+    "rate": 1,
     "provider": "flutterwave",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.46
-    },
+    "region": "Nigeria",
     "authorization": {
         "mode": "pin"
+    },
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
     }
 }
 ```
@@ -86,7 +88,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 ### Sample Request Body for Bank Transfer Payments
 
 ```json
- {
+{
     "reference": "ref-{{$randomUUID}}",
     "amount":10,
     "currency": "USD",
@@ -95,14 +97,15 @@ Our API helps you collect payments using different payment methods. Payment meth
         "email": "customer@email.com"
     },
     "channel": "bank_transfer"
- }
+}
 ```
 
-### Sample Response
+### Sample Response for Bank Transfer Payments
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
 <br></br>
+
 ```json
 {
     "id": "0e914ea4-067b-41cc-a3b6-0e0b401483bf", //payment id
@@ -122,17 +125,99 @@ Our API helps you collect payments using different payment methods. Payment meth
         "email": "customer@email.com"
     },
     "provider": "flutterwave",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.66
-    }
+    "rate": 1540.66,
 }
+```
+
+## USSD Payments
+<span style={{color: "red"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/banks?ussd=true
+
+**Sample Response to Get All Banks (NG available currently)**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```json
+[
+    {
+        "code": "044",
+        "name": "Access Bank"
+    },
+    {
+        "code": "050",
+        "name": "Ecobank"
+    },
+    {
+        "code": "070",
+        "name": "Fidelity Bank"
+    },
+    {
+        "code": "011",
+        "name": "First Bank of Nigeria"
+    },
+    {
+        "code": "214",
+        "name": "First City Monument Bank (FCMB)"
+    },
+    {
+        "code": "058",
+        "name": "Guaranty Trust Bank"
+    },
+    {
+        "code": "030",
+        "name": "Heritage Bank"
+    },
+    {
+        "code": "082",
+        "name": "Keystone Bank"
+    },
+    {
+        "code": "303",
+        "name": "Lotus Bank"
+    },
+    {
+        "code": "105",
+        "name": "Premium Trust Bank"
+    },
+    {
+        "code": "221",
+        "name": "Stanbic IBTC Bank"
+    },
+    {
+        "code": "232",
+        "name": "Sterling Bank"
+    },
+    {
+        "code": "032",
+        "name": "Union Bank"
+    },
+    {
+        "code": "033",
+        "name": "United Bank for Africa (UBA)"
+    },
+    {
+        "code": "215",
+        "name": "Unity Bank"
+    },
+    {
+        "code": "090110",
+        "name": "VFD Microfinance Bank"
+    },
+    {
+        "code": "035",
+        "name": "Wema Bank"
+    },
+    {
+        "code": "057",
+        "name": "Zenith Bank"
+    }
+]
 ```
 
 ## Recurring Payment
 
-Set up recurring payments for a subscription plan using Spotflow. Check out <a target="_blank" href={"../../../docs/recurring-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation here</a> for more details on recurring payment.
+Set up recurring payments for a subscription plan using Spotflow. Check out <a target="_blank" href={"../../../docs/recurring-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation</a> for more details.
 
 <span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
@@ -146,7 +231,7 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 
 | <p style={{fontWeight: '400'}}>reference <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>Specify a unique reference ID generated by your company to identify each customer.</p> |
 |:---------|:---------|
-| planId <span style={{color: "red"}}>`String`</span> | Add the plan ID gotten when the subscription plan was created. Go to the <span style={{color: "red"}}>`Susbcription Plan Endpoint`</span> to know more. |
+| planId <br></br> <span style={{color: "red"}}>`String`</span> | Add the plan ID gotten when the subscription plan was created. Go to the <span style={{color: "red"}}>`Susbcription Plan Endpoint`</span> to know more. |
 | amount <br></br> <span style={{color: "red"}}>`Integer`</span> | Amount should be in the subunit of our supported currency i.e your local currency or USD. |
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the charges. Can either be in USD or in the local currency of your collection region.|
 | customer email <br></br> <span style={{color: "red"}}>`String`</span> | The customer’s email address |
@@ -158,14 +243,14 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 ```json
 {
     "reference": "ref-{{$randomUUID}}",
-    "planId": "3cbab046-f06a-4815-941d-d8cc7be43d59",
-    "amount": 5,
-    "currency": "USD",
+    "planId": "5212007d-569f-4be5-a674-18ba21efb95f",
+    "amount": 5000,
+    "currency": "NGN",
     "customer": {
         "email": "customer@email.com"
     },
     "channel": "card",
-   "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaouxxxxxxxxxxxxx"
+    "encryptedCard": "tbkROEv/afX0e8W60hfDuxWvZ5ErlW2InTN5q8FpM24jaD1gdxISO3uLqWl8CSP9DXujSAMEM6M6S/V7SEbcukhAN/Toj1mTrSBmYZ7lQvfAc0009W70ErZ0wD4z6d+wIvDdOVzJZw=="
 }
 ```
 
@@ -177,26 +262,29 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 
 ```json
 {
-    "id": "209a7124-93a3-463b-a3f3-045a10a12a68", //payment-id
-    "reference": "ref-f3fb1052-4289-4345-bd05-f6e036f2f021",
-    "spotflowReference": "SPF-FLW-6a438e7ce8814df8b8e951d2d5638948",
-    "amount": 5,
-    "currency": "USD",
+    "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
+    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+    "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
+    "amount": 5000.00,
+    "currency": "NGN",
     "channel": "card",
-    "status": "pending_authorization",
+    "status": "pending",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
+    "rate": 1,
     "provider": "flutterwave",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.49
-    },
+    "region": "Nigeria",
     "authorization": {
         "mode": "pin"
+    },
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
     }
 }
 ```
+
+Ensure you authorize the payments with our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a>.

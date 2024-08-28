@@ -42,21 +42,10 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "successful",
-    "rate": {
-        "from": "NGN",
-        "to": "NGN",
-        "rate": 1
-    },
-    "serviceProvider": {
-        "id": 1,
-        "name": "flutterwave"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
+    "rate": 1,
+    "provider": "flutterwave",
+    "region": "Nigeria",
     "createdAt": "2024-08-20T11:49:41Z"
 }
 ```

@@ -18,6 +18,10 @@ const sidebars = {
         id: 'errors',
         className: 'errors'
       },
+      {
+        type: 'doc',
+        id: 'fetch-region-for-merchant'
+      },
       // {
       //   type: 'category',
       //   label: 'API Endpoints',
@@ -32,7 +36,7 @@ const sidebars = {
               "API Endpoints/Collections/Create-Collection",
               "API Endpoints/Collections/verify-collection",
               "API Endpoints/Collections/authorize-collections",
-              "API Endpoints/Collections/validate-collections",
+              // "API Endpoints/Collections/validate-collections",
               // "API Endpoints/Collections/create-bulk-collections",
               "API Endpoints/Collections/list-collections",
               "API Endpoints/Collections/fetch-collections",

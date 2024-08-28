@@ -1,10 +1,10 @@
 ---
-title: Authorize Payments
+title: Authorize Payment
 ---
 
 # Authorize Payment
 
-This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out our <a target="_blank" href={"../../../docs/accepting-payment"} style={{textDecoration: "underline"}}>documentation</a>. 
+This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out <a target="_blank" href={"../../../docs/accepting-payment"} style={{textDecoration: "underline"}}>our documentation</a>. 
 
 <span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments/authorize
 
@@ -40,28 +40,71 @@ This authorizes a payment by pre-approving the transaction before final validati
 
 ```json
 {
-    "id": "97297586-9ebd-4bc4-a36b-c1046229115e",
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
-    "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
-    "amount": 20.00,
-    "currency": "USD",
+    "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
+    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+    "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
+    "amount": 5000.00,
+    "currency": "NGN",
     "channel": "card",
-    "status": "pending_validation",
+    "status": "pending",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
+    "rate": 1,
     "provider": "flutterwave",
-    "providerMessage": "Please enter the OTP sent to your mobile number 080****** and email te**@rave**.com",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.46
-    },
+    "region": "Nigeria",
     "authorization": {
-        "mode": "otp"
+        "mode": "pin"
     },
-    "createdAt": "2024-08-06T22:57:54Z"
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
+    }
+}
+```
+
+Following the step gotten after the initial authorization response, you’ve to further authorize the payment to validate the payment.
+
+**Sample Request Body**
+
+```json
+{
+    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+    "authorization": {
+        "otp": "12345"
+    }
+}
+```
+
+**Sample Response**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+
+```json
+{
+    "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
+    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+    "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
+    "amount": 5000.00,
+    "currency": "NGN",
+    "channel": "card",
+    "status": "successful",
+    "customer": {
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "email": "customer@email.com"
+    },
+    "providerMessage": "successful",
+    "rate": 1,
+    "provider": "flutterwave",
+    "region": "Nigeria",
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
+    },
+    "createdAt": "2024-08-27T12:43:59Z"
 }
 ```

@@ -65,7 +65,7 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 
 ```js
 <button onclick="openCheckout()">
-   Make Payment
+  Make Payment
 </button>
 ```
 
@@ -73,13 +73,17 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 <script>
   const openCheckout = () => {
     const { CheckoutForm } = SpotflowCheckout
-    const checkout = new CheckoutForm(
-      merchantKey = "<sk_test_f998479c0eedhXXXXXXXXXXXXXXXX>"// This is your Merchant Secret Key generated for your Merchant on Spotflow
-      email = "temi@mailinator.com",
-      amount = 1000,
-      currency = "NGN",
+    const checkout = new CheckoutForm({}
     );
-    checkout.setup();
+    checkout.setup({
+      email: "customer@email.com",
+      encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=",
+      merchantKey: "sk_test_6988f8d1539a48ab945764ec361fa3eb",
+      amount: 5,
+      onSuccess: (value) => {
+        console.log("Fully Success", { value })
+      }
+    });
   };
 </script>
 ```
@@ -102,13 +106,15 @@ The InlineJS library provides a global <span >`Spotflow`</span> object with the 
 Spotflow.openCheckout({
   amount: 1000,
   currency: "NGN",
-merchant key: "<sk_test_f998479c0eedhXXXXXXXXXXXXXXXX>" // This is your Merchant Secret Key generated for your Merchant on Spotflow
+  merchantKey: "<sk_test_f998479c0eedhXXXXXXXXXXXXXXXX>" // This is your Merchant Secret Key generated for your Merchant on Spotflow
   plan: "plan_id", // Replace with your plan ID
-    email: "customer@example.com",
+  email: "customer@example.com",
+  encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=" // This is your encryption key for your card payment
 
-  callback: function(response) {
-    console.log(response);
-    // Handles subscription creation or failure
+  
+  onSuccess: (value) => {
+    console.log("Fully Success", { value })
+      // Handles subscription creation or failure
   }
 });
 ```

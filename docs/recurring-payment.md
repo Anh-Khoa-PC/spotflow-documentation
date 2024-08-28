@@ -34,7 +34,7 @@ To set up a recurring billing plan, you'll need to provide the following informa
 - **Billing Frequency**: Specify how often you want to charge your customers. Choose from daily, weekly, monthly, quarterly, annually, or a custom interval (e.g., every 2 months).
 - **Amount**: Determine the charge amount for each billing cycle. You can set this upfront or define it dynamically during payment collection.
 - **Currency**: Select the currency for the charges. This has to be specified always as you can choose for it to either be in USD or in the local currency of your region.
-- **Region ID**:  Specify the region ID for the payment. This is important as we are aware some merchants have different prices for a specific product across different regions. To see our available regions, kindly go to our <span style={{color: "red"}}>`Fetch Region List`</span> endpoint to know your region ID.
+- **Region ID**:  Specify the region ID for the payment. This is important as we are aware some merchants have different prices for a specific product across different regions. To know your region ID, kindly go to our <a target="_blank" style={{textDecoration: "underline"}} href={"../api/fetch-region-for-merchant"}>Fetch Region for Merchant</a> endpoint.
 
 Once you've defined these parameters, use Spotflow <a target="_blank" href={"../api/API Endpoints/Subscription Plans/create-single-plan"} style={{textDecoration: "underline"}}>Create Plan</a> endpoint to establish the recurring billing structure. Here's a sample of what the request body and response looks like: 
 
@@ -81,44 +81,44 @@ To enroll a customer in a subscription, simply reference the plan ID when initia
   "amount": 5000,
   "currency": "NGN",
   "customer": {
-    "email": "customer@email.com"
+      "email": "customer@email.com"
   },
   "channel": "card",
-  "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaoVv16hM+ZblErO19A+xxxxxxxxxxxxx"
+  "encryptedCard": "tbkROEv/afX0e8W60hfDuxWvZ5ErlW2InTN5q8FpM24jaD1gdxISO3uLqWl8CSP9DXujSAMEM6M6S/V7SEbcukhAN/Toj1mTrSBmYZ7lQvfAc0009W70ErZ0wD4z6d+wIvDdOVzJZw=="
 }
+
 ```
 
 **Sample Response:**
 ```json
 {
-  "id": "8f05807e-c52c-424b-80d2-88b990e856a7",
-  "reference": "ref-42d46f33-c262-4130-a67d-6c325c436db2",
-  "spotflowReference": "SPF-KPY-5d5ca308955d421a8d6fb3c541b98fd8",
-  "amount": 5000,
+  "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
+  "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+  "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
+  "amount": 5000.00,
   "currency": "NGN",
   "channel": "card",
-  "status": "successful",
+  "status": "pending",
   "customer": {
-    "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-    "email": "customer@email.com"
+      "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+      "email": "customer@email.com"
   },
-  "provider": "korapay",
-  "providerMessage": "Card charged successfully",
-  "rate": {
-    "from": "NGN",
-    "to": "NGN",
-    "rate": 1
+  "rate": 1,
+  "provider": "flutterwave",
+  "region": "Nigeria",
+  "authorization": {
+      "mode": "pin"
   },
-  "serviceProvider": {
-    "id": 3,
-    "name": "korapay"
-  },
-  "region": {
-    "id": 1,
-    "name": "Nigeria"
+  "card": {
+      "type": "Mastercard",
+      "firstSix": "553188",
+      "lastFour": "2950"
   }
 }
 ```
+
+Ensure you authorize the payment with our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a>
+
 <Admonitions type={'warning'} icon={'📌'} title={'Important'}>
 Ensure consistency in currency selection by using the same currency for both the payment plan and the initial charge.
 </Admonitions>
@@ -130,15 +130,22 @@ Please note that specifying a payment plan when processing a card payment automa
 
 ```js
 <script>
-    const openCheckout = () => {
+  const openCheckout = () => {
     const { CheckoutForm } = SpotflowCheckout
-    const checkout = new CheckoutForm(
-        merchantKey = "merchant_key",
-        email = "email",
-        amount = 1000,
+    const checkout = new CheckoutForm({}
+
     );
-    checkout.setup();
-};
+    checkout.setup({
+      email: "customer@email.com",
+      encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/xxxxx",
+      merchantKey: "sk_test_6988f8d1539a48ab94xxxxx",
+      planId: "3cbab046-f06a-4815-941d-d8xxxxx",
+      amount: 5,
+      onSuccess: (value) => {
+        console.log("Fully Success", { value })
+      }
+    });
+  };
 </script>
 ```
 
@@ -166,14 +173,13 @@ Here are some webhook payloads examples:
 `{
   "event": "payment_successful",
   "data": {
-    "id": "ch_1234567890123456",
-    "amount": 10000,
+    "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
+    "amount": 500,
     "currency": "NGN",
-    "customer_id": "cus_1234567890123456",
-    "created_at": "2023-11-22T12:34:56Z",
+    "customer_id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+    "created_at": "2024-08-20T11:49:41Z",
     "channel": "card",
     "status": "success"
-  }
 }`
 ```
 <br></br>
@@ -187,16 +193,12 @@ Spotflow provides webhooks to notify you of payment events (e.g., successful cha
 {
   "event": "subscription.canceled",
   "data": {
-    "id": "sub_1234567890123456",
-    "customer_id": "cus_1234567890123456",
-    "status": "canceled",
-    "canceled_at": "2023-11-22T12:34:56Z",
-    "plan_id": "plan_1234567890123456",
-    "current_period_end": "2023-12-22T12:34:56Z",
-    "metadata": {
-      "reason": "customer_request"
+    "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
+    "customer_id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+    "status": "cancelled",
+    "canceled_at": "2024-08-20T11:49:41Z",
+    "plan_id": "3cbab046-f06a-4815-941d-d8cc7be43d59"
     }
-  }
 }
 ```
 

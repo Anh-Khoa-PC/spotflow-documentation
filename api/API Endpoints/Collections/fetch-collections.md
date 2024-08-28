@@ -5,6 +5,8 @@ pagination_next: null
 
 # Fetch Payment
 
+Get details of a specific payment by its ID
+
 <span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/payments/:payment-id
 
 ## Headers
@@ -31,6 +33,8 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon payme
     "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
     "amount": 20.00,
     "currency": "USD",
+    "localAmount": 30809.20,
+    "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
@@ -38,13 +42,10 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon payme
         "name": "Earline Bradtke",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "successful",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.46
-    },
+    "rate": 1540.46,
+    "provider": "flutterwave",
+    "region": "Nigeria",
     "createdAt": "2024-08-06T22:57:54Z"
 }
 ```

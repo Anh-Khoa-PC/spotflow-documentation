@@ -64,7 +64,9 @@ To learn more about PCI-DSS compliance, visit the PCI Security Standards Council
 
 ## Accepting Card Payments with Spotflow Classic
 
-**Firstly**, To accept card payments with our Payment API, you've to collect the required card and payment information from your customer. This data should be structured into a data object following this specified format: 
+**Firstly**, To accept card payments with our Payment API, you've to collect the required card and payment information from your customer. This data should be structured into a data object following this specified format, sent to our endpoint: 
+
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
 ```json
 {
@@ -97,7 +99,7 @@ To learn more about PCI-DSS compliance, visit the PCI Security Standards Council
 | expiryMonth <br></br> <span style={{color: "red"}}>`Integer`</span>| The expiration month is represented by the first two-digit value on the card, indicating the month in which the card will no longer be valid. |
 | expiryYear <br></br> <span style={{color: "red"}}>`Integer`</span>| The expiration year is represented by the last two digits of the card's expiration date. |
 
-Secondly, to ensure the complete security of card data during transmission, Spotflow employs AES-256 encryption. The payment data you collected in the previous step must be encrypted using your unique encryption key before making requests to the Payments API. This encryption key can be found in the API Keys and Webhooks section of your dashboard settings.
+**Secondly**, to ensure the complete security of card data during transmission, Spotflow employs AES-256 encryption. The payment data you collected in the previous step must be encrypted using your unique encryption key before making requests to the Payments API. This encryption key can be found in the API Keys and Webhooks section of your dashboard settings.
 
 AES-256 encryption is widely supported across programming languages. The sample code snippet below demonstrates a basic implementation in Java using the AES/ECB/PKCS5Padding algorithm. For production environments, consider using more secure modes like AES/GCM and implementing proper error handling.
 
@@ -172,7 +174,7 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
         "email": "customer@email.com"
     },
     "channel": "card",
-     "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaouxxxxxxxxxxxxx"
+    "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaouxxxxxxxxxxxxx"
 }
 ```
 
@@ -184,31 +186,34 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
 
 ```json
 {
-    "id": "97297586-9ebd-4bc4-a36b-c1046229115e", //payment-id
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
-    "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
-    "amount": 20,
+    "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
+    "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
+    "spotflowReference": "SPF-FLW-2ec238d8b8764a33b1b9e43cd2cf2342",
+    "amount": 20.00,
     "currency": "USD",
+    "localAmount": 30951.60,
+    "localCurrency": "NGN",
     "channel": "card",
-    "status": "pending_authorization",
+    "status": "pending",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
+    "rate": 1547.58,
     "provider": "flutterwave",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.46
-    },
+    "region": "Nigeria",
     "authorization": {
         "mode": "pin"
+    },
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
     }
 }
 ```
 
-Upon successful payment creation, the transaction's initial status will be 'pending authorization'. The subsequent authentication method required depends on the specific card type and the authorization mode.
+**Upon successful payment creation**, the transaction's initial status will be <span style={{color: "red"}}>`pending`</span> which shows it's a payment needing authorization. The subsequent authentication method required depends on the specific card type and the authorization mode.
 
 ## Authorize Card Payment
 
@@ -231,7 +236,7 @@ Following the initial response, get the required card PIN and make a request to 
 }
 ```
 
-Upon successful payment authorization, the transaction's initial status can be failed or ‘pending validation’ as shown in the response below: 
+Upon successful payment authorization, the transaction's initial status can be <span style={{color: "red"}}>`failed`</span> or <span style={{color: "red"}}>`pending`</span> as shown in the response below: 
 
 **Sample Response**
 
@@ -241,37 +246,40 @@ Upon successful payment authorization, the transaction's initial status can be f
 
 ```json
 {
-    "id": "97297586-9ebd-4bc4-a36b-c1046229115e",
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
-    "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
+    "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
+    "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
+    "spotflowReference": "SPF-FLW-2ec238d8b8764a33b1b9e43cd2cf2342",
     "amount": 20.00,
     "currency": "USD",
+    "localAmount": 30951.60,
+    "localCurrency": "NGN",
     "channel": "card",
-    "status": "pending_validation",
+    "status": "pending",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "Please enter the OTP sent to your mobile number 080****** and email te**@rave**.com",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.46
-    },
+    "rate": 1547.58,
+    "provider": "flutterwave",
+    "region": "Nigeria",
     "authorization": {
         "mode": "otp"
     },
-    "createdAt": "2024-08-06T22:57:54Z"
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
+    },
+    "createdAt": "2024-08-27T15:18:01Z"
 }
 ```
 
 ### Making a Card Payment that Requires OTP Authorization
 
-After making a request to authorize the card, a pending validation status will be returned along with the OTP authorization mode. This indicates that an <span style={{color: "red"}}>`OTP`</span> has been sent to the registered phone number or email tied to the customer’s bank account. You would need to get the <span style={{color: "red"}}>`OTP`</span> to validate the transaction. 
+After making a request to authorize the card, a pending status will be returned along with the OTP authorization mode. This indicates that an <span style={{color: "red"}}>`OTP`</span> has been sent to the registered phone number or email tied to the customer’s bank account. You would need to get the <span style={{color: "red"}}>`OTP`</span> to validate the transaction. 
 
-What you need to do next is get the OTP sent to the customer’s phone/email and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/validate-collections"} style={{textDecoration: "underline"}}>Validate Payment Endpoint</a>  using the OTP and initial transaction reference as shown in the sample request below:
+What you need to do next is get the OTP sent to the customer’s phone/email and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a>  using the OTP and initial transaction reference as shown in the sample request below:
 
 **Sample Request Body**
 
@@ -292,26 +300,29 @@ What you need to do next is get the OTP sent to the customer’s phone/email and
 
 ```json
 {
-    "id": "97297586-9ebd-4bc4-a36b-c1046229115e",
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
-    "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
+    "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
+    "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
+    "spotflowReference": "SPF-FLW-2ec238d8b8764a33b1b9e43cd2cf2342",
     "amount": 20.00,
     "currency": "USD",
+    "localAmount": 30951.60,
+    "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "successful",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.46
+    "rate": 1547.58,
+    "provider": "flutterwave",
+    "region": "Nigeria",
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "553188",
+        "lastFour": "2950"
     },
-    "createdAt": "2024-08-06T22:57:54Z"
+    "createdAt": "2024-08-27T15:18:01Z"
 }
 ```
 
@@ -329,35 +340,31 @@ Based on the initial request made to authorize the card, it automatically detect
 
 ```json
 {
-    "id": "1ba3f454-cd4b-429a-87e5-b46cdfafbe43",
-    "reference": "ref-14f4e2f7-f9f4-4cb1-8e45-c06570acb9ac",
-    "spotflowReference": "SPF-FLW-4e24ede5f3a947f3a8fc593b63dd2b54",
-    "amount": 20,
+    "id": "6945c177-6558-4a56-8257-7e880903dbc6",
+    "reference": "ref-11f6941a-5db9-4c44-ab83-1d5eab966ce8",
+    "spotflowReference": "SPF-FLW-b532e4c3dd9a4b0a9a79cf575117af19",
+    "amount": 20.00,
     "currency": "USD",
+    "localAmount": 30939.40,
+    "localCurrency": "NGN",
     "channel": "card",
-    "status": "pending_validation",
+    "status": "pending",
     "customer": {
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "Please enter the OTP sent to your mobile number 080****** and email te**@rave**.com",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1548.52
-    },
-    "serviceProvider": {
-        "id": 1,
-        "name": "flutterwave"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
+    "rate": 1546.97,
+    "provider": "flutterwave",
+    "region": "Nigeria",
     "authorization": {
         "mode": "3DS",
-        "redirectUrl": "https://ravesandboxapi.flutterwave.com/mockvbvpage?ref=FLW-MOCK-4472698e087d028c1a916eb7d2c1f8ec&code=00&message=Approved.%20Successful&receiptno=RN1724170504423"
+        "redirectUrl": "https://ravesandboxapi.flutterwave.com/mockvbvpage?ref=FLW-MOCK-89d9dd4cc3846b8dbbfea6b4060f7721&code=00&message=Approved.%20Successful&receiptno=RN1724773095768"
+    },
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "543889",
+        "lastFour": "0229"
     }
 }
 ```
@@ -366,42 +373,38 @@ To complete the authorization process, it is crucial to redirect your customer t
 
 ### Making a Card Payment that Requires AVS Authorization
 
-For cards requiring Address Verification System (AVS) checks, the system automatically detects this requirement upon initiating the payment. A subsequent response will indicate the need for AVS authorization with <span style={{color: "red"}}>`pending validation`</span> status and authentication mode as <span style={{color: "red"}}>`avs`</span> like the sample response below:
+For cards requiring Address Verification System (AVS) checks, the system automatically detects this requirement upon initiating the payment. A subsequent response will indicate the need for AVS authorization with <span style={{color: "red"}}>`pending`</span> status and authentication mode as <span style={{color: "red"}}>`avs`</span> like the sample response below:
 
 ```json
 {
-    "id": "e1f1476b-a7d2-49a1-963b-b72a718ffd0e",
-    "reference": "ref-c2040ff9-9332-4417-b64e-14daf3ec8061",
-    "spotflowReference": "SPF-KPY-44dc14ccfd70488ebf6e50e5aebe1847",
-    "amount": 10,
+    "id": "fb720170-0659-4c18-a6ea-0a141a498e69",
+    "reference": "ref-7b968e38-eecc-4558-9d62-c50ffb7187c6",
+    "spotflowReference": "SPF-KPY-fcd8dfacfa1b45e68ebf55b9029330ee",
+    "amount": 20.00,
     "currency": "USD",
+    "localAmount": 31069.00,
+    "localCurrency": "NGN",
     "channel": "card",
-    "status": "pending_validation",
+    "status": "pending",
     "customer": {
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "korapay",
     "providerMessage": "Address verification required",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1549.68
-    },
-    "serviceProvider": {
-        "id": 3,
-        "name": "korapay"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
+    "rate": 1553.45,
+    "provider": "korapay",
+    "region": "Nigeria",
     "authorization": {
         "mode": "avs"
+    },
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "538406",
+        "lastFour": "2071"
     }
 }
 ```
-Upon receiving a response indicating the need for AVS verification, you need to gather the customer's address details and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/validate-collections"} style={{textDecoration: "underline"}}>Validate Payment endpoint</a> with a sample request as shown below:
+Upon receiving a response indicating the need for AVS verification, you need to gather the customer's address details and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a> with a sample request as shown below:
 
 ```json
 {
@@ -426,33 +429,29 @@ Upon receiving a response indicating the need for AVS verification, you need to 
 
 ```json
 {
-    "id": "e1f1476b-a7d2-49a1-963b-b72a718ffd0e",
-    "reference": "ref-c2040ff9-9332-4417-b64e-14daf3ec8061",
-    "spotflowReference": "SPF-KPY-44dc14ccfd70488ebf6e50e5aebe1847",
-    "amount": 10.00,
+    "id": "fb720170-0659-4c18-a6ea-0a141a498e69",
+    "reference": "ref-7b968e38-eecc-4558-9d62-c50ffb7187c6",
+    "spotflowReference": "SPF-KPY-fcd8dfacfa1b45e68ebf55b9029330ee",
+    "amount": 20.00,
     "currency": "USD",
+    "localAmount": 31069.00,
+    "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "korapay",
     "providerMessage": "Card charged successfully",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1549.68
+    "rate": 1553.45,
+    "provider": "korapay",
+    "region": "Nigeria",
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "538406",
+        "lastFour": "2071"
     },
-    "serviceProvider": {
-        "id": 3,
-        "name": "korapay"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
-    "createdAt": "2024-08-20T22:06:08Z"
+    "createdAt": "2024-08-28T10:47:32Z"
 }
 ```
 
@@ -460,13 +459,13 @@ If the status of the transaction at this point is either <span style={{color: "
 
 ## Making a Card Payment that Requires Phone Enrollment (Verve Cards)
 
-After making the request to create a <span style={{color: "red"}}>`card payment`</span> and then authorizing the payment, if the payment status is <span style={{color: "red"}}>`pending validation`</span> and the authorization mode is <span style={{color: "red"}}>`ENROLL`</span>, this means the customer's card is not yet enrolled for online payments. Card enrollment is necessary to proceed with the transaction.
+After making the request to create a <span style={{color: "red"}}>`card payment`</span> and then authorizing the payment, if the payment status is <span style={{color: "red"}}>`pending`</span> and the authorization mode is <span style={{color: "red"}}>`ENROLL`</span>, this means the customer's card is not yet enrolled for online payments. Card enrollment is necessary to proceed with the transaction.
 
 **Sample Request:**
 
 ```json
 {
-  "reference": "ref-91e20470-cf74-451f-8d52-d9168ad1aa55",
+  "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
   "authorization": {
       "pin": "1234"
     },
@@ -476,42 +475,38 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
 
 **Sample Response:**
 
-```jon
+```json
 {
-    "id": "387bb4d0-5841-49fe-841c-c25c0eb36fe3",
-    "reference": "ref-91e20470-cf74-451f-8d52-d9168ad1aa55",
-    "spotflowReference": "SPF-KPY-e69ebce68a1d4e0e910578dacf981803",
+    "id": "cad7247a-d37d-4120-b1f3-bd2d8bc15a9a",
+    "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
+    "spotflowReference": "SPF-KPY-51e21877f9c346b48c050186471f98ab",
     "amount": 10.00,
     "currency": "USD",
+    "localAmount": 15542.30,
+    "localCurrency": "NGN",
     "channel": "card",
-    "status": "pending_validation",
+    "status": "pending",
     "customer": {
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "korapay",
     "providerMessage": "Kindly enter the phone number registered with your bank",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1549.88
-    },
-    "serviceProvider": {
-        "id": 3,
-        "name": "korapay"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
+    "rate": 1554.23,
+    "provider": "korapay",
+    "region": "Nigeria",
     "authorization": {
         "mode": "enroll"
     },
-    "createdAt": "2024-08-20T22:16:36Z"
+    "card": {
+        "type": "Maestro",
+        "firstSix": "506146",
+        "lastFour": "3210"
+    },
+    "createdAt": "2024-08-28T11:04:05Z"
 }
 ```
 
-Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enroll'`</span> verification is required, collect the customer's phone number registered with the bank account and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/validate-collections"} style={{textDecoration: "underline"}}>Validate Payment endpoint</a> with a sample request as shown below:
+Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enroll'`</span> verification is required, collect the customer's phone number registered with the bank account and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a> with a sample request as shown below:
 
 ```json
 {
@@ -526,40 +521,36 @@ Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enr
 
 ```json
 {
-    "id": "387bb4d0-5841-49fe-841c-c25c0eb36fe3",
-    "reference": "ref-91e20470-cf74-451f-8d52-d9168ad1aa55",
-    "spotflowReference": "SPF-KPY-e69ebce68a1d4e0e910578dacf981803",
+    "id": "cad7247a-d37d-4120-b1f3-bd2d8bc15a9a",
+    "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
+    "spotflowReference": "SPF-KPY-51e21877f9c346b48c050186471f98ab",
     "amount": 10.00,
     "currency": "USD",
+    "localAmount": 15542.30,
+    "localCurrency": "NGN",
     "channel": "card",
-    "status": "pending_validation",
+    "status": "pending",
     "customer": {
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "korapay",
     "providerMessage": "Transaction in progress",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1549.88
-    },
-    "serviceProvider": {
-        "id": 3,
-        "name": "korapay"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
+    "rate": 1554.23,
+    "provider": "korapay",
+    "region": "Nigeria",
     "authorization": {
         "mode": "otp"
     },
-    "createdAt": "2024-08-20T22:16:36Z"
+    "card": {
+        "type": "Maestro",
+        "firstSix": "506146",
+        "lastFour": "3210"
+    },
+    "createdAt": "2024-08-28T11:04:05Z"
 }
 ```
 
-After making the request successfully, you would get a response on how to proceed. If the transaction requires additional authorization and is in a <span style={{color: "red"}}>`pending validation/transaction in progress`</span> status, the response will indicate the necessary steps and provide the corresponding authorization mode. The transaction status at this stage can be either <span style={{color: "red"}}>`successful`</span>, <span style={{color: "red"}}>`failed`</span>, or <span style={{color: "red"}}>`pending validation/transaction in progress`</span>.
+After making the request successfully, you would get a response on how to proceed. If the transaction requires additional authorization and is in a <span style={{color: "red"}}>`pending/transaction in progress`</span> status, the response will indicate the necessary steps and provide the corresponding authorization mode. The transaction status at this stage can be either <span style={{color: "red"}}>`successful`</span> or <span style={{color: "red"}}>`failed`</span>.
 
 If the status of the transaction is either <span style={{color: "red"}}>`success`</span> or <span style={{color: "red"}}>`failed`</span>, <a target="_blank" href={"../api/API Endpoints/Collections/verify-collection"} style={{textDecoration: "underline"}}>verify the payment</a> to confirm the final status of the transaction.
 
@@ -599,21 +590,10 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
         "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "successful",
-    "rate": {
-        "from": "NGN",
-        "to": "NGN",
-        "rate": 1
-    },
-    "serviceProvider": {
-        "id": 1,
-        "name": "flutterwave"
-    },
-    "region": {
-        "id": 1,
-        "name": "Nigeria"
-    },
+    "rate": 1,
+    "provider": "flutterwave",
+    "region": "Nigeria",
     "createdAt": "2024-08-20T11:49:41Z"
 }
 ```
@@ -632,19 +612,19 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 **Sample Request Body for Bank Transfer Payments**
 
 ```json
- {
-     "reference": "ref-{{$randomUUID}}",
-     "amount":10,
-     "currency": "USD",
-     "customer": {
-         "name": "{{$randomFirstName}} {{$randomLastName}}",
+{
+    "reference": "ref-{{$randomUUID}}",
+    "amount":10,
+    "currency": "USD",
+    "customer": {
+        "name": "{{$randomFirstName}} {{$randomLastName}}",
         "email": "customer@email.com"
-     },
+    },
     "channel": "bank_transfer"
- }
+}
 ```
 
-**Sample Response**
+**Sample Response for Bank Trasnfer Payments**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -652,27 +632,28 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 
 ```json
 {
-    "id": "0e914ea4-067b-41cc-a3b6-0e0b401483bf", //payment id
-    "reference": "ref-53b4a49b-6fe5-4f13-8368-90798732cc31",
-    "spotflowReference": "SPF-FLW-82e3e1e5e3b348228741c8bd0a6be200",
-    "amount": 10,
+    "id": "d5eab137-38df-4b23-bc8b-2b8f4839b6fa", //payment id
+    "reference": "ref-300caf7a-3f09-4f88-add3-bb7fb82ccf61",
+    "spotflowReference": "SPF-KPY-8246d0866da9474f97a7d5691791ddff",
+    "amount": 10.00,
     "currency": "USD",
+    "localAmount": 15553.40,
+    "localCurrency": "NGN",
     "channel": "bank_transfer",
-    "status": "provider_processed",
-    "bankDetails": {
-        "accountNumber": "0067100155",
-        "bankName": "Mock Bank"
-    },
+    "status": "pending",
     "customer": {
-        "id": "232365a9-d956-4034-84c8-5d1d1152770c",
-        "name": "Quinton Hettinger",
+        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "name": "Julien Rippin",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
-    "rate": {
-        "from": "NGN",
-        "to": "USD",
-        "rate": 1540.66
+    "rate": 1555.34,
+    "provider": "korapay",
+    "region": "Nigeria",
+    "bankDetails": {
+        "accountNumber": "8836512027",
+        "bankName": "Test Bank"
     }
 }
 ```
+
+If the status of the transaction shows either <span style={{color: "red"}}>`pending`</span>, <span style={{color: "red"}}>`sucessful`</span> or <span style={{color: "red"}}>`failed`</span>, <a target="_blank" href={"../api/API Endpoints/Collections/verify-collection"}>Verify the Payment</a> to confirm the final status of the transaction.
