@@ -6,7 +6,7 @@ hide_title: true
 
 ## Create Payment
 
-Our API helps you collect payments using different payment methods. Payment methods are available for each regions. This endpoint requires that your encrypt the JSON data before making the request. Check out <a target="_blank" href={"../../../docs/accepting-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation here</a> for more details on card encryption.   
+Our API helps you collect payments using different payment methods. Payment methods are available for each regions. This endpoint requires that your encrypt the JSON data before making the request. Check out <a target="_blank" href={"/accepting-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation here</a> for more details on card encryption.   
 
 <span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
@@ -217,7 +217,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 ## Recurring Payment
 
-Set up recurring payments for a subscription plan using Spotflow. Check out <a target="_blank" href={"../../../docs/recurring-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation</a> for more details.
+Set up recurring payments for a subscription plan using Spotflow. Check out <a target="_blank" href={"/recurring-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation</a> for more details.
 
 <span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
 
@@ -287,4 +287,4 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
 }
 ```
 
-Ensure you authorize the payments with our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a>.
+Ensure you authorize the payments with our <a target="_blank" href={"../Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a>.

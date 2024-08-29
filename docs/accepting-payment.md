@@ -161,7 +161,7 @@ public class EncryptionUtils {
 }
 ```
 
-Furthermore, Once the payment data has been encrypted, use it within the POST request to our <a target="_blank" href={"../api/API Endpoints/Collections/Create-Collection"} style={{textDeocration: "underline"}}>Create payment endpoint API</a>
+Furthermore, Once the payment data has been encrypted, use it within the POST request to our <a target="_blank" href={"../api/API Endpoints/Collections/Create-Collection"} style={{textDecoration: "underline"}}>Create payment endpoint API</a>
 
 **Sample Request Body**
 
