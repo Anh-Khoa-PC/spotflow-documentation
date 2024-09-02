@@ -219,4 +219,4 @@ Also, You should never save a customer's card details; the details are represe
 
 ## See more
 
-To learn more about what you can do with plans on Spotflow, check out our <a href={"../api/intro"} target="_blank" style={{textDecoration: "underline"}}>API Reference</a>. If you've got any questions, don’t hesitate to reach out to our support team at **support@spotflow.one**.
+To learn more about what you can do with plans on Spotflow, check out our <a href={"../api/API Endpoints/Subscription Plans/create-single-plan"} target="_blank" style={{textDecoration: "underline"}}>API Reference</a>. If you've got any questions, don’t hesitate to reach out to our support team at **support@spotflow.one**.
