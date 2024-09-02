@@ -1,8 +1,8 @@
 ---
-title: Verify Payment
+title: Verify Payment Collection
 ---
 
-# Verify Payment
+# Verify Payment Collection
 
 Confirm the status of a payment
 

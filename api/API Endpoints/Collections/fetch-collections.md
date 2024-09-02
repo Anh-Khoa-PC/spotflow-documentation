@@ -1,9 +1,10 @@
 ---
-title: Fetch Payment
+title: Fetch Payment Collection
+hide_title: true
 pagination_next: null
 ---
 
-# Fetch Payment
+## Fetch Payment Collection
 
 Get details of a specific payment by its ID
 

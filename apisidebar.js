@@ -29,7 +29,7 @@ const sidebars = {
       //   items:[
           {
             type: 'category',
-            label: 'Payments',
+            label: 'Payments Collection',
             className: 'collections',
             collapsed: false,
             items: [

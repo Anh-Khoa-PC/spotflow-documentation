@@ -1,10 +1,10 @@
 ---
-title: Create Payment
+title: Create Payment Collection
 pagination_prev: null
 hide_title: true
 ---
 
-## Create Payment
+## Create Payment Collection
 
 Our API helps you collect payments using different payment methods. Payment methods are available for each regions. This endpoint requires that your encrypt the JSON data before making the request. Check out <a target="_blank" href={"/accepting-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation here</a> for more details on card encryption.   
 

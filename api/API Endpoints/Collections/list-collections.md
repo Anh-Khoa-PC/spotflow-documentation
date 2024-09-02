@@ -1,8 +1,9 @@
 ---
-title: List Payments
+title: List Payments Collection
+hide_title: true
 ---
 
-# List Payments
+## List Payments Collection
 
 This retrieves and lists all payment collections available for a specific merchant 
 

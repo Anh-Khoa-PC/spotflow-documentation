@@ -1,8 +1,9 @@
 ---
-title: Authorize Payment
+title: Authorize Payment Collection
+hide_title: true
 ---
 
-# Authorize Payment
+## Authorize Payment Collection
 
 This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out <a target="_blank" href={"/accepting-payment"} style={{textDecoration: "underline"}}>our documentation</a>. 
 

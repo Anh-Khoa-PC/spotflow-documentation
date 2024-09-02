@@ -1,7 +1,10 @@
 ---
-title: Accepting Payment
+title: Accepting Payment Collection
+hide_title: true
 id: accepting-payment
 ---
+
+## Accepting Payment Collection
 
 import Admonitions from "../src/components/Admonition/Admonitions"
 

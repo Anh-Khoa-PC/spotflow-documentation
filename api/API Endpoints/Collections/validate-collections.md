@@ -1,8 +1,8 @@
 ---
-title: Validate Payment
+title: Validate Payment Collection
 ---
 
-# Validate Payment
+# Validate Payment Collection
 
 This validates the payment by verifying payment details and ensuring sufficient funds following authorization.
 
