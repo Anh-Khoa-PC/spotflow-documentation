@@ -34,15 +34,21 @@ Here is an example of how to make a payment using the <span style={{color: "red
 
 ```dart
 Spotflow().start( context: context,
-    paymentManager: SpotFlowPaymentManager( merchantId: "",
-    customerEmail: "customer@example.com" ,
-    paymentId: "unique_payment_id",
-    fromCurrency: "NGN",
-    toCurrency: "USD",
-    amount: 10,
-    key: "your_api_key",
-    paymentDescription: "Product purchase",
-    appLogo: SizedBox() // Optional
+ paymentManager: SpotFlowPaymentManager( merchantId: "",
+  customerEmail: "customer@example.com" ,
+  customerName: "John Snow", //optional
+  customerPhoneNumber: "000-000-000", //optional
+  customerId: "unique_id" //optional
+  merchantId: "unique_id" 
+  planId: "plan_id",
+  amount: 10,
+  key: "your_api_key",
+  encryptionKey: "encryption_key",
+  paymentDescription: "Product purchase",
+  appLogo: SizedBox() // Optional
+ ),
+ onComplete: (paymentResponseBody) {
+ }
  );
 ```
 
@@ -50,19 +56,23 @@ Spotflow().start( context: context,
 
 - **context**: The <span style={{color: "red"}}>`BuildContext`</span> of the application.
 - **paymentManager**: An instance of <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> containing the payment details.
+- onComplete: An optional function to be called when the payment is completed successfully.
 
 ## SpotFlowPaymentManager
 
 The <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> class requires the following parameters:
 - **merchantId**: The unique identifier for the merchant.
 - **customerEmail**: The email address of the customer.
-- **paymentId**: A unique identifier for the payment.
-- **fromCurrency**: The currency from which the amount is being converted.
-- **toCurrency**: The currency to which the amount is being converted.
 - **amount**: The amount to be paid.
 - **key**: The API key for the payment provider.
-- **paymentDescription**: A description of the payment.
-- **appLogo**: An image widget for the application logo.
+- **planId**: The unique identifier for the payment plan.
+- **encryptionKey**: The encryption key for securing the transaction.
+- **customerId** *(optional)*: The unique identifier for the customer.
+- **customerName** *(optional)*: The name of the customer.
+- **customerPhoneNumber** *(optional)*: The phone number of the customer.
+- **paymentDescription** *(optional)*: A description of the payment.
+- **appLogo** *(optional)*: An image widget for the application logo.
+- **appName** *(optional)*: The name of the application.
 
 ### Testing Your Implementation
 

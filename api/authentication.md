@@ -6,7 +6,6 @@ sidebar_position: 2
 <!-- <div className='authBody'> -->
 <!-- <span className='authHead'> -->
 ## Authentication
-<!-- </span> -->
 
 Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key, kindly include it in the <span style={{color: "red"}}>`Authorization`</span> header for secure access.
 
