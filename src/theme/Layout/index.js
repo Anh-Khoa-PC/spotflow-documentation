@@ -32,7 +32,7 @@ export default function Layout(props) {
 
       <AnnouncementBar />
 
-      {/* <Navbar /> */}
+      <Navbar />
 
       <div
         id={SkipToContentFallbackId}

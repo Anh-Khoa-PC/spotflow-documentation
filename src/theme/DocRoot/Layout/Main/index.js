@@ -6,7 +6,7 @@ import {Props} from '@theme/DocRoot/Layout/Main'
 export default function MainWrapper(props) {
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
       <Main {...props} />
     </div>
   );

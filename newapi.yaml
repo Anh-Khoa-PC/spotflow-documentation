@@ -1,0 +1,3540 @@
+openapi: 3.0.1
+info:
+  title: SpotFlow OpenAPI Specification
+  description: |
+    ## API Reference
+
+    Spotflow API helps global merchant collect payments in local currency. Learn how to easily integrate our APIs to streamline your in-app payments.
+
+    Spotflow API is designed to be `RESTful`, utilizing familiar resource structures for most interactions. However, there might be a few exceptions from the strict REST principles for specific functionalities. These exceptions will be clearly documented within the API reference. This means you can expect:
+
+    - **Predictable Resource-Oriented URLs**: URLs are designed to be clear and intuitive, reflecting the resources you're interacting with (e.g., /payments, /plans).
+    - **Form-Encoded Request Bodies**: Data sent to the API uses a simple, well-understood format called form-encoded data.
+    - **JSON-Encoded Responses**: Our API returns data in JSON response format, providing structured and easy-to-parse data.
+    - **Standard HTTP Methods and Response Codes**: Our API utilizes standard HTTP verbs for different actions like GET for retrieving data, POST for creating new resources, PUT for updating existing ones and DEL for trashing existing ones. It also returns standard HTTP response codes to indicate success or failure (e.g., 200 for success, 400 for bad request).
+    - **Content-Type**: When sending request to the API, you should ensure your request includes a Content-Type header set to application/JSON. This informs the API about the format of the data you are sending.
+
+
+    ### API Keys and Authentication:
+
+    To ensure secure communication with Spotflow APIs, you'll need to authenticate your requests using an API key. All endpoints access requires authentication with your API Keys. Your API key acts as a unique identifier for your application and allows us to differentiate between test and live mode usage. Specific instructions for including your API key within your requests will be provided in the documentation for each API endpoint. Your API Keys can be found on the API Keys and webhooks section of your dashboard.
+
+
+    ## Authentication
+
+    Secure authentication is crucial for protecting your account and ensuring authorized access. All API requests require authentication with your secret key, kindly include it in the <span style={{color: "red"}}>`Authorization`</span> header for secure access.
+
+
+    ### API Key Management
+
+    Spotflow provides two key types for API access: public keys and secret keys. You can manage these keys from your Spotflow dashboard.
+
+    - **Public Keys**: Primarily used for frontend integrations with Spotflow Inline and Mobile SDKs. These keys are designed to initiate payment collections for your account but cannot modify other account details.
+
+    - **Secret Keys (sk_test_ for test mode, sk_live_ for live mode)**: These keys grant extensive privileges and must be kept confidential, ***Never share your secret keys in public locations like code repositories (GitHub), client-side code, or other unsecured environments.***
+
+    
+    ::: warning[Compromised Secret Keys]
+    If you suspect a compromise or wish to reset your secret keys, you can do so from your Spotflow dashboard.
+    :::
+    
+
+    
+    ### Authentication Process
+
+    All API requests to Spotflow must be authenticated using your secret key. Here's how to achieve this:
+    - **Include your secret key** in the Authorization header of every request. The specific format for including the key will be detailed in the individual API endpoint documentation.
+    - **HTTPS is mandatory**: All API requests must be made over HTTPS for secure communication. Requests made over plain HTTP will fail.
+    - **Authentication Failure**: Calls made without proper authentication will result in a 401 Unauthorized status code response from the API.
+
+    Secure your API requests by including an Authorization header in the following format:
+
+    `Authorization: Bearer SECRET_KEY`
+
+    ```yaml
+    {
+      "Authorization": "Bearer sk_test_6988f8d1539a48ab945764ec361fa3eb"
+    }
+    ```
+
+    We've provided a sample API key so you can test with no delay. To test functionalities specific to your account, you'll need to replace this sample key with your own. Do not submit personally identifiable information in requests made with this sample API key. This key is for testing purposes only and may not have the necessary security restrictions for handling sensitive data.
+
+    By following these guidelines, you can ensure secure and authorized access while integrating with Spotflow's APIs.
+
+    ## Errors
+
+    ### Spotflow API Response Codes
+
+    Spotflow leverages standardized HTTP response codes to consistently communicate the outcome of your API requests. Understanding these codes is essential for interpreting the success or failure of your interactions with the Spotflow platform.
+
+    **Success**
+
+    - **200 OK**: The request was processed successfully. **Don't assume everything went as planned!** Always examine the response data object to determine the specific outcome (e.g., successful or failed charge). Even a 200 response might indicate an error within the data object.
+
+    - **201 Created**: A new resource was created successfully through your request. This typically occurs when creating new entities like users or payment collections within your Spotflow account.
+
+
+    **Client Errors(4xx)**
+
+    - **400 Bad Request**: The request failed due to invalid or missing required parameters. Double-check your request to ensure all required parameters are present and formatted correctly.
+
+    - **401 Unauthorized**: Authentication failed. This could be caused by an invalid or missing secret key in the authorization header. Make sure you're using the correct secret key associated with your Spotflow account and that it's included in the authorization header of your request.
+
+    - **403 Forbidden**: The API key you used doesn't have the required permissions to perform the specific action. Spotflow utilizes a permission-based system for API keys, where each key type grants access to a defined set of functionalities. Ensure you're using a key with the appropriate permissions for the action you're trying to execute.
+
+    - **404 Not Found**: The requested resource does not exist on the Spotflow platform. This might occur if you're trying to access a user ID that doesn't exist or referencing an incorrect endpoint URL.
+
+    - **429 Too Many Requests**: The API received an excessive number of requests from your application in a short period. This might indicate an issue with your integration logic or excessive retries. We recommend implementing exponential backoff for your requests to avoid overwhelming the API and encountering this error.
+
+
+    **Server Error (5xx)**
+
+    - **500, 502, 503, 504**: These codes indicate errors on Spotflow's servers. While uncommon, please report any instances of these errors you encounter to support@spotflow.one. We will work to resolve the issue on our end as soon as possible.
+
+
+
+    ### Error Handling
+
+    Beyond the HTTP status codes, Spotflow's API responses may also include specific error types and messages to provide more details about the encountered issue. This section provides guidance on handling various error conditions that you might encounter while interacting with Spotflow's API. Understanding these errors and their potential solutions is crucial for building robust integrations, as it can help you pinpoint the exact cause of the problem and implement appropriate solutions.
+
+    ### General Error Handling:
+    - **Uncertain Outcomes**: For certain error types (e.g., connection errors), the outcome of the API call might be unclear. In such cases, don't assume success or failure.
+
+    - **Webhooks**: Spotflow utilizes webhooks to notify you about events and actions. Relying on webhooks can provide valuable information about the eventual outcome of an API call, even if the initial request encounters an error due to network issues or other transient problems.
+
+    ### Specific Error Types
+
+    Here's a breakdown of common Spotflow API error types and recommended solutions:
+
+    | Error Type | Description | Solutions |
+    |:----------|:-----------|:---------|
+    |Invalid Request Errors, `(Spotflow:: InvalidRequestError)`|This error indicates a problem with the structure or content of your request. It could be due to invalid parameters, incorrect formatting, or attempting an action in an invalid state. The error response will typically include a specific error code and message to help you diagnose the issue.|Consult the Spotflow API documentation for detailed information on specific error codes and how to resolve them.|
+    |Connection Errors `(Spotflow::APIConnectionError)`|Network issues between your server and Spotflow can sometimes cause connection errors. In such cases, the outcome of the API call is indeterminate. You cannot rely on the response to indicate success or failure.|<ul><li>**Listen for webhook notifications**: Spotflow utilizes webhooks to notify you about events and actions. If a connection error occurs during an operation, you might still receive a webhook notification informing you of the eventual outcome.</li><li>**Idempotency Key**: When creating or updating resources, use idempotency keys. This enables you to safely retry the request using the same key in case of connection failures, preventing unintended duplicate actions caused by retries</li></ul>
+    |API Errors `(Spotflow::APIError)`|These errors, while uncommon, indicate issues on Spotflow server.|<ul><li>**Consider the outcome** of the request as inconclusive</li><li>**Utilize webhooks** to gain insights into the eventual outcome of the operation.</li><li>**Refer to our guide** on server errors within the Spotflow documentation for strategies on handling unexpected situations.</li></ul>
+    |Authentication Errors `(Spotflow::AuthenticationError)`|These errors occur when Spotflow cannot authenticate your request using the provided credentials.|<ul><li>**Verify that you're using** the correct API key associated with your Spotflow account.</li><li>**Verify that your request** contains a valid, active API key within the authorization header.</li></ul>
+    |Permission Errors `(Spotflow::PermissionError)`|These errors indicate that the API key used lacks the necessary permissions for the attempted action.|<ul><li>**Double-check if you're using a restricted API** key that doesn't have access to the requested service.</li><li>**If working within the Spotflow dashboard**, ensure your user role has the required permissions to perform the action.</li></ul>
+    |Rate Limit Errors `(Spotflow::RateLimitError)`|These errors occur when your application makes excessive API calls withtin a short period|<ul><li>**Retry the API call** after a reasonable delay if a single request triggers this error.</li><li>**Contact Spotflow support in advance** if you anticipate a significant increase in API traffic and require a higher rate limit.</li></ul>
+
+    By understanding these error types and implementing the recommended solutions, you can build more resilient and informative integrations with Spotflow API.
+
+    ## Fetch Region
+
+    Get your available regions on Spotflow
+
+    `GET` https://dev-api.spotflow.one/api/v1/merchant/regions
+
+    ### Headers
+
+    | authorization <br></br> `String`| `Bearer SECRET_KEY`<br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.|
+    |:----------|:-----------|
+
+    ### Sample Response
+
+    `200 OK`
+    <br></br>
+
+    ```yaml
+    [
+      {
+        "id": 1,
+        "name": "Nigeria",
+        "status": "active",
+        "createdAt": "2024-06-07T10:30:47Z"
+      }
+    ]
+    ```
+  contact:
+    name: Babajide Apata
+    email: babajide@spotflow.one
+  license:
+    name: Apache 2.0
+    url: https://spotflow.one
+  version: 1.0.0
+servers:
+  - url: http://dev-api.spotflow.one
+    description: sandbox
+  - url: https://api.spotflow.one
+    description: prod
+security:
+  - bearerHttpAuthentication: []
+paths:
+  /api/v1/subscriptions/{subscription-id}/cancel:
+    post:
+      tags:
+        - Subscription API
+      operationId: cancelSubscription
+      parameters:
+        - name: subscription-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SubscriptionDto'
+  /api/v1/subscriptions/{subscription-id}/activate:
+    post:
+      tags:
+        - Subscription API
+      operationId: activateSubscription
+      parameters:
+        - name: subscription-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SubscriptionDto'
+  /api/v1/subscriptions/process:
+    post:
+      tags:
+        - Subscription API
+      operationId: processSubscriptions
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/v1/plans:
+    get:
+      tags:
+        - Subscription API
+      operationId: getPlans
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: title
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: internal-reference
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: query
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: to
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePlanDto'
+    post:
+      tags:
+        - Subscription API
+      operationId: createPlan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlanRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PlanDto'
+  /api/v1/plans/{plan-id}:
+    get:
+      tags:
+        - Subscription API
+      operationId: getPlan
+      parameters:
+        - name: plan-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PlanDto'
+    post:
+      tags:
+        - Subscription API
+      operationId: updatePlan
+      parameters:
+        - name: plan-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePlanRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PlanDto'
+  /api/v1/plans/{plan-id}/cancel:
+    post:
+      tags:
+        - Subscription API
+      operationId: cancelPlan
+      parameters:
+        - name: plan-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PlanDto'
+  /api/v1/plans/{plan-id}/activate:
+    post:
+      tags:
+        - Subscription API
+      operationId: activatePlan
+      parameters:
+        - name: plan-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PlanDto'
+  /api/v1/plans/bulk:
+    post:
+      tags:
+        - Subscription API
+      operationId: createPlansBulk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CreatePlanResponse'
+  /api/v1/payments:
+    get:
+      tags:
+        - Collections API
+      operationId: getPayments
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+        - name: query
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: channel
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: provider
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: mode
+          in: query
+          required: false
+          schema:
+            type: string
+            default: test
+        - name: from
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: to
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePaymentDto'
+    post:
+      tags:
+        - Collections API
+      operationId: createPayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                merchantId:
+                  type: string
+                  format: uuid
+                request:
+                  $ref: '#/components/schemas/CreatePaymentRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentDto'
+  /api/v1/payments/authorize:
+    post:
+      tags:
+        - Collections API
+      operationId: authorizePayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                merchantId:
+                  type: string
+                  format: uuid
+                request:
+                  $ref: '#/components/schemas/AuthorizePaymentRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentDto'
+  /api/v1/subscriptions/{subscription-id}:
+    get:
+      tags:
+        - Subscription API
+      operationId: getSubscription
+      parameters:
+        - name: subscription-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SubscriptionDto'
+  /api/v1/plans/{plan-id}/subscriptions:
+    get:
+      tags:
+        - Subscription API
+      operationId: getSubscriptions
+      parameters:
+        - name: plan-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSubscriptionDto'
+  /api/v1/plans/statistics:
+    get:
+      tags:
+        - Subscription API
+      operationId: getPlanStatistics
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PlanStatistics'
+  /api/v1/payouts/{payout-id}:
+    get:
+      tags:
+        - Settlement API
+      operationId: getPayoutDetails
+      parameters:
+        - name: payout-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PayoutRequestEntityDto'
+  /api/v1/payments/{payment-id}:
+    get:
+      tags:
+        - Collections API
+      operationId: getPayment
+      parameters:
+        - name: payment-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentDto'
+  /api/v1/payments/verify:
+    get:
+      tags:
+        - Collections API
+      operationId: verifyPayment
+      parameters:
+        - name: merchantId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: reference
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PaymentDto'
+components:
+  schemas:
+    UpsertWebhookRequest:
+      type: object
+      properties:
+        url:
+          type: string
+        code:
+          type: string
+        mode:
+          type: string
+        options:
+          $ref: '#/components/schemas/WebhookOptionsDto'
+    WebhookOptionsDto:
+      type: object
+      properties:
+        paymentSuccess:
+          type: boolean
+        paymentFailure:
+          type: boolean
+        subscriptionPaymentSuccess:
+          type: boolean
+        subscriptionPaymentFailure:
+          type: boolean
+    WebhookDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        url:
+          type: string
+        mode:
+          type: string
+    UpdateUserRequest:
+      required:
+        - firstName
+        - lastName
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        twoFactorEnabled:
+          type: boolean
+        twoFactorAuthType:
+          type: string
+        userType:
+          type: string
+        status:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    UpdateUserStatusRequest:
+      required:
+        - code
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          description: User status to update. Not case sensitive.
+          enum:
+            - active
+            - inactive
+            - deleted
+        code:
+          type: string
+          description: Authenticator code
+      description: Request body to update the user's status
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+          format: int32
+        additionalDetails:
+          type: object
+          additionalProperties:
+            type: object
+        requestMarker:
+          type: string
+    SettlementProvider:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        logoUrl:
+          type: string
+        supportEmailAddress:
+          type: string
+        supportPhoneNumber:
+          type: string
+        walletAddress:
+          type: string
+        network:
+          type: string
+        currency:
+          type: string
+        bankName:
+          type: string
+        accountNumber:
+          type: string
+        accountName:
+          type: string
+        routing:
+          type: string
+        iban:
+          type: string
+        address:
+          type: string
+        supportedRail:
+          type: string
+          enum:
+            - FIAT
+            - CRYPTO
+        providerStatus:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+    ConfirmPayoutRequest:
+      type: object
+      properties:
+        payoutReference:
+          type: string
+        twoFaMethod:
+          type: string
+          enum:
+            - EMAIL
+            - TOTP
+        otpCode:
+          type: string
+    ConfirmPayoutResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        payoutReference:
+          type: string
+    UpdateContactRequest:
+      type: object
+      properties:
+        generalEmail:
+          type: string
+        disputeEmail:
+          type: string
+        supportEmail:
+          type: string
+    ContactDto:
+      type: object
+      properties:
+        generalEmail:
+          type: string
+        disputeEmail:
+          type: string
+        supportEmail:
+          type: string
+    UpdateCallbackRequest:
+      required:
+        - mode
+      type: object
+      properties:
+        url:
+          type: string
+        mode:
+          type: string
+        code:
+          type: string
+    CallBackDto:
+      type: object
+      properties:
+        url:
+          type: string
+        mode:
+          type: string
+    FeeEntityDto:
+      type: object
+      properties:
+        feeName:
+          type: string
+        flatFee:
+          type: number
+        percentageRate:
+          type: number
+        feeCap:
+          type: number
+        currency:
+          type: string
+        description:
+          type: string
+        feeCategory:
+          type: string
+          enum:
+            - SETTLEMENT
+            - EXCHANGE
+            - COLLECTION
+        feeType:
+          type: string
+          enum:
+            - FLAT
+            - PERCENTAGE
+        region:
+          type: string
+    UpdateBusinessRequest:
+      type: object
+      properties:
+        verificationStatus:
+          type: string
+          enum:
+            - PENDING
+            - PENDING_UPDATE
+            - VERIFIED
+            - REJECTED
+        rejectionReasons:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+    CreateBusinessResponse:
+      required:
+        - address
+        - apartment
+        - businessLogoUrl
+        - city
+        - country
+        - email
+        - merchant
+        - phoneNumber
+        - province
+        - state
+        - zipCode
+      type: object
+      properties:
+        country:
+          maxLength: 2
+          minLength: 2
+          type: string
+        merchant:
+          type: string
+        apartment:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        province:
+          type: string
+        zipCode:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        businessFormationDate:
+          type: string
+          format: date
+        businessLogoUrl:
+          type: string
+        businessId:
+          type: string
+        verificationStatus:
+          type: string
+          enum:
+            - PENDING
+            - PENDING_UPDATE
+            - VERIFIED
+            - REJECTED
+        rejectionReasons:
+          type: string
+    ApprovePayoutRequest:
+      type: object
+      properties:
+        payoutStatus:
+          type: string
+          enum:
+            - SUBMITTED
+            - PENDING
+            - PROCESSED
+            - AWAITING_OTP
+            - OTP_VALIDATED
+            - AWAITING_DISBURSEMENT
+            - DISBURSED
+            - CANCELLED
+            - SCREENING_REQ
+            - VALIDATED
+            - FAILED
+            - RECONCILED
+            - ER_GENERAL
+            - HELD
+            - RETURNED
+            - DELIVERED
+    ApprovePayoutResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - SUBMITTED
+            - PENDING
+            - PROCESSED
+            - AWAITING_OTP
+            - OTP_VALIDATED
+            - AWAITING_DISBURSEMENT
+            - DISBURSED
+            - CANCELLED
+            - SCREENING_REQ
+            - VALIDATED
+            - FAILED
+            - RECONCILED
+            - ER_GENERAL
+            - HELD
+            - RETURNED
+            - DELIVERED
+        message:
+          type: string
+        payoutReference:
+          type: string
+    Event:
+      type: object
+      properties:
+        eventType:
+          type: string
+        category:
+          type: string
+        created:
+          type: string
+        data:
+          type: object
+    CustomerDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+        phoneNumber:
+          type: string
+    SubscriptionDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+        planId:
+          type: string
+          format: uuid
+        status:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        nextPaymentDate:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        customer:
+          $ref: '#/components/schemas/CustomerDto'
+    PayoutRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+        amountInCents:
+          type: number
+    BankAccountResponse:
+      type: object
+      properties:
+        alias:
+          type: string
+        token:
+          type: string
+        routingNumber:
+          type: string
+        last4:
+          type: string
+        accountHash:
+          type: string
+        rtpEligible:
+          type: boolean
+        reference:
+          type: string
+    CoinFlowResponse:
+      type: object
+      properties:
+        withdrawer:
+          $ref: '#/components/schemas/Withdrawer'
+        transactions:
+          type: array
+          items:
+            type: string
+    Verification:
+      type: object
+      properties:
+        hash:
+          type: string
+        vendor:
+          type: string
+        reference:
+          type: string
+        status:
+          type: string
+          enum:
+            - pending
+            - approved
+            - rejected
+    Wallet:
+      type: object
+      properties:
+        wallet:
+          type: string
+        blockchain:
+          type: string
+    Withdrawer:
+      type: object
+      properties:
+        business:
+          type: boolean
+        user:
+          type: boolean
+        currency:
+          type: string
+        email:
+          type: string
+        merchant:
+          type: string
+        verification:
+          $ref: '#/components/schemas/Verification'
+        wallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Wallet'
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccountResponse'
+        blocked:
+          type: boolean
+        _id:
+          type: string
+        __v:
+          type: integer
+          format: int32
+    AddBankAccountRequest:
+      type: object
+      properties:
+        plaidAccountId:
+          type: string
+        accountNumber:
+          type: string
+        routingNumber:
+          type: string
+        type:
+          type: string
+          enum:
+            - checking
+            - savings
+    ServiceProviderDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+    ConfigureRegionRequest:
+      required:
+        - regionId
+        - serviceProviderId
+      type: object
+      properties:
+        regionId:
+          type: integer
+          format: int64
+        serviceProviderId:
+          type: integer
+          format: int64
+    MerchantServiceProviderRequest:
+      required:
+        - merchantId
+        - regionId
+        - serviceProviderId
+      type: object
+      properties:
+        serviceProviderId:
+          type: integer
+          format: int64
+        regionId:
+          type: integer
+          format: int64
+        merchantId:
+          type: string
+          format: uuid
+        priority:
+          type: integer
+          format: int32
+    MerchantRegionRequest:
+      required:
+        - merchantId
+        - regionIds
+      type: object
+      properties:
+        regionIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        merchantId:
+          type: string
+          format: uuid
+    CreateRegionRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    RegionDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        status:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    CreatePlanRequest:
+      required:
+        - amount
+        - currency
+        - frequency
+        - internalReference
+        - regionId
+        - title
+      type: object
+      properties:
+        title:
+          type: string
+        frequency:
+          type: string
+        internalReference:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        regionId:
+          type: integer
+          format: int64
+    PlanDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        frequency:
+          type: string
+          enum:
+            - DAILY
+            - WEEKLY
+            - MONTHLY
+            - YEARLY
+        internalReference:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+        region:
+          type: string
+        subscribers:
+          type: integer
+          format: int64
+        subscriptions:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+    UpdatePlanRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        internalReference:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+    CreatePlanResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        failedRequests:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanRequestError'
+    PlanRequestError:
+      type: object
+      properties:
+        errorMessages:
+          type: array
+          items:
+            type: string
+        request:
+          $ref: '#/components/schemas/CreatePlanRequest'
+    CreatePayoutRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+        exchangeRate:
+          type: number
+        narration:
+          type: string
+        currency:
+          type: string
+    CreatePayoutResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - SUBMITTED
+            - SCREENING_REQ
+            - VALIDATED
+            - PROCESSED
+            - RECONCILED
+            - ER_GENERAL
+            - HELD
+            - RETURNED
+            - CANCELLED
+            - AWAITING_OTP
+            - AWAITING_DISBURSEMENT
+        message:
+          type: string
+        twoFAMethod:
+          type: string
+          enum:
+            - EMAIL
+            - TOTP
+        payoutReference:
+          type: string
+    AddPayoutBankAccount:
+      required:
+        - accountName
+        - accountNumber
+        - bankCode
+        - bankName
+        - currency
+        - merchantId
+        - routingCode
+        - sortCode
+      type: object
+      properties:
+        merchantId:
+          type: string
+        description:
+          type: string
+        currency:
+          type: string
+        routingCode:
+          type: string
+        bankName:
+          type: string
+        bankCode:
+          type: string
+        sortCode:
+          type: string
+        accountNumber:
+          type: string
+        accountName:
+          type: string
+    AddPayoutBankResponse:
+      required:
+        - accountName
+        - accountNumber
+        - bankCode
+        - bankName
+        - currency
+        - merchantId
+        - routingCode
+        - sortCode
+      type: object
+      properties:
+        merchantId:
+          type: string
+        description:
+          type: string
+        currency:
+          type: string
+        routingCode:
+          type: string
+        bankName:
+          type: string
+        bankCode:
+          type: string
+        sortCode:
+          type: string
+        accountNumber:
+          type: string
+        accountName:
+          type: string
+        id:
+          type: string
+    BankDto:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+    CreatePaymentRequest:
+      required:
+        - amount
+        - channel
+        - currency
+        - customer
+        - reference
+      type: object
+      properties:
+        reference:
+          maxLength: 50
+          minLength: 0
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        channel:
+          type: string
+        encryptedCard:
+          type: string
+        planId:
+          type: string
+          format: uuid
+        regionId:
+          type: integer
+          format: int64
+        bank:
+          $ref: '#/components/schemas/BankDto'
+        callbackUrl:
+          type: string
+        customer:
+          $ref: '#/components/schemas/CustomerDto'
+    AuthorizationDto:
+      type: object
+      properties:
+        mode:
+          type: string
+        redirectUrl:
+          type: string
+    BankDetailDto:
+      type: object
+      properties:
+        accountName:
+          type: string
+        accountNumber:
+          type: string
+        bankName:
+          type: string
+    CardDto:
+      type: object
+      properties:
+        type:
+          type: string
+        firstSix:
+          type: string
+        lastFour:
+          type: string
+    PaymentDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        reference:
+          type: string
+        spotflowReference:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        localAmount:
+          type: number
+        localCurrency:
+          type: string
+        channel:
+          type: string
+        status:
+          type: string
+        customer:
+          $ref: '#/components/schemas/CustomerDto'
+        providerMessage:
+          type: string
+        rate:
+          type: number
+        provider:
+          type: string
+        region:
+          type: string
+        authorization:
+          $ref: '#/components/schemas/AuthorizationDto'
+        ussd:
+          $ref: '#/components/schemas/USSDDto'
+        bankDetails:
+          $ref: '#/components/schemas/BankDetailDto'
+        card:
+          $ref: '#/components/schemas/CardDto'
+        createdAt:
+          type: string
+          format: date-time
+    USSDDto:
+      type: object
+      properties:
+        code:
+          type: string
+        paymentCode:
+          type: string
+    AVSRequest:
+      type: object
+      properties:
+        state:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        address:
+          type: string
+        zipCode:
+          type: string
+    AuthorizationRequest:
+      type: object
+      properties:
+        pin:
+          type: string
+        otp:
+          type: string
+        phoneNumber:
+          type: string
+        avs:
+          $ref: '#/components/schemas/AVSRequest'
+    AuthorizePaymentRequest:
+      required:
+        - authorization
+        - reference
+      type: object
+      properties:
+        reference:
+          type: string
+        authorization:
+          $ref: '#/components/schemas/AuthorizationRequest'
+    Attachment:
+      type: object
+      properties:
+        content:
+          type: string
+        type:
+          type: string
+        fileName:
+          type: string
+    SendEmailRequest:
+      type: object
+      properties:
+        senderEmail:
+          type: string
+        sender:
+          type: string
+        template:
+          type: string
+        templateData:
+          type: object
+          additionalProperties:
+            type: string
+        content:
+          type: string
+        subject:
+          type: string
+        recipient:
+          type: array
+          items:
+            type: string
+        recipientName:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        emailType:
+          type: string
+          enum:
+            - LOGIN
+            - NEW_USER_CREATED
+            - INVITE_USER
+            - INVITATION_CONFIRMED
+            - PASSWORD_RECOVERY
+            - BUSINESS_VERIFICATION_SUCCESSFUL
+            - BUSINESS_VERIFICATION
+            - PASSWORD_RESET
+            - BUSINESS_DETAIL_UPDATE
+            - DEACTIVATED_USER_LOGIN_ATTEMPT
+            - PAYMENT_SUCCESSFUL
+            - PAYMENT_FAILED
+            - SUBSCRIPTION_CREATED
+            - SUBSCRIPTION_CANCELLED
+            - SUBSCRIPTION_DUE
+            - SUBSCRIPTION_RENEWAL
+            - SETTLEMENT_REQUEST
+            - EMAIL_2FA_NOTIFICATION
+    NotificationResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+        message:
+          type: string
+    CreateMerchantRequest:
+      required:
+        - ein
+        - industry
+        - legalBusinessName
+        - tradingName
+        - user
+        - website
+      type: object
+      properties:
+        tradingName:
+          type: string
+        website:
+          type: string
+        legalBusinessName:
+          type: string
+        ein:
+          pattern: ^\d{9}$
+          type: string
+        termsAccepted:
+          type: boolean
+        industry:
+          type: string
+        user:
+          $ref: '#/components/schemas/CreateUserRequest'
+    CreateUserRequest:
+      required:
+        - firstName
+        - lastName
+        - password
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        userType:
+          type: string
+    CreateMerchantResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        tradingName:
+          type: string
+        website:
+          type: string
+        legalBusinessName:
+          type: string
+        ein:
+          type: string
+        primaryUserId:
+          type: string
+          format: uuid
+        termsAccepted:
+          type: boolean
+    MerchantKeyDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        active:
+          type: boolean
+        key:
+          type: string
+        type:
+          type: string
+        mode:
+          type: string
+    EventData:
+      type: object
+      properties:
+        fee:
+          type: number
+        amount:
+          type: number
+        status:
+          type: string
+        currency:
+          type: string
+        reference:
+          type: string
+        payment_method:
+          type: string
+        payment_reference:
+          type: string
+    KEvent:
+      type: object
+      properties:
+        event:
+          type: string
+        data:
+          $ref: '#/components/schemas/EventData'
+    CreateHolidayRequest:
+      type: object
+      properties:
+        holidayDate:
+          type: string
+          format: date
+        description:
+          type: string
+    HolidayDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        holidayDate:
+          type: string
+          format: date
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    UpdateHolidayRequest:
+      type: object
+      properties:
+        holidayDate:
+          type: string
+          format: date
+        description:
+          type: string
+    Card:
+      type: object
+      properties:
+        issuer:
+          type: string
+        country:
+          type: string
+        type:
+          type: string
+        expiry:
+          type: string
+        token:
+          type: string
+        first_6digits:
+          type: string
+        last_4digits:
+          type: string
+    Customer:
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: number
+        fullname:
+          type: string
+        email:
+          type: string
+        narration:
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        tx_ref:
+          type: string
+        redirect_url:
+          type: string
+        client_ip:
+          type: string
+        device_fingerprint:
+          type: string
+        phone_number:
+          type: string
+        billing_name:
+          type: string
+        billing_postal_code:
+          type: string
+        billing_zip:
+          type: string
+        billing_city:
+          type: string
+        billing_address:
+          type: string
+        billing_state:
+          type: string
+        billing_country:
+          type: string
+        account_bank:
+          type: string
+        account_name:
+          type: string
+        account_number:
+          type: string
+    Data:
+      type: object
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
+        id:
+          type: integer
+          format: int32
+        maximum:
+          type: integer
+          format: int32
+        minimum:
+          type: integer
+          format: int32
+        amount:
+          type: number
+        fee:
+          type: number
+        currency:
+          type: string
+        ip:
+          type: string
+        narration:
+          type: string
+        status:
+          type: string
+        card:
+          $ref: '#/components/schemas/Card'
+        type:
+          type: string
+        redirect:
+          type: boolean
+        name:
+          type: string
+        bic:
+          type: string
+        country:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        address:
+          type: string
+        cvv:
+          type: string
+        expiration:
+          type: string
+        interval:
+          type: string
+        duration:
+          type: integer
+          format: int32
+        code:
+          type: string
+        email:
+          type: string
+        bin:
+          type: string
+        tx_ref:
+          type: string
+        flw_ref:
+          type: string
+        device_fingerprint:
+          type: string
+        charged_amount:
+          type: number
+        app_fee:
+          type: number
+        merchant_fee:
+          type: number
+        processor_response:
+          type: string
+        auth_model:
+          type: string
+        auth_url:
+          type: string
+        payment_type:
+          type: string
+        fraud_status:
+          type: string
+        charge_type:
+          type: string
+        created_at:
+          type: string
+        account_id:
+          type: integer
+          format: int32
+        redirect_url:
+          type: string
+        payment_code:
+          type: string
+        type_data:
+          type: string
+        order_ref:
+          type: string
+        biller_code:
+          type: string
+        default_commission:
+          type: string
+        branch_code:
+          type: string
+        branch_name:
+          type: string
+        swift_code:
+          type: string
+        bank_id:
+          type: string
+        date_added:
+          type: string
+        is_airtime:
+          type: boolean
+        is_active:
+          type: boolean
+        biller_name:
+          type: string
+        item_code:
+          type: string
+        label_name:
+          type: string
+        short_name:
+          type: string
+        commission_on_fee:
+          type: boolean
+        card_pan:
+          type: string
+        masked_pan:
+          type: string
+        address_1:
+          type: string
+        address_2:
+          type: string
+        zip_code:
+          type: string
+        send_to:
+          type: string
+        bin_check_name:
+          type: string
+        name_on_card:
+          type: string
+        callback_url:
+          type: string
+        plan_token:
+          type: string
+        customer_name:
+          type: string
+        customer_email:
+          type: string
+        settlement_id:
+          type: string
+        transaction_id:
+          type: string
+        subaccount_id:
+          type: string
+        bank_name:
+          type: string
+        split_type:
+          type: string
+        split_value:
+          type: number
+        split_ratio:
+          type: integer
+          format: int32
+        amount_settled:
+          type: number
+        amount_refunded:
+          type: number
+        response_code:
+          type: string
+        response_message:
+          type: string
+        product_code:
+          type: string
+        issuing_country:
+          type: string
+        card_type:
+          type: string
+        issuer_info:
+          type: string
+        account_number:
+          type: string
+        account_name:
+          type: string
+    FAuthorization:
+      type: object
+      properties:
+        mode:
+          type: string
+        note:
+          type: string
+        redirect:
+          type: string
+        instruction:
+          type: string
+        city:
+          type: string
+        address:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zipcode:
+          type: string
+        pin:
+          type: string
+        fields:
+          type: array
+          items:
+            type: string
+        transfer_reference:
+          type: string
+        transfer_account:
+          type: string
+        transfer_bank:
+          type: string
+        account_expiration:
+          type: string
+        transfer_note:
+          type: string
+        transfer_amount:
+          type: number
+        account_number:
+          type: string
+        sort_code:
+          type: string
+        validate_instructions:
+          type: string
+    FlwWebhookEvent:
+      type: object
+      properties:
+        event:
+          type: string
+        data:
+          $ref: '#/components/schemas/Data'
+    Meta:
+      type: object
+      properties:
+        flightID:
+          type: string
+        metaname:
+          type: string
+        metavalue:
+          type: string
+        name:
+          type: string
+        tools:
+          type: string
+        sideNote:
+          type: string
+        authorization:
+          $ref: '#/components/schemas/FAuthorization'
+        values:
+          type: string
+        random:
+          type: string
+        page_info:
+          $ref: '#/components/schemas/PageInfo'
+    PageInfo:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int32
+        current_page:
+          type: integer
+          format: int32
+        total_pages:
+          type: integer
+          format: int32
+    CollectionFeeRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        feeType:
+          type: string
+        flatFee:
+          type: number
+        percentageRate:
+          type: number
+        feeCap:
+          type: number
+    CollectionFeeDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        feeType:
+          type: string
+        flatFee:
+          type: number
+        percentageRate:
+          type: number
+        feeCap:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+    CreateBusinessRequest:
+      required:
+        - address
+        - apartment
+        - businessLogoUrl
+        - city
+        - country
+        - email
+        - merchant
+        - phoneNumber
+        - province
+        - state
+        - zipCode
+      type: object
+      properties:
+        country:
+          maxLength: 2
+          minLength: 2
+          type: string
+        merchant:
+          type: string
+        apartment:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        province:
+          type: string
+        zipCode:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        businessFormationDate:
+          type: string
+          format: date
+        businessLogoUrl:
+          type: string
+    ConfirmBusinessUpdateRequest:
+      type: object
+      properties:
+        twoFactorCode:
+          type: string
+    CreateBusinessOwnerRequest:
+      type: object
+      properties:
+        business:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        emailAddress:
+          type: string
+        phoneNumber:
+          type: string
+        dateOfBirth:
+          type: string
+        gender:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        address:
+          type: string
+        zipCode:
+          type: string
+        identificationNumber:
+          type: string
+        jobTitle:
+          type: string
+        percentageOwnership:
+          type: number
+    CreateBusinessOwnerResponse:
+      type: object
+      properties:
+        business:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        emailAddress:
+          type: string
+        phoneNumber:
+          type: string
+        dateOfBirth:
+          type: string
+        gender:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        address:
+          type: string
+        zipCode:
+          type: string
+        identificationNumber:
+          type: string
+        jobTitle:
+          type: string
+        percentageOwnership:
+          type: number
+    ValidateTotpRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        code:
+          type: string
+    MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    Validate2FARequest:
+      type: object
+      properties:
+        code:
+          type: string
+    ResetPasswordRequest:
+      required:
+        - code
+        - password
+        - token
+      type: object
+      properties:
+        token:
+          type: string
+        code:
+          type: string
+        password:
+          type: string
+    ResendInviteRequest:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+    LoginResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+    RecoverPasswordRequest:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    InviteUserRequest:
+      required:
+        - email
+        - firstName
+        - lastName
+        - userType
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        userType:
+          type: string
+    ConfirmInvitationRequest:
+      required:
+        - password
+        - token
+      type: object
+      properties:
+        token:
+          type: string
+        password:
+          type: string
+    CardInfoDto:
+      type: object
+      properties:
+        cardType:
+          type: string
+        issuingCountry:
+          type: string
+        bin:
+          type: string
+        issuerInfo:
+          type: string
+    User:
+      required:
+        - email
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        merchantId:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        twoFactorEnabled:
+          type: boolean
+        totpSecret:
+          type: string
+        userType:
+          type: string
+          enum:
+            - GUEST
+            - ADMIN
+            - DEVELOPER
+            - FINANCE
+            - SPOTFLOW_ADMIN
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+            - DELETED
+            - PENDING
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        invitee:
+          $ref: '#/components/schemas/User'
+        twoFactorAuthType:
+          type: string
+          enum:
+            - GOOGLE_AUTHENTICATOR
+            - EMAIL
+    PaymentDetailsDto:
+      type: object
+      properties:
+        channels:
+          type: array
+          items:
+            type: string
+        rates:
+          type: object
+          additionalProperties:
+            type: string
+    ServiceProviderDetailsDto:
+      type: object
+      properties:
+        paymentDetails:
+          $ref: '#/components/schemas/PaymentDetailsDto'
+    RoleDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        authorities:
+          type: array
+          items:
+            type: string
+    PageResponseRegionDto:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionDto'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+    GetRateRequest:
+      required:
+        - from
+        - to
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+    RateDto:
+      type: object
+      properties:
+        from:
+          type: string
+          enum:
+            - NGN
+            - USD
+        to:
+          type: string
+          enum:
+            - NGN
+            - USD
+        rate:
+          type: number
+    PageResponsePlanDto:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanDto'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+    PageResponseSubscriptionDto:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionDto'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+    PlanStatistics:
+      type: object
+      properties:
+        activeSubscriptions:
+          type: string
+        totalSubscriptions:
+          type: string
+        totalSubscribers:
+          type: string
+    ExchangeAccountEntityDto:
+      type: object
+      properties:
+        accountId:
+          type: string
+        accountName:
+          type: string
+        accountType:
+          type: string
+        accountNumber:
+          type: string
+        currency:
+          type: string
+    MerchantEntityDto:
+      type: object
+      properties:
+        tradingName:
+          type: string
+        legalBusinessName:
+          type: string
+        industry:
+          type: string
+    PagePayoutRequestEntityDto:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayoutRequestEntityDto'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        numberOfElements:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+    PageableObject:
+      type: object
+      properties:
+        paged:
+          type: boolean
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        unpaged:
+          type: boolean
+    PayoutBankAccountEntityDto:
+      type: object
+      properties:
+        currency:
+          type: string
+        routingCode:
+          type: string
+        bankName:
+          type: string
+        bankCode:
+          type: string
+        sortCode:
+          type: string
+        accountNumber:
+          type: string
+        accountName:
+          type: string
+    PayoutRequestEntityDto:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        payoutBankAccount:
+          $ref: '#/components/schemas/PayoutBankAccountEntityDto'
+        exchangeAccount:
+          $ref: '#/components/schemas/ExchangeAccountEntityDto'
+        user:
+          $ref: '#/components/schemas/UserEntityDto'
+        merchant:
+          $ref: '#/components/schemas/MerchantEntityDto'
+        amount:
+          type: number
+        narration:
+          type: string
+        currency:
+          type: string
+        fee:
+          type: number
+        exchangeRate:
+          type: number
+        providerReference:
+          type: string
+        reference:
+          type: string
+        provider:
+          $ref: '#/components/schemas/SettlementProviderEntityDto'
+        payoutStatus:
+          type: string
+          enum:
+            - SUBMITTED
+            - PENDING
+            - PROCESSED
+            - AWAITING_OTP
+            - OTP_VALIDATED
+            - AWAITING_DISBURSEMENT
+            - DISBURSED
+            - CANCELLED
+            - SCREENING_REQ
+            - VALIDATED
+            - FAILED
+            - RECONCILED
+            - ER_GENERAL
+            - HELD
+            - RETURNED
+            - DELIVERED
+    SettlementProviderEntityDto:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        logoUrl:
+          type: string
+        supportEmailAddress:
+          type: string
+        supportPhoneNumber:
+          type: string
+        walletAddress:
+          type: string
+        network:
+          type: string
+        currency:
+          type: string
+        bankName:
+          type: string
+        accountNumber:
+          type: string
+        accountName:
+          type: string
+        routing:
+          type: string
+        iban:
+          type: string
+        address:
+          type: string
+        supportedRail:
+          type: string
+          enum:
+            - FIAT
+            - CRYPTO
+        providerStatus:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+    SortObject:
+      type: object
+      properties:
+        sorted:
+          type: boolean
+        empty:
+          type: boolean
+        unsorted:
+          type: boolean
+    UserEntityDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        userType:
+          type: string
+          enum:
+            - GUEST
+            - ADMIN
+            - DEVELOPER
+            - FINANCE
+            - SPOTFLOW_ADMIN
+    StreamingResponseBody:
+      type: object
+    PageResponsePaymentDto:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentDto'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+    KybSummary:
+      type: object
+      properties:
+        kyb:
+          type: string
+          description: KYB identifier.
+        completed:
+          type: boolean
+          description: Indicates if the KYB process is completed.
+        completion:
+          type: integer
+          description: Completion percentage of the KYB process.
+          format: int32
+      description: Gives the KYB summary for the getting started page.
+    PageFeeEntityDto:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeeEntityDto'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        numberOfElements:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+    AdditionalDetails:
+      type: object
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+        callBacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallBack'
+    BusinessEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        merchant:
+          $ref: '#/components/schemas/MerchantEntity'
+        country:
+          type: string
+        apartment:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        province:
+          type: string
+        zipCode:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        verificationStatus:
+          type: string
+          enum:
+            - PENDING
+            - PENDING_UPDATE
+            - VERIFIED
+            - REJECTED
+        rejectionReasons:
+          type: string
+        businessFormationDate:
+          type: string
+          format: date
+        businessLogoUrl:
+          type: string
+    CallBack:
+      type: object
+      properties:
+        url:
+          type: string
+        mode:
+          type: string
+          enum:
+            - TEST
+            - LIVE
+    CollectionFeeEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        feeType:
+          type: string
+        flatFee:
+          type: number
+        currency:
+          type: string
+        percentageRate:
+          type: number
+        feeCap:
+          type: number
+        regions:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionEntity'
+    Contact:
+      type: object
+      properties:
+        generalEmail:
+          type: string
+        disputeEmail:
+          type: string
+        supportEmail:
+          type: string
+        pending:
+          type: boolean
+    ExchangeAccountDto:
+      required:
+        - accountId
+        - accountNumber
+        - availableBalance
+        - balance
+        - currency
+      type: object
+      properties:
+        business:
+          $ref: '#/components/schemas/BusinessEntity'
+        accountId:
+          type: string
+        merchant:
+          $ref: '#/components/schemas/MerchantEntityDto'
+        accountName:
+          type: string
+        accountType:
+          type: string
+        accountNumber:
+          type: string
+        currency:
+          type: string
+        balance:
+          minimum: 0
+          type: number
+        availableBalance:
+          minimum: 0
+          type: number
+        directDebit:
+          type: boolean
+        sortCode:
+          type: string
+        status:
+          type: string
+        address:
+          type: string
+        txExplorerUrl:
+          type: string
+        addressExplorerUrl:
+          type: string
+        coinName:
+          type: string
+        coinSymbol:
+          type: string
+        blockchainNetworkName:
+          type: string
+        contractAddress:
+          type: string
+        memo:
+          type: string
+        code:
+          type: string
+        decimals:
+          type: integer
+          format: int32
+        withdrawalAvailable:
+          type: boolean
+        depositAvailable:
+          type: boolean
+        minimumDeposit:
+          type: number
+        withdrawalFee:
+          type: number
+    ExchangeAccountEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        merchant:
+          $ref: '#/components/schemas/MerchantEntity'
+        accountId:
+          type: string
+        accountName:
+          type: string
+        accountType:
+          type: string
+        accountNumber:
+          type: string
+        currency:
+          type: string
+        balance:
+          type: number
+        availableBalance:
+          type: number
+        directDebit:
+          type: boolean
+        sortCode:
+          type: string
+        status:
+          type: string
+        address:
+          type: string
+        txExplorerUrl:
+          type: string
+        addressExplorerUrl:
+          type: string
+        coinName:
+          type: string
+        coinSymbol:
+          type: string
+        blockchainNetworkName:
+          type: string
+        contractAddress:
+          type: string
+        memo:
+          type: string
+        code:
+          type: string
+        decimals:
+          type: integer
+          format: int32
+        withdrawalAvailable:
+          type: boolean
+        depositAvailable:
+          type: boolean
+        minimumDeposit:
+          type: number
+        withdrawalFee:
+          type: number
+    MerchantEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        authId:
+          type: string
+        tradingName:
+          type: string
+        website:
+          type: string
+        legalBusinessName:
+          type: string
+        ein:
+          type: string
+        primaryUserId:
+          type: string
+          format: uuid
+        industry:
+          type: string
+        termsAccepted:
+          type: boolean
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserEntity'
+        merchantKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/MerchantKeyEntity'
+        settlementAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExchangeAccountEntity'
+        details:
+          $ref: '#/components/schemas/AdditionalDetails'
+        regions:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionEntity'
+    MerchantKeyEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        key:
+          type: string
+        keyType:
+          type: string
+          enum:
+            - SECRET
+            - PUBLIC
+            - ENCRYPTION
+        mode:
+          type: string
+          enum:
+            - TEST
+            - LIVE
+        active:
+          type: boolean
+        merchant:
+          $ref: '#/components/schemas/MerchantEntity'
+    PaymentDetails:
+      type: object
+      properties:
+        channels:
+          type: array
+          items:
+            type: string
+        rates:
+          type: object
+          additionalProperties:
+            type: string
+    RegionEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        status:
+          type: string
+        merchants:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/MerchantEntity'
+        serviceProviders:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceProviderRegionEntity'
+        collectionFees:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionFeeEntity'
+    ServiceProviderDetails:
+      type: object
+      properties:
+        paymentDetails:
+          $ref: '#/components/schemas/PaymentDetails'
+    ServiceProviderEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+        providerDetails:
+          $ref: '#/components/schemas/ServiceProviderDetails'
+        regions:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceProviderRegionEntity'
+    ServiceProviderHealthEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        serviceProviderRegion:
+          $ref: '#/components/schemas/ServiceProviderRegionEntity'
+        state:
+          type: string
+          enum:
+            - OPEN
+            - HALF_OPEN
+            - CLOSED
+        consecutiveFailures:
+          type: integer
+          format: int32
+        consecutiveSuccesses:
+          type: integer
+          format: int32
+        lastStateChange:
+          type: string
+          format: date-time
+    ServiceProviderRegionEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        serviceProvider:
+          $ref: '#/components/schemas/ServiceProviderEntity'
+        region:
+          $ref: '#/components/schemas/RegionEntity'
+        health:
+          $ref: '#/components/schemas/ServiceProviderHealthEntity'
+    UserEntity:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        password:
+          type: string
+        userType:
+          type: string
+          enum:
+            - GUEST
+            - ADMIN
+            - DEVELOPER
+            - FINANCE
+            - SPOTFLOW_ADMIN
+        status:
+          type: string
+        twoFactorAuthType:
+          type: string
+          enum:
+            - GOOGLE_AUTHENTICATOR
+            - EMAIL
+        twoFactorEnabled:
+          type: boolean
+        totpSecret:
+          type: string
+        merchant:
+          $ref: '#/components/schemas/MerchantEntity'
+        invitee:
+          $ref: '#/components/schemas/UserEntity'
+    AccountBalance:
+      type: object
+      properties:
+        balance:
+          type: number
+        currency:
+          type: string
+        availableBalance:
+          type: number
+    ExchangeTransactionDto:
+      type: object
+      properties:
+        business:
+          type: string
+        accountNumber:
+          type: string
+        currency:
+          type: string
+        amount:
+          type: number
+        narration:
+          type: string
+        isInternalTransfer:
+          type: boolean
+        feeAmount:
+          type: number
+        exchangeRate:
+          type: number
+        transactionReference:
+          type: string
+        providerTransactionReference:
+          type: string
+        provider:
+          type: string
+        status:
+          type: string
+          enum:
+            - SUBMITTED
+            - SCREENING_REQ
+            - VALIDATED
+            - PROCESSED
+            - RECONCILED
+            - ER_GENERAL
+            - HELD
+            - RETURNED
+            - CANCELLED
+            - AWAITING_OTP
+            - AWAITING_DISBURSEMENT
+        twoFaMethod:
+          type: string
+          enum:
+            - EMAIL
+            - TOTP
+        address:
+          type: string
+        network:
+          type: string
+        memo:
+          type: string
+        variation:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+    PageResponseExchangeTransactionDto:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExchangeTransactionDto'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+    AssetBlockchainTokens:
+      type: object
+      properties:
+        asset:
+          type: string
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/TokenDetails'
+    BlockchainNetwork:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        blockTime:
+          type: integer
+          format: int32
+        confirmations:
+          type: number
+        coinName:
+          type: string
+        coinSymbol:
+          type: string
+        supportsMemo:
+          type: boolean
+        alias:
+          type: string
+        addressExplorerUrl:
+          type: string
+        txExplorerUrl:
+          type: string
+    TokenDetails:
+      type: object
+      properties:
+        symbol:
+          type: string
+        name:
+          type: string
+        logoUrl:
+          type: string
+        supportedNetworks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TokenNetwork'
+    TokenNetwork:
+      type: object
+      properties:
+        code:
+          type: string
+        decimals:
+          type: integer
+          format: int32
+        contractAddress:
+          type: string
+        minimumDeposit:
+          type: number
+        depositAvailable:
+          type: boolean
+        withdrawalAvailable:
+          type: boolean
+        withdrawalFee:
+          type: number
+        networkInfo:
+          $ref: '#/components/schemas/BlockchainNetwork'
+    NetVariationDto:
+      type: object
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+    TotalCollection:
+      type: object
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        localAmount:
+          type: number
+        localCurrency:
+          type: string
+    TotalSettlement:
+      type: object
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        localAmount:
+          type: number
+        localCurrency:
+          type: string
+    TransactionSummaryDto:
+      type: object
+      properties:
+        totalCollection:
+          $ref: '#/components/schemas/TotalCollection'
+        totalSettlement:
+          $ref: '#/components/schemas/TotalSettlement'
+        dailyExchange:
+          type: number
+    SettlementChartDto:
+      type: object
+      properties:
+        month:
+          type: object
+          properties:
+            year:
+              type: integer
+              format: int32
+            month:
+              type: string
+              enum:
+                - JANUARY
+                - FEBRUARY
+                - MARCH
+                - APRIL
+                - MAY
+                - JUNE
+                - JULY
+                - AUGUST
+                - SEPTEMBER
+                - OCTOBER
+                - NOVEMBER
+                - DECEMBER
+            monthValue:
+              type: integer
+              format: int32
+            leapYear:
+              type: boolean
+        amount:
+          type: number
+    DailyExchangeDto:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        exchangeAmount:
+          type: number
+    CheckoutConfigDto:
+      type: object
+      properties:
+        merchantName:
+          type: string
+        merchantLogo:
+          type: string
+        paymentMethods:
+          type: array
+          items:
+            type: string
+        plan:
+          $ref: '#/components/schemas/PlanDto'
+        rate:
+          $ref: '#/components/schemas/RateDto'
+    BusinessOwner:
+      type: object
+      properties:
+        business:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        emailAddress:
+          type: string
+        phoneNumber:
+          type: string
+        dateOfBirth:
+          type: string
+        gender:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        address:
+          type: string
+        zipCode:
+          type: string
+        identificationNumber:
+          type: string
+        jobTitle:
+          type: string
+        percentageOwnership:
+          type: number
+    BusinessDocumentDto:
+      type: object
+      properties:
+        type:
+          type: string
+        description:
+          type: string
+    AccountDto:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        accountName:
+          type: string
+    TotpSetupResponse:
+      type: object
+      properties:
+        totpDetails:
+          type: string
+  securitySchemes:
+    bearerHttpAuthentication:
+      type: http
+      scheme: Bearer
+      bearerFormat: JWT

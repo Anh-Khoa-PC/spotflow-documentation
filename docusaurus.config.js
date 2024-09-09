@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+
 const path = require('path')
 
 /** @type {import('@docusaurus/types').Config} */
@@ -36,6 +37,23 @@ const config = {
   },
   
   presets: [
+    [
+      'redocusaurus',
+      {
+        specs: [
+          {
+            spec: './newapi.yaml',
+            route: '/api/intro',
+          },
+        ],
+        theme: {
+          primaryColor: 'blue',
+          options: {
+            disableSearch: true
+          }
+        }
+      }
+    ],
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
