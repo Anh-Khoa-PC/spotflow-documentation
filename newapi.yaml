@@ -163,6 +163,7 @@ paths:
       tags:
         - Subscription API
       operationId: cancelSubscription
+      description: "Cancel a specific existing subscription payment"
       parameters:
         - name: subscription-id
           in: path
@@ -213,6 +214,7 @@ paths:
       tags:
         - Subscription API
       operationId: getPlans
+      description: "This retrieves and lists all subscription plans available on your integration"
       parameters:
         - name: page
           in: query
@@ -266,6 +268,7 @@ paths:
       tags:
         - Subscription API
       operationId: createPlan
+      description: "Create a subscription plan with Spotflow."
       requestBody:
         content:
           application/json:
@@ -284,6 +287,7 @@ paths:
       tags:
         - Subscription API
       operationId: getPlan
+      description: "Reactivate a previously canceled single subscription plan."
       parameters:
         - name: plan-id
           in: path
@@ -302,6 +306,7 @@ paths:
       tags:
         - Subscription API
       operationId: updatePlan
+      description: "Update the details of an existing subscription plan"
       parameters:
         - name: plan-id
           in: path
@@ -327,6 +332,7 @@ paths:
       tags:
         - Subscription API
       operationId: cancelPlan
+      description: "Cancel a specific existing subscription plan."
       parameters:
         - name: plan-id
           in: path
@@ -346,6 +352,7 @@ paths:
       tags:
         - Subscription API
       operationId: activatePlan
+      description: "Reactivate a previously canceled single subscription plan."
       parameters:
         - name: plan-id
           in: path
@@ -365,6 +372,7 @@ paths:
       tags:
         - Subscription API
       operationId: createPlansBulk
+      description: "Create bulk subscription plans with Spotflow"
       requestBody:
         content:
           application/json:
@@ -388,6 +396,7 @@ paths:
       tags:
         - Collections API
       operationId: getPayments
+      description: "This retrieves and lists all payment collections available for a specific merchant"
       parameters:
         - name: page
           in: query
@@ -452,6 +461,7 @@ paths:
       tags:
         - Collections API
       operationId: createPayment
+      description: 'Our API helps you collect payments using different payment methods. Payment methods are available for each regions. This endpoint requires that your encrypt the JSON data before making the request. Check out our documentation here for more details on card encryption.'
       requestBody:
         content:
           application/json:
@@ -476,6 +486,7 @@ paths:
       tags:
         - Collections API
       operationId: authorizePayment
+      description: "This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out our documentation."
       requestBody:
         content:
           application/json:
@@ -583,6 +594,7 @@ paths:
       tags:
         - Collections API
       operationId: getPayment
+      description: "Get details of a specific payment by its ID"
       parameters:
         - name: payment-id
           in: path
@@ -602,6 +614,7 @@ paths:
       tags:
         - Collections API
       operationId: verifyPayment
+      description: "Confirm the status of a payment"
       parameters:
         - name: merchantId
           in: query
