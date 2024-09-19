@@ -44,12 +44,9 @@ dependencies {
 | Parameter | Type | Description |
 |:----------|:-----------|:---------|
 |<span style={{color: "red"}}>`merchantId`</span> | <span style={{color: "red"}}>`String`</span> |  The unique identifier for the merchant.|
-|<span style={{color: "red"}}>`paymentId`</span> | <span style={{color: "red"}}>`String`</span> | The unique identifier for the payment transaction.|
-|<span style={{color: "red"}}>`fromCurrency`</span> | <span style={{color: "red"}}>`String`</span> | The currency from which the payment is made.|
-|<span style={{color: "red"}}>`toCurrency`</span> | <span style={{color: "red"}}>`String`</span> | The currency to which the payment is converted.|
-|<span style={{color: "red"}}>`amount`</span> | <span style={{color: "red"}}>`Double`</span> | The amount to be paid.|
+|<span style={{color: "red"}}>`planId`</span> | <span style={{color: "red"}}>`String`</span> | The unique identifier for the payment transaction.|
 |<span style={{color: "red"}}>`key`</span> | <span style={{color: "red"}}>`String`</span> | The API key for authenticating the transaction.|
-|<span style={{color: "red"}}>`provider`</span> | <span style={{color: "red"}}>`String`</span> | The payment provider handling the transaction.|
+|<span style={{color: "red"}}>`encryptionKey`</span> | <span style={{color: "red"}}>`String`</span> | This key is used to encrypt the card.|
 |<span style={{color: "red"}}>`customerEmail`</span> | <span style={{color: "red"}}>`String`</span> | The email address of the customer.|
 |<span style={{color: "red"}}>`customerName`</span> | <span style={{color: "red"}}>`String?`</span> | The name of the customer (optional).|
 |<span style={{color: "red"}}>`customerPhoneNumber`</span> | <span style={{color: "red"}}>`String?`</span> | The phone number of the customer (optional).|
@@ -58,10 +55,6 @@ dependencies {
 |<span style={{color: "red"}}>`appLogo`</span> | <span style={{color: "red"}}>`Int?`</span> | The resource ID for the app logo (optional).|
 |<span style={{color: "red"}}>`appName`</span> | <span style={{color: "red"}}>`String?`</span> | The name of the app (optional).|
 
-
-:::warning[Protect Your API Keys]
-For enhanced security, avoid exposing your API keys on your application. API requests requiring your API key should originate from your server environment. This safeguards your sensitive information and reduces the risk of unauthorized access. 
-:::
 
 
 ## Usage with Jetpack Compose
@@ -135,21 +128,15 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize payment
         SpotFlowPaymentActivity.start(
-            context = this,
-            merchantId = "your_merchant_id",
-            paymentId = "your_payment_id",
-            fromCurrency = "USD",
-            toCurrency = "EUR",
-            amount = 100.0,
-            key = "your_key",
-            provider = "provider_name",
-            customerEmail = "customer@example.com",
-            customerName = "John Doe",
-            customerPhoneNumber = "1234567890",
-            customerId = "customer_id",
-            paymentDescription = "Payment for services",
-            appLogo = R.drawable.your_logo,
-            appName = "Your App",
+        customerEmail: "customer@example.com" ,
+			customerName: "John Snow", //optional
+			customerPhoneNumber: "000-000-000", //optional
+			customerId: "unique_id" //optional
+			merchantId: "unique_id" 
+			planId: "plan_id",
+			key: "your_api_key",
+			encryptionKey: "encryption_key",
+			paymentDescription: "Product purchase",
             requestCode = PAYMENT_REQUEST_CODE
         )
     }

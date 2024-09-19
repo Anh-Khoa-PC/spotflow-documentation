@@ -16,7 +16,7 @@ To use the <span style={{color: "red"}}>`Spotflow Flutter SDK`</span> package, a
 
 ```yaml
 dependencies:
-  spotflow: ^1.0.0
+  spotflow: ^0.0.1-beta.1
 ```
 
 Then run <span style={{color: "red"}}>`flutter pub get`</span> to fetch the package.
@@ -41,7 +41,6 @@ Spotflow().start( context: context,
   customerId: "unique_id" //optional
   merchantId: "unique_id" 
   planId: "plan_id",
-  amount: 10,
   key: "your_api_key",
   encryptionKey: "encryption_key",
   paymentDescription: "Product purchase",
