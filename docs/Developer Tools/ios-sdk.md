@@ -18,7 +18,6 @@ To integrate the Spotflow iOS SDK into your project, ensure the following prereq
 - XCode 12 or later
 - iOS 11 or later
 - Swift 5.3 or later
-- CocoaPods (for package/dependency management)
 
 ## Installation
 
@@ -33,7 +32,7 @@ dependencies: [
 targets: [
     .target(
         name: "YourApp",
-        dependencies: ["SpotFlow-iOS-SDK"]),
+        dependencies: ["Spotflow"]),
 ]
 ```
 
@@ -44,7 +43,7 @@ targets: [
 To use <span style={{color: "red"}}>`SpotFlow - iOS SDK`</span> in your SwiftUI view, import the library at the top of your Swift file:
 
 ```swift
-import SpotFlow_iOS_SDK
+import Spotflow
 ```
 
 ### Navigating to the Payment Screen
@@ -55,7 +54,7 @@ To navigate to the payment screen and initiate a payment process, create an inst
 
 ```swift
 import SwiftUI
-import SpotFlow_iOS_SDK
+import Spotflow
 
 struct ContentView: View {
     @State private var showPaymentScreen = false
@@ -79,11 +78,9 @@ struct ContentView: View {
                 destination: SpotFlowPaymentUI(
                     manager: SpotFlowPaymentManager(
                         merchantId: "your_merchant_id",
-                        paymentId: "your_payment_id",
-                        fromCurrency: "USD",
-                        toCurrency: "EUR",
-                        amount: 9.99,
+                        planId: "your_plan_id",
                         key: "your_key",
+                        encryptionKey: "your_encryption_key",
                         provider: "your_provider",
                         customerEmail: "customer@example.com",
                         customerName: "John Doe",
@@ -123,11 +120,9 @@ struct ContentView: View {
 ### Properties
 
 - <span style={{color: "red"}}>`merchantId`</span>: The merchant ID (String).
-- <span style={{color: "red"}}>`paymentId`</span>: The payment ID (String).
-- <span style={{color: "red"}}>`fromCurrency`</span>: The currency being paid from (String).
-- <span style={{color: "red"}}>`toCurrency`</span>: The currency being paid to (String).
-- <span style={{color: "red"}}>`amount`</span>: The amount to be paid (Double).
-- <span style={{color: "red"}}>`key`</span>: The API key for the payment provider (String).
+- <span style={{color: "red"}}>`planId`</span>: The plan ID (String).
+- <span style={{color: "red"}}>`key`</span>: The API key  (String).
+- <span style={{color: "red"}}>`encryptionKey`</span>: The Encryption key  (String).
 - <span style={{color: "red"}}>`customerEmail`</span>: The customer's email (String).
 - <span style={{color: "red"}}>`customerName`</span>: The customer's name (String, optional).
 - <span style={{color: "red"}}>`customerPhoneNumber`</span>: The customer's phone number (String, optional).
@@ -136,16 +131,13 @@ struct ContentView: View {
 - <span style={{color: "red"}}>`appLogo`</span>: The logo of the app (Image, optional).
 - <span style={{color: "red"}}>`appName`</span>: The name of the app (String, optional).
 
-
 ### Initializer
 
 ```swift
 init(
     merchantId: String,
-    paymentId: String,
-    fromCurrency: String,
-    toCurrency: String,
-    amount: Double,
+    planId: String,
+	encryptionKey: String
     key: String,
     customerEmail: String,
     customerName: String? = nil,
@@ -155,6 +147,7 @@ init(
     appLogo: Image? = nil,
     appName: String? = nil
 )
+
 ```
 
 ## Handling Error Messages
