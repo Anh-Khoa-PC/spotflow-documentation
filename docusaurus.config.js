@@ -117,15 +117,15 @@ const config = {
         language: ['en']
       }),
     ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'api',
-        path: 'api',
-        routeBasePath: 'api',
-        sidebarPath: './apisidebar.js',
-      }
-    ]
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'api',
+    //     path: 'api',
+    //     routeBasePath: 'api',
+    //     sidebarPath: './apisidebar.js',
+    //   }
+    // ]
   ],
 
   themeConfig:
