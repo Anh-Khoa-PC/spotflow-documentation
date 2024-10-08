@@ -132,7 +132,7 @@ Please note that specifying a payment plan when processing a card payment automa
 <script>
   const openCheckout = () => {
     const { CheckoutForm } = SpotflowCheckout
-    const checkout = new CheckoutForm({}
+    const checkout = {}
 
     );
     checkout.setup({

@@ -45,13 +45,18 @@ const checkout = new CheckoutForm()
 
 ```js
 import { CheckoutForm } from "@spot-flow/checkout-inline-js";
-
-const checkout = new CheckoutForm(
-      merchantKey = "<sk_test_f998479c0eedhXXXXXXXXXXXXXXXX>"// This is your Merchant Secret Key generated for your Merchant on Spotflow
-      email = "email",
-      amount = 1000,
-    );
-checkout.setup();
+// Create a function to wrap the checkout setup
+const openCheckout = () => {
+  const checkout = new CheckoutForm({});
+  checkout.setup({
+        email: "customer@email.com",
+        encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=",
+        merchantKey: "sk_test_6988f8d1539a48ab945764ec361fa3eb", // This is your Merchant Secret Key generated for your Merchant on Spotflow
+        amount: 500,
+      });
+};
+// After that, call the function
+openCheckout();   
 ```
 
 Alternatively, to integrate InlineJS into your web application, you can include it directly in your HTML via a CDN. Include the following script tag in the <span style={{color: "red"}}>`<head>`</span> section of your HTML file: 
