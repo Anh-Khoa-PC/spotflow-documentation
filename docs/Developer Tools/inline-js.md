@@ -49,10 +49,18 @@ import { CheckoutForm } from "@spot-flow/checkout-inline-js";
 const openCheckout = () => {
   const checkout = new CheckoutForm({});
   checkout.setup({
-        email: "customer@email.com",
-        encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=",
-        merchantKey: "sk_test_6988f8d1539a48ab945764ec361fa3eb", // This is your Merchant Secret Key generated for your Merchant on Spotflow
-        amount: 500,
+        amount: 4000,
+        currency: "NGN",
+        email: "temi@mailinator.com",
+        firstname: "John",
+        lastname: "Doe",
+        phone: "09090909090",
+        encryptionKey: "SKKXXXXXXXXXXXXXXXXX",
+        planId: "9e0808304-344d-XXXXXXXXX-XXXXX834034",
+        merchantKey: "sk_test_fXXXXedhXXXXXXXXXXXXXXXX",
+        onSuccess: (value) => {
+        console.log("Sucessfully Paid", { value })
+      }
       });
 };
 // After that, call the function
@@ -81,12 +89,13 @@ Alternatively, to integrate InlineJS into your web application, you can include 
     const checkout = new CheckoutForm({}
     );
     checkout.setup({
-      email: "customer@email.com",
-      encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=",
-      merchantKey: "sk_test_6988f8d1539a48ab945764ec361fa3eb",
       amount: 5,
+      email: "temi@mailinator.com",
+      encryptionKey: "SKKXXXXXXXXXXXXXXXXX",
+      planId: "9e0808304-344d-XXXXXXXXX-XXXXX834034",
+      merchantKey: "sk_test_fXXXXedhXXXXXXXXXXXXXXXX",
       onSuccess: (value) => {
-        console.log("Fully Success", { value })
+        console.log("Sucessfully Paid", { value })
       }
     });
   };
@@ -118,7 +127,7 @@ Spotflow.openCheckout({
 
   
   onSuccess: (value) => {
-    console.log("Fully Success", { value })
+    console.log("Sucessfully Paid", { value })
       // Handles subscription creation or failure
   }
 });
