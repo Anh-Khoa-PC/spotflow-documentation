@@ -86,8 +86,7 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 <script>
   const openCheckout = () => {
     const { CheckoutForm } = SpotflowCheckout
-    const checkout = new CheckoutForm({}
-    );
+    const checkout = new CheckoutForm({});
     checkout.setup({
       amount: 5,
       email: "temi@mailinator.com",
