@@ -45,13 +45,26 @@ const checkout = new CheckoutForm()
 
 ```js
 import { CheckoutForm } from "@spot-flow/checkout-inline-js";
-
-const checkout = new CheckoutForm(
-      merchantKey = "<sk_test_f998479c0eedhXXXXXXXXXXXXXXXX>"// This is your Merchant Secret Key generated for your Merchant on Spotflow
-      email = "email",
-      amount = 1000,
-    );
-checkout.setup();
+// Create a function to wrap the checkout setup
+const openCheckout = () => {
+  const checkout = new CheckoutForm({});
+  checkout.setup({
+        amount: 4000, // Amount is not needed if there is a plan id
+        currency: "NGN",
+        email: "temi@mailinator.com",
+        firstname: "John",
+        lastname: "Doe",
+        phone: "09090909090",
+        encryptionKey: "SKKXXXXXXXXXXXXXXXXX", // The encryption key for the merchant
+        planId: "9e0808304-344d-XXXXXXXXX-XXXXX834034", // The Id for the plan or subscription being paid for
+        merchantKey: "sk_test_fXXXXedhXXXXXXXXXXXXXXXX", // Your Merchant Secret Key generated on Spotflow
+        onSuccess: (value) => {
+        console.log("Sucessfully Paid", { value })
+      }
+      });
+};
+// After that, call the function
+openCheckout();  
 ```
 
 Alternatively, to integrate InlineJS into your web application, you can include it directly in your HTML via a CDN. Include the following script tag in the <span style={{color: "red"}}>`<head>`</span> section of your HTML file: 
@@ -73,15 +86,19 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 <script>
   const openCheckout = () => {
     const { CheckoutForm } = SpotflowCheckout
-    const checkout = new CheckoutForm({}
-    );
+    const checkout = new CheckoutForm({});
     checkout.setup({
-      email: "customer@email.com",
-      encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=",
-      merchantKey: "sk_test_6988f8d1539a48ab945764ec361fa3eb",
-      amount: 5,
-      onSuccess: (value) => {
-        console.log("Fully Success", { value })
+        amount: 4000, // Amount is not needed if there is a plan id
+        currency: "NGN",
+        email: "temi@mailinator.com",
+        firstname: "John",
+        lastname: "Doe",
+        phone: "09090909090",
+        encryptionKey: "SKKXXXXXXXXXXXXXXXXX", // The encryption key for the merchant
+        planId: "9e0808304-344d-XXXXXXXXX-XXXXX834034", // The Id for the plan or subscription being paid for
+        merchantKey: "sk_test_fXXXXedhXXXXXXXXXXXXXXXX", // Your Merchant Secret Key generated on Spotflow
+        onSuccess: (value) => {
+        console.log("Sucessfully Paid", { value })
       }
     });
   };
@@ -113,7 +130,7 @@ Spotflow.openCheckout({
 
   
   onSuccess: (value) => {
-    console.log("Fully Success", { value })
+    console.log("Sucessfully Paid", { value })
       // Handles subscription creation or failure
   }
 });
