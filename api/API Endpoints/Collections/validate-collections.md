@@ -6,7 +6,7 @@ title: Validate Payment Collection
 
 This validates the payment by verifying payment details and ensuring sufficient funds following authorization.
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments/validate
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/payments/validate
 
 ## Headers
 

@@ -6,7 +6,7 @@ title: Fetch Region For Merchant
 
 Get your available regions on Spotflow
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/merchant/regions
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/merchant/regions
 
 ## Headers
 

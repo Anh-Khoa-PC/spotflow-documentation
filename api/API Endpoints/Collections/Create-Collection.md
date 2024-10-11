@@ -8,7 +8,7 @@ hide_title: true
 
 Our API helps you collect payments using different payment methods. Payment methods are available for each regions. This endpoint requires that your encrypt the JSON data before making the request. Check out <a target="_blank" href={"/accepting-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation here</a> for more details on card encryption.   
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/payments
 
 **Headers**
 
@@ -130,7 +130,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 ```
 
 ## USSD Payments
-<span style={{color: "red"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/banks?ussd=true
+<span style={{color: "red"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/banks?ussd=true
 
 **Sample Response to Get All Banks (NG available currently)**
 
@@ -219,7 +219,7 @@ Our API helps you collect payments using different payment methods. Payment meth
 
 Set up recurring payments for a subscription plan using Spotflow. Check out <a target="_blank" href={"/recurring-payment"} style={{textDecoration: "underline", color: "purple"}}>our documentation</a> for more details.
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/payments
 
 **Headers**
 

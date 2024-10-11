@@ -7,7 +7,7 @@ pagination_next: null
 
 Reactivate a previously canceled single subscription plan.
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans/:plan-id/activate
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/plans/:plan-id/activate
 
 ## Headers
 

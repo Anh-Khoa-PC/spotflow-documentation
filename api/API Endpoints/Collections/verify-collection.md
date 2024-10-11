@@ -6,7 +6,7 @@ title: Verify Payment Collection
 
 Confirm the status of a payment
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/payments/verify?merchantId=&reference=
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/payments/verify?merchantId=&reference=
 
 ## Headers
 

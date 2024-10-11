@@ -34,6 +34,7 @@ const sidebars = {
             collapsed: false,
             items: [
               "API Endpoints/Collections/Create-Collection",
+              "API Endpoints/Collections/initialize-collections",
               "API Endpoints/Collections/verify-collection",
               "API Endpoints/Collections/authorize-collections",
               // "API Endpoints/Collections/validate-collections",
