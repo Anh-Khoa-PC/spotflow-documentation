@@ -58,15 +58,7 @@ const openCheckout = () => {
         onSuccess: (value) => {
         console.log("Sucessfully Paid", { value })
       }
-<<<<<<< Updated upstream
-      });
-=======
-<<<<<<< HEAD
   });
-=======
-      });
->>>>>>> 1806109876f08af0ada4f0b6b293908f3e90138f
->>>>>>> Stashed changes
 };
 // After that, call the function
 openCheckout();  
