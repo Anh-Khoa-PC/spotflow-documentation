@@ -8,7 +8,7 @@ hide_title: true
 
 Retrieve details of all subscriptions associated with a customer's plan ID.
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/plans/:plan-id/subscriptions
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/plans/:plan-id/subscriptions
 
 ## Headers
 

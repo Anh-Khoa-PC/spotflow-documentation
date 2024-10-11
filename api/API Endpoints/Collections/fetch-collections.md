@@ -8,7 +8,7 @@ pagination_next: null
 
 Get details of a specific payment by its ID
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/payments/:payment-id
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/payments/:payment-id
 
 ## Headers
 

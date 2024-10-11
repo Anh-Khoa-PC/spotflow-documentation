@@ -7,7 +7,7 @@ hide_title: true
 
 This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out <a target="_blank" href={"/accepting-payment"} style={{textDecoration: "underline"}}>our documentation</a>. 
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/payments/authorize
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/payments/authorize
 
 ## Headers
 

@@ -16,7 +16,7 @@ You have the flexibility to quote your prices in either Naira (NGN) or US Dollar
 
 To perform a currency conversion, you'll use the following endpoint:
 
-<span style={{color: "orange"}}>**POST**</span> https://dev-api.spotflow.one/api/exchange
+<span style={{color: "orange"}}>**POST**</span> https://dev-api.spotflow.co/api/exchange
 
 ### Request Parameters
 - **amount**: The amount to be converted (required, numeric).

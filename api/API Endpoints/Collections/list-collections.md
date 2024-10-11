@@ -7,7 +7,7 @@ hide_title: true
 
 This retrieves and lists all payment collections available for a specific merchant 
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/payments?page=&size=
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/payments?page=&size=
 
 ## Headers
 

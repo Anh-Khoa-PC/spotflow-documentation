@@ -6,7 +6,7 @@ title: List Plans
 
 This retrieves and lists all subscription plans available on your integration
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.one/api/v1/plans?page=&size=
+<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/plans?page=&size=
 
 ## Headers
 

@@ -8,7 +8,7 @@ hide_title: true
 
 Create a subscription plan with Spotflow.
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.one/api/v1/plans
+<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/plans
 
 
 ## Headers
