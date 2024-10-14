@@ -668,6 +668,14 @@ If the status of the transaction shows either <span style={{color: "red"}}>`pend
 
 ## Accepting Payments with Spotflow Redirect
 
+<p style={{fontSize: "20px"}}>**Prerequisites for Accepting Card Payments with Spotflow Redirect**</p>
+
+1. **Account Activation**
+    - **Verification Required**: Ensure your Spotflow account is fully activated and verified.
+2. **Merchant Configuration**
+    - **Default Disabled**: By default, merchant configuration is not enabled on new accounts.
+    - **Enablement Request**: To accept card payments successfully, contact our support team at [support@spotflow.one](mailto:support@spotflow.one) and request merchant configuration activation for your account.
+
 To accept payments with Spotflow Redirect, you make a request to the <a target='_blank' href={"../api/API Endpoints/Collections/initialize-collections"}>Initialize Payment Collection API</a> from your server to generate a checkout URL, then redirect your users to the URL so they can pay.
 
 <Admonitions type={"warning"} icon={"📝"}>
