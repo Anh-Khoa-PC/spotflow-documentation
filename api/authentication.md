@@ -42,7 +42,7 @@ Secure your API requests by including an Authorization header in the following f
 }
 ```
 
-We've provided a sample API key so you can test with no delay. To test functionalities specific to your account, you'll need to replace this sample key with your own. Do not submit personally identifiable information in requests made with this sample API key. This key is for testing purposes only and may not have the necessary security restrictions for handling sensitive data.
+To test functionalities specific to your account, you'll need to replace this sample key with your own.
 
 By following these guidelines, you can ensure secure and authorized access while integrating with Spotflow's APIs.
 <!-- </div> -->
