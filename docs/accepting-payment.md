@@ -668,7 +668,7 @@ If the status of the transaction shows either <span style={{color: "red"}}>`pend
 
 ## Accepting Payments with Spotflow Redirect
 
-<p style={{fontSize: "20px"}}>**Prerequisites for Accepting Card Payments with Spotflow Redirect**</p>
+## Prerequisites for Accepting Card Payments with Spotflow Redirect
 
 **1. Account Activation**
 
