@@ -1,5 +1,5 @@
 ---
-title: Initialize Payment Collections
+title: Initialize Payment Collection
 hide_title: true
 ---
 
