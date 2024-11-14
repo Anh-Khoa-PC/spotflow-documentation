@@ -25,6 +25,10 @@ const sidebars = {
       id: 'settlement'
     },
     {
+      type: 'doc',
+      id: 'testing-payment'
+    },
+    {
       type: 'category',
       label: 'Developer Tools',
       collapsed: false,
