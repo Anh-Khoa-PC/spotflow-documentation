@@ -2,12 +2,12 @@
 title: InlineJS
 pagination_next: null
 ---
-import Admonitions from "../../src/components/Admonition/Admonitions"
 
+import Admonitions from "../../src/components/Admonition/Admonitions"
 
 ## Introduction
 
-InlineJS is Spotflow's JavaScript library designed to simplify the integration of payment functionalities into your web applications. By embedding InlineJS into your checkout page, you can create a seamless payment experience without the need for redirects. It integrates smoothly into your application, providing a streamlined checkout experience.
+InlineJS is Spotflow's JavaScript library designed to simplify the integration of payment functionalities into your web application. By embedding InlineJS into your checkout page, you can create a seamless payment experience without the need for redirects. It integrates smoothly into your application, providing a streamlined checkout experience.
 
 <!-- <Admonitions icon={"💡"} style={{backgroundColor: "purple"}}>
 For React components and usage, <a href="https://github.com/Spotflow-One/react-spotflow-checkout" style={{textDecoration: "underline"}}>link</a>
@@ -19,7 +19,7 @@ For Angular components and usage, <a href="https://github.com/Spotflow-One/angul
 
 ## Browser Support
 
-Spotflow InlineJS is compatible with all recent versions of modern web browsers that support ECMAScript 5 or later. This includes: 
+Spotflow InlineJS is compatible with all recent versions of modern web browsers that support ECMAScript 5 or later. This includes:
 
 - Google Chrome and Safari on all platforms.
 - Mozilla Firefox and Microsoft Edge on desktop platforms.
@@ -35,8 +35,6 @@ If you used <span style={{color: "red"}}>`NPM`</span> or <span style={{color:
 ```js
 // Add for NPM, Yarn
 import { CheckoutForm } from "@spot-flow/checkout-inline-js";
-
-const checkout = new CheckoutForm()
 ```
 
 ## Usage
@@ -45,26 +43,38 @@ const checkout = new CheckoutForm()
 
 ```js
 import { CheckoutForm } from "@spot-flow/checkout-inline-js";
-// Create a function to wrap the checkout setup
-const openCheckout = () => {
-  const checkout = new CheckoutForm({});
-  checkout.setup({
-        email: "temi@mailinator.com",
-        firstname: "John",
-        lastname: "Doe",
-        encryptionKey: "SKKXXXXXXXXXXXXXXXXX", // The encryption key for the merchant
-        planId: "9e0808304-344d-XXXXXXXXX-XXXXX834034", // The Id for the plan or subscription being paid for
-        merchantKey: "sk_test_fXXXXedhXXXXXXXXXXXXXXXX", // Your Merchant Secret Key generated on Spotflow
-        onSuccess: (value) => {
-        console.log("Sucessfully Paid", { value })
-      }
-  });
-};
-// After that, call the function
-openCheckout();  
+
+const checkout = new CheckoutForm({});
+checkout.setup({
+  email: "temi@mailinator.com",
+  encryptionKey: "gF1SPEMA3ido2Dg4ByXxxxxxxxxxxxxxxxxx", // The encryption key for the merchant
+  merchantKey: "sk_test_8a586f9801254xxxxxxxxxxxx", // Your Merchant Secret Key generated on Spotflow
+  currency: "NGN",
+  amount: 500,
+  onSuccess: (value) => {
+    console.log("Fully Success", { value });
+  },
+});
 ```
 
-Alternatively, to integrate InlineJS into your web application, you can include it directly in your HTML via a CDN. Include the following script tag in the <span style={{color: "red"}}>`<head>`</span> section of your HTML file: 
+### Subscription Payment
+
+```js
+  const checkout = new CheckoutForm({});
+  checkout.setup({
+    email: "temi@mailinator.com",
+    encryptionKey: "gF1SPEMA3ido2Dg4ByXxxxxxxxxxxxxxxxxx", // The encryption key for the merchant
+    merchantKey: "sk_test_8a586f9801254xxxxxxxxxxxx", // Your Merchant Secret Key generated on Spotflow
+    planId: "7447a235-9f53-4d44-xxxxxxxxxxxxxx", // Replace with your plan ID
+    onSuccess: (value) => {
+        console.log("Fully Success", { value })
+      }
+  });
+```
+
+### One-Time Payment via CDN
+
+Alternatively, to integrate InlineJS into your web application, you can include it directly in your HTML via a CDN. Include the following script tag in the <span style={{color: "red"}}>`<head>`</span> section of your HTML file:
 
 **HTML**
 
@@ -81,18 +91,17 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 
 ```js
 <script>
-  const openCheckout = () => {
+const openCheckout = () => {
     const { CheckoutForm } = SpotflowCheckout
     const checkout = new CheckoutForm({});
     checkout.setup({
-        email: "temi@mailinator.com",
-        firstname: "John",
-        lastname: "Doe",
-        encryptionKey: "SKKXXXXXXXXXXXXXXXXX", // The encryption key for the merchant
-        planId: "9e0808304-344d-XXXXXXXXX-XXXXX834034", // The Id for the plan or subscription being paid for
-        merchantKey: "sk_test_fXXXXedhXXXXXXXXXXXXXXXX", // Your Merchant Secret Key generated on Spotflow
-        onSuccess: (value) => {
-        console.log("Sucessfully Paid", { value })
+      email: "temi@mailinator.com",
+      encryptionKey: "gF1SPEMA3xxxxxxxxxxxxx", // The encryption key for the merchant
+      merchantKey: "sk_test_xxxxxxxxxxxx6", // Your Merchant Secret Key generated on Spotflow
+      currency: "NGN",
+      amount: 500,
+      onSuccess: (value) => {
+        console.log("Fully Success", { value })
       }
     });
   };
@@ -100,55 +109,17 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 ```
 
 :::warning[Protect Your Secret Key]
-For enhanced security, avoid exposing your secret key on your application. API requests requiring your secret key should originate from your server environment. This safeguards your sensitive information and reduces the risk of unauthorized access. 
+For enhanced security, avoid exposing your secret key on your application. API requests requiring your secret key should originate from your server environment. This safeguards your sensitive information and reduces the risk of unauthorized access.
 :::
 
 ## InlineJS Object
 
 The InlineJS library provides a global <span >`Spotflow`</span> object with the following methods:
+
 - **merchantKey**: Initializes the InlineJS library with your merchant secret key.
-- **openCheckout()**: Opens the checkout modal with specified options.
-- **closeCheckout():** Closes the checkout modal.
 - **on(event, callback)**: Subscribes to InlineJS events i.e onclick.
-
-## Subscriptions
-
-```js
-Spotflow.openCheckout({
-  amount: 1000,
-  currency: "NGN",
-  merchantKey: "<sk_test_f998479c0eedhXXXXXXXXXXXXXXXX>" // This is your Merchant Secret Key generated for your Merchant on Spotflow
-  plan: "plan_id", // Replace with your plan ID
-  email: "customer@example.com",
-  encryptionKey: "N9cCZmhZh1GITKnBMqSe5IFiljvj/HI739kGoOmoDNs=" // This is your encryption key for your card payment
-
-  
-  onSuccess: (value) => {
-    console.log("Sucessfully Paid", { value })
-      // Handles subscription creation or failure
-  }
-});
-```
-
-**Request Body:**
-
-```yaml
-{
-    "amount": 1000,
-    "currency": "NGN",
-    "plan": "plan_id",
-    "email": "customer@example.com",
-}
-```
-
-**Response:**
-```yaml
-{
-    "status": "success" | "failed",
-    "data": {
-        // Subscription details
-    }
-}
-```
+- **planId**: For subscription payments. 
+- **encryptionKey**: To encrypt card details for card payments.
+- **email:** Merchant’s email
 
 By following this guide and effectively utilizing InlineJS, you can implement a smooth and secure payment experience into your application.
