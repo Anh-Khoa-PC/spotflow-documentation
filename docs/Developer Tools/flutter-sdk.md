@@ -16,7 +16,7 @@ To use the <span style={{color: "red"}}>`Spotflow Flutter SDK`</span> package, a
 
 ```yaml
 dependencies:
-  spotflow: ^0.0.1-beta.1
+  spotflow: ^0.1.0-beta.1
 ```
 
 Then run <span style={{color: "red"}}>`flutter pub get`</span> to fetch the package.
@@ -39,8 +39,8 @@ Spotflow().start( context: context,
   customerName: "John Snow", //optional
   customerPhoneNumber: "000-000-000", //optional
   customerId: "unique_id" //optional
-  merchantId: "unique_id" 
   planId: "plan_id",
+  amount: "amount",
   key: "your_api_key",
   encryptionKey: "encryption_key",
   paymentDescription: "Product purchase",
@@ -60,22 +60,21 @@ Spotflow().start( context: context,
 ## SpotFlowPaymentManager
 
 The <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> class requires the following parameters:
-- **merchantId**: The unique identifier for the merchant.
 - **customerEmail**: The email address of the customer.
 - **amount**: The amount to be paid.
 - **key**: The API key for the payment provider.
 - **planId**: The unique identifier for the payment plan.
 - **encryptionKey**: The encryption key for securing the transaction.
-- **customerId** *(optional)*: The unique identifier for the customer.
-- **customerName** *(optional)*: The name of the customer.
-- **customerPhoneNumber** *(optional)*: The phone number of the customer.
-- **paymentDescription** *(optional)*: A description of the payment.
-- **appLogo** *(optional)*: An image widget for the application logo.
-- **appName** *(optional)*: The name of the application.
+- **customerId**: *(optional)*: The unique identifier for the customer.
+- **customerName**: *(optional)*: The name of the customer.
+- **customerPhoneNumber**: *(optional)*: The phone number of the customer.
+- **paymentDescription**: *(optional)*: A description of the payment.
+- **appLogo**: *(optional)*: An image widget for the application logo.
+- **appName**: *(optional)*: The name of the application.
 
 ### Testing Your Implementation
 
-Use test cards provided by your payment provider to test your implementation.
+Test cards can be found <a href="https://docs.spotflow.one/testing-payment" target="_blank" style={{textDecoration: "underline"}}>here</a>
 
 ## Running the Example Project
 
