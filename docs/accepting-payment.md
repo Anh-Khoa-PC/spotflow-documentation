@@ -631,7 +631,7 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 }
 ```
 
-**Sample Response for Bank Trasnfer Payments**
+**Sample Response for Bank Transfer Payments**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
