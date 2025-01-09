@@ -6,6 +6,7 @@ const DevTools = ({src, title, description}) => {
     const divStyle = {
       marginTop: "10px",
       // maxWidth: "900px",
+      
       paddingInline: "2%",
       marginBottom: "32px"
     }
