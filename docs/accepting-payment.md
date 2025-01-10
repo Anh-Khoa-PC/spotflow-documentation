@@ -73,7 +73,7 @@ To learn more about PCI-DSS compliance, visit the PCI Security Standards Council
 
 **Firstly**, To accept card payments with our Payment API, collect the required card payment details from your customer. This details which you would send to our endpoint should be structured following this specified format: 
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/payments
+<span style={{color: "orange"}}>`POST`</span> https://api.spotflow.co/api/v1/payments
 
 ```yaml
 {
