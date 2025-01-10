@@ -7,14 +7,13 @@ hide_title: true
 
 This authorizes a payment by pre-approving the transaction before final validation. Authorization required could be PIN, OTP, 3DS, AVS, etc. For more details, check out <a target="_blank" href={"/accepting-payment"} style={{textDecoration: "underline"}}>our documentation</a>. 
 
-<span style={{color: "orange"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/payments/authorize
+<span style={{color: "orange"}}>`POST`</span> https://api.spotflow.co/api/v1/payments/authorize
 
 ## Headers
 
 | <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
 | content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span> |
-| origin <br></br> <span style={{color: "red"}}>`Data`</span> | https://app.spotflow.co |
 
 ## Body Parameters
 

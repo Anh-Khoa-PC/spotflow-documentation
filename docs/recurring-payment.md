@@ -38,7 +38,7 @@ To set up a recurring billing plan, you'll need to provide the following informa
 
 Once you've defined these parameters, use Spotflow <a target="_blank" href={"../api/API Endpoints/Subscription Plans/create-single-plan"} style={{textDecoration: "underline"}}>Create Plan</a> endpoint to establish the recurring billing structure. Here's a sample of what the request body and response looks like: 
 
-<span style={{color: "red"}}>`POST`</span> https://dev-api.spotflow.co/api/v1/plans
+<span style={{color: "red"}}>`POST`</span> https://api.spotflow.co/api/v1/plans
 
 <br></br>
 **Request Body**:
