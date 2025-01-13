@@ -133,7 +133,14 @@ const config = {
             position: 'left',
             label: 'Docs'
           },
-          {to: '/api/intro', label: 'API', position: 'left'},
+          // {to: '/api/intro', label: 'API', position: 'left'},
+          {
+            type: 'docSidebar',
+            sidebarId: 'api',
+            docsPluginId: 'api',
+            position: 'left',
+            label: 'API'
+          },
           {
             type: 'dropdown',
             label: 'Community',
