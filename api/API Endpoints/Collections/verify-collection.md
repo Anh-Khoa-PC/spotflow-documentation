@@ -6,13 +6,12 @@ title: Verify Payment Collection
 
 Confirm the status of a payment
 
-<span style={{color: "green"}}>`GET`</span> https://dev-api.spotflow.co/api/v1/payments/verify?merchantId=&reference=
+<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/payments/verify?merchantId=&reference=
 
 ## Headers
 
 | <p style={{fontWeight: '400'}}>authorization <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}><span style={{color: "red"}}>`Bearer SECRET_KEY`</span> <br></br> *Include your secret key in the request header as a Bearer token for authorization. Unauthorized requests will result in a 401 HTTP status code*.</p> |
 |:----------|:-----------|
-| origin <br></br> <span style={{color: "red"}}>`Data`</span> | https://app.spotflow.co |
 
 ## Query Parameters
 
