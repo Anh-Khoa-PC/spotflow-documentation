@@ -119,8 +119,8 @@ const config = {
         title: '',
         logo: {
           alt: 'sf-logo',
-          src: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1741855233/qevgevbty1aji4ttjmpe.png',
-          srcDark: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1741855060/md2wdbneub6cwvyjbiuo.png',
+          src: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1741964933/u6mxunbkogmyhxfjkfqm.png',
+          srcDark: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1741964933/oketiuhhqs9zuy4macrq.png',
           className: "doclogo",
           // width: 139,
           height: 28,
