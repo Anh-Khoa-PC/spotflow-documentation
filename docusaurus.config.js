@@ -11,7 +11,7 @@ const path = require('path')
 const config = {
   title: 'Spotflow Documentation',
   tagline: 'The official Spotflow Documentation',
-  favicon: 'img/sf-favicon-white.png',
+  favicon: 'img/favicon-logo.svg',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -114,13 +114,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1719325096/new%20assets/gb0ghehgthoijo2zv4xk.png',
+      image: 'img/sf-nenw-logo.svg',
       navbar: {
         title: '',
         logo: {
           alt: 'sf-logo',
-          src: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1719325096/new%20assets/gb0ghehgthoijo2zv4xk.png',
-          srcDark: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1721731258/new%20assets/wilwyaeqmofccvsm7fnm.png',
+          src: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1741855233/qevgevbty1aji4ttjmpe.png',
+          srcDark: 'https://res.cloudinary.com/dbrh0uxwx/image/upload/v1741855060/md2wdbneub6cwvyjbiuo.png',
           className: "doclogo",
           // width: 139,
           height: 28,
