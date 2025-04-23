@@ -5,7 +5,7 @@ id: settlement
 
 ## Understanding Settlements
 
-Settlements in the context of Spotflow refer to the process of transferring funds from the Spotflow platform to your designated bank account. This occurs after successful payment collections and the completion of any necessary reconciliations.
+Settlements in the context of Spotflow refers to the process of transferring funds from the Spotflow platform to your designated bank account as a Merchant. This occurs after successful payment collections and the completion of any necessary reconciliations.
 
 ## Settlement Process Overview
 
