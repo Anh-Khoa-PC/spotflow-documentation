@@ -288,7 +288,7 @@ Spotflow provides webhooks to notify you of payment events (e.g., successful pay
 
 ```yaml
 {
-  "event": "subscription_canceled",
+  "event": "subscription_cancelled",
   "data": {
     "id": "7bbcbcef-1cbb-4bf2-8b27-9200c4d6d0c6",
     "customerId": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
