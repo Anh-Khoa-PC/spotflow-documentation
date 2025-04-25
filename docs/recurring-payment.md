@@ -237,7 +237,7 @@ There are two ways to cancel your subscription:
 
 Canceling a subscription or plan will trigger a webhook event.
 
-Canceled subscriptions and plans can be activated later, via the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/activate-plan"} style={{textDecoration: "underline"}}>Activate Subscription Plan</a> and <a target="_blank" href={"../api/API Endpoints/Subscription Plans/cancel-plan"} style={{textDecoration: "underline"}}>Cancel Plan</a> endpoints respectively.
+Canceled subscriptions and plans can be activated later, via the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/activate-plan"} style={{textDecoration: "underline"}}>Activate Plan</a> and <a target="_blank" href={"../api/API Endpoints/Subscription/activate-subscription"} style={{textDecoration: "underline"}}>Activate Subscription</a> endpoints respectively.
 
 ## Webhooks
 
