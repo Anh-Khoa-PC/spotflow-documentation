@@ -49,7 +49,6 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
     "title": "My Plan",
     "frequency": "DAILY",
     "internalReference": "ref-newproduct",
-    "regionId": "1",
     "pricingOptions": [
     {
       "amount": 100,
@@ -100,7 +99,6 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
      "title": "Test Mack",
     "frequency": "DAILY",
     "internalReference": "Mack",
-    "regionId": "1",
     "pricingOptions": [
     {
       "amount": 100,
@@ -136,7 +134,7 @@ Alternatively, you can create a subscription plan on your dashboard via the Subs
 
 ## Adding a Customer to a Subscription
 
-To enroll a customer in a subscription, simply reference the plan ID when initiating their first charge. This streamlined process applies to all payment methods supported by Spotflow, including <span style={{color: "red"}}>`Embed`</span>, <span style={{color: "red"}}>`Redirect`</span>, and <span style={{color: "red"}}>`Classic`</span>. Here’s a sample request and a sample response below:
+To enroll a customer in a subscription, simply reference the plan ID when initiating their first charge. This streamlined process applies to all integration methods supported by Spotflow, including <span style={{color: "red"}}>`Embed`</span>, <span style={{color: "red"}}>`Redirect`</span>, and <span style={{color: "red"}}>`Classic`</span>. Here’s a sample request and a sample response below:
 
 **Sample Request for Recurring Payments in Foreign Currency (USD) using Spotflow Classic (our APIs):**
 
