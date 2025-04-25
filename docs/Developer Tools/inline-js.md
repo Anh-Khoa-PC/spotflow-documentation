@@ -49,7 +49,8 @@ checkout.setup({
   email: "temi@mailinator.com",
   encryptionKey: "gF1SPEMA3ido2Dg4ByXxxxxxxxxxxxxxxxxx", // The encryption key for the merchant
   merchantKey: "sk_test_8a586f9801254xxxxxxxxxxxx", // Your Merchant Secret Key generated on Spotflow
-  currency: "NGN",
+  currency: "NGN", //can be in USD or in the local currency of your collection region e.g NGN, GHS
+  localCurrency: "NGN", //optional and only needed if currency is in USD
   amount: 500,
   onSuccess: (value) => {
     console.log("Fully Success", { value });
@@ -66,6 +67,8 @@ checkout.setup({
     encryptionKey: "gF1SPEMA3ido2Dg4ByXxxxxxxxxxxxxxxxxx", // The encryption key for the merchant
     merchantKey: "sk_test_8a586f9801254xxxxxxxxxxxx", // Your Merchant Secret Key generated on Spotflow
     planId: "7447a235-9f53-4d44-xxxxxxxxxxxxxx", // Replace with your plan ID
+    currency: "NGN", //can be in USD or in the local currency of your collection region e.g NGN, GHS
+    localCurrency: "NGN", //optional and only needed if currency is in USD
     onSuccess: (value) => {
         console.log("Fully Success", { value })
       }
@@ -91,21 +94,22 @@ Alternatively, to integrate InlineJS into your web application, you can include 
 
 ```js
 <script>
-const openCheckout = () => {
-    const { CheckoutForm } = SpotflowCheckout
-    const checkout = new CheckoutForm({});
-    checkout.setup({
-      email: "temi@mailinator.com",
-      encryptionKey: "gF1SPEMA3xxxxxxxxxxxxx", // The encryption key for the merchant
-      merchantKey: "sk_test_xxxxxxxxxxxx6", // Your Merchant Secret Key generated on Spotflow
-      currency: "NGN",
-      amount: 500,
-      onSuccess: (value) => {
-        console.log("Fully Success", { value })
-      }
-    });
-  };
-</script>
+      const openCheckout = () => {
+        const { CheckoutForm } = SpotflowCheckout
+      const checkout = new CheckoutForm({});
+      checkout.setup({
+          email: "temi@mailinator.com",
+         encryptionKey: "gF1SPEMA3xxxxxxxxxxxxx", // The encryption key for the merchant
+         merchantKey: "sk_test_xxxxxxxxxxxx6", // Your Merchant Secret Key generated on Spotflow
+         currency: "NGN",
+         localCurrency: "NGN", //optional and only needed if currency is in USD
+         amount: 500,
+        onSuccess: (value) => {
+            console.log("Fully Success", { value })
+          }
+        });
+      };
+    </script>
 ```
 
 :::warning[Protect Your Secret Key]
