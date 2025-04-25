@@ -211,7 +211,7 @@ const config = {
       //   ],
       //   copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       // },
-      blog: false,
+      // blog: false,
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
