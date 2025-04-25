@@ -16,9 +16,9 @@ Cancel a specific existing subscription payment
 
 ## Path Parameters
 
-**plan-id** <span style={{color: "red"}}>`int32`</span>
+**subscription-id** <span style={{color: "red"}}>`int32`</span>
 
-This is the unique <span style={{color: "red"}}>`ID`</span> of the plan you want to cancel
+This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription you want to cancel
 
 ## Sample Response
 
@@ -28,12 +28,19 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the plan you want
 
 ```yaml
 {
-    "id": "722d7b6c-1fb6-4b01-bfd5-26bcd571ccb4",
-    "customerId": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-    "planId": "3cbab046-f06a-4815-941d-d8cc7be43d59",
+    "id": "2cf2d1de-9c36-4b62-84b4-c1bccd7294bc",
+    "customerId": "aec7a027-e587-49f8-986e-1765fb8b2d10",
+    "planId": "b99cf70b-3a86-43cc-b868-140c97c6c9f6",
     "status": "cancelled",
-    "startDate": "2024-07-25T16:40:19Z",
-    "nextPaymentDate": "2024-07-26T16:40:19Z",
-    "createdAt": "2024-07-25T16:40:19Z"
+    "startDate": "2025-04-16T10:44:10Z",
+    "nextPaymentDate": "2025-04-16T10:45:10Z",
+    "createdAt": "2025-04-16T10:44:10Z",
+    "metadata": {
+        "title": "Creator",
+        "productName": "Gab"
+    },
+    "currency": "NGN",
+    "regionName": "Nigeria",
+    "amount": 100
 }
 ```

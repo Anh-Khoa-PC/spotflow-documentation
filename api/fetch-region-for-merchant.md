@@ -24,8 +24,24 @@ Get your available regions on Spotflow
     {
         "id": 1,
         "name": "Nigeria",
+        "currency": "NGN",
         "status": "active",
-        "createdAt": "2024-06-07T10:30:47Z"
+        "createdAt": "2024-10-17T15:06:41Z",
+        "paymentChannels": [
+            "bank_transfer",
+            "ussd",
+            "card"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Ghana",
+        "currency": "GHS",
+        "status": "active",
+        "createdAt": "2024-11-01T15:42:57Z",
+        "paymentChannels": [
+            "mobile_money"
+        ]
     }
 ]
 ```

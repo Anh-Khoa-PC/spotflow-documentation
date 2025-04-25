@@ -32,15 +32,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the charges. Can either be in USD or in the local currency of your collection region.|
 
 
-## Sample Request Body
-
-```yaml
-{
-    "title": "Navigately Mini" //formerly Audioly
-}
-```
-
-## Sample Response
+## Sample Response before Update
 
 <span style={{color: "green"}}>`200 OK`</span>
 
@@ -49,13 +41,81 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
 
 ```yaml
 {
-    "id": "3cbab046-f06a-4815-941d-d8cc7be43d59",
-    "title": "Navigately Mini",
+    "id": "18a60cb1-02c3-48be-bb7e-53b80e3e183a",
+    "title": "FitClock",
     "frequency": "DAILY",
-    "internalReference": "test",
-    "amount": 70,
-    "currency": "USD",
+    "internalReference": "fit-clock",
     "status": "active",
-    "createdAt": "2024-07-23T12:17:45Z"
+    "regions": [
+        "Ghana",
+        "Nigeria"
+    ],
+    "subscribers": 1,
+    "subscriptions": 1,
+    "createdAt": "2025-03-20T15:06:22Z",
+    "pricingOptions": [
+        {
+            "amount": 500,
+            "currency": "NGN"
+        },
+        {
+            "amount": 5,
+            "currency": "GHS"
+        }
+    ]
+}
+```
+
+## Sample Request Body for Update
+
+```yaml
+{
+    "title": "Fitness Plus",
+    "frequency": "weekly",
+    "internalReference": "ref-fitnessproduct",
+    "pricingOptions": [
+        {
+            "amount": 1000,
+            "currency": "NGN"
+        },
+        {
+            "amount": 5,
+            "currency": "GHS"
+        }
+    ]
+}
+```
+
+## Sample Response after Update
+
+<span style={{color: "green"}}>`200 OK`</span>
+
+<br></br>
+<br></br>
+
+```yaml
+{
+    "id": "18a60cb1-02c3-48be-bb7e-53b80e3e183a",
+    "title": "Fitness Plus",
+    "frequency": "WEEKLY",
+    "internalReference": "ref-fitnessproduct",
+    "status": "active",
+    "regions": [
+        "Ghana",
+        "Nigeria"
+    ],
+    "subscribers": 1,
+    "subscriptions": 1,
+    "createdAt": "2025-03-20T15:06:22Z",
+    "pricingOptions": [
+        {
+            "amount": 1000,
+            "currency": "NGN"
+        },
+        {
+            "amount": 5,
+            "currency": "GHS"
+        }
+    ]
 }
 ```

@@ -29,49 +29,146 @@ This retrieves and lists all subscription plans available on your integration
 {
     "content": [
         {
-            "id": "ce13b342-96ee-4d37-a9a0-00dc5d5c30b2",
-            "title": "Mackins",
+            "id": "1c009e92-27ed-4298-948b-944c9434b568",
+            "title": "Dialysis",
+            "frequency": "DAILY",
+            "internalReference": "Dialysistestproduct",
+            "status": "active",
+            "regions": [
+                "Nigeria",
+                "Ghana"
+            ],
+            "subscribers": 1,
+            "subscriptions": 1,
+            "createdAt": "2025-03-14T13:44:27Z",
+            "pricingOptions": [
+                {
+                    "amount": 10,
+                    "currency": "GHS"
+                },
+                {
+                    "amount": 1000,
+                    "currency": "NGN"
+                }
+            ]
+        },
+        {
+            "id": "d0f5028f-64d5-4ba3-be54-521359b4e564",
+            "title": "Tester MA",
             "frequency": "MONTHLY",
-            "internalReference": "ref-9090",
-            "amount": 5700.00,
-            "currency": "NGN",
+            "internalReference": "Fee",
             "status": "active",
-            "createdAt": "2024-08-06T14:44:24Z"
+            "regions": [
+                "Nigeria",
+                "Ghana"
+            ],
+            "subscribers": 0,
+            "subscriptions": 0,
+            "createdAt": "2025-03-20T09:50:13Z",
+            "pricingOptions": [
+                {
+                    "amount": 100.5,
+                    "currency": "NGN"
+                },
+                {
+                    "amount": 75.3,
+                    "currency": "GHS"
+                }
+            ]
         },
         {
-            "id": "74da5e15-ea37-4b75-8b3b-02f51a1e849a",
-            "title": "Bugify",
+            "id": "7d5f2810-b052-43b3-891c-cdf722d690e1",
+            "title": "Test Mack",
             "frequency": "DAILY",
-            "internalReference": "kpyg-7070",
-            "amount": 1000.00,
-            "currency": "USD",
+            "internalReference": "Mack",
             "status": "active",
-            "createdAt": "2024-08-06T14:44:24Z"
+            "regions": [
+                "Global"
+            ],
+            "subscribers": 0,
+            "subscriptions": 0,
+            "createdAt": "2025-03-20T09:51:25Z",
+            "pricingOptions": [
+                {
+                    "amount": 100.5,
+                    "currency": "USD"
+                },
+                {
+                    "amount": 8999.99,
+                    "currency": "USD"
+                }
+            ]
         },
         {
-            "id": "ed011d21-9a10-46d7-9347-5673a3f968e2",
-            "title": "Spoolie",
+            "id": "b99cf70b-3a86-43cc-b868-140c97c6c9f6",
+            "title": "Mealy",
             "frequency": "DAILY",
-            "internalReference": "ref-323",
-            "amount": 10.00,
-            "currency": "USD",
+            "internalReference": "new",
             "status": "active",
-            "createdAt": "2024-07-10T16:29:47Z"
+            "regions": [
+                "Nigeria",
+                "Ghana"
+            ],
+            "subscribers": 4,
+            "subscriptions": 25,
+            "createdAt": "2025-02-19T08:53:52Z",
+            "pricingOptions": [
+                {
+                    "amount": 100,
+                    "currency": "NGN"
+                },
+                {
+                    "amount": 10,
+                    "currency": "GHS"
+                }
+            ]
         },
         {
-            "id": "3cbab046-f06a-4815-941d-d8cc7be43d59",
-            "title": "Navigately-Mini",
+            "id": "760bd961-f0f4-46c0-8f58-c9a815375eb2",
+            "title": "Test 101",
             "frequency": "DAILY",
-            "internalReference": "test-5050",
-            "amount": 10.00,
-            "currency": "USD",
+            "internalReference": "Newww",
             "status": "active",
-            "createdAt": "2024-07-23T12:17:45Z"
+            "regions": [
+                "Global"
+            ],
+            "subscribers": 0,
+            "subscriptions": 0,
+            "createdAt": "2025-03-20T09:44:57Z",
+            "pricingOptions": [
+                {
+                    "amount": 100.5,
+                    "currency": "USD"
+                },
+                {
+                    "amount": 8999.99,
+                    "currency": "USD"
+                }
+            ]
+        },
+        {
+            "id": "b36239bb-c303-4f38-903c-b2e851a098df",
+            "title": "MyNutrimate",
+            "frequency": "DAILY",
+            "internalReference": "ref-89",
+            "status": "active",
+            "regions": [
+                "Nigeria"
+            ],
+            "subscribers": 0,
+            "subscriptions": 0,
+            "createdAt": "2025-02-21T19:13:52Z",
+            "pricingOptions": [
+                {
+                    "amount": 900,
+                    "currency": "NGN"
+                }
+            ]
         }
     ],
     "pageNumber": 0,
     "pageSize": 10,
-    "totalElements": 4,
+    "totalElements": 6,
     "totalPages": 1
 }
 ```

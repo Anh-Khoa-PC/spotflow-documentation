@@ -20,3 +20,11 @@ You can use the following details to test your implementation for card payments 
 | PIN + OTP | 5555567973581842 | 12/2030 | 321 | 4321 | 654321 |
 | 3DS | 5555577124976817 | 12/2030 | 321 | - | - |
 | AVS | 4111124373708482 | 12/2030 | 321 | - | <span style={{color: "red"}}>`Address: 1, Spotflow Street`<br></br> `City: Lekki` <br></br> `State: Lagos` <br></br> `Country: Nigeria` <br></br> `ZIP: 101233`</span> |
+
+## Mobile Money Ghana
+
+**Successful Payments**
+
+| **Phone Number** | **OTP** |
+| --- | --- |
+| 0987654321 | 654321 |

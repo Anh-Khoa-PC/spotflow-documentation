@@ -49,19 +49,36 @@ With Spotflow, you can choose the payment solution that best aligns with your bu
 
 ## Prerequisites for Accepting Card Payments with Spotflow Classic
 
-**1. Account Activation**
+**1. Access to Spotflow Dashboard:**
+
+After successful sign up on app.spotflow.co, log in and visit your merchant dashboard.
+
+**2. Account Activation**
 
 - **Verification Required**: Ensure your Spotflow account is fully activated and verified.
 
-**2. Merchant Configuration**
+**3. Merchant Configuration**
 
-- **Default Disabled:** By default, merchant configuration is not enabled on new accounts.
-- **Enablement Request:** To accept card payments successfully, contact our support team at [support@spotflow.one](mailto:support@spotflow.one) and request merchant configuration activation for your account.
+- **Default Disabled:** By default, merchant configuration for setting regions and service providers is not enabled on new accounts. 
+- **Enablement Request:** To accept payments successfully, contact our support team at support@spotflow.one and request merchant configuration activation for your account.
 
 **3. PCI-DSS Compliance**
 
 - **Certification Requirement:** To process card payments through our Payment APIs, you must be PCI-DSS (Payment Card Industry Data Security Standard) certified.
 - **Level Requirement:** Spotflow may require a specific PCI-DSS compliance level (e.g., Level 1). Please consult with Spotflow support at [support@spotflow.one](mailto:support@spotflow.one) for more details.
+
+**4. Spotflow API Credentials:**
+
+Obtain your SECRET_KEY from the Spotflow merchant dashboard.
+
+**5. Configure Webhook URL:**
+
+Configure the endpoint in your system to receive payment status updates. Update and add your Webhook URL on the merchant dashboard. You can do this in Settings > API & Webhooks > URLs > Webhook URL.
+
+**6. Add Callback URL:**
+
+Update and add your Callback URL to your Spotflow merchant dashboard. You can do this in Settings > API & Webhooks > URLs > Callback URL.
+
 
 ## PCI-DSS: Protecting Your Customers
 
@@ -99,12 +116,16 @@ To learn more about PCI-DSS compliance, visit the PCI Security Standards Council
 |:---------|:---------|
 | amount <br></br> <span style={{color: "red"}}>`Integer`</span> | Amount should be in the subunit of our supported currency i.e your local currency or USD. |
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the charges. Can either be in USD or in the local currency of your collection region.|
+| localCurrency <br></br> <span style={{color: "red"}}>`String`</span> | This in the local currency of your region. Used only when currency is set to USD. According to the local region, this can either be in NGN, GHS or KSH.|
 | customer email <br></br> <span style={{color: "red"}}>`String`</span> | The customer’s email address |
 | channel <br></br> <span style={{color: "red"}}>`String`</span> | The channel is Card |
 | pan <br></br> <span style={{color: "red"}}>`Integer`</span> | This is the 16-digit number displayed on the front of the card. E.g 5399838383838381 |
 | cvv <br></br> <span style={{color: "red"}}>`Integer`</span>| **Card Verification Value**; This is the 3 or 4 digit security code found on the back of the customers card. |
 | expiryMonth <br></br> <span style={{color: "red"}}>`Integer`</span>| The expiration month is represented by the first two-digit value on the card, indicating the month in which the card will no longer be valid. |
 | expiryYear <br></br> <span style={{color: "red"}}>`Integer`</span>| The expiration year is represented by the last two digits of the card's expiration date. |
+| metadata <br></br> <span style={{color: "red"}}>`String`</span> | This is information pertaining to additional details about your product or service.
+Under metadata, you have productName" as a field — This is necessary for you to add as it indicates the name of your product and helps to specify to your user what your product is called. 
+You can add any other additional field as you deem fit.|
 
 **Secondly**, to ensure the complete security of card data during transmission, Spotflow employs AES-256 encryption. The payment data you collected in the previous step must be encrypted using your unique encryption key before making requests to the Payments API. This encryption key can be found in the API Keys and Webhooks section of your dashboard settings.
 
@@ -170,22 +191,28 @@ public class EncryptionUtils {
 
 Furthermore, Once the payment data has been encrypted, use it within the POST request to our <a target="_blank" href={"../api/API Endpoints/Collections/Create-Collection"} style={{textDecoration: "underline"}}>Create payment endpoint API</a>
 
-**Sample Request Body**
+**Sample Request Body for Payments in Foreign Currency (USD)**
 
 ```yaml
 {
     "reference": "ref-{{$randomUUID}}",
-    "amount": 20,
+    "amount": 10,
     "currency": "USD",
+    "localCurrency": "NGN",
     "customer": {
         "email": "customer@email.com"
     },
     "channel": "card",
-    "encryptedCard": "vz2KC3dBalXYV8r13pS7eDp5ALfC3esjjcaouxxxxxxxxxxxxx"
+    "encryptedCard": "8/5XbSZFQfvaZmY55UizZGM0HYQdkEMyHoyGw1GZ+XlXdBC+hEcluYKC5WONz1Vxkvihxxxxxxxxxxxxxxxxxxxxx",
+    "callBackUrl": "https://www.algoai.one", // optional if a callback url has been set on your dashboard
+    "metadata": {
+        "productName": "Algo.ai",
+        "SubscriptionPlan": "MonthlyPass"
+    }
 }
 ```
 
-**Sample Response**
+**Sample Response for Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -193,20 +220,22 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
 
 ```yaml
 {
-    "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
-    "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
-    "spotflowReference": "SPF-FLW-2ec238d8b8764a33b1b9e43cd2cf2342",
-    "amount": 20.00,
+    "id": "e0a0bc86-a2e6-46d8-91dc-1e50261b40d7",
+    "reference": "ref-24676c48-31df-4968-8a04-54602c784ef5",
+    "spotflowReference": "SPF-FLW-9d27bb78a7be40a8ae0fa86b54dab3c8",
+    "amount": 10.00,
     "currency": "USD",
-    "localAmount": 30951.60,
+    "localAmount": 15334.90,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "pending",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "rate": 1547.58,
+    "providerMessage": "Please enter your PIN",
+    "rate": 1533.49,
     "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
@@ -214,8 +243,72 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
     },
     "card": {
         "type": "Mastercard",
-        "firstSix": "553188",
-        "lastFour": "2950"
+        "firstSix": "555556",
+        "lastFour": "1842"
+    },
+    "createdAt": "2025-02-18T16:48:53.922814Z",
+     "callBackUrl": "https://www.algoai.one",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
+}
+```
+
+**Sample Request Body for Payments in Local Currency (e.g NGN)**
+
+```yaml
+{
+    "reference": "ref-{{$randomUUID}}",
+    "amount": 300,
+    "currency": "NGN", //according to the local region, this can either be in NGN, GHS or KSH
+    "customer": {
+        "email": "customer@email.com"
+    },
+    "channel": "card",
+    "encryptedCard": "8/5XbSZFQfvaZmY55UizZGM0HYQdkEMyHoyGw1GZ+XlXdBC+hEcluYKC5WONz1Vxkvihj/xxxxxxxxxxxx",
+    "metadata": {
+        "productName": "Algo.ai",
+        "SubscriptionPlan": "MonthlyPass"
+    }
+     "callBackUrl": "https://www.algoai.one", // optional if a callback url has been set on your dashboard
+}
+```
+
+**Sample Response for Payments in Local Currency (e.g NGN)**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "id": "48b0e095-735d-4763-9b78-62e16adc446b",
+    "reference": "ref-74a9b9c4-4d2d-46b8-aa4b-0bc1ca10317b",
+    "spotflowReference": "SPF-FLW-63544769cad4438db4e5456b354a9ba8",
+    "amount": 300.00,
+    "currency": "NGN",
+    "totalFees": 20.00,
+    "channel": "card",
+    "status": "successful",
+    "customer": {
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
+        "email": "customer@email.com"
+    },
+    "providerMessage": "Approved successful",
+    "rate": 1539.24,
+    "provider": "flutterwave",
+    "region": "Nigeria",
+    "card": {
+        "type": "Visa",
+        "firstSix": "411111",
+        "lastFour": "2555"
+    },
+    "createdAt": "2025-02-18T22:02:46.779912Z",
+    "callBackUrl": "https://www.algoai.one", 
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
     }
 }
 ```
@@ -238,14 +331,14 @@ Following the initial response, get the required card PIN and make a request to 
 {
     "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
     "authorization": {
-        "pin": "3310"
+        "pin": "4321"
     }
 }
 ```
 
 Upon successful payment authorization, the transaction's initial status can be <span style={{color: "red"}}>`failed`</span> or <span style={{color: "red"}}>`pending`</span> as shown in the response below: 
 
-**Sample Response**
+**Sample Response for Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -253,21 +346,22 @@ Upon successful payment authorization, the transaction's initial status can be <
 
 ```yaml
 {
-    "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
-    "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
-    "spotflowReference": "SPF-FLW-2ec238d8b8764a33b1b9e43cd2cf2342",
-    "amount": 20.00,
+    "id": "e0a0bc86-a2e6-46d8-91dc-1e50261b40d7",
+    "reference": "ref-24676c48-31df-4968-8a04-54602c784ef5",
+    "spotflowReference": "SPF-FLW-9d27bb78a7be40a8ae0fa86b54dab3c8",
+    "amount": 10.00,
     "currency": "USD",
-    "localAmount": 30951.60,
-    "localCurrency": "NGN",
+    "localAmount": 15334.90,
+    "totalFees": 20.00,
+    "localCurrency": "NGN", 
     "channel": "card",
     "status": "pending",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "providerMessage": "Please enter the OTP sent to your mobile number 080****** and email te**@rave**.com",
-    "rate": 1547.58,
+    "providerMessage": "Please enter your OTP sent to your phone",
+    "rate": 1533.49,
     "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
@@ -275,10 +369,14 @@ Upon successful payment authorization, the transaction's initial status can be <
     },
     "card": {
         "type": "Mastercard",
-        "firstSix": "553188",
-        "lastFour": "2950"
+        "firstSix": "555556",
+        "lastFour": "1842"
     },
-    "createdAt": "2024-08-27T15:18:01Z"
+    "createdAt": "2025-02-18T16:48:54Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```
 
@@ -299,7 +397,7 @@ What you need to do next is get the OTP sent to the customer’s phone/email and
 }
 ```
 
-**Sample Response**
+**Sample Response for Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -307,29 +405,34 @@ What you need to do next is get the OTP sent to the customer’s phone/email and
 
 ```yaml
 {
-    "id": "9d5cb1e0-d4f4-4434-9223-d985a9da68b5",
-    "reference": "ref-5bc0ff00-f194-4ae1-9d3c-9ecd0f76e374",
-    "spotflowReference": "SPF-FLW-2ec238d8b8764a33b1b9e43cd2cf2342",
-    "amount": 20.00,
+    "id": "e0a0bc86-a2e6-46d8-91dc-1e50261b40d7",
+    "reference": "ref-24676c48-31df-4968-8a04-54602c784ef5",
+    "spotflowReference": "SPF-FLW-9d27bb78a7be40a8ae0fa86b54dab3c8",
+    "amount": 10.00,
     "currency": "USD",
-    "localAmount": 30951.60,
+    "localAmount": 15334.90,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "providerMessage": "successful",
-    "rate": 1547.58,
+    "providerMessage": "Approved successful",
+    "rate": 1533.49,
     "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Mastercard",
-        "firstSix": "553188",
-        "lastFour": "2950"
+        "firstSix": "555556",
+        "lastFour": "1842"
     },
-    "createdAt": "2024-08-27T15:18:01Z"
+    "createdAt": "2025-02-18T16:48:54Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```
 
@@ -339,7 +442,7 @@ If the status of the transaction is either <span style={{color: "red"}}>`succes
 
 Based on the initial request made to authorize the card, it automatically detects that 3DS authorization is required and immediately returns the redirect URL in the response with 3DS as the authorization mode, as shown in the following sample response:
 
-**Sample Response**
+**Sample Response for Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -347,31 +450,37 @@ Based on the initial request made to authorize the card, it automatically detect
 
 ```yaml
 {
-    "id": "6945c177-6558-4a56-8257-7e880903dbc6",
-    "reference": "ref-11f6941a-5db9-4c44-ab83-1d5eab966ce8",
-    "spotflowReference": "SPF-FLW-b532e4c3dd9a4b0a9a79cf575117af19",
-    "amount": 20.00,
+    "id": "425f82c7-0dad-403f-a387-67dacbcb33b0",
+    "reference": "ref-4ec88ecf-bd5b-49b7-a360-2b0fd26a680f",
+    "spotflowReference": "SPF-FLW-0d5dd1823449499fad061669d781c240",
+    "amount": 10.00,
     "currency": "USD",
-    "localAmount": 30939.40,
+    "localAmount": 15318.10,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "pending",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "providerMessage": "Please enter the OTP sent to your mobile number 080****** and email te**@rave**.com",
-    "rate": 1546.97,
+    "providerMessage": "Please validate details with the url provided",
+    "rate": 1531.81,
     "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "3DS",
-        "redirectUrl": "https://ravesandboxapi.flutterwave.com/mockvbvpage?ref=FLW-MOCK-89d9dd4cc3846b8dbbfea6b4060f7721&code=00&message=Approved.%20Successful&receiptno=RN1724773095768"
+        "redirectUrl": "https://dev-api.spotflow.co/threeds/authenticate/wnnw3V6yCSima9O"
     },
     "card": {
         "type": "Mastercard",
-        "firstSix": "543889",
-        "lastFour": "0229"
+        "firstSix": "555557",
+        "lastFour": "6817"
+    },
+    "createdAt": "2025-02-18T17:00:23.719296Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
     }
 }
 ```
@@ -382,53 +491,7 @@ To complete the authorization process, it is crucial to redirect your customer t
 
 For cards requiring Address Verification System (AVS) checks, the system automatically detects this requirement upon initiating the payment. A subsequent response will indicate the need for AVS authorization with <span style={{color: "red"}}>`pending`</span> status and authentication mode as <span style={{color: "red"}}>`avs`</span> like the sample response below:
 
-```yaml
-{
-    "id": "fb720170-0659-4c18-a6ea-0a141a498e69",
-    "reference": "ref-7b968e38-eecc-4558-9d62-c50ffb7187c6",
-    "spotflowReference": "SPF-KPY-fcd8dfacfa1b45e68ebf55b9029330ee",
-    "amount": 20.00,
-    "currency": "USD",
-    "localAmount": 31069.00,
-    "localCurrency": "NGN",
-    "channel": "card",
-    "status": "pending",
-    "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-        "email": "customer@email.com"
-    },
-    "providerMessage": "Address verification required",
-    "rate": 1553.45,
-    "provider": "korapay",
-    "region": "Nigeria",
-    "authorization": {
-        "mode": "avs"
-    },
-    "card": {
-        "type": "Mastercard",
-        "firstSix": "538406",
-        "lastFour": "2071"
-    }
-}
-```
-Upon receiving a response indicating the need for AVS verification, you need to gather the customer's address details and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a> with a sample request as shown below:
-
-```yaml
-{
-    "reference": "ref-c2040ff9-9332-4417-b64e-14daf3ec8061",
-    "authorization": {
-        "avs": {
-            "state": "Lagos",
-            "city": "Lekki",
-            "country": "Nigeria",
-            "address": "Osapa, Lekki",
-            "zipCode": "101010"
-        }
-    }
-}
-```
-
-**Sample Response**
+**Sample Response for Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -436,29 +499,92 @@ Upon receiving a response indicating the need for AVS verification, you need to 
 
 ```yaml
 {
-    "id": "fb720170-0659-4c18-a6ea-0a141a498e69",
-    "reference": "ref-7b968e38-eecc-4558-9d62-c50ffb7187c6",
-    "spotflowReference": "SPF-KPY-fcd8dfacfa1b45e68ebf55b9029330ee",
-    "amount": 20.00,
+    "id": "740fc1e5-c272-4bb4-96cf-f3f54f6fb1a8",
+    "reference": "ref-bbdb06dd-157c-45a4-9032-5eab0b750038",
+    "spotflowReference": "SPF-FLW-1304e5a420744829ace4e5b18bcaaa5a",
+    "amount": 10.00,
     "currency": "USD",
-    "localAmount": 31069.00,
+    "localAmount": 15320.10,
+    "totalFees": 20.00,
+    "localCurrency": "NGN", // according to the local region, this can either be in NGN, GHS or KSH
+    "channel": "card",
+    "status": "pending",
+    "customer": {
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
+        "email": "customer@email.com"
+    },
+    "providerMessage": "Please enter your address details",
+    "rate": 1532.01,
+    "provider": "flutterwave",
+    "region": "Nigeria",
+    "authorization": {
+        "mode": "avs"
+    },
+    "card": {
+        "type": "Visa",
+        "firstSix": "411112",
+        "lastFour": "8482"
+    },
+    "createdAt": "2025-02-18T17:05:40.828514Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
+}
+```
+Upon receiving a response indicating the need for AVS verification, you need to gather the customer's address details and submit a validation request to our <a target="_blank" href={"../api/API Endpoints/Collections/authorize-collections"} style={{textDecoration: "underline"}}>Authorize Payment Endpoint</a> with a sample request as shown below:
+
+```yaml
+{
+    "reference": "ref-bbdb06dd-157c-45a4-9032-5eab0b750038",
+    "authorization": {
+        "avs": {
+            "state": "Lagos",
+            "city": "Lekki",
+            "country": "Nigeria",
+            "address": "1, Spotflow Street",
+            "zipCode": "101233"
+        }
+    }
+}
+```
+
+**Sample Response for Payments in Foreign Currency (USD)**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "id": "740fc1e5-c272-4bb4-96cf-f3f54f6fb1a8",
+    "reference": "ref-bbdb06dd-157c-45a4-9032-5eab0b750038",
+    "spotflowReference": "SPF-FLW-1304e5a420744829ace4e5b18bcaaa5a",
+    "amount": 10.00,
+    "currency": "USD",
+    "localAmount": 15320.10,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "providerMessage": "Card charged successfully",
-    "rate": 1553.45,
-    "provider": "korapay",
+    "providerMessage": "Approved successful",
+    "rate": 1532.01,
+    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
-        "type": "Mastercard",
-        "firstSix": "538406",
-        "lastFour": "2071"
+        "type": "Visa",
+        "firstSix": "411112",
+        "lastFour": "8482"
     },
-    "createdAt": "2024-08-28T10:47:32Z"
+    "createdAt": "2025-02-18T17:05:41Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```
 
@@ -472,24 +598,24 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
 
 ```yaml
 {
-  "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
+  "reference": "ref-bbdb06dd-157c-45a4-9032-5eab0b750038",
   "authorization": {
       "pin": "1234"
-    },
-  "merchantId": "ba24fe75-39ce-4cde-997d-ea3a64b33a02"
+    }
 }
 ```
 
-**Sample Response:**
+**Sample Response for Payments in Foreign Currency (USD):**
 
 ```yaml
 {
     "id": "cad7247a-d37d-4120-b1f3-bd2d8bc15a9a",
-    "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
-    "spotflowReference": "SPF-KPY-51e21877f9c346b48c050186471f98ab",
+    "reference": "ref-bbdb06dd-157c-45a4-9032-5eab0b750038",
+    "spotflowReference": "SPF-FLW-51e21877f9c346b48c050186471f98ab",
     "amount": 10.00,
     "currency": "USD",
-    "localAmount": 15542.30,
+    "localAmount": 15320.10,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "pending",
@@ -498,8 +624,8 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
         "email": "customer@email.com"
     },
     "providerMessage": "Kindly enter the phone number registered with your bank",
-    "rate": 1554.23,
-    "provider": "korapay",
+    "rate": 1532.01,
+    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "enroll"
@@ -510,6 +636,10 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
         "lastFour": "3210"
     },
     "createdAt": "2024-08-28T11:04:05Z"
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```
 
@@ -524,13 +654,13 @@ Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enr
 }
 ```
 
-**Sample Response:**
+**Sample Response for Payments in Foreign Currency (USD):**
 
 ```yaml
 {
     "id": "cad7247a-d37d-4120-b1f3-bd2d8bc15a9a",
-    "reference": "ref-039f334f-e308-4dd9-9aff-024df32934e5",
-    "spotflowReference": "SPF-KPY-51e21877f9c346b48c050186471f98ab",
+    "reference": "ref-bbdb06dd-157c-45a4-9032-5eab0b750038",
+    "spotflowReference": "SPF-FLW-51e21877f9c346b48c050186471f98ab",
     "amount": 10.00,
     "currency": "USD",
     "localAmount": 15542.30,
@@ -542,8 +672,8 @@ Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enr
         "email": "customer@email.com"
     },
     "providerMessage": "Transaction in progress",
-    "rate": 1554.23,
-    "provider": "korapay",
+    "rate": 1532.01,
+    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "otp"
@@ -563,7 +693,7 @@ If the status of the transaction is either <span style={{color: "red"}}>`succes
 
 ## Verify Payment
 
-After charging a card, verification is crucial. Utilize your payment reference to confirm the transaction's final status by sending a request to our <a target="_blank" href={"../api/API Endpoints/Collections/verify-collection"} style={{textDecoration: "underline"}}>Verify Payment endpoint</a>.
+After charging a card or making a bank transfer payment, verification is crucial. Utilize your payment reference to confirm the transaction's final status by sending a request to our <a target="_blank" href={"../api/API Endpoints/Collections/verify-collection"} style={{textDecoration: "underline"}}>Verify Payment endpoint</a>.
 
 Here are the query parameters and sample response needed for verifying a card payment:
 
@@ -578,7 +708,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the merchant you 
 
 This is the unique reference <span style={{color: "red"}}>`ID`</span> returned at payment creation.
 
-**Sample Response**
+**Sample Response for Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -586,22 +716,34 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 
 ```yaml
 {
-    "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
-    "reference": "ref-2a0b9ee8-b48d-4849-8a09-e50827fd0bed",
-    "spotflowReference": "SPF-FLW-5b006ceeb0a54bb1acbd1c7da87784f0",
-    "amount": 5000.00,
-    "currency": "NGN",
+    "id": "e0a0bc86-a2e6-46d8-91dc-1e50261b40d7",
+    "reference": "ref-24676c48-31df-4968-8a04-54602c784ef5",
+    "spotflowReference": "SPF-FLW-9d27bb78a7be40a8ae0fa86b54dab3c8",
+    "amount": 10.00,
+    "currency": "USD",
+    "localAmount": 15334.90,
+    "totalFees": 20.00,
+    "localCurrency": "NGN", 
     "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "providerMessage": "successful",
-    "rate": 1,
+    "providerMessage": "Approved successful",
+    "rate": 1533.49,
     "provider": "flutterwave",
     "region": "Nigeria",
-    "createdAt": "2024-08-20T11:49:41Z"
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "555556",
+        "lastFour": "1842"
+    },
+    "createdAt": "2025-02-18T16:48:54Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```
 
@@ -613,25 +755,34 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 |:---------|:---------|
 | amount <br></br> <span style={{color: "red"}}>`Integer`</span> | Amount should be in the subunit of our supported currency i.e your local currency or USD. |
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the charges. Can either be in USD or in the local currency of your collection region.|
+| localCurrency <br></br> <span style={{color: "red"}}>`String`</span> | This in the local currency of your region. Used only when currency is set to USD. According to the local region, this can either be in NGN, GHS or KSH.|
 | customer email <br></br> <span style={{color: "red"}}>`String`</span> | The customer’s email address |
 | channel <br></br> <span style={{color: "red"}}>`String`</span> |  The channel is bank transfer of the payment providers available on the system |
+| metadata <br></br> <span style={{color: "red"}}>`String`</span> | This is information pertaining to additional details about your product or service.
+Under metadata, you have productName" as a field — This is necessary for you to add as it indicates the name of your product and helps to specify to your user what your product is called.
+You can add any other additional field as you deem fit.|
 
-**Sample Request Body for Bank Transfer Payments**
+**Sample Request Body for Bank Transfer Payments in Foreign Currency (USD)**
 
 ```yaml
 {
-    "reference": "ref-{{$randomUUID}}",
-    "amount":10,
-    "currency": "USD",
-    "customer": {
-        "name": "{{$randomFirstName}} {{$randomLastName}}",
+     "reference": "ref-{{$randomUUID}}",
+     "amount":10,
+     "currency": "USD",
+     "localCurrency": "NGN", // according to the local region, this can either be in NGN, GHS or KSH
+     "customer": {
+         "name": "{{$randomFirstName}} {{$randomLastName}}",
         "email": "customer@email.com"
-    },
-    "channel": "bank_transfer"
-}
+     },
+    "channel": "bank_transfer",
+    "metadata": {
+        "productName": "Algo.ai",
+        "SubscriptionPlan": "MonthlyPass"
+    }
+ }
 ```
 
-**Sample Response for Bank Transfer Payments**
+**Sample Response for Bank Transfer Payments in Foreign Currency (USD)**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -639,26 +790,32 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 
 ```yaml
 {
-    "id": "d5eab137-38df-4b23-bc8b-2b8f4839b6fa", //payment id
-    "reference": "ref-300caf7a-3f09-4f88-add3-bb7fb82ccf61",
-    "spotflowReference": "SPF-KPY-8246d0866da9474f97a7d5691791ddff",
+    "id": "65022454-9d1e-4422-964d-63b4ca6e3b13",
+    "reference": "ref-0d805f61-fc67-41ec-8852-a1de0552de5b",
+    "spotflowReference": "SPF-FLW-2b17b0af4a594b1f9731b66aa6409765",
     "amount": 10.00,
     "currency": "USD",
-    "localAmount": 15553.40,
+    "localAmount": 15352.30,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "bank_transfer",
     "status": "pending",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-        "name": "Julien Rippin",
+        "id": "814a4c79-dd54-4fc1-935d-c2d4f34376b4",
+        "name": "Kenya Ziemann",
         "email": "customer@email.com"
     },
-    "rate": 1555.34,
-    "provider": "korapay",
+    "rate": 1535.23,
+    "provider": "flutterwave",
     "region": "Nigeria",
     "bankDetails": {
-        "accountNumber": "8836512027",
-        "bankName": "Test Bank"
+        "accountNumber": "0067100155",
+        "bankName": "Mock Bank"
+    },
+    "createdAt": "2025-02-18T21:35:32.110809Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
     }
 }
 ```
@@ -670,14 +827,31 @@ If the status of the transaction shows either <span style={{color: "red"}}>`pend
 
 ## Prerequisites for Accepting Card Payments with Spotflow Redirect
 
-**1. Account Activation**
+**1.Access to Spotflow Dashboard:**
+
+After successful sign up on app.spotflow.co, log in and visit your merchant dashboard.
+
+**2. Account Activation**
 
 - **Verification Required**: Ensure your Spotflow account is fully activated and verified.
 
-**2. Merchant Configuration**
+**3. Merchant Configuration**
 
-- **Default Disabled**: By default, merchant configuration is not enabled on new accounts.
+- **Default Disabled**: By default, merchant configuration for setting regions and service providers is not enabled on new accounts. 
 - **Enablement Request**: To accept card payments successfully, contact our support team at [support@spotflow.one](mailto:support@spotflow.one) and request merchant configuration activation for your account.
+
+**4. Spotflow API Credentials:**
+
+Obtain your SECRET_KEY from the Spotflow merchant dashboard.
+
+**5. Configure Webhook URL:**
+
+Configure the endpoint in your system to receive payment status updates. Update and add your Webhook URL on the merchant dashboard. You can do this in Settings > API & Webhooks > URLs > Webhook URL.
+
+**6. Add Callback URL:**
+
+Update and add your Callback URL to your Spotflow merchant dashboard. You can do this in Settings > API & Webhooks > URLs > Callback URL.
+
 
 To accept payments with Spotflow Redirect, you make a request to the <a target='_blank' href={"../api/API Endpoints/Collections/initialize-collections"}>Initialize Payment Collection API</a> from your server to generate a checkout URL, then redirect your users to the URL so they can pay.
 
@@ -696,10 +870,96 @@ When a customer clicks the payment button, initiate a payment transaction by sen
 
 Upon a successful API call, we'll provide a checkout URL. Redirect your customer to the Checkout URL provided in the response to enable them enter their payment details and complete the transaction.
 
+**Sample Request Body for Payments in Foreign Currency (USD)**
+
+```yaml
+{
+    "reference": "ref-{{$randomUUID}}",
+    "amount": 2,
+    "currency": "USD",
+    "localCurrency": "NGN",
+    "metadata": {
+        "productName": "Gab",
+        "title": "Creator"
+    },
+    "callBackUrl": "https://www.algoai.one", // optional if a callback url has been set on your dashboard
+    "customer": {
+        "email": "customer@email.com",
+        "name": "Dee",
+        "phoneNumber": "{{$randomPhoneNumber}}"
+    }
+}
+```
+
+**Sample Response for Payments in Foreign Currency (USD)**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "reference": "ref-2920439c-3da3-419b-aaa0-7e1a38b8f1b9",
+    "checkoutUrl": "https://develop.d1paogmt6hd8j8.amplifyapp.com/oXei86js8pfKNI4",
+    "paymentCode": "oXei86js8pfKNI4",
+    "status": "pending",
+    "callBackUrl": "https://www.algoai.one",
+    "metadata": {
+        "title": "Creator",
+        "productName": "Gab"
+    }
+}
+```
+
+
+**Sample Request Body For Payments in Local Currency (e.g NGN)**
+
+```yaml
+{
+    "reference": "ref-{{$randomUUID}}",
+    "amount": 2,
+    "currency": "USD",
+    "localCurrency": "NGN",
+    "metadata": {
+        "productName": "Gab",
+        "title": "Creator"
+    },
+    "callBackUrl": "https://www.algoai.one", // optional if a callback url has been set on your dashboard
+    "customer": {
+        "email": "customer@email.com",
+        "name": "Dee",
+        "phoneNumber": "{{$randomPhoneNumber}}"
+    }
+}
+```
+
+**Sample Response for Payments in Local Currency (e.g NGN)**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "reference": "ref-ad26495f-bbce-4d49-83e5-6886a506c8c0",
+    "checkoutUrl": "https://develop.d1paogmt6hd8j8.amplifyapp.com/9a8iefGMHBQ7k11",
+    "paymentCode": "9a8iefGMHBQ7k11",
+    "status": "pending",
+    "callBackUrl": "https://www.algoai.one",
+    "metadata": {
+        "title": "Creator",
+        "productName": "Gab"
+    }
+}
+```
+
+
 <Admonitions type={"note"} icon={"📌"}>
+    Important Information
+
     1. The <span style={{color: "red"}}>`Amount`</span> should be in the subunit of our supported currency i.e your local currency or USD.
     2. You are to use a <span style={{color: "red"}}>`unique reference ID`</span> generated by your company to identify each customer.
-    3. You’re to select the <span style={{color: "red"}}>`currency`</span> for the payment collection. This can either be in USD or in the local currency of your collection region.
+    3. You’re to select the <span style={{color: "red"}}>`currency`</span> for the payment collection. This can either be in USD or in the local currency of your collection region. i.e USD or NGN. If currency is set to USD, ensure you add the local currency field set to the local currency of your collection region. 
 </Admonitions>
 <br></br>
 

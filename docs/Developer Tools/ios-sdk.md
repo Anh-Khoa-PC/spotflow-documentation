@@ -15,19 +15,20 @@ The iOS SDK is currently a beta release. If you encounter any issues, kindly re
 
 To integrate the Spotflow iOS SDK into your project, ensure the following prerequisites are met:
 
-- XCode 12 or later
-- iOS 11 or later
+- Xcode 13.0 or later
+- iOS 11.0 or higher
 - Swift 5.3 or later
+- Swift Package Manager (SPM) for dependency management
 
 ## Installation
 
-### Swift Package Manager
+### Using Swift Package Manager (SPM)
 
-To add <span style={{color: "red"}}>`SpotFlow - iOS SDK`</span> to your project using Swift Package Manager, add the following dependency to your <span style={{color: "red"}}>`Package.swift`</span> file:
+To add <span style={{color: "red"}}>`SpotFlow - iOS SDK`</span> to your project using Xcode or by updating your <span style={{color: "red"}}>`Package.swift`</span> file:
 
 ```swift
 dependencies: [
-    .package(url: "<https://github.com/yourusername/SpotFlow-iOS-SDK.git>", from: "1.0.0")
+    .package(url: "https://github.com/Spotflow-One/SpotflowIOS.git", from: "1.0.0")
 ],
 targets: [
     .target(
@@ -36,15 +37,30 @@ targets: [
 ]
 ```
 
-## Usage
-
-### Importing the Library
-
-To use <span style={{color: "red"}}>`SpotFlow - iOS SDK`</span> in your SwiftUI view, import the library at the top of your Swift file:
-
+After adding the dependency, import the Spotflow module where needed:
 ```swift
 import Spotflow
 ```
+
+### Parameters Required by the SDK
+
+| Parameter | Type | Description |
+|:----------|:-----------|:---------|
+|<span style={{color: "red"}}>`planId`</span> | <span style={{color: "red"}}>`String`</span> | The plan ID (optional).|
+|<span style={{color: "red"}}>`currency`</span> | <span style={{color: "red"}}>`String`</span> | Currency for the payment (e.g., "NGN").|
+|<span style={{color: "red"}}>`amount`</span> | <span style={{color: "red"}}>`String`</span> | Amount to be paid (nullable).|
+|<span style={{color: "red"}}>`key`</span> | <span style={{color: "red"}}>`String`</span> | The API key for authenticating the transaction.|
+|<span style={{color: "red"}}>`encryptionKey`</span> | <span style={{color: "red"}}>`String`</span> | This key is used to encrypt the card for  secure transactions.|
+|<span style={{color: "red"}}>`customerEmail`</span> | <span style={{color: "red"}}>`String`</span> | The email address of the customer.|
+|<span style={{color: "red"}}>`customerName`</span> | <span style={{color: "red"}}>`String`</span> | The name of the customer (optional).|
+|<span style={{color: "red"}}>`customerPhoneNumber`</span> | <span style={{color: "red"}}>`String`</span> | The phone number of the customer (optional).|
+|<span style={{color: "red"}}>`customerId`</span> | <span style={{color: "red"}}>`String`</span> | The unique identifier for the customer (optional).|
+|<span style={{color: "red"}}>`paymentDescription`</span> | <span style={{color: "red"}}>`String`</span> | Description of the payment (optional).|
+|<span style={{color: "red"}}>`appLogo`</span> | <span style={{color: "red"}}>`String`</span> | App logo widget (optional).|
+|<span style={{color: "red"}}>`appName`</span> | <span style={{color: "red"}}>`String`</span> | The name of the app (optional).|
+|<span style={{color: "red"}}>`debugMode`</span> | <span style={{color: "red"}}>`bool`</span> | Enable or disable debug mode.|
+
+Never expose your key or encryptionKey directly in the app for production. Use a secure server to perform sensitive operations.
 
 ### Navigating to the Payment Screen
 
@@ -56,55 +72,32 @@ To navigate to the payment screen and initiate a payment process, create an inst
 import SwiftUI
 import Spotflow
 
-struct ContentView: View {
-    @State private var showPaymentScreen = false
+let config = SpotflowPaymentConfig(
+    planId: "plan_001",
+    currency: "USD",
+    amount: 50.0,
+    key: "your_public_key",
+    encryptionKey: "your_encryption_key",
+    customerEmail: "user@example.com",
+    customerName: "Jane Smith",
+    customerPhoneNumber: "+123456789",
+    customerId: "user_123",
+    paymentDescription: "Monthly Subscription",
+    appLogo: UIImage(named: "AppLogo"),
+    appName: "MyApp",
+    debugMode: true
+)
 
-    var body: some View {
-        VStack {
-            Text("Welcome to My App")
-                .font(.largeTitle)
-                .padding()
-
-            Button("Buy Now") {
-                showPaymentScreen = true
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-        }
-        .background(
-            NavigationLink(
-                destination: SpotFlowPaymentUI(
-                    manager: SpotFlowPaymentManager(
-                        merchantId: "your_merchant_id",
-                        planId: "your_plan_id",
-                        key: "your_key",
-                        encryptionKey: "your_encryption_key",
-                        provider: "your_provider",
-                        customerEmail: "customer@example.com",
-                        customerName: "John Doe",
-                        customerPhoneNumber: "1234567890",
-                        customerId: "customer_id",
-                        paymentDescription: "Payment for goods",
-                        appLogo: Image(systemName: "app.fill"),
-                        appName: "My App"
-                    ),
-                    onPaymentSuccess: {
-                        print("Payment successful")
-                    },
-                    onPaymentFailure: { error in
-                        print("Payment failed: \\(error.localizedDescription)")
-                    }
-                ),
-                isActive: $showPaymentScreen,
-                label: {
-                    EmptyView()
-                }
-            )
-        )
+Spotflow.shared.startPayment(
+    from: self,
+    config: config,
+    onSuccess: { transactionId, paymentData in
+        // Handle success
+    },
+    onFailure: { errorCode, errorMessage in
+        // Handle failure
     }
-}
+)
 ```
 
 ## SpotFlowPaymentUI Parameters
@@ -117,7 +110,7 @@ struct ContentView: View {
 
 <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> is a struct that holds all necessary information for a payment transaction.
 
-### Properties
+### Properties/Parameters
 
 - <span style={{color: "red"}}>`merchantId`</span>: The merchant ID (String).
 - <span style={{color: "red"}}>`planId`</span>: The plan ID (String).
@@ -131,25 +124,6 @@ struct ContentView: View {
 - <span style={{color: "red"}}>`appLogo`</span>: The logo of the app (Image, optional).
 - <span style={{color: "red"}}>`appName`</span>: The name of the app (String, optional).
 
-### Initializer
-
-```swift
-init(
-    merchantId: String,
-    planId: String,
-	encryptionKey: String
-    key: String,
-    customerEmail: String,
-    customerName: String? = nil,
-    customerPhoneNumber: String? = nil,
-    customerId: String? = nil,
-    paymentDescription: String? = nil,
-    appLogo: Image? = nil,
-    appName: String? = nil
-)
-
-```
-
 ## Handling Error Messages
 
 This SDK provides comprehensive error handling mechanisms to assist in troubleshooting and providing informative feedback to users. Upon encountering an error, detailed error codes and descriptions are returned. By extracting error messages from the response, you can effectively communicate the issue to the user and take appropriate actions. Ensure you implement appropriate error handling mechanisms to provide informative feedback to the user.
@@ -160,8 +134,7 @@ Thoroughly test the integration with different payment scenarios including succe
 
 For your convenience, here are the testing helpers available:
 
-- **Card Testing**: Use the card details provided by your payment provider’s documentation to simulate successful and failed card transactions.
-- **Bank Transfer Testing**: Test bank transfer scenarios with the testing account details provided by your payment provider’s documentation.
-- **USSD Testing**: You can also test USSD transactions using the provided USSD codes and instructions from your payment provider’s documentation.
+- **Card Testing**: Test cards can be found <a href="https://docs.spotflow.one/testing-payment" target="_blank" style={{textDecoration: "underline"}}>here</a>
+- **Bank Transfer Testing**: Test bank transfer scenarios with the testing account details provided during your integration.
 
 These testing helpers help you ensure that your integration handles various payment scenarios effectively before deploying your application to a production environment. It's recommended to thoroughly test your integration with these testing details to provide a reliable payment experience to your users.

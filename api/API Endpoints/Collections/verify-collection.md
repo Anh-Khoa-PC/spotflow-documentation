@@ -31,21 +31,27 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 
 ```yaml
 {
-    "id": "03d06d45-b99b-4ec3-8853-ed2711cfa783",
-    "reference": "ref-2a0b9ee8-b48d-4849-8a09-e50827fd0bed",
-    "spotflowReference": "SPF-FLW-5b006ceeb0a54bb1acbd1c7da87784f0",
-    "amount": 5000.00,
+    "id": "7c7495f4-4f5d-4c0f-bfc1-7b85e22d8774",
+    "reference": "ref-83fdbf78-ba13-47d1-9833-f87613579e14",
+    "spotflowReference": "SPF-KPY-a2c688cd10c2459aa6576d8c9024ef80",
+    "amount": 100.00,
     "currency": "NGN",
-    "channel": "card",
+    "totalFees": 0.00,
+    "channel": "bank_transfer",
     "status": "successful",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
-        "email": "customer@email.com"
+        "id": "28d102db-6c7b-4b82-b0a1-5f7688ab9988",
+        "name": "Leone Mayert",
+        "email": "customer@email.com",
+        "phoneNumber": "629-543-7126"
     },
-    "providerMessage": "successful",
-    "rate": 1,
-    "provider": "flutterwave",
+    "rate": 1496.52,
+    "provider": "korapay",
     "region": "Nigeria",
-    "createdAt": "2024-08-20T11:49:41Z"
+    "bankDetails": {
+        "accountNumber": "759046",
+        "bankName": "wema"
+    },
+    "createdAt": "2025-02-21T09:50:36Z"
 }
 ```
