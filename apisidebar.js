@@ -67,7 +67,7 @@ const sidebars = {
             items: [
               // 'API Endpoints/Subscriptions/create-subscription',
               'API Endpoints/Subscriptions/list-subscription',
-              // 'API Endpoints/Subscriptions/fetch-subscription',
+               'API Endpoints/Subscriptions/fetch-subscription',
               // 'API Endpoints/Subscriptions/activate-subscription',
               'API Endpoints/Subscriptions/cancel-subscription',
             ]
