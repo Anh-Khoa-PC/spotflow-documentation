@@ -27,7 +27,7 @@ Create bulk subscription plans with Spotflow
 Add a form-data with a key of “file” in the request body. In the value tab, upload a CSV file of your bulk subscriptions. Ensure all the required fields such as the title, amount, frequency, internalReference, currency, and pricingOptions are present in your CSV file before uploading it. 
 
 ## Sample Request Body Image: 
-Need to add the image here.
+<img src = "https://res.cloudinary.com/dbrh0uxwx/image/upload/v1745574053/pjzvybdyct8tojsphn59.png"/> 
 
 ## Sample Response
 
