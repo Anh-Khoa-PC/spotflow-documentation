@@ -41,7 +41,7 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
 <span style={{color: "red"}}>`POST`</span> https://api.spotflow.co/api/v1/plans
 
 <br></br>
-**Request Body**:
+**Request Body For Local Currency Payments (e.g NGN, GHS, ZAF etc)**:
 
 ```yaml
 {
@@ -65,7 +65,7 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
 }
 ```
 
-**Response**:
+**Response Body For Local Currency Payments (e.g NGN, GHS, ZAF etc)**:
 ```yaml
  {
     "id": "4b68f6dd-06a2-44b5-ae48-846287ddae62",
@@ -92,11 +92,53 @@ Once you've defined these parameters, use Spotflow <a target="_blank" href={"../
 }
 ```
 
+**Request Body For USD Payments**:
+
+```yaml
+
+    {
+     "title": "Test Mack",
+    "frequency": "DAILY",
+    "internalReference": "Mack",
+    "regionId": "1",
+    "pricingOptions": [
+    {
+      "amount": 100,
+      "currency": "USD"
+    }
+  ]
+}
+```
+
+**Response Body For USD Payments**:
+```yaml
+ {
+    "id": "7d5f2810-b052-43b3-891c-cdf722d690e1",
+    "title": "Test Mack",
+    "frequency": "DAILY",
+    "internalReference": "Mack",
+    "status": "active",
+    "regions": [
+        "Global"
+    ],
+    "subscribers": 0,
+    "subscriptions": 0,
+    "createdAt": "2025-03-20T09:51:25Z",
+    "pricingOptions": [
+        {
+            "amount": 100,
+            "currency": "USD"
+        }
+    ]
+}
+```
+Alternatively, you can create a subscription plan on your dashboard via the Subscriptions page on Spotflow. 
+
 ## Adding a Customer to a Subscription
 
 To enroll a customer in a subscription, simply reference the plan ID when initiating their first charge. This streamlined process applies to all payment methods supported by Spotflow, including <span style={{color: "red"}}>`Embed`</span>, <span style={{color: "red"}}>`Redirect`</span>, and <span style={{color: "red"}}>`Classic`</span>. Here’s a sample request and a sample response below:
 
-**Sample Request for Recurring Payments in Foreign Currency (USD):**
+**Sample Request for Recurring Payments in Foreign Currency (USD) using Spotflow Classic:**
 
 ```yaml
 {
@@ -193,9 +235,9 @@ There are two ways to cancel your subscription:
 1. You can cancel an individual customer's subscription from the Plans page on the dashboard or through the <a target="_blank" href={"../api/API Endpoints/Subscriptions/cancel-subscription"} style={{textDecoration: "underline"}}>Cancel Subscription Endpoint</a>.
 2. Canceling an entire payment plan will cancel all associated subscriptions, which can also be done via the Plans page on your dashboard or through the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/cancel-plan"} style={{textDecoration: "underline"}}>Cancel Plan Endpoint</a>.
 
-Canceling a subscription will trigger a webhook event.
+Canceling a subscription or plan will trigger a webhook event.
 
-Canceled subscriptions and plans can be activated later, via the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/activate-plan"} style={{textDecoration: "underline"}}>Activate Subscription Plan</a> and <a target="_blank" href={"../api/API Endpoints/Subscription Plans/update-plan"} style={{textDecoration: "underline"}}>Update Plan</a> endpoints respectively.
+Canceled subscriptions and plans can be activated later, via the <a target="_blank" href={"../api/API Endpoints/Subscription Plans/activate-plan"} style={{textDecoration: "underline"}}>Activate Subscription Plan</a> and <a target="_blank" href={"../api/API Endpoints/Subscription Plans/cancel-plan"} style={{textDecoration: "underline"}}>Cancel Plan</a> endpoints respectively.
 
 ## Webhooks
 
@@ -208,33 +250,31 @@ Here are some webhook payloads examples:
 `{
   "event": "payment_successful",
   "data": {
-    "id": "b77a03db-926f-4dc7-8302-20b393be2ffe",
-    "reference": "ref-c75298fe-ce02-42b8-b01b-bfb8e32dec62",
-    "spotflowReference": "SPF-FLW-4d43835ef1c8417aa8367070f9a0b8ed",
-    "amount": 10,
+    "id": "779b37d3-c6c3-4dfa-b27f-e37a1ebb06d6",
+    "reference": "ref-391d6b96-1b14-4f6f-9f36-898b01c4ea6e",
+    "spotflowReference": "SPF-PSK-3de8f99e598a45f2816bdaca3168fe54",
+    "amount": 5,
     "currency": "USD",
-    "localAmount": 15336.9,
-    "totalFees": 20,
+    "localAmount": 8497.5,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
-      "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
+      "id": "eb2ed970-bc0f-480d-b0f0-03085f206c48",
       "email": "customer@email.com"
     },
-    "providerMessage": "Approved successful",
-    "rate": 1533.69,
-    "provider": "flutterwave",
+    "rate": 1699.5,
+    "provider": "paystack",
     "region": "Nigeria",
     "card": {
       "type": "Visa",
       "firstSix": "411111",
       "lastFour": "2555"
     },
-    "createdAt": "2025-02-19T10:26:25.758209Z",
+    "createdAt": "2025-04-25T12:38:23Z",
     "metadata": {
-      "SubscriptionPlan": "MonthlyPass",
-      "productName": "Algo.ai"
+      "title": "Creator",
+      "productName": "Gab"
     }
   }
 }`
@@ -263,6 +303,41 @@ Spotflow provides webhooks to notify you of payment events (e.g., successful pay
     }
    }
  }
+```
+
+**Failed Payment**:
+
+```yaml
+{
+    "event": "payment_failed",
+    "data": {
+        "id": "808ce8c4-a0b9-47d2-9cf9-f6d1a6666da3",
+        "reference": "ref-3578ac2c-254d-4c49-a9db-6a1a8cd7abdf",
+        "spotflowReference": "SPF-PSK-f42a5b22cc5944729939cfaebe7f91bf",
+        "amount": 100,
+        "currency": "NGN",
+        "channel": "card",
+        "status": "failed",
+        "customer": {
+            "id": "af8e305d-cfbc-44c1-b480-ada5df1a173d",
+            "email": "deborah+oo@spotflow.one"
+        },
+        "providerMessage": "Transaction declined. Please use the test card.",
+        "rate": 1699.5,
+        "provider": "paystack",
+        "region": "Nigeria",
+        "card": {
+            "type": "Visa",
+            "firstSix": "408412",
+            "lastFour": "2787"
+        },
+        "createdAt": "2025-04-25T09:21:45.179154Z",
+        "metadata": {
+            "SubscriptionPlan": "Daily Pass",
+            "productName": "Peach Perfect"
+        }
+    }
+}
 ```
 
 ## Card Tokenization
