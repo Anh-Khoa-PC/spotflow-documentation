@@ -8,7 +8,7 @@ hide_title: true
 
 Get details of a single subscription plan via their subscription ID, email or customerID. 
 
-<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/plans/:plan-id/subscriptions
+<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/subscriptions/:subscription-id
 
 ## Headers
 
