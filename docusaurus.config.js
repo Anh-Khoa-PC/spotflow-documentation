@@ -11,7 +11,7 @@ const path = require('path')
 const config = {
   title: 'Spotflow Documentation',
   tagline: 'The official Spotflow Documentation',
-  favicon: 'img/favicon-logo.svg',
+  favicon: 'img/spotflow-favicon.svg',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
