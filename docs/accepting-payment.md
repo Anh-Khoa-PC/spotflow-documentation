@@ -123,9 +123,7 @@ To learn more about PCI-DSS compliance, visit the PCI Security Standards Council
 | cvv <br></br> <span style={{color: "red"}}>`Integer`</span>| **Card Verification Value**; This is the 3 or 4 digit security code found on the back of the customers card. |
 | expiryMonth <br></br> <span style={{color: "red"}}>`Integer`</span>| The expiration month is represented by the first two-digit value on the card, indicating the month in which the card will no longer be valid. |
 | expiryYear <br></br> <span style={{color: "red"}}>`Integer`</span>| The expiration year is represented by the last two digits of the card's expiration date. |
-| metadata <br></br> <span style={{color: "red"}}>`String`</span> | This is information pertaining to additional details about your product or service.
-Under metadata, you have productName" as a field — This is necessary for you to add as it indicates the name of your product and helps to specify to your user what your product is called. 
-You can add any other additional field as you deem fit.|
+| metadata <br></br> <span style={{color: "red"}}>`String`</span> | This is information pertaining to additional details about your product or service. Under metadata, you have productName" as a field — This is necessary for you to add as it indicates the name of your product and helps to specify to your user what your product is called. You can add any other additional field as you deem fit.|
 
 **Secondly**, to ensure the complete security of card data during transmission, Spotflow employs AES-256 encryption. The payment data you collected in the previous step must be encrypted using your unique encryption key before making requests to the Payments API. This encryption key can be found in the API Keys and Webhooks section of your dashboard settings.
 
@@ -758,9 +756,7 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
 | localCurrency <br></br> <span style={{color: "red"}}>`String`</span> | This in the local currency of your region. Used only when currency is set to USD. According to the local region, this can either be in NGN, GHS or KSH.|
 | customer email <br></br> <span style={{color: "red"}}>`String`</span> | The customer’s email address |
 | channel <br></br> <span style={{color: "red"}}>`String`</span> |  The channel is bank transfer of the payment providers available on the system |
-| metadata <br></br> <span style={{color: "red"}}>`String`</span> | This is information pertaining to additional details about your product or service.
-Under metadata, you have productName" as a field — This is necessary for you to add as it indicates the name of your product and helps to specify to your user what your product is called.
-You can add any other additional field as you deem fit.|
+| metadata <br></br> <span style={{color: "red"}}>`String`</span> | This is information pertaining to additional details about your product or service. Under metadata, you have productName" as a field — This is necessary for you to add as it indicates the name of your product and helps to specify to your user what your product is called. You can add any other additional field as you deem fit.|
 
 **Sample Request Body for Bank Transfer Payments in Foreign Currency (USD)**
 
