@@ -1,9 +1,10 @@
 ---
 title: Update Plan
+hide_title: true
 ---
 
 
-# Update Plan
+## Update Plan
 
 Update the details of an existing subscription plan
 

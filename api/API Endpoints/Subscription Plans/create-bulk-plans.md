@@ -1,8 +1,9 @@
 ---
 title: Create Bulk Plans
+hide_title: true
 ---
 
-# Create Bulk Plans
+## Create Bulk Plans
 
 Create bulk subscription plans with Spotflow
 

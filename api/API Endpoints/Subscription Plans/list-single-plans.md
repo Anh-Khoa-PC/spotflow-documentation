@@ -1,8 +1,9 @@
 ---
 title: List Plans
+hide_title: true
 ---
 
-# List Plans
+## List Plans
 
 This retrieves and lists all subscription plans available on your integration
 

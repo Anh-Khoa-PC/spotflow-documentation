@@ -1,8 +1,9 @@
 ---
 title: Fetch Region For Merchant
+hide_title: true
 ---
 
-# Fetch Region
+## Fetch Region
 
 Get your available regions on Spotflow
 

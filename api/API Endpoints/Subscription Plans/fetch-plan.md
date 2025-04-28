@@ -1,8 +1,9 @@
 ---
 title: Fetch Plan
+hide_title: true
 ---
 
-# Fetch Plan
+## Fetch Plan
 
 Get details of a single subscription plan.
 

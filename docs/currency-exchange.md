@@ -4,7 +4,7 @@ id: currency-exchange
 hide_title: true
 ---
 
-# Currency Exchange
+## Currency Exchange
 
 Spotflow offers robust currency conversion capabilities, enabling you to seamlessly convert between multiple currencies using real-time exchange rates.
 

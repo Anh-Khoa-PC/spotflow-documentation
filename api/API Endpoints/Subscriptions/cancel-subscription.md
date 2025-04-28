@@ -1,9 +1,10 @@
 ---
 title: Cancel Subscription
+hide_title: true
 pagination_next: null
 ---
 
-# Cancel Subscription
+## Cancel Subscription
 
 Cancel a specific existing subscription payment
 

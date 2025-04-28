@@ -12,7 +12,7 @@ import DevToolsContainer from "../../src/components/DevTools/DevToolsContainer"
 
 **Empower your development process with Spotflow's comprehensive toolkit.**
 
-Our developer tools provide the essential building blocks to seamlessly integrate payments into your application.
+<p style={{fontSize: "16px"}}>Our developer tools provide the essential building blocks to seamlessly integrate payments into your application.</p>
 
 ## Quick Start
 

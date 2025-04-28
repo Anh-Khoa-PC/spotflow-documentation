@@ -1,8 +1,9 @@
 ---
 title: Cancel Plan
+hide_title: true
 ---
 
-# Cancel Plan
+## Cancel Plan
 
 Cancel a specific existing subscription plan.
 
