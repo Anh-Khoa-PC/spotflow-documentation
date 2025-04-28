@@ -1,14 +1,30 @@
 ---
 title: Flutter SDK
+hide_title: true
 ---
 
-# Flutter SDK
+import Admonitions from "../../src/components/Admonition/Admonitions"
+
+## Flutter SDK
 
 Our Flutter SDK provides a rich set of pre-built UI components and APIs to seamlessly integrate payment functionalities within your Flutter application.
 
 ## Introduction
 
-The <span style={{color: "red"}}>`Spotflow Flutter SDK`</span> package allows developers to effortlessly integrate seamless payment functionalities into their Flutter applications. It supports both Android and iOS platforms, making it versatile for mobile app development.
+The <span style={{color: "red"}}>`Spotflow Flutter SDK`</span> pallows you to integrate smooth and secure payment flows into your Flutter apps. It supports both Android and iOS platforms, making it versatile for mobile app development.
+
+## Requirements
+
+Ensure your Flutter environment meets the following:
+- **context**: Flutter 3.7.0 or later
+- **context**: Dart 2.19 or later
+- **context**: Compatible with Android (minSdkVersion 21) and iOS (iOS 11+)
+- **context**: Internet permission for Android  <span style={{color: "red"}}>`(AndroidManifest.xml)`</span>
+
+
+:::warning[Beta Release]
+The Flutter SDK is currently a beta release. If you encounter any issues, kindly reach out to our support team at support@spotflow.one.
+:::
 
 ## Installation
 
@@ -16,61 +32,58 @@ To use the <span style={{color: "red"}}>`Spotflow Flutter SDK`</span> package, a
 
 ```yaml
 dependencies:
-  spotflow: ^0.1.0-beta.1
+  spotflow_flutter: ^1.0.0 # or the latest version
 ```
 
 Then run <span style={{color: "red"}}>`flutter pub get`</span> to fetch the package.
 
-:::warning[Beta Release]
-The Flutter SDK is currently a beta release. If you encounter any issues, kindly reach out to our support team at support@spotflow.one.
-:::
+### Parameters Required by the SDK
 
-## Usage
+| Parameter | Type | Description |
+|:----------|:-----------|:---------|
+|<span style={{color: "red"}}>`planId`</span> | <span style={{color: "red"}}>`String`</span> | The plan ID (optional).|
+|<span style={{color: "red"}}>`currency`</span> | <span style={{color: "red"}}>`String`</span> | Currency for the payment (e.g., "NGN").|
+|<span style={{color: "red"}}>`amount`</span> | <span style={{color: "red"}}>`String`</span> | Amount to be paid (nullable).|
+|<span style={{color: "red"}}>`key`</span> | <span style={{color: "red"}}>`String`</span> | The API key for authenticating the transaction.|
+|<span style={{color: "red"}}>`encryptionKey`</span> | <span style={{color: "red"}}>`String`</span> | This key is used to encrypt the card for  secure transactions.|
+|<span style={{color: "red"}}>`customerEmail`</span> | <span style={{color: "red"}}>`String`</span> | The email address of the customer.|
+|<span style={{color: "red"}}>`customerName`</span> | <span style={{color: "red"}}>`String`</span> | The name of the customer (optional).|
+|<span style={{color: "red"}}>`customerPhoneNumber`</span> | <span style={{color: "red"}}>`String`</span> | The phone number of the customer (optional).|
+|<span style={{color: "red"}}>`customerId`</span> | <span style={{color: "red"}}>`String`</span> | The unique identifier for the customer (optional).|
+|<span style={{color: "red"}}>`paymentDescription`</span> | <span style={{color: "red"}}>`String`</span> | Description of the payment (optional).|
+|<span style={{color: "red"}}>`appLogo`</span> | <span style={{color: "red"}}>`String`</span> | App logo widget (optional).|
+|<span style={{color: "red"}}>`appName`</span> | <span style={{color: "red"}}>`String`</span> | The name of the app (optional).|
+|<span style={{color: "red"}}>`debugMode`</span> | <span style={{color: "red"}}>`bool`</span> | Enable or disable debug mode.|
 
-### Making Payments
-To start the <span style={{color: "red"}}>`Spotflow`</span> package, use the <span style={{color: "red"}}>`Spotflow().start()`</span> method. This method requires a <span style={{color: "red"}}>`BuildContext`</span> and a <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> with various parameters.
+Always ensure that your key and encryptionKey are stored securely. Avoid hardcoding them in production apps.
+
+## Usage Example
 
 Here is an example of how to make a payment using the <span style={{color: "red"}}>`Spotflow`</span> package:
 
 ```dart
-Spotflow().start( context: context,
- paymentManager: SpotFlowPaymentManager( merchantId: "",
-  customerEmail: "customer@example.com" ,
-  customerName: "John Snow", //optional
-  customerPhoneNumber: "000-000-000", //optional
-  customerId: "unique_id" //optional
-  planId: "plan_id",
-  amount: "amount",
-  key: "your_api_key",
-  encryptionKey: "encryption_key",
-  paymentDescription: "Product purchase",
-  appLogo: SizedBox() // Optional
- ),
- onComplete: (paymentResponseBody) {
- }
- );
+import 'package:spotflow_flutter/spotflow_flutter.dart';
+
+SpotflowFlutter.startPayment(
+  context: context,
+  customerId: "cust_001",
+  customerEmail: "jane@example.com",
+  customerName: "Jane Doe",
+  customerPhoneNumber: "+123456789",
+  currency: "USD",
+  amount: 100.0,
+  key: "your_public_key",
+  encryptionKey: "your_encryption_key",
+  paymentDescription: "Payment for services",
+  planId: "plan_001",
+  appName: "MyApp",
+  appLogo: Image.asset('assets/logo.png'), // Or any Widget
+  debugMode: true,
+);
 ```
-
-### Parameters
-
-- **context**: The <span style={{color: "red"}}>`BuildContext`</span> of the application.
-- **paymentManager**: An instance of <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> containing the payment details.
-- onComplete: An optional function to be called when the payment is completed successfully.
-
-## SpotFlowPaymentManager
-
-The <span style={{color: "red"}}>`SpotFlowPaymentManager`</span> class requires the following parameters:
-- **customerEmail**: The email address of the customer.
-- **amount**: The amount to be paid.
-- **key**: The API key for the payment provider.
-- **planId**: The unique identifier for the payment plan.
-- **encryptionKey**: The encryption key for securing the transaction.
-- **customerId**: *(optional)*: The unique identifier for the customer.
-- **customerName**: *(optional)*: The name of the customer.
-- **customerPhoneNumber**: *(optional)*: The phone number of the customer.
-- **paymentDescription**: *(optional)*: A description of the payment.
-- **appLogo**: *(optional)*: An image widget for the application logo.
-- **appName**: *(optional)*: The name of the application.
+## Note
+- **context**: Android: Ensure INTERNET permission is declared in <span style={{color: "red"}}>`AndroidManifest.xml`</span>
+- **context**: iOS: No special permissions required beyond basic networking
 
 ### Testing Your Implementation
 
@@ -79,3 +92,7 @@ Test cards can be found <a href="https://docs.spotflow.one/testing-payment" targ
 ## Running the Example Project
 
 An example project has been provided on our <a href="https://github.com/Spotflow-One/spotflow_flutter" style={{textDecoration: "underline"}}>Github Repository</a>. Clone the repository and navigate to the example folder. Open it with a supported IDE or run <span style={{color: "red"}}>`flutter run`</span> from the terminal in that folder.
+
+## Help
+
+<Admonitions type={"note"}>Feel free to create issues and pull requests on <a href="https://github.com/Spotflow-One/spotflow-android" target="_blank" style={{textDecoration: "underline"}}>GitHub</a> if you need any help.</Admonitions>

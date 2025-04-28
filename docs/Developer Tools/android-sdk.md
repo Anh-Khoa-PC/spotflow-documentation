@@ -1,11 +1,12 @@
 ---
 title: Android SDK
+hide_title: true
 ---
 import Admonitions from "../../src/components/Admonition/Admonitions"
 
-# Introduction 
+## Introduction 
 
-The Spotflow Android SDK empowers developers to seamlessly integrate payment functionalities into their Android applications. It provides UI components and methods that allow you accept payment in your Android app.
+The Spotflow Android SDK empowers developers to seamlessly integrate payment functionalities into their Android applications. It provides UI components and methods that allows you accept payment in your Android app.
 
 ## Project Requirements
 
@@ -43,119 +44,78 @@ dependencies {
 
 | Parameter | Type | Description |
 |:----------|:-----------|:---------|
-|<span style={{color: "red"}}>`merchantId`</span> | <span style={{color: "red"}}>`String`</span> |  The unique identifier for the merchant.|
-|<span style={{color: "red"}}>`planId`</span> | <span style={{color: "red"}}>`String`</span> | The unique identifier for the payment transaction.|
+|<span style={{color: "red"}}>`planId`</span> | <span style={{color: "red"}}>`String`</span> | The plan ID (optional).|
+|<span style={{color: "red"}}>`currency`</span> | <span style={{color: "red"}}>`String`</span> | Currency for the payment (e.g., "NGN").|
+|<span style={{color: "red"}}>`amount`</span> | <span style={{color: "red"}}>`String`</span> | Amount to be paid (nullable).|
 |<span style={{color: "red"}}>`key`</span> | <span style={{color: "red"}}>`String`</span> | The API key for authenticating the transaction.|
-|<span style={{color: "red"}}>`encryptionKey`</span> | <span style={{color: "red"}}>`String`</span> | This key is used to encrypt the card.|
+|<span style={{color: "red"}}>`encryptionKey`</span> | <span style={{color: "red"}}>`String`</span> | This key is used to encrypt the card for  secure transactions.|
 |<span style={{color: "red"}}>`customerEmail`</span> | <span style={{color: "red"}}>`String`</span> | The email address of the customer.|
-|<span style={{color: "red"}}>`customerName`</span> | <span style={{color: "red"}}>`String?`</span> | The name of the customer (optional).|
-|<span style={{color: "red"}}>`customerPhoneNumber`</span> | <span style={{color: "red"}}>`String?`</span> | The phone number of the customer (optional).|
-|<span style={{color: "red"}}>`customerId`</span> | <span style={{color: "red"}}>`String?`</span> | The unique identifier for the customer (optional).|
-|<span style={{color: "red"}}>`paymentDescription`</span> | <span style={{color: "red"}}>`String?`</span> | A description of the payment (optional).|
-|<span style={{color: "red"}}>`appLogo`</span> | <span style={{color: "red"}}>`Int?`</span> | The resource ID for the app logo (optional).|
-|<span style={{color: "red"}}>`appName`</span> | <span style={{color: "red"}}>`String?`</span> | The name of the app (optional).|
+|<span style={{color: "red"}}>`customerName`</span> | <span style={{color: "red"}}>`String`</span> | The name of the customer (optional).|
+|<span style={{color: "red"}}>`customerPhoneNumber`</span> | <span style={{color: "red"}}>`String`</span> | The phone number of the customer (optional).|
+|<span style={{color: "red"}}>`customerId`</span> | <span style={{color: "red"}}>`String`</span> | The unique identifier for the customer (optional).|
+|<span style={{color: "red"}}>`paymentDescription`</span> | <span style={{color: "red"}}>`String`</span> | Description of the payment (optional).|
+|<span style={{color: "red"}}>`appLogo`</span> | <span style={{color: "red"}}>`String`</span> | App logo widget (optional).|
+|<span style={{color: "red"}}>`appName`</span> | <span style={{color: "red"}}>`String`</span> | The name of the app (optional).|
+|<span style={{color: "red"}}>`debugMode`</span> | <span style={{color: "red"}}>`bool`</span> | Enable or disable debug mode.|
 
-
+Avoid exposing your API keys in your application. Requests that require your API key should originate from a secure server environment.
 
 ## Usage with Jetpack Compose
 
-For users utilizing Jetpack Compose, you can directly use the composable function <span style={{color: "red"}}>`PaymentUI`</span>.
+f you're using Jetpack Compose, call the <span style={{color: "red"}}>`PaymentUI`</span> composable function with the required parameters.
 
 ### Integration Example
 
 ```kotlin
-// MainActivity.kt
-package com.example.app
-
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import com.spotflow.compose.PaymentUI
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            PaymentUI(
-                merchantId = "your_merchant_id",
-                paymentId = "your_payment_id",
-                fromCurrency = "USD",
-                toCurrency = "EUR",
-                amount = 100.0,
-                key = "your_key",
-                customerEmail = "customer@example.com",
-                customerName = "John Doe",
-                customerPhoneNumber = "1234567890",
-                paymentDescription = "Payment for services",
-                appLogo = R.drawable.your_logo,
-                appName = "Your App",
-                onSuccess = { transactionId, paymentData ->
-                    // Handle successful payment
-                },
-                onFailure = { errorCode, errorMessage ->
-                    // Handle payment failure
-                }
-            )
-        }
+PaymentUI(
+    planID = "your_plan_id",
+    currency = "NGN",
+    amount = 100.0,
+    key = "your_key",
+    encryptionKey = "your_encryption_key",
+    customerEmail = "customer@example.com",
+    customerName = "John Doe",
+    customerPhoneNumber = "1234567890",
+    customerId = "customer_id",
+    paymentDescription = "Payment for services",
+    appLogo = R.drawable.your_logo,
+    appName = "Your App",
+    debugMode = true,
+    onSuccess = { transactionId, paymentData ->
+        // Handle successful payment
+    },
+    onFailure = { errorCode, errorMessage ->
+        // Handle payment failure
     }
-}
-
+)
 ```
 
 ## Usage by Launching an Activity
 
-For users who do not use Jetpack Compose, you can integrate the payment functionality by launching a provided activity.
+For apps not using Jetpack Compose, launch the payment activity directly.
 
 ### Integration Example
 
 ```kotlin
-// MainActivity.kt
-package com.example.app
-
-import android.app.Activity
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.spotflow.compose.PaymentActivity
-
-class MainActivity : AppCompatActivity() {
-
-    private val PAYMENT_REQUEST_CODE = 1001
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        // Initialize payment
-        SpotFlowPaymentActivity.start(
-        customerEmail: "customer@example.com" ,
-			customerName: "John Snow", //optional
-			customerPhoneNumber: "000-000-000", //optional
-			customerId: "unique_id" //optional
-			merchantId: "unique_id" 
-			planId: "plan_id",
-			key: "your_api_key",
-			encryptionKey: "encryption_key",
-			paymentDescription: "Product purchase",
-            requestCode = PAYMENT_REQUEST_CODE
-        )
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PAYMENT_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                val transactionId = data?.getStringExtra("transactionId")
-                val paymentData = data?.getSerializableExtra("paymentData") as? Map<String, Any>
-                // Handle successful payment
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                val errorCode = data?.getStringExtra("errorCode")
-                val errorMessage = data?.getStringExtra("errorMessage")
-                // Handle payment failure
-            }
-        }
-    }
-}
+SpotFlowPaymentActivity.start(
+    context = this,
+    merchantId = "your_merchant_id",
+    planID = "your_plan_id",
+    currency = "NGN",
+    amount = 100.0,
+    key = "your_key",
+    encryptionKey = "your_encryption_key",
+    provider = "provider_name",
+    customerEmail = "customer@example.com",
+    customerName = "John Doe",
+    customerPhoneNumber = "1234567890",
+    customerId = "customer_id",
+    paymentDescription = "Payment for services",
+    appLogo = R.drawable.your_logo,
+    appName = "Your App",
+    debugMode = true,
+    requestCode = PAYMENT_REQUEST_CODE
+)
 ```
 
 ## Help

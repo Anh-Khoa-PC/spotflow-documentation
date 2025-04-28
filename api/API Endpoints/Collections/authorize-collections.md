@@ -21,13 +21,13 @@ This authorizes a payment by pre-approving the transaction before final validati
 |:----------|:-----------|
 | authorization (PIN)<br></br> <span style={{color: "red"}}>`String`</span> | A confidential or secret code required to authenticate and verify identity for card transactions. |
 
-## Sample Request Body
+## Sample Request Body For PIN + OTP Card Payment
 
 ```yaml
 {
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
+    "reference": "ref-b6e299d6-2220-40e3-b0bf-8018f09baf61",
     "authorization": {
-        "pin": "3310"
+        "pin": "4321"
     }
 }
 ```
@@ -41,40 +41,49 @@ This authorizes a payment by pre-approving the transaction before final validati
 
 ```yaml
 {
-    "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
-    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
-    "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
-    "amount": 5000.00,
-    "currency": "NGN",
+    "id": "c6f09813-ba29-4a10-95ea-d826222c57d6",
+    "reference": "ref-b6e299d6-2220-40e3-b0bf-8018f09baf61",
+    "spotflowReference": "SPF-FLW-d5e80bfa65a443389bb9d2e51c365a85",
+    "amount": 10.00,
+    "currency": "USD",
+    "localAmount": 15030.10,
+    "totalFees": 20.00,
+    "localCurrency": "NGN",
     "channel": "card",
     "status": "pending",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "rate": 1,
+    "providerMessage": "Please enter your OTP sent to your phone",
+    "rate": 1503.01,
     "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
-        "mode": "pin"
+        "mode": "otp"
     },
     "card": {
         "type": "Mastercard",
-        "firstSix": "553188",
-        "lastFour": "2950"
+        "firstSix": "555556",
+        "lastFour": "1842"
+    },
+    "createdAt": "2025-02-21T15:45:48Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
     }
 }
 ```
 
-Following the step gotten after the initial authorization response, you’ve to further authorize the payment to validate the payment.
+Following the step gotten after the initial authorization response, you’ve to further authorize the payment to validate the payment with the One Time-Password (OTP).
 
-**Sample Request Body**
+**Sample Request Body For OTP Card Payment**
 
 ```yaml
 {
-    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
+    "reference": "ref-b6e299d6-2220-40e3-b0bf-8018f09baf61",
     "authorization": {
-        "otp": "12345"
+        "otp": "654321"
     }
 }
 ```
@@ -86,26 +95,33 @@ Following the step gotten after the initial authorization response, you’ve to 
 
 ```yaml
 {
-    "id": "6cf2cfac-3919-42d8-89ec-ab73e594d225",
-    "reference": "ref-592109f8-9734-49e3-8c73-711510fac8b4",
-    "spotflowReference": "SPF-FLW-4146f5abadb74f6395e3625503543940",
-    "amount": 5000.00,
-    "currency": "NGN",
+    "id": "c6f09813-ba29-4a10-95ea-d826222c57d6",
+    "reference": "ref-b6e299d6-2220-40e3-b0bf-8018f09baf61",
+    "spotflowReference": "SPF-FLW-d5e80bfa65a443389bb9d2e51c365a85",
+    "amount": 10.00,
+    "currency": "USD",
+    "localAmount": 15030.10,
+    "totalFees": 20.00,
+    "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "3839716c-35b4-40f9-a04f-af8a399fb147",
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
         "email": "customer@email.com"
     },
-    "providerMessage": "successful",
-    "rate": 1,
+    "providerMessage": "Approved successful",
+    "rate": 1503.01,
     "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Mastercard",
-        "firstSix": "553188",
-        "lastFour": "2950"
+        "firstSix": "555556",
+        "lastFour": "1842"
     },
-    "createdAt": "2024-08-27T12:43:59Z"
+    "createdAt": "2025-02-21T15:45:48Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```

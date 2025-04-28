@@ -1,9 +1,10 @@
 ---
 title: Activate Plan
 pagination_next: null
+hide_title: true
 ---
 
-# Activate Plan
+## Activate Plan
 
 Reactivate a previously canceled single subscription plan.
 
@@ -29,13 +30,27 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
 
 ```yaml
 {
-    "id": "11aa6bc6-52e6-4821-900c-f33f9bf0c060",
-    "title": "Dstv Sub",
-    "frequency": "MONTHLY",
-    "internalReference": "test-1212",
-    "amount": 1000.00,
-    "currency": "USD",
+    "id": "acbabde0-1293-4b8b-9eb9-7e532e34d9bf",
+    "title": "My Nutrifit",
+    "frequency": "DAILY",
+    "internalReference": "ref-prod",
     "status": "active",
-    "createdAt": "2024-06-06T19:43:55Z"
+    "regions": [
+        "Nigeria",
+        "Ghana"
+    ],
+    "subscribers": 0,
+    "subscriptions": 0,
+    "createdAt": "2025-04-24T13:50:17Z",
+    "pricingOptions": [
+        {
+            "amount": 100,
+            "currency": "NGN"
+        },
+        {
+            "amount": 10,
+            "currency": "GHS"
+        }
+    ]
 }
 ```

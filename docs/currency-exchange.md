@@ -4,13 +4,13 @@ id: currency-exchange
 hide_title: true
 ---
 
-# Currency Exchange
+## Currency Exchange
 
 Spotflow offers robust currency conversion capabilities, enabling you to seamlessly convert between multiple currencies using real-time exchange rates.
 
 ## Quoting Your Price
 
-You have the flexibility to quote your prices in either Naira (NGN) or US Dollars (USD). Spotflow will automatically handle the conversion based on the latest exchange rates at the time of the transaction.
+You have the flexibility to quote your prices between two currency pairs which can be Nigerian Naira (NGN) vs US Dollars (USD), Ghanian Cedis (GHC) vs US Dollars (USD), etc. Spotflow will automatically handle the conversion based on the latest exchange rates at the time of the transaction.
 
 ## Exchange Endpoint
 

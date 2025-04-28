@@ -29,24 +29,33 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon payme
 
 ```yaml
 {
-    "id": "97297586-9ebd-4bc4-a36b-c1046229115e",
-    "reference": "ref-e0750822-3a9a-4dd2-bddf-7b92bbd640ce",
-    "spotflowReference": "SPF-FLW-fec25ef2d9154f56b7b67e438af4279a",
-    "amount": 20.00,
+    "id": "c6f09813-ba29-4a10-95ea-d826222c57d6",
+    "reference": "ref-b6e299d6-2220-40e3-b0bf-8018f09baf61",
+    "spotflowReference": "SPF-FLW-d5e80bfa65a443389bb9d2e51c365a85",
+    "amount": 10.00,
     "currency": "USD",
-    "localAmount": 30809.20,
+    "localAmount": 15030.10,
+    "totalFees": 20.00,
     "localCurrency": "NGN",
     "channel": "card",
     "status": "successful",
     "customer": {
-        "id": "b5d1111b-59f3-4f31-9e96-4f8f72cc5923",
-        "name": "Earline Bradtke",
-        "email": "customer@email.com"
+        "id": "95e4a0fa-9fb2-4dd4-9c81-cf6f4dad04a3",
+        "email": "deborah+m@spotflow.one"
     },
-    "providerMessage": "successful",
-    "rate": 1540.46,
+    "providerMessage": "Approved successful",
+    "rate": 1503.01,
     "provider": "flutterwave",
     "region": "Nigeria",
-    "createdAt": "2024-08-06T22:57:54Z"
+    "card": {
+        "type": "Mastercard",
+        "firstSix": "555556",
+        "lastFour": "1842"
+    },
+    "createdAt": "2025-02-21T15:45:48Z",
+    "metadata": {
+        "SubscriptionPlan": "MonthlyPass",
+        "productName": "Algo.ai"
+    }
 }
 ```
