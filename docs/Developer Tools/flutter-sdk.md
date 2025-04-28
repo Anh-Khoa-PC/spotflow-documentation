@@ -1,10 +1,11 @@
 ---
 title: Flutter SDK
+hide_title: true
 ---
 
 import Admonitions from "../../src/components/Admonition/Admonitions"
 
-# Flutter SDK
+## Flutter SDK
 
 Our Flutter SDK provides a rich set of pre-built UI components and APIs to seamlessly integrate payment functionalities within your Flutter application.
 

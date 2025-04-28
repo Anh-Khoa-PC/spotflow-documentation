@@ -1,9 +1,10 @@
 ---
 title: Android SDK
+hide_title: true
 ---
 import Admonitions from "../../src/components/Admonition/Admonitions"
 
-# Introduction 
+## Introduction 
 
 The Spotflow Android SDK empowers developers to seamlessly integrate payment functionalities into their Android applications. It provides UI components and methods that allows you accept payment in your Android app.
 

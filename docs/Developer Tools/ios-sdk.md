@@ -1,8 +1,9 @@
 ---
 title: iOS SDK
+hide_title: true
 ---
 
-# Introduction
+## Introduction
 
 The Spotflow iOS SDK is a SwiftUI library that allows developers to integrate payment collection functionality into their iOS applications. It provides a simple interface to navigate to a payment screen, handle payment logic, and manage success or failure callbacks using the <span style={{color: "red"}}>`SpotFlowPaymentUI`</span> class.
 

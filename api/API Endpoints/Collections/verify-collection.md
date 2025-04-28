@@ -1,8 +1,9 @@
 ---
 title: Verify Payment Collection
+hide_title: true
 ---
 
-# Verify Payment Collection
+## Verify Payment Collection
 
 Confirm the status of a payment
 

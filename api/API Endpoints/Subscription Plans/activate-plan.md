@@ -1,9 +1,10 @@
 ---
 title: Activate Plan
 pagination_next: null
+hide_title: true
 ---
 
-# Activate Plan
+## Activate Plan
 
 Reactivate a previously canceled single subscription plan.
 
