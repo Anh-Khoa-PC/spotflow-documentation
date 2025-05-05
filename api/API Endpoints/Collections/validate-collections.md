@@ -51,7 +51,6 @@ This validates the payment by verifying payment details and ensuring sufficient 
         "name": "Earline Bradtke",
         "email": "customer@email.com"
     },
-    "provider": "flutterwave",
     "providerMessage": "successful",
     "rate": {
         "from": "NGN",

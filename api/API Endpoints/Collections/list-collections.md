@@ -52,7 +52,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1498.02,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Mastercard",
@@ -82,7 +81,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1533.69,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -112,7 +110,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1533.55,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -142,7 +139,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1535.92,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -170,7 +166,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1535.92,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -200,7 +195,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1536.79,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -228,7 +222,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1536.79,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -256,7 +249,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1539.24,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -286,7 +278,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1532.01,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Visa",
@@ -316,7 +307,6 @@ This retrieves and lists all payment collections available for a specific mercha
       },
       "providerMessage": "Approved successful",
       "rate": 1533.49,
-      "provider": "flutterwave",
       "region": "Nigeria",
       "card": {
         "type": "Mastercard",

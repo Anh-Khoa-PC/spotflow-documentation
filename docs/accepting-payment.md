@@ -234,7 +234,6 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
     },
     "providerMessage": "Please enter your PIN",
     "rate": 1533.49,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "pin"
@@ -295,7 +294,6 @@ Furthermore, Once the payment data has been encrypted, use it within the POST re
     },
     "providerMessage": "Approved successful",
     "rate": 1539.24,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Visa",
@@ -360,7 +358,6 @@ Upon successful payment authorization, the transaction's initial status can be <
     },
     "providerMessage": "Please enter your OTP sent to your phone",
     "rate": 1533.49,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "otp"
@@ -419,7 +416,6 @@ What you need to do next is get the OTP sent to the customer’s phone/email and
     },
     "providerMessage": "Approved successful",
     "rate": 1533.49,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Mastercard",
@@ -464,7 +460,6 @@ Based on the initial request made to authorize the card, it automatically detect
     },
     "providerMessage": "Please validate details with the url provided",
     "rate": 1531.81,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "3DS",
@@ -513,7 +508,6 @@ For cards requiring Address Verification System (AVS) checks, the system automat
     },
     "providerMessage": "Please enter your address details",
     "rate": 1532.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "avs"
@@ -571,7 +565,6 @@ Upon receiving a response indicating the need for AVS verification, you need to 
     },
     "providerMessage": "Approved successful",
     "rate": 1532.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Visa",
@@ -623,7 +616,6 @@ After making the request to create a <span style={{color: "red"}}>`card payment`
     },
     "providerMessage": "Kindly enter the phone number registered with your bank",
     "rate": 1532.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "enroll"
@@ -671,7 +663,6 @@ Upon receiving a response indicating a <span style={{color: "red"}}>`'Phone Enr
     },
     "providerMessage": "Transaction in progress",
     "rate": 1532.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "otp"
@@ -730,7 +721,6 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
     },
     "providerMessage": "Approved successful",
     "rate": 1533.49,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Mastercard",
@@ -802,7 +792,6 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
         "email": "customer@email.com"
     },
     "rate": 1535.23,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "bankDetails": {
         "accountNumber": "0067100155",
