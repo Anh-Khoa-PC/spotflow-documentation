@@ -176,7 +176,6 @@ To enroll a customer in a subscription, simply reference the plan ID when initia
     },
     "providerMessage": "Approved successful",
     "rate": 1536.79,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Visa",
@@ -262,7 +261,6 @@ Here are some webhook payloads examples:
       "email": "customer@email.com"
     },
     "rate": 1699.5,
-    "provider": "paystack",
     "region": "Nigeria",
     "card": {
       "type": "Visa",
@@ -322,7 +320,6 @@ Spotflow provides webhooks to notify you of payment events (e.g., successful pay
         },
         "providerMessage": "Transaction declined. Please use the test card.",
         "rate": 1699.5,
-        "provider": "paystack",
         "region": "Nigeria",
         "card": {
             "type": "Visa",
