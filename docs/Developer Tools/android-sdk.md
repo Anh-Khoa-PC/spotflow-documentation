@@ -105,7 +105,6 @@ SpotFlowPaymentActivity.start(
     amount = 100.0,
     key = "your_key",
     encryptionKey = "your_encryption_key",
-    provider = "provider_name",
     customerEmail = "customer@example.com",
     customerName = "John Doe",
     customerPhoneNumber = "1234567890",
