@@ -75,7 +75,6 @@ Our API helps you collect payments using different payment methods. Payment meth
     },
     "providerMessage": "Please enter your PIN",
     "rate": 1533.49,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "pin"
@@ -137,7 +136,6 @@ Our API helps you collect payments using different payment methods. Payment meth
     },
     "providerMessage": "Approved successful",
     "rate": 1539.24,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Visa",
@@ -210,7 +208,6 @@ Our API helps you collect payments using different payment methods. Payment meth
         "email": "customer@email.com"
     },
     "rate": 1535.23,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "bankDetails": {
         "accountNumber": "0067100155",
@@ -379,7 +376,6 @@ Set up recurring payments for a subscription plan using Spotflow. Check out <a t
     },
     "providerMessage": "Approved successful",
     "rate": 1536.79,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Visa",
