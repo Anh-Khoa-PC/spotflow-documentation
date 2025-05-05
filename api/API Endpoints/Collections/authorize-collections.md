@@ -57,7 +57,6 @@ This authorizes a payment by pre-approving the transaction before final validati
     },
     "providerMessage": "Please enter your OTP sent to your phone",
     "rate": 1503.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "authorization": {
         "mode": "otp"
@@ -111,7 +110,6 @@ Following the step gotten after the initial authorization response, you’ve to 
     },
     "providerMessage": "Approved successful",
     "rate": 1503.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Mastercard",

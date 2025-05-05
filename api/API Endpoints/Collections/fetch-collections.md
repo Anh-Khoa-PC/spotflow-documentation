@@ -45,7 +45,6 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon payme
     },
     "providerMessage": "Approved successful",
     "rate": 1503.01,
-    "provider": "flutterwave",
     "region": "Nigeria",
     "card": {
         "type": "Mastercard",

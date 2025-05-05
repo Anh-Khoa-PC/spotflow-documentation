@@ -47,7 +47,6 @@ This is the unique reference <span style={{color: "red"}}>`ID`</span> returned a
         "phoneNumber": "629-543-7126"
     },
     "rate": 1496.52,
-    "provider": "korapay",
     "region": "Nigeria",
     "bankDetails": {
         "accountNumber": "759046",
