@@ -18,7 +18,7 @@ Get details of your created sub account by its ID
 
 **id** <span style={{color: "red"}}>`int32`</span>
 
-This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a target="_blank" href={"../api/API Endpoints/Sub Accounts/create-subaccounts.md"} style={{textDecoration: "underline"}}> creation of your sub account.</a>.
+This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a target="_blank" href={"../Sub Accounts/create-subaccounts"} style={{textDecoration: "underline"}}> creation of your sub account.</a>.
 
 **Sample Response:** 
 
