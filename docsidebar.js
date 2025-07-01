@@ -29,6 +29,14 @@ const sidebars = {
       id: 'testing-payment'
     },
     {
+      type: 'doc',
+      id: 'sub-accounts'
+    },
+    {
+      type: 'doc',
+      id: 'virtual-accounts'
+    },
+    {
       type: 'category',
       label: 'Developer Tools',
       collapsed: false,
