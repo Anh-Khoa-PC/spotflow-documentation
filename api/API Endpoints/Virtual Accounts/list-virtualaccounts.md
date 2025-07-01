@@ -15,7 +15,7 @@ This retrieves and lists all the active virtual accounts you created.
 |:----------|:-----------|
 
 
-## Query Parameters (Note that this is optional)
+## Query Parameters
 
 | <p style={{fontWeight: '400'}}>accountNumber <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>**This filters by the account number** created for the sub accounts.</p> |
 |:----------|:-----------|
