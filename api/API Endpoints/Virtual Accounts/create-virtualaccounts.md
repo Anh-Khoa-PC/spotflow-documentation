@@ -8,6 +8,7 @@ hide_title: true
 Virtual accounts don't act as independent money storage - they simply channel incoming payments straight to your account. These accounts cannot process outgoing payments or be linked to payment terminals. Since virtual accounts do not serve as containers for funds, there's no need for BVN verification during setup.
 
 This endpoint is used to create a virtual account to receive payments.
+
 <span style={{color: "orange"}}>`POST`</span> https://api.spotflow.co/api/v1/virtual-accounts/temporary
 
 **Headers**

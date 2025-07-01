@@ -48,7 +48,7 @@ Obtain your SECRET_KEYs from the Spotflow merchant dashboard for authorization w
 
 **Creating Sub Accounts**
 
-- To Create sub accounts, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/create-subaccounts.md"} style={{textDecoration: "underline"}}> sub account creation API endpoint</a>.
+- To Create sub accounts, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/create-subaccounts"} style={{textDecoration: "underline"}}> sub account creation API endpoint</a>.
 - Specify account parameters (name, currency, configuration).
 - No BVN verification required during creation.
 - Returns unique sub account identifier and details.
@@ -56,13 +56,13 @@ Obtain your SECRET_KEYs from the Spotflow merchant dashboard for authorization w
 
 **Fetching Sub Account Data**
 
-- To retrieve individual sub account information by account ID, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/fetch-subaccount-by-id.md"} style={{textDecoration: "underline"}}> fetch sub account by ID endpoint</a>.
-- Access real-time balance and transaction history via the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/get-accountbalance-bysubaccount.md"} style={{textDecoration: "underline"}}> fetch balances endpoint </a> and your merchant dashboard.
+- To retrieve individual sub account information by account ID, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/fetch-subaccount-by-id"} style={{textDecoration: "underline"}}> fetch sub account by ID endpoint</a>.
+- Access real-time balance and transaction history via the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/get-accountbalance-bysubaccount"} style={{textDecoration: "underline"}}> fetch balances endpoint </a> and your merchant dashboard.
 - Get account status and configuration details.
 
 **Listing Sub Accounts**
 
-- To retrieve all sub accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/list-subaccounts.md"} style={{textDecoration: "underline"}}> list sub accounts endpoint</a>.
+- To retrieve all sub accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/list-subaccounts"} style={{textDecoration: "underline"}}> list sub accounts endpoint</a>.
 - Apply filters and sorting options as desired.
 - Get paginated responses for large account lists.
 - Get summary information for each sub account.

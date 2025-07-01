@@ -38,7 +38,7 @@ This functions exclusively as payment collection points.
 
 **Creating Virtual Accounts**
 
-- To Create virtual accounts, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/create-virtualaccounts.md"} style={{textDecoration: "underline"}}> virtual account creation API endpoint </a>.
+- To Create virtual accounts, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/create-virtualaccounts"} style={{textDecoration: "underline"}}> virtual account creation API endpoint </a>.
 - Specify account parameters.
 - No BVN verification required during creation.
 - Returns unique virtual account number.
@@ -46,13 +46,13 @@ This functions exclusively as payment collection points.
 
 **Fetching Virtual Account Data**
 
-- To retrieve individual virtual account information by account ID, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/fetch-virtualaccounts.md"} style={{textDecoration: "underline"}}> fetch virtual account by ID endpoint</a>.
+- To retrieve individual virtual account information by account ID, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/fetch-virtualaccounts"} style={{textDecoration: "underline"}}> fetch virtual account by ID endpoint</a>.
 - View payment history via your dashboard.
 - Access account status.
 
 **Listing Virtual Accounts**
 
-- To retrieve all virtual accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/list-virtualaccounts.md"} style={{textDecoration: "underline"}}> list virtual accounts endpoint</a>.
+- To retrieve all virtual accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/list-virtualaccounts"} style={{textDecoration: "underline"}}> list virtual accounts endpoint</a>.
 - Apply filters for active accounts as desired.
 - Get paginated responses for efficient data handling.
 - Get summary information for each virtual account.
