@@ -1,7 +1,6 @@
 ---
 title: Testing Payments
 id: testing-payment
-pagination_next: null
 hide_title: true
 ---
 

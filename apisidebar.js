@@ -67,11 +67,37 @@ const sidebars = {
             items: [
               // 'API Endpoints/Subscriptions/create-subscription',
               'API Endpoints/Subscriptions/list-subscription',
-               'API Endpoints/Subscriptions/fetch-subscription',
+              'API Endpoints/Subscriptions/fetch-subscription',
               'API Endpoints/Subscriptions/activate-subscription',
               'API Endpoints/Subscriptions/cancel-subscription',
             ]
           },
+          {
+            type: "category",
+            label: "Sub Accounts",
+            className: "subaccounts",
+            collapsed: "false",
+            items: [
+              'API Endpoints/Sub Accounts/create-subaccounts',
+              'API Endpoints/Sub Accounts/fetch-subaccount-by-id',
+              'API Endpoints/Sub Accounts/fetch-subaccounts',
+              'API Endpoints/Sub Accounts/get-accountbalance-bysubaccount',
+              'API Endpoints/Sub Accounts/get-accountbalance',
+              'API Endpoints/Sub Accounts/get-main-accountbalance',
+              'API Endpoints/Sub Accounts/list-subaccounts'
+            ]
+          },
+          {
+            type: "category",
+            label: "Virtual Accounts",
+            className: "virtualaccounts",
+            collapsed: "false",
+            items: [
+              'API Endpoints/Virtual Accounts/create-virtualaccounts',
+              'API Endpoints/Virtual Accounts/fetch-virtualaccounts',
+              'API Endpoints/Virtual Accounts/list-virtualaccounts'
+            ]
+          }
           // {
           //   type: 'category',
           //   label: 'Settlement',
