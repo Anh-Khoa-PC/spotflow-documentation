@@ -31,7 +31,7 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon creat
     "id": "9e164443-d10c-4dda-952b-a1a76af37057",
     "accountNumber": "6474247770",
     "accountName": "SPOTFLOW/Jenny Hemsworth",
-    "bankName": "Nomba MFB",
+    "bankName": "Nombank MFB",
     "mode": "live",
     "createdAt": "2025-07-02T15:02:33.605434Z",
     "updatedAt": "2025-07-02T15:06:17.999528Z",
