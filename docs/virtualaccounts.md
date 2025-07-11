@@ -52,7 +52,7 @@ This functions exclusively as payment collection points.
 
 **Listing Virtual Accounts**
 
-- To retrieve all virtual accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/list-virtualaccounts"} style={{textDecoration: "underline"}}> list virtual accounts endpoint</a>.
+- To retrieve all virtual accounts associated with your main account (either test or live), use the <a target="_blank" href={"../api/API Endpoints/Virtual Accounts/list-virtualaccounts"} style={{textDecoration: "underline"}}> list virtual accounts endpoint</a>.
 - Apply filters for active accounts as desired.
 - Get paginated responses for efficient data handling.
 - Get summary information for each virtual account.

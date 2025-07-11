@@ -18,7 +18,7 @@ Get details of your created sub account by its ID
 
 **id** <span style={{color: "red"}}>`int32`</span>
 
-This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a target="_blank" href={"../Sub Accounts/create-subaccounts"} style={{textDecoration: "underline"}}> creation of your sub account.</a>.
+This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a target="_blank" href={"../Sub Accounts/create-subaccounts"} style={{textDecoration: "underline"}}> creation of your sub account. You can also use your main account id found on the <a target="_blank" href={"../Sub Accounts/list-subaccounts.md"} style={{textDecoration: "underline"}}> Get all main sub accounts endpoint </a> </a>.
 
 **Sample Response:** 
 
@@ -28,15 +28,15 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a ta
 
 ```yaml
 {
-  "id": "123e4567-e89b-12d3-a456-426614174000",
-  "balanceId": "wallet-123456",
-  "accountName": "Operations Account",
-  "accountNumber": "0123456789",
-  "parentAccountId": "123456",
-  "currency": "NGN",
-  "mode": "live",
-  "status": "active",
-  "createdAt": "2025-05-19T10:15:30Z",
-  "updatedAt": "2025-05-19T10:15:30Z"
+    "id": "e0189fb1-3210-42e9-96fe-aeb5215c086c",
+    "balanceId": "bln_9b38a55f-2665-4a05-8936-e8067c131f98",
+    "accountName": "Newly LLC",
+    "accountNumber": "8213714164",
+    "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
+    "currency": "NGN",
+    "mode": "test",
+    "status": "active",
+    "createdAt": "2025-07-02T14:09:45.536072Z",
+    "updatedAt": "2025-07-02T14:09:45.536082Z"
 }
 ```

@@ -57,12 +57,12 @@ Obtain your SECRET_KEYs from the Spotflow merchant dashboard for authorization w
 **Fetching Sub Account Data**
 
 - To retrieve individual sub account information by account ID, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/fetch-subaccount-by-id"} style={{textDecoration: "underline"}}> fetch sub account by ID endpoint</a>.
-- Access real-time balance and transaction history via the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/get-accountbalance-bysubaccount"} style={{textDecoration: "underline"}}> fetch balances endpoint </a> and your merchant dashboard.
+- Access real-time balance and transaction history via the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/get-accountbalance.md"} style={{textDecoration: "underline"}}> fetch balances endpoint </a> and your merchant dashboard.
 - Get account status and configuration details.
 
 **Listing Sub Accounts**
 
-- To retrieve all sub accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/list-subaccounts"} style={{textDecoration: "underline"}}> list sub accounts endpoint</a>.
+- To retrieve all sub accounts associated with your main account, use the <a target="_blank" href={"../api/API Endpoints/Sub Accounts/list-subaccounts"} style={{textDecoration: "underline"}}> list sub accounts endpoint</a>. You can also use this endpoint to get your main account details.
 - Apply filters and sorting options as desired.
 - Get paginated responses for large account lists.
 - Get summary information for each sub account.
