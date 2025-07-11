@@ -17,7 +17,7 @@ This retrieves and lists all the active virtual accounts you created.
 
 ## Query Parameters
 
-| <p style={{fontWeight: '400'}}>accountNumber <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>**This filters by the account number** created for the sub accounts.</p> |
+| <p style={{fontWeight: '400'}}>accountNumber <br></br> <span style={{color: "red"}}>`Integer`</span></p> | <p style={{fontWeight: '400'}}>This filters by the account number created for the sub accounts. The account number you're using is your main-account account number (either test or live) found on <a target="_blank" href={"../Sub Accounts/list-subaccounts.md"} style={{textDecoration: "underline"}}> Get all main sub accounts endpoint </a> and not one of the virtual account numbers you created. </p> |
 |:----------|:-----------|
 
 
@@ -30,10 +30,10 @@ This retrieves and lists all the active virtual accounts you created.
 ```yaml
 [
   {
-    "id": "123e4567-e89b-12d3-a456-426614174000",
-    "accountNumber": "1234567890",
-    "accountName": "John Doe",
-    "bankName": "Access Bank",
+    "id": "9e164443-d10c-4dda-952b-a1a76af37057",
+    "accountNumber": "6474247770",
+    "accountName": "SPOTFLOW/Jenny Hemsworth",
+    "bankName": "Nombank MFB",
     "type": "INDIVIDUAL",
     "mode": "live",
     "createdAt": "2025-05-19T10:15:30Z",
