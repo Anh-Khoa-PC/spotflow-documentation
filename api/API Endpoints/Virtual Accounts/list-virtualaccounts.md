@@ -33,7 +33,7 @@ This retrieves and lists all the active virtual accounts you created.
     "id": "9e164443-d10c-4dda-952b-a1a76af37057",
     "accountNumber": "6474247770",
     "accountName": "SPOTFLOW/Jenny Hemsworth",
-    "bankName": "Nomba MFB",
+    "bankName": "Nombank MFB",
     "type": "INDIVIDUAL",
     "mode": "live",
     "createdAt": "2025-05-19T10:15:30Z",
