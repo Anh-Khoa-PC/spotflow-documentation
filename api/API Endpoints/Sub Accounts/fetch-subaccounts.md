@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Fetch Sub Accounts
 hide_title: true
 pagination_next: null
@@ -51,4 +51,4 @@ Get details of all the sub accounts under your main accounts.
   "totalElements": 0,
   "totalPages": 0
 }
-```
+``` -->

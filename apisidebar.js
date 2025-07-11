@@ -80,7 +80,7 @@ const sidebars = {
             items: [
               'API Endpoints/Sub Accounts/create-subaccounts',
               'API Endpoints/Sub Accounts/fetch-subaccount-by-id',
-              'API Endpoints/Sub Accounts/fetch-subaccounts',
+              //'API Endpoints/Sub Accounts/fetch-subaccounts',
               'API Endpoints/Sub Accounts/get-accountbalance-bysubaccount',
               'API Endpoints/Sub Accounts/get-accountbalance',
               'API Endpoints/Sub Accounts/get-main-accountbalance',

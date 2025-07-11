@@ -5,9 +5,9 @@ pagination_next: null
 ---
 
 ## Get Account Balance By Sub Account
-Retrieves balances for all direct sub-accounts of the specified main account
+Retrieves account balance details for all direct sub-accounts of the specified main account.
 
-<span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/balances/:accountNumber/sub-balances
+<span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/balances/accounts/:accountNumber/sub-balances
 
 **Headers**
 
@@ -17,7 +17,7 @@ Retrieves balances for all direct sub-accounts of the specified main account
 
 ## Query Parameters
 
-| <p style={{fontWeight: '400'}}>accountNumber <br></br> <span style={{color: "red"}}>`Integer`</span></p> | <p style={{fontWeight: '400'}}>This filters by the specified main account number.</p> |
+| <p style={{fontWeight: '400'}}>accountNumber <br></br> <span style={{color: "red"}}>`Integer`</span></p> | <p style={{fontWeight: '400'}}>This filters by the specified main account number i.e you're using the account number with the tag "main NGN account" (test or live), created internally for your merchant via the <a target="_blank" href={"../Sub Accounts/list-subaccounts.md"} style={{textDecoration: "underline"}}> Get all main sub accounts endpoint </a> .</p> |
 |:----------|:-----------|
 
 
@@ -29,13 +29,19 @@ Retrieves balances for all direct sub-accounts of the specified main account
 
 ```yaml
 [
-  {
-    "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "currency": "NGN",
-    "balance": 0,
-    "availableBalance": 0,
-    "accountTag": "main-account",
-    "parentAccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-  }
+    {
+        "accountId": "e0189fb1-3210-42e9-96fe-aeb5215c086c",
+        "balance": 0,
+        "availableBalance": 0,
+        "accountTag": "sub-account",
+        "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75"
+    },
+    {
+        "accountId": "2a7cf97c-6317-4da1-9cd0-34c0c33af8e8",
+        "balance": 0,
+        "availableBalance": 0,
+        "accountTag": "sub-account",
+        "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75"
+    }
 ]
 ```

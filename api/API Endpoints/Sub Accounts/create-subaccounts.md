@@ -19,7 +19,7 @@ Please note that, by default, merchant configuration for setting regions and ser
 
 **Request Body Parameters**
 
-| <p style={{fontWeight: '400'}}>parentAccountId <br></br> <span style={{color: "red"}}>`Integer`</span></p> | <p style={{fontWeight: '400'}}>This is the id of your main account.</p> |
+| <p style={{fontWeight: '400'}}>parentAccountId <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>This is the id of your main account created internally for you.</p> |
 |:---------|:---------|
 | currency <br></br> <span style={{color: "red"}}>`String`</span> |Choose the currency you want for your sub account. According, to our currently supported currencies, this is in NGN.|
 | accountName <br></br> <span style={{color: "red"}}>`String`</span> | Your desired name for your sub account. |
@@ -44,11 +44,11 @@ Please note that, by default, merchant configuration for setting regions and ser
 
 ```yaml
 {
-  "id": "123e4567-e89b-12d3-a456-426614174000",
-  "balanceId": "wallet-123456",
-  "accountName": "Operations Account",
+  "id": "e0189fb1-3210-42e9-96fe-aeb5215c086c",
+  "balanceId": "bln_9b38a55f-2665-4a05-8936-e8067c131f98",
+  "accountName": "Quantum Technologies",
   "accountNumber": "0123456789",
-  "parentAccountId": "123456",
+  "parentAccountId": "123e4567-e89b-12d3-a456-426614174000",
   "currency": "NGN",
   "mode": "live",
   "status": "active",

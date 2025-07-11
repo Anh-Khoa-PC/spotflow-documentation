@@ -5,7 +5,7 @@ pagination_next: null
 ---
 
 ## List Sub Accounts
-This retrieves and lists all the sub accounts you've created. 
+This retrieves and lists all the sub accounts you've created. This both for your main account and sub accounts.
 
 <span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/accounts
 
@@ -28,7 +28,7 @@ This retrieves and lists all the sub accounts you've created.
 | to <br></br> <span style={{color: "red"}}>`String`</span> | **This is the end of the date of the created sub accounts** you want to filter by in this format; <span style={{color: "red"}}>`2024-08-27`</span>. |
 
 
-**Sample Response:** 
+**Sample Response for All Sub Accounts:** 
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -36,19 +36,79 @@ This retrieves and lists all the sub accounts you've created.
 
 ```yaml
 {
-  "content": [
-    {
-      "accountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "currency": "NGN",
-      "balance": 0,
-      "availableBalance": 0,
-      "accountTag": "string",
-      "parentAccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-    }
-  ],
-  "pageNumber": 0,
-  "pageSize": 0,
-  "totalElements": 0,
-  "totalPages": 0
+    "content": [
+        {
+            "id": "f10a95be-c916-4f92-a2bd-a0f7922328dc",
+            "balanceId": "bln_4943d9bf-6c27-454d-921d-6d460dd6289f",
+            "accountName": "Newly Account",
+            "accountNumber": "9844207661",
+            "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
+            "currency": "NGN",
+            "mode": "test",
+            "accountTag": "sub-account",
+            "status": "active",
+            "createdAt": "2025-07-02T15:14:31.104863Z",
+            "updatedAt": "2025-07-02T15:14:31.104872Z"
+        },
+        {
+            "id": "2a7cf97c-6317-4da1-9cd0-34c0c33af8e8",
+            "balanceId": "bln_ab2dada2-a60d-456d-8a05-f8c6e1f00c66",
+            "accountName": "Newly Account",
+            "accountNumber": "2868767881",
+            "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
+            "currency": "NGN",
+            "mode": "test",
+            "accountTag": "sub-account",
+            "status": "active",
+            "createdAt": "2025-07-02T14:17:22.354473Z",
+            "updatedAt": "2025-07-02T14:17:22.354479Z"
+        },
+        {
+            "id": "e0189fb1-3210-42e9-96fe-aeb5215c086c",
+            "balanceId": "bln_9b38a55f-2665-4a05-8936-e8067c131f98",
+            "accountName": "Newly Account",
+            "accountNumber": "8213714164",
+            "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
+            "currency": "NGN",
+            "mode": "test",
+            "accountTag": "sub-account",
+            "status": "active",
+            "createdAt": "2025-07-02T14:09:45.536072Z",
+            "updatedAt": "2025-07-02T14:09:45.536082Z"
+        }
+    ],
+    "pageNumber": 0,
+    "pageSize": 10,
+    "totalElements": 3,
+    "totalPages": 1
+}
+```
+
+**Sample Response for Your Main Account:** 
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "content": [
+        {
+            "id": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
+            "balanceId": "bln_f429c9bf-231e-4a14-ad94-f41fff523ec1",
+            "accountName": "Main NGN Account",
+            "accountNumber": "0958094143",
+            "currency": "NGN",
+            "mode": "test",
+            "accountTag": "main-account",
+            "status": "active",
+            "createdAt": "2025-07-01T15:18:24.349353Z",
+            "updatedAt": "2025-07-01T15:18:24.349378Z"
+        }
+    ],
+    "pageNumber": 0,
+    "pageSize": 10,
+    "totalElements": 1,
+    "totalPages": 1
 }
 ```

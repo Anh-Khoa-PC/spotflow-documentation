@@ -19,17 +19,17 @@ This endpoint is used to create a virtual account to receive payments.
 
 **Request Body Parameters**
 
-| <p style={{fontWeight: '400'}}>accountName <br></br> <span style={{color: "red"}}>`Integer`</span></p> | <p style={{fontWeight: '400'}}>Your desired naming for your account.</p> |
+| <p style={{fontWeight: '400'}}>accountName <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>Your desired naming for your account.</p> |
 |:---------|:---------|
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Note that currently, you can only create virtual accounts in NGN.|
 | amount <br></br> <span style={{color: "red"}}>`Integer`</span> | Amount should be in the subunit of our supported currency i.e NGN for now. |
-| expiresIn <br></br> <span style={{color: "red"}}>`String`</span> | This is optional to add. By default, the time it takes for a virtual account to expire is 30 mins. However, you can customize the time to lesser as you desire. |
+| expiresIn <br></br> <span style={{color: "red"}}>`Integer`</span> | This is optional to add. By default, the time it takes for a virtual account to expire is 30 mins. However, you can customize the time to lesser as you desire. |
 
 **Sample Request Body:**
 
 ```yaml
 {
-"accountName": "Sinzu Money",
+"accountName": "Jenny Hemsworth",
 "currency": "NGN",
 "amount": 1500,
 "expiresIn": 10
@@ -47,7 +47,7 @@ This endpoint is used to create a virtual account to receive payments.
 {
  "id": "a57aa726-45d9-4870-b12d-f7fd82df5b2a",
  "accountNumber": "5590739654",
- "accountName": "SPOTFLOW/Sinzu Money",
+ "accountName": "SPOTFLOW/Jenny Hemsworth",
  "bankName": "Jollof Bank",
  "mode": "test",
  "lifecycle": "temporary"
