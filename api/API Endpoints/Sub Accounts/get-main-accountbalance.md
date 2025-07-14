@@ -7,7 +7,7 @@ pagination_next: null
 ## Get Main Account Balance
 Retrieves paginated balances for main accounts with optional currency, mode, and date filters.
 
-<span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/balances/main-accounts
+<span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/balances
 
 **Headers**
 
@@ -32,24 +32,13 @@ Retrieves paginated balances for main accounts with optional currency, mode, and
 <br></br>
 
 ```yaml
-{
-    "content": [
-        {
-            "accountId": "fb73e4e6-efaf-4d40-906f-6a5e4c8cb25b",
-            "balance": 800.00,
-            "availableBalance": 800.00,
-            "accountTag": "main-account"
-        },
-        {
-            "accountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
-            "balance": 80700.00,
-            "availableBalance": 80700.00,
-            "accountTag": "main-account"
-        }
-    ],
-    "pageNumber": 0,
-    "pageSize": 10,
-    "totalElements": 2,
-    "totalPages": 1
-}
+[
+    {
+        "accountNumber": "0958094143",
+        "currency": "NGN",
+        "balance": 80971.00,
+        "availableBalance": 80971.00,
+        "accountTag": "main-account"
+    }
+]
 ```
