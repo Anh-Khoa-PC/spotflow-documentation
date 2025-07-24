@@ -26,7 +26,7 @@ Please note that, by default, merchant configuration for setting regions and ser
 | source; accountNumber <br></br> <span style={{color: "red"}}>`String`</span> | This is your main account number created internally for you on our system |
 | destination; accountNumber <br></br> <span style={{color: "red"}}>`String`</span> | This is the desired or the customer's account number that you'll like to transfer to |
 | accountName <br></br> <span style={{color: "red"}}>`String`</span> | This is the name/owner of the bank account you're sending money to.|
-| bankCode <br></br> <span style={{color: "red"}}>`String`</span> | This is the bank code of the account number on our system gotten from the <a target="_blank" href={"../Transfer API/list-allbanks.md"} style={{textDecoration: "underline"}}> Fetch All Banks endpoint |
+| bankCode <br></br> <span style={{color: "red"}}>`String`</span> | This is the bank code of the account number on our system gotten from the <a target="_blank" href={"../Transfer API/list-allbanks.md"} style={{textDecoration: "underline"}}> Fetch All Banks endpoint </a>. |
 | narration <br></br> <span style={{color: "red"}}>`String`</span> | This is optional information for you to give details about the reason for the transfer |
 
 
