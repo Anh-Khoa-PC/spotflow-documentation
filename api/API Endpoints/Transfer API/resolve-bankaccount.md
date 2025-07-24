@@ -20,7 +20,7 @@ Get/Validate A Specific Account Number and Bank Code with its details i.e the ac
 |:----------|:-----------|
 | bankCode <br></br> <span style={{color: "red"}}>`String`</span> | This is the bank code of the account number on our system gotten from the <a target="_blank" href={"../Transfer API/list-allbanks"}> Fetch All Banks Endpoint </a> |
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the payment charge. This is in our supported currency which is currently only NGN. Please note that only NGN accounts works with resolve bank accounts. |
-
+|:----------|:-----------|
 
 **Sample Response:**
 
