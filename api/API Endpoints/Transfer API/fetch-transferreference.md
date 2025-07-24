@@ -62,8 +62,5 @@ This is the reference id of the transfer that you made on your account using wha
     },
     "narration": "Transfer", 
     "status": "SUCCESSFUL"
-    "metadata": {
-        "Testing Bank Transfer": "end to end"
-    }
 }
 ```
