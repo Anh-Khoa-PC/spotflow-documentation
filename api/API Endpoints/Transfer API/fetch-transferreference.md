@@ -30,7 +30,7 @@ This is the reference id of the transfer that you made on your account.
 {
     "reference": "ref-005",
     "spotflowReference": "SPF-TRSF-641c47676e4c4036a6826acf9fc9e950",
-    "amount": 150.0000,
+    "amount": 150,
     "currency": "NGN",
     "destination": {
         "accountNumber": "8083233890",
@@ -38,9 +38,6 @@ This is the reference id of the transfer that you made on your account.
         "bankCode": "305"
     },
     "narration": "transfertest",
-    "status": "SUCCESSFUL",
-    "metadata": {
-        "Testing Bank Transfer": "end to end"
-    }
+    "status": "SUCCESSFUL"
 }
 ```

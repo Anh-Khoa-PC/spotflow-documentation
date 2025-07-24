@@ -30,6 +30,6 @@ Get/Validate A Specific Account Number and Bank Code with its details i.e the ac
 ```yaml
 {
     "accountNumber": "1255730890",
-    "accountName": "SPOTFLOW/Alice Hemsworth"
+    "accountName": "SPOTFLOW/Joel Finney"
 }
 ```
