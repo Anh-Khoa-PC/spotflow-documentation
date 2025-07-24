@@ -89,6 +89,18 @@ const sidebars = {
           },
           {
             type: "category",
+            label: "Transfer API",
+            className: "transferapi",
+            collapsed: "false",
+            items: [
+              'API Endpoints/Transfer API/create-transfer',
+              'API Endpoints/Transfer API/list-allbanks',
+              'API Endpoints/Transfer API/resolve-bankaccount',
+              'API Endpoints/Transfer API/fetch-transferreference',
+            ]
+          },
+          {
+            type: "category",
             label: "Virtual Accounts",
             className: "virtualaccounts",
             collapsed: "false",
