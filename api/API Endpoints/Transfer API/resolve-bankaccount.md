@@ -16,9 +16,9 @@ Get/Validate A Specific Account Number and Bank Code with its details i.e the ac
 
 ## Query Parameters
 
-| <p style={{fontWeight: '400'}}> accountNumber <br></br> <span style={{color: "red"}}>`String`</span></p> | This is the account number you want to get/validate.  |
+| <p> accountNumber <br></br> <span style={{color: "red"}}>`String`</span></p> | This is the account number you want to get/validate.  |
 |:----------|:-----------|
-| bankCode <br></br> <span style={{color: "red"}}>`String`</span> | This is the bank code of the account number on our system gotten from the <a target="_blank" href={"../Transfer API/fetch-allbanks.md"} style={{textDecoration: "underline"}}> Fetch All Banks endpoint </a> |
+| bankCode <br></br> <span style={{color: "red"}}>`String`</span> | This is the bank code of the account number on our system gotten from the <a target="_blank" href={"../Transfer API/fetch-allbanks"} style={{textDecoration: "underline"}}> Fetch All Banks endpoint </a> |
 
 
 **Sample Response:**
