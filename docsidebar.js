@@ -37,6 +37,10 @@ const sidebars = {
       id: 'virtual-accounts'
     },
     {
+      type: 'doc',
+      id: 'transfer-apis'
+    },
+    {
       type: 'category',
       label: 'Developer Tools',
       collapsed: false,
