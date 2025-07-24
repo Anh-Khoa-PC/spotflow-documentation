@@ -66,4 +66,3 @@ Obtain your SECRET_KEYs from the Spotflow merchant dashboard for authorization w
 - Apply filters and sorting options as desired.
 - Get paginated responses for large account lists.
 - Get summary information for each sub account.
-
