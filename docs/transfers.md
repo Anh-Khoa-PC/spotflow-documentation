@@ -15,9 +15,9 @@ To execute bank transfers successfully using our endpoints, follow these steps:
 
 **1. Perform a Bank Account Lookup**
 
-Before initiating a transfer, it's recommended to notify your customers about the recipient details. Use the <a target="_blank" href={"../api/API Endpoints/Transfer API/resolve-bankaccount.md"} style={{textDecoration: "underline"}}> Resolve Bank Account Endpoint </a>, which requires the recipient's accountNumber and bankCode (a unique identifier for the bank) as input.
+Before initiating a transfer, it's recommended to notify your customers about the recipient details. Use the <a target="_blank" href={"../api/API Endpoints/Transfer API/resolve-bankaccount"} style={{textDecoration: "underline"}}> Resolve Bank Account Endpoint </a>, which requires the recipient's accountNumber and bankCode (a unique identifier for the bank) as input.
 
 **2. Perform a bank transfer**
-Initiate a bank transfer from your primary account created for you internally by Spotflow to an external bank account. This endpoint requires key details, including the transfer amount, a reference for future transaction reconciliation, and the recipient’s accountNumber and bankCode using the <a target="_blank" href={"../api/API Endpoints/Transfer API/create-transfer.md"} style={{textDecoration: "underline"}}> Create Transfer Endpoint </a>.
+Initiate a bank transfer from your primary account created for you internally by Spotflow to an external bank account. This endpoint requires key details, including the transfer amount, a reference for future transaction reconciliation, and the recipient’s accountNumber and bankCode using the <a target="_blank" href={"../api/API Endpoints/Transfer API/create-transfer"} style={{textDecoration: "underline"}}> Create Transfer Endpoint </a>.
 
 
