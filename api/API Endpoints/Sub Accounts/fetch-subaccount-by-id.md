@@ -20,7 +20,7 @@ Get details of your created sub account by its ID. You can get this in either NG
 
 This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a target="_blank" href={"../Sub Accounts/create-subaccounts"} style={{textDecoration: "underline"}}> creation of your sub account. You can also use your main account id found on the <a target="_blank" href={"../Sub Accounts/list-subaccounts.md"} style={{textDecoration: "underline"}}> Get all main sub accounts endpoint </a> </a>.
 
-**Sample Response for NGN:** 
+**Sample Response for NGN Using A Sub-Account ID:** 
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -35,12 +35,13 @@ This is the unique <span style={{color: "red"}}>`ID`</span> generated upon <a ta
     "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
     "currency": "NGN",
     "mode": "test",
+    "accountTag": "sub-account",
     "status": "active",
     "createdAt": "2025-07-02T14:09:45.536072Z",
-    "updatedAt": "2025-07-02T14:09:45.536082Z"
+    "updatedAt": "2025-08-06T13:42:55.654057Z"
 }
 ```
-**Sample Response for GHS using a sub account id:** 
+**Sample Response for GHS Using A Sub-Account ID:** 
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>

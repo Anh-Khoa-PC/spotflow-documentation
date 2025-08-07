@@ -57,7 +57,7 @@ This is the reference id of the transfer that you made on your account using wha
         "accountNumber": "7003000100386",
         "accountName": "Joel Finney",
         "bankCode": "GH280100",
-        "bankName": Affinity
+        "bankName": "Affinity"
     },
     "narration": "Transfer", 
     "status": "SUCCESSFUL"

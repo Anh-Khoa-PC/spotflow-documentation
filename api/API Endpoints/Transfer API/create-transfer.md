@@ -109,7 +109,7 @@ Please note that, by default, merchant configuration for setting regions and ser
         "accountNumber": "7003000100386",
         "accountName": "Joel Finney",
         "bankCode": "GH280100",
-        "bankName": Affinity
+        "bankName": "Affinity"
     },
     "narration": "Transfer",
     "status": "processing"
