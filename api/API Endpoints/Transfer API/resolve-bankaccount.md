@@ -28,7 +28,6 @@ Get/Validate A Specific Account Number and Bank Code with its details i.e the ac
 =======
 >>>>>>> origin/main
 
-
 **Sample Response:**
 
 <span style={{color: "green"}}>`200 OK`</span>
