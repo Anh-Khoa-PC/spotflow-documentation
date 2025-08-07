@@ -21,11 +21,11 @@ Please note that, by default, merchant configuration for setting regions and ser
 
 | <p style={{fontWeight: '400'}}>parentAccountId <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>This is the id of your main account created internally for you.</p> |
 |:---------|:---------|
-| currency <br></br> <span style={{color: "red"}}>`String`</span> |Choose the currency you want for your sub account. According, to our currently supported currencies, this is in NGN.|
+| currency <br></br> <span style={{color: "red"}}>`String`</span> |Choose the currency you want for your sub account. According, to our currently supported currencies, this is in NGN and GHS.|
 | accountName <br></br> <span style={{color: "red"}}>`String`</span> | Your desired name for your sub account. |
 
 
-**Sample Request Body:**
+**Sample Request Body for NGN:**
 
 ```yaml
 {
@@ -36,7 +36,7 @@ Please note that, by default, merchant configuration for setting regions and ser
 
 ```
 
-**Sample Response:** 
+**Sample Response for NGN:** 
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -54,5 +54,36 @@ Please note that, by default, merchant configuration for setting regions and ser
   "status": "active",
   "createdAt": "2025-05-19T10:15:30Z",
   "updatedAt": "2025-05-19T10:15:30Z"
+}
+```
+
+**Sample Request Body for GHS:**
+
+```yaml
+{
+  "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b28a45",
+  "currency": "GHS",
+  "accountName": "Ollie Account"
+}
+
+```
+
+**Sample Response for GHS:** 
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "id": "28d13bb8-9df4-4aa6-be9a-a06095b2b0b7",
+    "balanceId": "bln_be74ded7-bd35-4f0d-8e85-8482c4b5f926",
+    "accountName": "Ollie Account",
+    "accountNumber": "1985812568",
+    "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b28a45",
+    "currency": "GHS",
+    "mode": "live",
+    "accountTag": "sub-account",
+    "status": "active"
 }
 ```

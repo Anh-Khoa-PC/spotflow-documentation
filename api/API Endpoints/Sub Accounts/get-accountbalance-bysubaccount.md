@@ -5,7 +5,7 @@ pagination_next: null
 ---
 
 ## Get Account Balance By Sub Account
-Retrieves account balance details for all direct sub-accounts of the specified main account.
+Retrieves account balance details for all direct sub-accounts of the specified main account in both NGN and GHS.
 
 <span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/balances/accounts/:accountNumber/sub-balances
 
@@ -30,18 +30,60 @@ Retrieves account balance details for all direct sub-accounts of the specified m
 ```yaml
 [
     {
-        "accountId": "e0189fb1-3210-42e9-96fe-aeb5215c086c",
-        "balance": 0,
-        "availableBalance": 0,
+        "accountNumber": "2868767881",
+        "currency": "NGN",
+        "balance": 0.00,
+        "availableBalance": 0.00,
         "accountTag": "sub-account",
-        "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75"
+        "parentAccountNumber": "0958094143"
     },
     {
-        "accountId": "2a7cf97c-6317-4da1-9cd0-34c0c33af8e8",
-        "balance": 0,
-        "availableBalance": 0,
+        "accountNumber": "3458060339",
+        "currency": "NGN",
+        "balance": 0.00,
+        "availableBalance": 0.00,
         "accountTag": "sub-account",
-        "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75"
+        "parentAccountNumber": "0958094143"
+    },
+    {
+        "accountNumber": "4312758120",
+        "currency": "NGN",
+        "balance": 0.00,
+        "availableBalance": 0.00,
+        "accountTag": "sub-account",
+        "parentAccountNumber": "0958094143"
+    },
+    {
+        "accountNumber": "8213714164",
+        "currency": "NGN",
+        "balance": 0.00,
+        "availableBalance": 0.00,
+        "accountTag": "sub-account",
+        "parentAccountNumber": "0958094143"
+    },
+    {
+        "accountNumber": "9844207661",
+        "currency": "NGN",
+        "balance": 0.00,
+        "availableBalance": 0.00,
+        "accountTag": "sub-account",
+        "parentAccountNumber": "0958094143"
+    },
+    {
+        "accountNumber": "8052510880",
+        "currency": "NGN",
+        "balance": 0.00,
+        "availableBalance": 0.00,
+        "accountTag": "sub-account",
+        "parentAccountNumber": "0958094143"
+    },
+    {
+        "accountNumber": "1985812247",
+        "currency": "GHS",
+        "balance": 0.00,
+        "availableBalance": 0.00,
+        "accountTag": "sub-account",
+        "parentAccountNumber": "0958094143"
     }
 ]
 ```
