@@ -5,7 +5,7 @@ pagination_next: null
 ---
 
 ## Get Account Balance
-Get account balance details for a specific sub-account before and after top-up.
+Get account balance details for a specific sub-account before and after top-up in both NGN and GHS currency.
 
 <span style={{color: "green"}}>`GET`</span>  https://api.spotflow.co/api/v1/balances/accounts/:accountNumber/balance
 
@@ -21,7 +21,7 @@ Get account balance details for a specific sub-account before and after top-up.
 |:----------|:-----------|
 
 
-**Sample Response with Sub Account Number:** 
+**Sample Response with NGN Sub Account Number:** 
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -29,15 +29,16 @@ Get account balance details for a specific sub-account before and after top-up.
 
 ```yaml
 {
-    "accountId": "e0189fb1-3210-42e9-96fe-aeb5215c086c",
+    "accountNumber": "8213714164",
+    "currency": "NGN",
     "balance": 0.00,
     "availableBalance": 0.00,
     "accountTag": "sub-account",
-    "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75"
+    "parentAccountNumber": "0958094143"
 }
 ```
 
-**Sample Response with Main Account Number:** 
+**Sample Response with NGN Main Account Number:** 
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -48,6 +49,38 @@ Get account balance details for a specific sub-account before and after top-up.
     "accountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b29a75",
     "balance": 80700.00,
     "availableBalance": 80700.00,
+    "accountTag": "main-account"
+}
+```
+**Sample Response with GHS Sub Account Number:** 
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "accountNumber": "1985812247",
+    "currency": "GHS",
+    "balance": 0.00,
+    "availableBalance": 0.00,
+    "accountTag": "sub-account",
+    "parentAccountNumber": "0958094143"
+}
+```
+
+**Sample Response with GHS Main Account Number:** 
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "accountNumber": "7706438396",
+    "currency": "GHS",
+    "balance": 3.00,
+    "availableBalance": 3.00,
     "accountTag": "main-account"
 }
 ```

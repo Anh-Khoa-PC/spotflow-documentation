@@ -17,10 +17,10 @@ Get details of a particular transfer by its reference id.
 
 **reference**
 
-This is the reference id of the transfer that you made on your account.
+This is the reference id of the transfer that you made on your account using what's in the 'reference' and not 'spotflowReference'.
 
 
-**Sample Response:**
+**Sample Response for NGN Transfer:**
 
 <span style={{color: "green"}}>`200 OK`</span>
 <br></br>
@@ -38,6 +38,28 @@ This is the reference id of the transfer that you made on your account.
         "bankCode": "305"
     },
     "narration": "transfertest",
+    "status": "SUCCESSFUL"
+}
+```
+**Sample Response for GHS Transfer:**
+
+<span style={{color: "green"}}>`200 OK`</span>
+<br></br>
+<br></br>
+
+```yaml
+{
+    "reference": "ref-005",
+    "spotflowReference": "SPF-TRSF-0f700d1f77bf4d69b0f8b7005b2aadb1",
+    "amount": 1.00,
+    "currency": "GHS",
+    "destination": {
+        "accountNumber": "7003000100386",
+        "accountName": "Joel Finney",
+        "bankCode": "GH280100",
+        "bankName": "Affinity"
+    },
+    "narration": "Transfer", 
     "status": "SUCCESSFUL"
 }
 ```
