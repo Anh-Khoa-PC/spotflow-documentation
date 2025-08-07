@@ -7,7 +7,11 @@ hide_title: true
 
 Get/Validate A Specific Account Number and Bank Code with its details i.e the account name.
 
+<<<<<<< HEAD
 <span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/transfers/resolve-account?accountNumber=1255730890&bankCode=090645&currency=NGN
+=======
+<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/transfers/resolve-account?accountNumber=1255730890&bankCode=090645
+>>>>>>> origin/main
 
 **Headers**
 
@@ -19,7 +23,10 @@ Get/Validate A Specific Account Number and Bank Code with its details i.e the ac
 | <p> accountNumber <br></br> <span style={{color: "red"}}>`String`</span></p> | This is the account number you want to get/validate.  |
 |:----------|:-----------|
 | bankCode <br></br> <span style={{color: "red"}}>`String`</span> | This is the bank code of the account number on our system gotten from the <a target="_blank" href={"../Transfer API/list-allbanks"}> Fetch All Banks Endpoint </a> |
+<<<<<<< HEAD
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the payment charge. This is in our supported currency which is currently only NGN. Please note that only NGN accounts works with resolve bank accounts. |
+=======
+>>>>>>> origin/main
 
 
 **Sample Response:**
