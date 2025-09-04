@@ -151,7 +151,8 @@ This is the specific id used to get the individual transfer details in the uploa
             "destination": {
                 "accountNumber": "8168890978",
                 "accountName": "James Hemsworth",
-                "bankCode": "305"
+                "bankCode": "SPB-17646",
+                "bankName": "Paycom (Opay)"
             },
             "narration": "Payment for services rendered",
             "status": "successful"
@@ -165,7 +166,8 @@ This is the specific id used to get the individual transfer details in the uploa
             "destination": {
                 "accountNumber": "2128904323",
                 "accountName": "Charles Bailey",
-                "bankCode": "033"
+                "bankCode": "SPB-27561",
+                "bankName": "United Bank for Africa"
             },
             "narration": "Payment for services rendered",
             "status": "successful"
@@ -179,7 +181,8 @@ This is the specific id used to get the individual transfer details in the uploa
             "destination": {
                 "accountNumber": "8090211345",
                 "accountName": "Aimee Oleandra",
-                "bankCode": "375"
+                "bankCode": "SPB-33105",
+                "bankName": "Zenith Bank"
             },
             "narration": "Payment for services rendered",
             "status": "successful"
