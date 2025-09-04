@@ -7,7 +7,7 @@ hide_title: true
 
 Get/Validate A Specific Account Number and Bank Code with its details i.e the account name.
 
-<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/transfers/resolve-account?accountNumber=1255730890&bankCode=090645&currency=NGN
+<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/transfers/resolve-account?accountNumber=1255730890&bankCode=SPB-80181&currency=NGN
 
 **Headers**
 
