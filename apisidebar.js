@@ -101,6 +101,20 @@ const sidebars = {
           },
           {
             type: "category",
+            label: "Bulk Transfer API",
+            className: "bulktransferapi",
+            collapsed: "false",
+            items: [
+              'API Endpoints/Transfer API/Bulk Transfer APIS/create-bulk-transfer.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-by-ID.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-categories.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-all-bulk-transfers.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfers-by-ID.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/validate-bulktransferCSV.md',
+            ]
+          },
+          {
+            type: "category",
             label: "Virtual Accounts",
             className: "virtualaccounts",
             collapsed: "false",
