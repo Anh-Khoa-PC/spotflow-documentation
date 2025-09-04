@@ -88,7 +88,6 @@ Please note that, by default, merchant configuration for setting regions and ser
     "bankCode": "GH280100"
   },
    "narration": "Transfer"
- 
 }
 
 ```
