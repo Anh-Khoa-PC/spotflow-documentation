@@ -121,12 +121,12 @@ const sidebars = {
             className: "bulktransferapi",
             collapsed: "false",
             items: [
-              'API Endpoints/Transfer API/Bulk Transfer APIS/create-bulk-transfer.md',
-              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-by-ID.md',
-              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-categories.md',
-              'API Endpoints/Transfer API/Bulk Transfer APIS/get-all-bulk-transfers.md',
-              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfers-by-ID.md',
-              'API Endpoints/Transfer API/Bulk Transfer APIS/validate-bulktransferCSV.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/create-bulk-transfer',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-by-ID',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-categories',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-all-bulk-transfers',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfers-by-ID',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/validate-bulktransferCSV',
             ]
           },
           {
