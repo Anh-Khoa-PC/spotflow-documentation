@@ -89,7 +89,6 @@ Please note that, by default, merchant configuration for setting regions and ser
     "bankCode": "SPB-80181"
   },
    "narration": "Transfer"
- 
 }
 
 ```
