@@ -30,7 +30,7 @@ Please note that, by default, merchant configuration for setting regions and ser
 | narration <br></br> <span style={{color: "red"}}>`String`</span> | This is optional information for you to give details about the reason for the transfer |
 
 
-**Sample Request Body:**
+**Sample Request Body For NGN:**
 
 ```yaml
 {
