@@ -72,6 +72,22 @@ const sidebars = {
               'API Endpoints/Subscriptions/cancel-subscription',
             ]
           },
+          // {
+          //   type: 'category',
+          //   label: 'Payment Links',
+          //   className: 'paymentlinks',
+          //   collapsed: false,
+          //   items: [
+          //     'API Endpoints/Payment Links/Create-Payment-Link',
+          //     'API Endpoints/Payment Links/Delete-Payment-Link',
+          //     'API Endpoints/Payment Links/Fetch-All-Payment-Links',
+          //     'API Endpoints/Payment Links/Fetch-Payment-Link-By-Code',
+          //     'API Endpoints/Payment Links/Get-Payment-Link-Transactions',
+          //     'API Endpoints/Payment Links/Get-Payment-Links-Transaction-Status',
+          //     'API Endpoints/Payment Links/Update-Payment-Link-Code',
+          //     'API Endpoints/Payment Links/Update-Payment-Link-Status',
+          //   ]
+          // },
           {
             type: "category",
             label: "Sub Accounts",
@@ -97,6 +113,20 @@ const sidebars = {
               'API Endpoints/Transfer API/list-allbanks',
               'API Endpoints/Transfer API/resolve-bankaccount',
               'API Endpoints/Transfer API/fetch-transferreference',
+            ]
+          },
+          {
+            type: "category",
+            label: "Bulk Transfer API",
+            className: "bulktransferapi",
+            collapsed: "false",
+            items: [
+              'API Endpoints/Transfer API/Bulk Transfer APIS/create-bulk-transfer.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-by-ID.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfer-categories.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-all-bulk-transfers.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/get-bulk-transfers-by-ID.md',
+              'API Endpoints/Transfer API/Bulk Transfer APIS/validate-bulktransferCSV.md',
             ]
           },
           {

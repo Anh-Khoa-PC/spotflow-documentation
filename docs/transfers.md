@@ -19,6 +19,6 @@ Before initiating a transfer, it's recommended to notify your customers about th
 
 **2. Perform a bank transfer**
 
-Initiate a bank transfer from your primary account created for you internally by Spotflow to an external bank account. This endpoint requires key details, including the transfer amount, a reference for future transaction reconciliation, and the recipient’s accountNumber and bankCode using the <a target="_blank" href={"../api/API Endpoints/Transfer API/create-transfer"} style={{textDecoration: "underline"}}> Create Transfer Endpoint </a>.
+Initiate a bank transfer from your primary account created for you internally by Spotflow to an external bank account. This endpoint requires key details, including the transfer amount, a reference for future transaction reconciliation, and the recipient’s accountNumber and bankCode using the <a target="_blank" href={"../api/API Endpoints/Transfer API/create-transfer"} style={{textDecoration: "underline"}}> Create Transfer Endpoint </a>. For bulk transfers, use the <a target="_blank" href={"../api/API Endpoints/Transfer API/Bulk Transfer APIS/create-bulk-transfer"} style={{textDecoration: "underline"}}> Bulk Transfer Endpoint </a>.
 
 
