@@ -23,663 +23,675 @@ Get details of all banks, their names and codes. Currently, this is for NGN and 
 ```yaml
 [
     {
-        "bankCode": "090645",
+        "bankCode": "SPB-56234",
         "bankName": "Nombank"
     },
     {
-        "bankCode": "090832",
+        "bankCode": "SPB-49366",
         "bankName": "5TT MFB "
     },
     {
-        "bankCode": "090629",
+        "bankCode": "SPB-99058",
         "bankName": "9Japay"
     },
     {
-        "bankCode": "120001",
+        "bankCode": "SPB-41463",
         "bankName": "9PSB"
     },
     {
-        "bankCode": "090270",
+        "bankCode": "SPB-14771",
         "bankName": "AB Microfinance Bank"
     },
     {
-        "bankCode": "418",
+        "bankCode": "SPB-78923",
         "bankName": "AG Mortgage Bank"
     },
     {
-        "bankCode": "090180",
+        "bankCode": "SPB-15052",
         "bankName": "AMJU Microfinance Bank"
     },
     {
-        "bankCode": "090816",
+        "bankCode": "SPB-56019",
         "bankName": "ARM MFB "
     },
     {
-        "bankCode": "090001",
+        "bankCode": "SPB-72010",
         "bankName": "ASO Savings & Loans"
     },
     {
-        "bankCode": "070010",
+        "bankCode": "SPB-32542",
         "bankName": "Abbey Mortgage Bank"
     },
     {
-        "bankCode": "820",
+        "bankCode": "SPB-25169",
         "bankName": "Abucoop MFB"
     },
     {
-        "bankCode": "044",
+        "bankCode": "SPB-99065",
         "bankName": "Access Bank"
     },
     {
-        "bankCode": "100052",
+        "bankCode": "SPB-67276",
         "bankName": "Access Yellow"
     },
     {
-        "bankCode": "090134",
+        "bankCode": "SPB-75051",
         "bankName": "Accion Microfinance Bank"
     },
     {
-        "bankCode": "070030",
+        "bankCode": "SPB-80634",
         "bankName": "Adamawa Mortgage Bank "
     },
     {
-        "bankCode": "090160",
+        "bankCode": "SPB-64440",
         "bankName": "Addosser Microfinance Bank"
     },
     {
-        "bankCode": "090614",
+        "bankCode": "SPB-80673",
         "bankName": "Aella MFB"
     },
     {
-        "bankCode": "120004",
+        "bankCode": "SPB-98273",
         "bankName": "Airtel Smartcash PSB"
     },
     {
-        "bankCode": "100029",
+        "bankCode": "SPB-88312",
         "bankName": "Alternative Bank"
     },
     {
-        "bankCode": "090529",
+        "bankCode": "SPB-48971",
         "bankName": "Ampersand Microfinance Bank"
     },
     {
-        "bankCode": "090287",
+        "bankCode": "SPB-14515",
         "bankName": "Asset Matrix Microfinance Bank"
     },
     {
-        "bankCode": "090264",
+        "bankCode": "SPB-19417",
         "bankName": "Auchi Microfinance Bank"
     },
     {
-        "bankCode": "090817",
+        "bankCode": "SPB-28219",
         "bankName": "Auchi Poly MFB"
     },
     {
-        "bankCode": "090478",
+        "bankCode": "SPB-42074",
         "bankName": "Avuenegbe MFB"
     },
     {
-        "bankCode": "090743",
+        "bankCode": "SPB-86362",
         "bankName": "BLOOMS MFB"
     },
     {
-        "bankCode": "110072",
+        "bankCode": "SPB-17323",
         "bankName": "Bank 78"
     },
     {
-        "bankCode": "090367",
+        "bankCode": "SPB-16976",
         "bankName": "Bank of Agriculture"
     },
     {
-        "bankCode": "090136",
+        "bankCode": "SPB-38960",
         "bankName": "Baobab Microfinance Bank"
     },
     {
-        "bankCode": "090615",
+        "bankCode": "SPB-19808",
         "bankName": "Bestar MFB"
     },
     {
-        "bankCode": "110074",
+        "bankCode": "SPB-51311",
         "bankName": "Betastack Technologies"
     },
     {
-        "bankCode": "090819",
+        "bankCode": "SPB-68797",
         "bankName": "Boost MFB"
     },
     {
-        "bankCode": "50931",
+        "bankCode": "SPB-94561",
         "bankName": "Bowen Microfinance Bank"
     },
     {
-        "bankCode": "090804",
+        "bankCode": "SPB-27425",
         "bankName": "Bowman MFB"
     },
     {
-        "bankCode": "050006",
+        "bankCode": "SPB-41970",
         "bankName": "Branch International Financial Services"
     },
     {
-        "bankCode": "983",
+        "bankCode": "SPB-29628",
         "bankName": "Bud Infrastructure"
     },
     {
-        "bankCode": "090613",
+        "bankCode": "SPB-76977",
         "bankName": "Build MicroFinance Bank"
     },
     {
-        "bankCode": "956",
+        "bankCode": "SPB-10139",
         "bankName": "Capricon Digital"
     },
     {
-        "bankCode": "100026",
+        "bankCode": "SPB-77452",
         "bankName": "Carbon"
     },
     {
-        "bankCode": "748",
+        "bankCode": "SPB-78721",
         "bankName": "Cash Connect MFB"
     },
     {
-        "bankCode": "090815",
+        "bankCode": "SPB-77942",
         "bankName": "Charis MFB"
     },
     {
-        "bankCode": "090490",
+        "bankCode": "SPB-81905",
         "bankName": "Chukwunenye Microfinance Bank"
     },
     {
-        "bankCode": "023",
+        "bankCode": "SPB-17273",
         "bankName": "Citibank Nigeria Limited"
     },
     {
-        "bankCode": "100032",
+        "bankCode": "SPB-61137",
         "bankName": "Contec Global Infotech Limited"
     },
     {
-        "bankCode": "766",
+        "bankCode": "SPB-70088",
         "bankName": "Core Step MFB"
     },
     {
-        "bankCode": "090611",
+        "bankCode": "SPB-45680",
         "bankName": "Creditville MFB"
     },
     {
-        "bankCode": "090560",
+        "bankCode": "SPB-76814",
         "bankName": "Crust MFB"
     },
     {
-        "bankCode": "090821",
+        "bankCode": "SPB-54623",
         "bankName": "DSC Microfinance Bank"
     },
     {
-        "bankCode": "50159",
-        "bankName": "DavoDani MFB"
-    },
-    {
-        "bankCode": "090391",
+        "bankCode": "SPB-32972",
         "bankName": "Davodani Microfinance Bank"
     },
     {
-        "bankCode": "063",
+        "bankCode": "SPB-91988",
         "bankName": "Diamond Bank"
     },
     {
-        "bankCode": "090828",
+        "bankCode": "SPB-26437",
         "bankName": "Dillon MFB "
     },
     {
-        "bankCode": "090404",
+        "bankCode": "SPB-73749",
         "bankName": "Doje Microfinance Bank Limited"
     },
     {
-        "bankCode": "090470",
+        "bankCode": "SPB-69799",
         "bankName": "Dot MFB"
     },
     {
-        "bankCode": "999999",
+        "bankCode": "SPB-72387",
         "bankName": "E-Settlement Ltd."
     },
     {
-        "bankCode": "090707",
+        "bankCode": "SPB-41143",
         "bankName": "Eastman MFB "
     },
     {
-        "bankCode": "050",
+        "bankCode": "SPB-60428",
         "bankName": "Ecobank Nigeria"
     },
     {
-        "bankCode": "090097",
+        "bankCode": "SPB-12714",
         "bankName": "Ekondo Microfinance Bank"
     },
     {
-        "bankCode": "090539",
+        "bankCode": "SPB-91133",
         "bankName": "Enrich Microfinance Bank"
     },
     {
-        "bankCode": "084",
+        "bankCode": "SPB-61588",
         "bankName": "Enterprise Bank"
     },
     {
-        "bankCode": "400001",
+        "bankCode": "SPB-55288",
         "bankName": "FSDH Merchant Bank"
     },
     {
-        "bankCode": "090551",
+        "bankCode": "SPB-15742",
         "bankName": "Fairmoney Microfinance Bank"
     },
     {
-        "bankCode": "070",
+        "bankCode": "SPB-49631",
         "bankName": "Fidelity Bank"
     },
     {
-        "bankCode": "090111",
+        "bankCode": "SPB-82579",
         "bankName": "Finatrust MFB"
     },
     {
-        "bankCode": "011",
+        "bankCode": "SPB-19661",
         "bankName": "First Bank of Nigeria"
     },
     {
-        "bankCode": "214",
+        "bankCode": "SPB-90550",
         "bankName": "First City Monument Bank"
     },
     {
-        "bankCode": "050022",
+        "bankCode": "SPB-52570",
         "bankName": "First Marina Trust Limited"
     },
     {
-        "bankCode": "309",
+        "bankCode": "SPB-95741",
         "bankName": "First Monnie Wallet"
     },
     {
-        "bankCode": "090835",
+        "bankCode": "SPB-11874",
         "bankName": "Flexi MFB"
     },
     {
-        "bankCode": "622",
+        "bankCode": "SPB-93876",
         "bankName": "Flutterwave"
     },
     {
-        "bankCode": "058",
+        "bankCode": "SPB-37209",
         "bankName": "GTBank"
     },
     {
-        "bankCode": "000027",
+        "bankCode": "SPB-76221",
         "bankName": "Globus Bank"
     },
     {
-        "bankCode": "090574",
+        "bankCode": "SPB-78028",
         "bankName": "Goldman MFB"
     },
     {
-        "bankCode": "090495",
+        "bankCode": "SPB-42838",
         "bankName": "Good News Microfinance Bank"
     },
     {
-        "bankCode": "090599",
+        "bankCode": "SPB-33383",
         "bankName": "Greenacres MFB"
     },
     {
-        "bankCode": "090195",
+        "bankCode": "SPB-64520",
         "bankName": "Grooming MFB"
     },
     {
-        "bankCode": "110059",
+        "bankCode": "SPB-92212",
         "bankName": "Habari Pay"
     },
     {
-        "bankCode": "090147",
+        "bankCode": "SPB-69662",
         "bankName": "Hackman Microfinance Bank"
     },
     {
-        "bankCode": "090291",
+        "bankCode": "SPB-42869",
         "bankName": "Hala Credit Microfinance Bank"
     },
     {
-        "bankCode": "030",
+        "bankCode": "SPB-41077",
         "bankName": "Heritage Bank"
     },
     {
-        "bankCode": "120002",
+        "bankCode": "SPB-80273",
         "bankName": "Hope Payment Service Bank"
     },
     {
-        "bankCode": "090118",
+        "bankCode": "SPB-81315",
         "bankName": "Ibile Microfinance Bank"
     },
     {
-        "bankCode": "090536",
+        "bankCode": "SPB-56688",
         "bankName": "Ikoyi Osun MFB"
     },
     {
-        "bankCode": "301",
+        "bankCode": "SPB-20392",
         "bankName": "Jaiz Bank"
     },
     {
-        "bankCode": "090602",
+        "bankCode": "SPB-99186",
+        "bankName": "Jubilee-Life Mortgage  Bank"
+    },
+    {
+        "bankCode": "SPB-91720",
         "bankName": "Kenechukwu Microfinance Bank"
     },
     {
-        "bankCode": "082",
+        "bankCode": "SPB-81593",
         "bankName": "Key Stone Bank"
     },
     {
-        "bankCode": "899",
+        "bankCode": "SPB-40285",
         "bankName": "Kolomoni MFB"
     },
     {
-        "bankCode": "100025",
+        "bankCode": "SPB-84435",
         "bankName": "Konga Pay"
     },
     {
-        "bankCode": "090380",
+        "bankCode": "SPB-88760",
         "bankName": "Kredi Microfinance Bank"
     },
     {
-        "bankCode": "090267",
+        "bankCode": "SPB-55452",
         "bankName": "Kuda Microfinance Bank"
     },
     {
-        "bankCode": "090620",
+        "bankCode": "SPB-18660",
+        "bankName": "LIVINGTRUST MORTGAGE BANK"
+    },
+    {
+        "bankCode": "SPB-97879",
         "bankName": "LOMA BANK"
     },
     {
-        "bankCode": "090177",
+        "bankCode": "SPB-18303",
         "bankName": "Lapo Microfinance Bank"
     },
     {
-        "bankCode": "397",
+        "bankCode": "SPB-35681",
         "bankName": "LeadCity MFB"
     },
     {
-        "bankCode": "090420",
+        "bankCode": "SPB-31381",
         "bankName": "Letshego Microfinance Bank"
     },
     {
-        "bankCode": "000029",
+        "bankCode": "SPB-42356",
         "bankName": "Lotus Bank"
     },
     {
-        "bankCode": "090171",
+        "bankCode": "SPB-85324",
         "bankName": "Mainstreet Microfinance Bank"
     },
     {
-        "bankCode": "648",
+        "bankCode": "SPB-97812",
         "bankName": "Malachy MFB"
     },
     {
-        "bankCode": "090824",
+        "bankCode": "SPB-45863",
         "bankName": "Mega MFB"
     },
     {
-        "bankCode": "090455",
+        "bankCode": "SPB-90205",
         "bankName": "Mkobo Microfinance Bank"
     },
     {
-        "bankCode": "120003",
+        "bankCode": "SPB-56787",
         "bankName": "Momo Payment Service Bank"
     },
     {
-        "bankCode": "090692",
+        "bankCode": "SPB-68949",
         "bankName": "Moneytronics MFB"
     },
     {
-        "bankCode": "090405",
+        "bankCode": "SPB-88671",
         "bankName": "Moniepoint Microfinance Bank"
     },
     {
-        "bankCode": "090685",
+        "bankCode": "SPB-28411",
         "bankName": "Moremonee Microfinance Bank Limited"
     },
     {
-        "bankCode": "070001",
+        "bankCode": "SPB-29787",
         "bankName": "NPF MicroFinance Bank"
     },
     {
-        "bankCode": "950",
+        "bankCode": "SPB-94694",
         "bankName": "Netapps Technology"
     },
     {
-        "bankCode": "090194",
+        "bankCode": "SPB-12287",
         "bankName": "Nirsal MFB"
     },
     {
-        "bankCode": "090822",
+        "bankCode": "SPB-45676",
         "bankName": "Noun MFB"
     },
     {
-        "bankCode": "090345",
+        "bankCode": "SPB-40960",
         "bankName": "OAU Microfinance Bank"
     },
     {
-        "bankCode": "090295",
+        "bankCode": "SPB-12158",
         "bankName": "Omiye MFB"
     },
     {
-        "bankCode": "327",
+        "bankCode": "SPB-17293",
+        "bankName": "Optimus Bank"
+    },
+    {
+        "bankCode": "SPB-63826",
         "bankName": "Paga"
     },
     {
-        "bankCode": "070008",
+        "bankCode": "SPB-50516",
         "bankName": "Page Financials"
     },
     {
-        "bankCode": "100033",
+        "bankCode": "SPB-24390",
         "bankName": "Palmpay"
     },
     {
-        "bankCode": "000030",
+        "bankCode": "SPB-83957",
         "bankName": "Parallex MF Bank"
     },
     {
-        "bankCode": "100003",
+        "bankCode": "SPB-10282",
         "bankName": "Parkway-ReadyCash"
     },
     {
-        "bankCode": "329",
+        "bankCode": "SPB-68625",
         "bankName": "PayAttitude Online"
     },
     {
-        "bankCode": "305",
+        "bankCode": "SPB-17646",
         "bankName": "Paycom (Opay)"
     },
     {
-        "bankCode": "100039",
+        "bankCode": "SPB-38158",
         "bankName": "Paystack Titan"
     },
     {
-        "bankCode": "050021",
+        "bankCode": "SPB-85313",
         "bankName": "Poder finance "
     },
     {
-        "bankCode": "076",
+        "bankCode": "SPB-45837",
         "bankName": "Polaris Bank"
     },
     {
-        "bankCode": "000031",
+        "bankCode": "SPB-50398",
         "bankName": "Premium Trust Bank"
     },
     {
-        "bankCode": "090499",
+        "bankCode": "SPB-35291",
         "bankName": "Pristine Divitis Microfinance Bank"
     },
     {
-        "bankCode": "090503",
+        "bankCode": "SPB-15864",
         "bankName": "Projetcs Microfinance Bank"
     },
     {
-        "bankCode": "50739",
+        "bankCode": "SPB-77666",
         "bankName": "Prospa Capital MFB"
     },
     {
-        "bankCode": "101",
+        "bankCode": "SPB-84057",
         "bankName": "Providus Bank"
     },
     {
-        "bankCode": "090496",
+        "bankCode": "SPB-92784",
         "bankName": "Randalpha Microfinance Bank"
     },
     {
-        "bankCode": "090198",
+        "bankCode": "SPB-87170",
         "bankName": "RenMoney Microfinance Bank"
     },
     {
-        "bankCode": "090138",
+        "bankCode": "SPB-67897",
         "bankName": "Royal Exchange Microfinance Bank"
     },
     {
-        "bankCode": "090175",
+        "bankCode": "SPB-18622",
         "bankName": "Rubies MFB"
     },
     {
-        "bankCode": "090286",
+        "bankCode": "SPB-44845",
         "bankName": "Safe Haven MFB"
     },
     {
-        "bankCode": "050024",
+        "bankCode": "SPB-75082",
         "bankName": "Sciart Finance"
     },
     {
-        "bankCode": "090502",
+        "bankCode": "SPB-85236",
         "bankName": "Shalom Microfinance Bank"
     },
     {
-        "bankCode": "942",
+        "bankCode": "SPB-64167",
         "bankName": "Smart Cash PSB"
     },
     {
-        "bankCode": "090325",
+        "bankCode": "SPB-76790",
         "bankName": "Sparkle"
     },
     {
-        "bankCode": "090436",
+        "bankCode": "SPB-72837",
         "bankName": "Spectrum MFB"
     },
     {
-        "bankCode": "039",
+        "bankCode": "SPB-19205",
         "bankName": "Stanbic IBTC Bank"
     },
     {
-        "bankCode": "068",
+        "bankCode": "SPB-82786",
         "bankName": "Standard Chartered Bank Nigeria"
     },
     {
-        "bankCode": "667",
+        "bankCode": "SPB-94111",
         "bankName": "Stellas MFB"
     },
     {
-        "bankCode": "232",
+        "bankCode": "SPB-53659",
         "bankName": "Sterling Bank Plc"
     },
     {
-        "bankCode": "080003",
+        "bankCode": "SPB-99967",
         "bankName": "Summit Bank"
     },
     {
-        "bankCode": "100",
+        "bankCode": "SPB-40577",
         "bankName": "SunTrust Bank Nigeria Limited"
     },
     {
-        "bankCode": "000026",
+        "bankCode": "SPB-77082",
+        "bankName": "TENN MFB"
+    },
+    {
+        "bankCode": "SPB-32360",
         "bankName": "Taj Bank"
     },
     {
-        "bankCode": "000042",
+        "bankCode": "SPB-21937",
         "bankName": "Tatum Bank"
     },
     {
-        "bankCode": "090788",
+        "bankCode": "SPB-37129",
         "bankName": "Tellerone MFB"
     },
     {
-        "bankCode": "000025",
+        "bankCode": "SPB-92218",
         "bankName": "Titan Trust Bank"
     },
     {
-        "bankCode": "090801",
+        "bankCode": "SPB-47293",
         "bankName": "Toprate Microfinance Bank"
     },
     {
-        "bankCode": "090251",
+        "bankCode": "SPB-78128",
         "bankName": "UNN Microfinance Bank"
     },
     {
-        "bankCode": "672",
+        "bankCode": "SPB-54809",
         "bankName": "Uda MFB"
     },
     {
-        "bankCode": " 090820",
+        "bankCode": "SPB-15445",
         "bankName": "Ukpor MFB"
     },
     {
-        "bankCode": "090814",
+        "bankCode": "SPB-68792",
         "bankName": "Umuoji MFB"
     },
     {
-        "bankCode": "090193",
+        "bankCode": "SPB-91410",
         "bankName": "Unical MFB"
     },
     {
-        "bankCode": "032",
+        "bankCode": "SPB-67377",
         "bankName": "Union Bank of Nigeria"
     },
     {
-        "bankCode": "033",
+        "bankCode": "SPB-27561",
         "bankName": "United Bank for Africa"
     },
     {
-        "bankCode": "215",
+        "bankCode": "SPB-57690",
         "bankName": "Unity Bank"
     },
     {
-        "bankCode": "566",
+        "bankCode": "SPB-56559",
         "bankName": "VFD Microfinance Bank Limited"
     },
     {
-        "bankCode": "050020",
+        "bankCode": "SPB-13303",
         "bankName": "Vale Finance"
     },
     {
-        "bankCode": "090813",
+        "bankCode": "SPB-14925",
         "bankName": "Victory MFB"
     },
     {
-        "bankCode": "035",
+        "bankCode": "SPB-76729",
         "bankName": "Wema Bank"
     },
     {
-        "bankCode": "050035",
+        "bankCode": "SPB-10695",
         "bankName": "Whitecrust Finance"
     },
     {
-        "bankCode": "148",
+        "bankCode": "SPB-68961",
         "bankName": "XPress MTS"
     },
     {
-        "bankCode": "738",
+        "bankCode": "SPB-99921",
         "bankName": "XPress Payments"
     },
     {
-        "bankCode": "391",
+        "bankCode": "SPB-40420",
         "bankName": "XPress Wallet"
     },
     {
-        "bankCode": "964",
+        "bankCode": "SPB-65421",
         "bankName": "Yello Digital Services"
     },
     {
-        "bankCode": "792",
+        "bankCode": "SPB-22023",
         "bankName": "ZWallet"
     },
     {
-        "bankCode": "057",
+        "bankCode": "SPB-33105",
         "bankName": "Zenith Bank"
     },
     {
-        "bankCode": "090504",
+        "bankCode": "SPB-86777",
         "bankName": "Zikora Microfinance Bank"
     },
     {
-        "bankCode": "306",
+        "bankCode": "SPB-17751",
         "bankName": "eTranzact"
     }
 ]
@@ -693,331 +705,331 @@ Get details of all banks, their names and codes. Currently, this is for NGN and 
 ```yaml
 [
     {
-        "bankCode": "MTN",
+        "bankCode": "SPB-44675",
         "bankName": "MTN Mobile Money"
     },
     {
-        "bankCode": "VODAFONE",
+        "bankCode": "SPB-85595",
         "bankName": "Vodafone Mobile Money"
     },
     {
-        "bankCode": "AIRTELTIGO",
+        "bankCode": "SPB-93244",
         "bankName": "Airtel-Tigo Mobile Money"
     },
     {
-        "bankCode": "10550214",
+        "bankCode": "SPB-63428",
         "bankName": "The Hongkong and Shanghai Banking Corporation Limited"
     },
     {
-        "bankCode": "11088200",
+        "bankCode": "SPB-22156",
         "bankName": "Giro Elszamolasforgalmi Zrt."
     },
     {
-        "bankCode": "11276282",
+        "bankCode": "SPB-10082",
         "bankName": "First National Bank Ghana Limited"
     },
     {
-        "bankCode": "11299458",
+        "bankCode": "SPB-75923",
         "bankName": "OMNIBANK GHANA LIMITED"
     },
     {
-        "bankCode": "11319374",
+        "bankCode": "SPB-38629",
         "bankName": "GHL Bank Ltd"
     },
     {
-        "bankCode": "11350352",
+        "bankCode": "SPB-41702",
         "bankName": "Consolidated Bank Ghana Limited"
     },
     {
-        "bankCode": "1812142W72",
+        "bankCode": "SPB-37723",
         "bankName": "GH PREPAID"
     },
     {
-        "bankCode": "190815670S",
+        "bankCode": "SPB-54365",
         "bankName": " VISA"
     },
     {
-        "bankCode": "2006168ICS",
+        "bankCode": "SPB-88357",
         "bankName": "Standard Chartered Bk Ghana Int"
     },
     {
-        "bankCode": "2006228LG0",
+        "bankCode": "SPB-61961",
         "bankName": "UNITED BANK FOR AFRICA (GHANA) LTD"
     },
     {
-        "bankCode": "20112200",
+        "bankCode": "SPB-92201",
         "bankName": "Partner Banka d.d."
     },
     {
-        "bankCode": "20313200",
+        "bankCode": "SPB-26909",
         "bankName": "Agricultural Development Bank Limited"
     },
     {
-        "bankCode": "20313400",
+        "bankCode": "SPB-50656",
         "bankName": "Bank of Ghana"
     },
     {
-        "bankCode": "20313500",
+        "bankCode": "SPB-46467",
         "bankName": "Barclays Bank of Ghana Limited"
     },
     {
-        "bankCode": "20313600",
+        "bankCode": "SPB-93332",
         "bankName": "GCB Bank Limited"
     },
     {
-        "bankCode": "20313800",
+        "bankCode": "SPB-53768",
         "bankName": "Universal Merchant Bank"
     },
     {
-        "bankCode": "20313900",
+        "bankCode": "SPB-96368",
         "bankName": "National Investment Bank Ltd"
     },
     {
-        "bankCode": "20314100",
+        "bankCode": "SPB-17230",
         "bankName": "Societe Generale Ghana Limited"
     },
     {
-        "bankCode": "20314200",
+        "bankCode": "SPB-44233",
         "bankName": "Standard Chartered Bank Ghana Limited"
     },
     {
-        "bankCode": "20321900",
+        "bankCode": "SPB-76983",
         "bankName": "Societe Generale Haitienne de Banque S.A. (Sogebank)"
     },
     {
-        "bankCode": "20497300",
+        "bankCode": "SPB-98131",
         "bankName": "BNG Bank N V"
     },
     {
-        "bankCode": "22031960",
+        "bankCode": "SPB-33573",
         "bankName": "Cal Bank Limited"
     },
     {
-        "bankCode": "25449292",
+        "bankCode": "SPB-88123",
         "bankName": "DBS Group Holdings Ltd"
     },
     {
-        "bankCode": "25528546",
+        "bankCode": "SPB-85219",
         "bankName": "Financial Brokerage Group (Fbg)"
     },
     {
-        "bankCode": "25544088",
+        "bankCode": "SPB-42506",
         "bankName": "Arb Apex Bank Limited"
     },
     {
-        "bankCode": "25549518",
+        "bankCode": "SPB-87677",
         "bankName": "Stock Exchange Of Hong Kong Ltd, The"
     },
     {
-        "bankCode": "25562284",
+        "bankCode": "SPB-19263",
         "bankName": "Guaranty Trust Bank (Ghana) Ltd"
     },
     {
-        "bankCode": "25570554",
+        "bankCode": "SPB-49864",
         "bankName": "Fidelity Bank Ghana Ltd."
     },
     {
-        "bankCode": "25785380",
+        "bankCode": "SPB-37410",
         "bankName": "Banque Sahelo-Saharienne Pour LInvestissment et le Commerce (Ghana) Lt"
     },
     {
-        "bankCode": "25817360",
+        "bankCode": "SPB-11570",
         "bankName": "Guaranty Trust Bank (UK) Limited"
     },
     {
-        "bankCode": "25892776",
+        "bankCode": "SPB-45721",
         "bankName": "Bank of Baroda (Ghana) Limited"
     },
     {
-        "bankCode": "25897096",
+        "bankCode": "SPB-98481",
         "bankName": "Gatehouse Bank Plc"
     },
     {
-        "bankCode": "26153374",
+        "bankCode": "SPB-57986",
         "bankName": "Access Bank (Ghana) PLC"
     },
     {
-        "bankCode": "26153460",
+        "bankCode": "SPB-20711",
         "bankName": "Noble Group Ltd"
     },
     {
-        "bankCode": "26156818",
+        "bankCode": "SPB-60268",
         "bankName": "Ghazanfar Bank"
     },
     {
-        "bankCode": "26545578",
+        "bankCode": "SPB-78802",
         "bankName": "Social Security And National Insurance Trust"
     },
     {
-        "bankCode": "26675842",
+        "bankCode": "SPB-80181",
         "bankName": "Energy Bank Ghana Limited"
     },
     {
-        "bankCode": "26699422",
+        "bankCode": "SPB-58159",
         "bankName": "Ghana Revenue Authority"
     },
     {
-        "bankCode": "26708398",
+        "bankCode": "SPB-60120",
         "bankName": "Pacific Eagle Asset Management Ltd"
     },
     {
-        "bankCode": "26852136",
+        "bankCode": "SPB-85010",
         "bankName": "Independent Petroleum Group"
     },
     {
-        "bankCode": "26935088",
+        "bankCode": "SPB-14134",
         "bankName": "Controller And Accountant-GeneralS Department"
     },
     {
-        "bankCode": "26935170",
+        "bankCode": "SPB-30029",
         "bankName": "Partners Group AG"
     },
     {
-        "bankCode": "26955918",
+        "bankCode": "SPB-52712",
         "bankName": "Compass Global Holdings Pty Ltd"
     },
     {
-        "bankCode": "27096388",
+        "bankCode": "SPB-36960",
         "bankName": "Global Exchange Centre Limited"
     },
     {
-        "bankCode": "27108818",
+        "bankCode": "SPB-66971",
         "bankName": "Volta River Authority"
     },
     {
-        "bankCode": "27127004",
+        "bankCode": "SPB-91342",
         "bankName": "Norma Group Holding"
     },
     {
-        "bankCode": "27208826",
+        "bankCode": "SPB-30434",
         "bankName": "Tronox Global Holdings Pty Limited"
     },
     {
-        "bankCode": "27209142",
+        "bankCode": "SPB-21990",
         "bankName": "Cqlt Saargummi Technologies SAR.l"
     },
     {
-        "bankCode": "27257744",
+        "bankCode": "SPB-62737",
         "bankName": "Pigeon Corporation"
     },
     {
-        "bankCode": "27349456",
+        "bankCode": "SPB-17446",
         "bankName": "Ping An Of China Asset Management (Hong Kong) Company Ltd"
     },
     {
-        "bankCode": "27352014",
+        "bankCode": "SPB-63560",
         "bankName": "Gebr. Heinemann Se And Co.KG"
     },
     {
-        "bankCode": "27404306",
+        "bankCode": "SPB-78720",
         "bankName": "Cgnpc Huasheng Investment Limited"
     },
     {
-        "bankCode": "27451510",
+        "bankCode": "SPB-81029",
         "bankName": "Premium Bank Ghana Limited"
     },
     {
-        "bankCode": "27452668",
+        "bankCode": "SPB-37451",
         "bankName": "G.H. Financials Ltd"
     },
     {
-        "bankCode": "27457008",
+        "bankCode": "SPB-14041",
         "bankName": "Asahi Group Holdings, Ltd."
     },
     {
-        "bankCode": "27462484",
+        "bankCode": "SPB-75445",
         "bankName": "Heritage Bank Limited"
     },
     {
-        "bankCode": "27464082",
+        "bankCode": "SPB-46992",
         "bankName": "Grabtaxi Holdings PTE LTD"
     },
     {
-        "bankCode": "27466360",
+        "bankCode": "SPB-75224",
         "bankName": "Al Ghurair International Exchange"
     },
     {
-        "bankCode": "27547278",
+        "bankCode": "SPB-26254",
         "bankName": "Dogan Sirketler Grubu Holding AS"
     },
     {
-        "bankCode": "50480908",
+        "bankCode": "SPB-19427",
         "bankName": "GN Bank Limited"
     },
     {
-        "bankCode": "60002121",
+        "bankCode": "SPB-96694",
         "bankName": "Banque Populaire de Rabat-Kenitra"
     },
     {
-        "bankCode": "60003190",
+        "bankCode": "SPB-13758",
         "bankName": "Prudential Bank Ltd"
     },
     {
-        "bankCode": "60003191",
+        "bankCode": "SPB-47517",
         "bankName": "First Atlantic Bank Ltd"
     },
     {
-        "bankCode": "60003193",
+        "bankCode": "SPB-99834",
         "bankName": "FBN Bank (Ghana) Limited"
     },
     {
-        "bankCode": "96683220",
+        "bankCode": "SPB-87877",
         "bankName": "Privredna banka Zagreb d.d."
     },
     {
-        "bankCode": "96788653",
+        "bankCode": "SPB-19774",
         "bankName": "Ghana International Bank plc"
     },
     {
-        "bankCode": "96793657",
+        "bankCode": "SPB-86143",
         "bankName": "Republic Bank (Ghana) Ltd"
     },
     {
-        "bankCode": "96855152",
+        "bankCode": "SPB-44111",
         "bankName": "Guaranty Trust Bank Kenya Limited"
     },
     {
-        "bankCode": "97151844",
+        "bankCode": "SPB-61664",
         "bankName": "Stanbic Bank Ghana Limited"
     },
     {
-        "bankCode": "97155860",
+        "bankCode": "SPB-81092",
         "bankName": "Bank of Africa - Ghana"
     },
     {
-        "bankCode": "98357706",
+        "bankCode": "SPB-18044",
         "bankName": "ZENITH BANK (GHANA) LIMITED"
     },
     {
-        "bankCode": "99730556",
+        "bankCode": "SPB-43253",
         "bankName": "FINANCIJSKA AGENCIJA"
     },
     {
-        "bankCode": "GH130100",
+        "bankCode": "SPB-98212",
         "bankName": "Ecobank Ghana (GH130100)"
     },
     {
-        "bankCode": "SISL",
+        "bankCode": "SPB-18229",
         "bankName": "SERVICES INTEGRITY SAVINGS & LOANS"
     },
     {
-        "bankCode": "DFLC",
+        "bankCode": "SPB-80753",
         "bankName": "DALEX FINANCE AND LEASING COMPANY"
     },
     {
-        "bankCode": "FBN",
+        "bankCode": "SPB-67771",
         "bankName": "FIRST BANK OF NIGERIA"
     },
     {
-        "bankCode": "BSIC",
+        "bankCode": "SPB-33570",
         "bankName": "SAHEL - SAHARA BANK (BSIC)"
     },
     {
-        "bankCode": "BPSL",
+        "bankCode": "SPB-55753",
         "bankName": "BESTPOINT SAVINGS AND LOANS"
     },
     {
-        "bankCode": "ABSA",
+        "bankCode": "SPB-36349",
         "bankName": "ABSA BANK GHANA LIMITED"
     }
 ]

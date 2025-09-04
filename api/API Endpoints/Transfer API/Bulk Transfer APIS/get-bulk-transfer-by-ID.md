@@ -1,13 +1,13 @@
 ---
-title: Fetch Transfer By Reference
+title: Get Bulk Transfer By ID
 hide_title: true
 ---
 
-## Fetch Transfer By Reference
+## Get Bulk Transfer By ID
 
-Get details of a particular transfer by its reference id.
+Get details of an uploaded bulk transfer by its id.
 
-<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/transfers/reference/:reference
+<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/transfers/bulk/:id
 
 **Headers**
 
@@ -15,9 +15,9 @@ Get details of a particular transfer by its reference id.
 | :------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 ## Path Parameters
 
-**reference**
+**id**
 
-This is the reference id of the transfer that you made on your account using what's in the 'reference' and not 'spotflowReference'.
+This is the id of the bulk transfer that was uploaded.
 
 
 **Sample Response for NGN Transfer:**
@@ -28,17 +28,16 @@ This is the reference id of the transfer that you made on your account using wha
 
 ```yaml
 {
-    "reference": "ref-005",
-    "spotflowReference": "SPF-TRSF-641c47676e4c4036a6826acf9fc9e950",
-    "amount": 150,
+    "id": "9c8db743-0627-47c9-9042-29c10a4692ef",
+    "category": "disburse",
+    "totalAmount": 206.00,
     "currency": "NGN",
-    "destination": {
-        "accountNumber": "8083233890",
-        "accountName": "Alice Hemsworth",
-        "bankCode": "SPB-17646"
-    },
-    "narration": "transfertest",
-    "status": "SUCCESSFUL"
+    "count": 2,
+    "fileName": "bulk_disbursements new.csv",
+    "reference": "1c7966f9-a119-47a7-b44b-2186eaf6ba12",
+    "spotflowReference": "SPF-BTRSF-a482a107f2004689b36988a5239720f0",
+    "status": "initiated",
+    "createdAt": "2025-09-03T12:45:06.314679Z"
 }
 ```
 **Sample Response for GHS Transfer:**
@@ -49,17 +48,15 @@ This is the reference id of the transfer that you made on your account using wha
 
 ```yaml
 {
-    "reference": "ref-005",
-    "spotflowReference": "SPF-TRSF-0f700d1f77bf4d69b0f8b7005b2aadb1",
-    "amount": 1.00,
+    "id": "3d845022-e208-4fe9-bd8d-be9bc87e37a2",
+    "category": "Creator Payout",
+    "totalAmount": 580.00,
     "currency": "GHS",
-    "destination": {
-        "accountNumber": "7003000100386",
-        "accountName": "Joel Finney",
-        "bankCode": "SPB-80181",
-        "bankName": "Affinity"
-    },
-    "narration": "Transfer", 
-    "status": "SUCCESSFUL"
+    "count": 4,
+    "fileName": "GHSbulktransfers.csv",
+    "reference": "605a8096-7353-49b5-a433-78dd7a0acbb3",
+    "spotflowReference": "SPF-BTRSF-c2ab10af96cc4fe4aca82ece637d2f3d",
+    "status": "initiated",
+    "createdAt": "2025-09-03T22:44:36.738968Z"
 }
 ```
