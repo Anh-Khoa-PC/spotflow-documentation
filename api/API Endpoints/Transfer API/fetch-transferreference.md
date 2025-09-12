@@ -35,8 +35,12 @@ This is the reference id of the transfer that you made on your account using wha
     "destination": {
         "accountNumber": "8083233890",
         "accountName": "Alice Hemsworth",
+<<<<<<< HEAD
         "bankCode": "SPB-17646",
         "bankName": "Paycom (Opay)"
+=======
+        "bankCode": "SPB-17646"
+>>>>>>> origin/main
     },
     "narration": "transfertest",
     "status": "SUCCESSFUL"
