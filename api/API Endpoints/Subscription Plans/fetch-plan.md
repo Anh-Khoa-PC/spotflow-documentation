@@ -20,7 +20,7 @@ Get details of a single subscription plan.
 
 This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription plan you want to fetch.
 
-## Sample Response
+## Sample Response for Local Payments
 
 <span style={{color: "green"}}>`200 OK`</span>
 
@@ -49,6 +49,35 @@ This is the unique <span style={{color: "red"}}>`ID`</span> of the subscription 
         {
             "amount": 10,
             "currency": "GHS"
+        }
+    ]
+}
+```
+
+## Sample Response for Global Payments
+
+<span style={{color: "green"}}>`200 OK`</span>
+
+<br></br>
+<br></br>
+
+```yaml
+{
+    "id": "250657ea-acda-491e-9e98-7889c30095af",
+    "title": "GlobalPayAza",
+    "frequency": "DAILY",
+    "internalReference": "usd-plan",
+    "status": "active",
+    "regions": [
+        "Global"
+    ],
+    "subscribers": 1,
+    "subscriptions": 1,
+    "createdAt": "2025-09-12T14:22:48Z",
+    "pricingOptions": [
+        {
+            "amount": 0.5,
+            "currency": "USD"
         }
     ]
 }

@@ -18,8 +18,6 @@ Please note that, by default, merchant configuration for setting regions and ser
 | content-type <br></br> <span style={{color: "red"}}>`String`</span> | <span style={{color: "red"}}>`application/json`</span> |
 
 **Request Body Parameters**
-
-| <p style={{fontWeight: '400'}}>parentAccountId <br></br> <span style={{color: "red"}}>`String`</span></p> | <p style={{fontWeight: '400'}}>This is the id of your main account created internally for you.</p> |
 |:---------|:---------|
 | currency <br></br> <span style={{color: "red"}}>`String`</span> |Choose the currency you want for your sub account. According, to our currently supported currencies, this is in NGN and GHS.|
 | accountName <br></br> <span style={{color: "red"}}>`String`</span> | Your desired name for your sub account. |
@@ -29,7 +27,6 @@ Please note that, by default, merchant configuration for setting regions and ser
 
 ```yaml
 {
-"parentAccountId": "123e4567-e89b-12d3-a456-426614174000",
 "currency": "NGN",
 "accountName": "Quantum Technologies"
 }
@@ -51,9 +48,8 @@ Please note that, by default, merchant configuration for setting regions and ser
   "parentAccountId": "123e4567-e89b-12d3-a456-426614174000",
   "currency": "NGN",
   "mode": "live",
-  "status": "active",
-  "createdAt": "2025-05-19T10:15:30Z",
-  "updatedAt": "2025-05-19T10:15:30Z"
+  "accountTag": "sub-account",
+  "status": "active"
 }
 ```
 
@@ -61,7 +57,6 @@ Please note that, by default, merchant configuration for setting regions and ser
 
 ```yaml
 {
-  "parentAccountId": "43bbf6b7-6bf0-4aec-b145-eef4d3b28a45",
   "currency": "GHS",
   "accountName": "Ollie Account"
 }

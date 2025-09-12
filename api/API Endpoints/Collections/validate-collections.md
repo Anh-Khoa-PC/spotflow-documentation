@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Validate Payment Collection
 ---
 
@@ -59,4 +59,4 @@ This validates the payment by verifying payment details and ensuring sufficient 
     },
     "createdAt": "2024-08-06T22:57:54Z"
 }
-```
+``` -->

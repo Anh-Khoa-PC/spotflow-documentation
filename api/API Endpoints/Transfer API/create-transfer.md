@@ -65,7 +65,8 @@ Please note that, by default, merchant configuration for setting regions and ser
     "destination": {
         "accountNumber": "8083233890",
         "accountName": "Alice Hemsworth",
-        "bankCode": "SPB-17646"
+        "bankCode": "SPB-17646",
+        "bankName": "Paycom (Opay)"
     },
     "narration": "transfertest",
     "status": "SUCCESSFUL"

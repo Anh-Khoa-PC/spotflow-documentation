@@ -7,7 +7,7 @@ hide_title: true
 
 Confirm the status of a payment
 
-<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/payments/verify?merchantId=&reference=
+<span style={{color: "green"}}>`GET`</span> https://api.spotflow.co/api/v1/payments/verify?reference=
 
 ## Headers
 
@@ -15,10 +15,6 @@ Confirm the status of a payment
 |:----------|:-----------|
 
 ## Query Parameters
-
-**merchant-id** <span style={{color: "red"}}>`int32`</span>
-
-This is the unique <span style={{color: "red"}}>`ID`</span> of the merchant you want to verify.
 
 **reference**
 
