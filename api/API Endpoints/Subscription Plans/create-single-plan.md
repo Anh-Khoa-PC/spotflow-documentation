@@ -30,7 +30,7 @@ Create a subscription plan with Spotflow.
 | pricingOptions <br></br> <span style={{color: "red"}}>`String`</span> | Specify one or more amount or currency for your payment plan.|
 | currency <br></br> <span style={{color: "red"}}>`String`</span> | Select the currency for the charges. Can either be in USD or in the local currency of your collection region.|
 
-## Sample Request Body
+## Sample Request Body for Local Payments
 
 ```yaml
 {
@@ -50,7 +50,7 @@ Create a subscription plan with Spotflow.
 }
 ```
 
-## Sample Response 
+## Sample Response for Local Payments
 
 <span style={{color: "green"}}>`200 OK`</span>
 
@@ -78,6 +78,50 @@ Create a subscription plan with Spotflow.
         {
             "amount": 10,
             "currency": "GHS"
+        }
+    ]
+}
+```
+
+## Sample Request Body for Global Payments
+
+```yaml
+{
+    "title": "Global FitPlan",
+    "frequency": "DAILY",
+    "internalReference": "ref-usdplan",
+    "pricingOptions": [
+    {
+      "amount": 0.5,
+      "currency": "USD"
+    }
+  ]
+}
+```
+
+## Sample Response for Global Payments
+
+<span style={{color: "green"}}>`200 OK`</span>
+
+<br></br>
+<br></br>
+
+```yaml
+{
+    "id": "250657ea-acda-491e-9e98-7889c30095af",
+    "title": "Global FitPlan",
+    "frequency": "DAILY",
+    "internalReference": "ref-usdplan",
+    "status": "active",
+    "regions": [
+        "Global"
+    ],
+    "subscribers": 0,
+    "subscriptions": 0,
+    "pricingOptions": [
+        {
+            "amount": 0.5,
+            "currency": "USD"
         }
     ]
 }
