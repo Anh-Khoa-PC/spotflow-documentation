@@ -49,7 +49,12 @@ Please note that, by default, merchant configuration for setting regions and ser
   "currency": "NGN",
   "mode": "live",
   "accountTag": "sub-account",
-  "status": "active"
+  "status": "active",
+  "accountDetails": {
+        "accountName": "SPOTFLOW/Quantum Technologies",
+        "accountNumber": "3769769009",
+        "bankName": "Nombank MFB"
+    }
 }
 ```
 
@@ -79,6 +84,11 @@ Please note that, by default, merchant configuration for setting regions and ser
     "currency": "GHS",
     "mode": "live",
     "accountTag": "sub-account",
-    "status": "active"
+    "status": "active",
+    "accountDetails": {
+        "accountName": "SPOTFLOW/Ollie Account",
+        "accountNumber": "5079769009",
+        "bankName": "Affinity"
+    }
 }
 ```

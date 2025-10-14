@@ -65,7 +65,7 @@ checkout.setup({
     merchantKey: "sk_test_8a586f9801254xxxxxxxxxxxx", // Your Merchant Secret Key generated on Spotflow
     planId: "7447a235-9f53-4d44-xxxxxxxxxxxxxx", // Replace with your plan ID
     currency: "NGN", //can be in USD or in the local currency of your collection region e.g NGN, GHS
-    localCurrency: "NGN", //optional and only needed if currency is in USD
+    localCurrency: "NGN" //optional and only needed if currency is in USD
   });
 ```
 
@@ -98,7 +98,6 @@ Alternatively, to integrate InlineJS into your web application, you can include 
          currency: "NGN",
          localCurrency: "NGN", //optional and only needed if currency is in USD
          amount: 500
-          }
         });
       };
     </script>
