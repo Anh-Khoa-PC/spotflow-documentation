@@ -26,8 +26,8 @@ We’re excited to have you join us for **Hacktoberfest 2025** 🎉
 ## ⚙️ Setup
 Clone the repo and install dependencies:
 ```bash
-git clone https://github.com/Spotflow-One/vue-spotflow-checkout.git
-cd vue-spotflow-checkout
+git clone https://github.com/Spotflow-One/spotflow-documentation.git
+cd spotflow-documentation
 npm install
 npm run test
 ```
