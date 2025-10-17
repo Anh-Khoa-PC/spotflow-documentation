@@ -141,21 +141,12 @@ const config = {
             position: 'left',
             label: 'API'
           },
-          {
-            type: 'dropdown',
-            label: 'Community',
-            position: 'right',
-            items:[
-              {
-                label: 'Facebook',
-                href: 'https://facebook.com',
-              },
-              {
-                label: "Twitter",
-                href: 'https://twitter.com'
-              }
-            ]
-          }
+           {
+          href: 'https://x.com/Spotflow_one',
+          position: 'right',
+          className: 'header-twitter-link',
+          'aria-label': 'Twitter',
+        },
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
