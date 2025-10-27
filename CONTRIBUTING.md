@@ -29,7 +29,7 @@ Clone the repo and install dependencies:
 git clone https://github.com/Spotflow-One/spotflow-documentation.git
 cd spotflow-documentation
 npm install
-npm run test
+npm start
 ```
 
 ## 🏁 Maintainers
