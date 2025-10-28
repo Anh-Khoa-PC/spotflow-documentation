@@ -16,15 +16,24 @@
     }
   
     [class*='docItemContainer_'] {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      flex-grow: 1;
-      min-width: 0;
-      @media (max-width: 400px) {
-        padding-left: .5rem;
-        padding-right: .5rem;
-      }
+    padding-left: 2rem;
+    padding-right: 2rem;
+    flex-grow: 1;
+    min-width: 0;
+    
+
+    @media (min-width: 997px) {
+        max-width: var(--doc-item-container-width);
+        margin: 0 auto;
     }
+ 
+    
+    @media (max-width: 400px) {
+    
+        padding-left: 1rem; 
+        padding-right: 1rem;
+    }
+}
   
     [class*='docMainContainer_'] .doc-demo-wrapper {
       display: none;
