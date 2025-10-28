@@ -144,3 +144,38 @@ html[data-theme='dark'] {
     }
   }
 }
+
+
+.markdown code:not(pre code) {
+    border-radius: 4px;
+    padding: 2px 4px;
+
+    border: 1px solid var(--ifm-color-emphasis-200); 
+    background: var(--ifm-background-color); 
+}
+
+
+.markdown pre {
+    border-radius: 10px; 
+
+    border: 1px solid var(--ifm-color-emphasis-300); 
+    overflow: hidden; 
+    
+
+    transition: all 0.3s ease-out; 
+    
+ 
+    &:hover {
+        border-color: var(--ifm-color-primary); 
+        transform: translateY(-2px); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+    }
+}
+
+html[data-theme='dark'] .markdown pre {
+    border-color: var(--ifm-color-emphasis-800); 
+    
+    &:hover {
+        border-color: var(--ifm-color-primary-light);
+    }
+}
